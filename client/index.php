@@ -1,5 +1,4 @@
-<?php session_start();?>
-
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,19 +10,13 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-		<!-- Animate.css -->
 		<link rel="stylesheet" href="css/animate.css">
-		<!-- Icomoon Icon Fonts-->
 		<link rel="stylesheet" href="css/icomoon.css">
-		<!-- Bootstrap  -->
 		<link rel="stylesheet" href="css/bootstrap.css">
-		<!-- Owl Carousel -->
 		<link rel="stylesheet" href="css/owl.carousel.min.css">
 		<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
@@ -38,15 +31,18 @@
 				<div class="container">
 					<nav class="navbar navbar-default">
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="fh5co-navbar-brand">
 									<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 								</div>
 							</div>
-							<div class="col-md-9 main-nav">
+							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="register.php"><span>Register</span></a>
+										<a href="appointment.php"><span>Register</span></a>
+									</li>
+									<li>
+										<a href="contact.html"><span>Contact Us</span></a>
 									</li>
 								</ul>
 
@@ -61,7 +57,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 float-overlay">
-								<h2>Κέντρο Ψυχικής Υγείας</h2>
+								<h2>Κεντρο Ψυχικης Υγειας</h2>
 								<h4 style="color:white;"> Τα χρόνια στο Πανεπιστήμιο μπορούν να είναι συναρπαστικά, δημιουργικά, αλλά
 								συνάμα αγχώδη. Κατά τη διάρκεια της φοιτητικής τους ζωής, οι προπτυχιακοί
 								και μεταπτυχιακοί φοιτητές έχουν να αντιμετωπίσουν αρκετές προκλήσεις,
@@ -92,12 +88,12 @@
 						<label for="pwd">Κωδικός:</label>
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
 					</div>
-					<button id="submit" name="submit" type="submit" class="btn btn-default">
+					<button type="submit" class="btn btn-default" name="submit">
 						Καταχώρηση
 					</button>
 				</form>
 			</div>
-			<footer>	
+			<footer>
 				<div id="footer" class="fh5co-border-line">
 					<div class="container">
 						<div class="row">
@@ -132,29 +128,36 @@
 
 	</body>
 </html>
+
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/login.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'password' => $_POST['pwd']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		$response=request($url,$method,$postfields,$tok);
-	}
+'id' => $_POST['id'],
+'password' => $_POST['pwd']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+$response = request($url, $method, $postfields, $tok);
+}
+if(strnatcmp($response['login'],true)==0){
+	session_start();
+	$_SESSION['id']=$_POST['id'];
+	echo $_SESSION['id'];
+	header('Location: form01.php');
+
+}
 }
 ?>

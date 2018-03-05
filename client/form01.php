@@ -1,5 +1,4 @@
-<?php session_start(); ?>
-
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -22,6 +21,12 @@
 				font-size: 13px;
 			}
 			input {
+				font-size: 13px;
+			}
+			.form-group {
+				font-size: 13px;
+			}
+			.form-control {
 				font-size: 13px;
 			}
 			.sidenav {
@@ -59,8 +64,9 @@
 					font-size: 18px;
 				}
 			}
+
 			div {
-				padding:10px;
+				padding: 10px;
 			}
 		</style>
 		<!-- Animate.css -->
@@ -105,7 +111,7 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id'];?></a>
 									</div>
 								</div>
 								<div class="col-md-8 main-nav">
@@ -150,7 +156,7 @@
 							function add_fields() {
 								var objTo = document.getElementById('room_fileds');
 								var divtest = document.createElement("div");
-								divtest.innerHTML = '<input type="number" name="dayavailable"  placeholder="dd"><input type="number" name="monthavailable" placeholder="mm"><input type="number" name="yearavailable" placeholder="yy"><input type="time" name="timeavailable"  placeholder="time">';
+								divtest.innerHTML = '<select><option value="1">Δευτέρα</option><option value="2" selected="selected">Τρίτη</option><option value="3">Τετάρτη</option><option value="4">Πέμπτη</option><option value="5">Παρασκευή</option></select><input type="time" name="timeavailable"  placeholder="time">';
 								objTo.appendChild(divtest);
 							}
 						</script>
@@ -160,9 +166,14 @@
 
 							<div id="room_fileds">
 								<div>
-									<input type="number" name="dayavailable"  placeholder="dd">
-									<input type="number" name="monthavailable" placeholder="mm">
-									<input type="number" name="yearavailable" placeholder="yy">
+									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+									<select>
+										<option value="1">Δευτέρα</option>
+										<option value="2" selected="selected">Τρίτη</option>
+										<option value="3">Τετάρτη</option>
+										<option value="4">Πέμπτη</option>
+										<option value="5">Παρασκευή</option>
+									</select>
 									<input type="time" name="timeavailable"  placeholder="time">
 									<input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
 								</div>
@@ -256,42 +267,42 @@
 
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
-		</div>
 	</body>
 
 </html>
 
 <?php
-
-if (isset($_POST['submit'])){
-$request = new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/register.php');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'cache-control' => 'no-cache',
-  'content-type' => 'application/x-www-form-urlencoded',
-  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
-));
-
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array(
-  'id' => $_POST['id'],
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form1.php";
+$method='POST';
+if(isset($_POST['submit'])){
+	//kwdikas sou pou tha pianeis ta panw na ta valeis se pinaka kai meta tin entoli pou sou eipa gia na to valeis ton pinaka se mia metavliti gia meres kai wres
+$postfields=http_build_query(array(
+  'id' => $_SESSION['id'],
   'phone' => $_POST['phone'],
-  'period' => $_POST['available'],
+  'period' => $_POST['needfordate'],
   'mainissue' => $_POST['mainissue'],
   'sentby' => $_POST['info'],
-  'type' => $_POST['belong']
+  'type' => $_POST['belong'],
+  'days' => "pinakasmeres", //metavliti poy tha kameis gia tis meres,
+  'hours' => "pinakaswres" //metavliti poy tha kameis gia tis wres,
 ));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
 }
-
-}
-
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
 ?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+}
+?>
+

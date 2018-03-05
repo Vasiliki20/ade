@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -41,7 +39,7 @@
 							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="index.html"><span>Log in</span></a>
+										<a href="index.php"><span>Log in</span></a>
 									</li>
 									<li>
 										<a href="contact.html"><span>Contact Us</span></a>
@@ -58,7 +56,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 float-overlay">
-								<h2>Κέντρο Ψυχικής Υγείας</h2>
+								<h2>Κεντρο Ψυχικης Υγειας</h2>
 								<h4 style="color:white;"> Τα χρόνια στο Πανεπιστήμιο μπορούν να είναι συναρπαστικά, δημιουργικά, αλλά
 								συνάμα αγχώδη. Κατά τη διάρκεια της φοιτητικής τους ζωής, οι προπτυχιακοί
 								και μεταπτυχιακοί φοιτητές έχουν να αντιμετωπίσουν αρκετές προκλήσεις,
@@ -99,9 +97,9 @@
 					</div>
 					<div class="form-group">
 						<label for="pwd">Κωδικός:</label>
-						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
+						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="password">
 					</div>
-					<button type="submit" class="btn btn-default">
+					<button type="submit" class="btn btn-default" name="submit">
 						Submit
 					</button>
 				</form>
@@ -159,7 +157,7 @@ $postfields=http_build_query(array(
 	}else{
 		$response=0;
 	}
-	while($response!=1){
+	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
 		?>

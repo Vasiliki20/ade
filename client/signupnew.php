@@ -1,3 +1,5 @@
+<?php session_start()
+?>
 <!doctype html>
 <html lang=''>
 	<head>
@@ -198,21 +200,26 @@
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i> </span>
 										</div>
 									</div>
-								
+									<div class="form-group">
+										<div class="input-group">
+											<input type="text" class="form-control" name="id" placeholder="Ταυτότητα">
+											<span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i> </span>
+										</div>
+									</div>
 									<div class="form-group">
 										<div class="input-group">
 											<input type="email" class="form-control" name="email" placeholder="Ηλεκτρονική Διεύθυνση">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i> </span>
 										</div>
 									</div>
-								
+
 									<div class="form-group">
 										<div class="input-group">
 											<input type="password" class="form-control" name="password" placeholder="Κωδικός">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i> </span>
 										</div>
 									</div>
-									
+
 									<div class="form-group">
 										<div class="input-group">
 											<input type="password" class="form-control" name="password" placeholder="Επιβεβέωση κωδικού">
@@ -281,3 +288,20 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.0.18/jquery.flip.js"></script>
 
 	</body>
+</html>
+<?php
+include ('post.php');
+if (isset($_POST['id']) && isset($_POST['email']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['password'])) {
+	$name = $_POST['name'];
+	$stmt = $db -> prepare('INSERT INTO patient(patientID,email,firstname,lastname,password) VALUES(:id,:email,:name,:lastname,:password)');
+	$stmt -> bindParam(':id', $_POST['id']);
+	$stmt -> bindParam(':email', $_POST['email']);
+	$stmt -> bindParam(':name', $_POST['name']);
+	$stmt -> bindParam(':lastname', $_POST['surname']);
+	$stmt -> bindParam(':password', $_POST['password']);
+	$stmt -> execute();
+	//$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	echo "\nThanks $name for the information!\n";
+} else {echo "\nYou didn't put all information\n";
+}
+?>

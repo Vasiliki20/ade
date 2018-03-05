@@ -213,7 +213,7 @@
 											<br>
 											<a href="signuppsnew.html" id="flip-btn" class="signup signup_link">Εγγραφή</a>
 										</p>
-								 		</div>
+									</div>
 								</form>
 							</div>
 							<div class="back signup_form" style="opacity: 0;">
@@ -267,3 +267,21 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.0.18/jquery.flip.js"></script>
 
 	</body>
+</html>
+
+<?php
+if (isset($_POST['submit'])) {
+	$request = new HttpRequest();
+	$request -> setUrl('http://localhost/mhcserver/post/psyfirstpage.html');
+	$request -> setMethod(HTTP_METH_POST);
+	$request -> setHeaders(array('cache-control' => 'no-cache', 'content-type' => 'application/x-www-form-urlencoded', 'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'));
+	$request -> setContentType('application/x-www-form-urlencoded');
+	$request -> setPostFields(array('email' => $_POST['email'], 'password' => $_POST['psw']));
+	try {
+		$response = $request -> send();
+		echo $response -> getBody();
+	} catch (HttpException $ex) {
+		echo $ex;
+	}
+}
+?>
