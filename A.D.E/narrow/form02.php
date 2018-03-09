@@ -393,7 +393,7 @@ $postfields=http_build_query(array(
   'emergencynumber' => $_POST['emphone'],
   'maritalstatus' => $_POST['family'], 
   'previoustherapy' => $_POST['previous'],
-  'previoustherapist' => $_POST['previoustherapist'],
+  'previoustherapist' => $_POST['previous'],
   'nowtherapist' => $_POST['otherservices'],
   'comnowtherapistb' => $_POST['contactothers']
 ));
