@@ -1,6 +1,7 @@
  <?php
  include('post.php');
  if(isset($_POST['id']) && isset($_POST['email']) && isset($_POST['name']) && isset($_POST['lastname']) &&  isset($_POST['password'])){
+ makenull();
  $name=$_POST['name'];
  try{ 
  $stmt = $db->prepare('INSERT INTO patient(patientID,email,firstname,lastname,password) VALUES(:id,:email,:name,:lastname,:password)');

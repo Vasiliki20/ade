@@ -1,6 +1,7 @@
 <?php
  include('post.php');
  if(isset($_POST['id']) && isset($_POST['q1']) && isset($_POST['q2']) && isset($_POST['q3']) && isset($_POST['q4']) && isset($_POST['q5']) && isset($_POST['q6']) && isset($_POST['q7']) && isset($_POST['q8']) && isset($_POST['q9']) && isset($_POST['q10']) && isset($_POST['q11']) && isset($_POST['q12']) && isset($_POST['q13']) && isset($_POST['q14']) && isset($_POST['q15']) && isset($_POST['q16']) && isset($_POST['q17']) && isset($_POST['q18']) && isset($_POST['q19']) && isset($_POST['q20']) && isset($_POST['q21']) && isset($_POST['helpful']) && isset($_POST['negative']) &&  isset($_POST['sugestions']) && isset($_POST['other']) && isset($_POST['whyterminate1'])){
+ makenull();
  $stmt = $db->prepare('UPDATE TerminationEvaluation
 SET q1=:q1,q2=:q2,q3=:q3,q4=:q4,q5=:q5,q6=:q6,q7=:q7,q8=:q8,q9=:q9,q10=:q10,q11=:q11,q12=:q12,q13=:q13,q14=:q14,q15=:q15,q16=:q16,q17=:q17,q18=:q18,q19=:q19,q20=:q20,q21=:q21,helpful=:helpful,negative=:negative,sugestions=:sugestions,other=:other,whyterminate1=:whyterminate1
 WHERE patientID=:id');

@@ -1,6 +1,7 @@
 <?php
  include('post.php');
  if(isset($_POST['id']) && isset($_POST['typeof']) && isset($_POST['nameofprof']) && isset($_POST['addressofprof']) && isset($_POST['cityofprof']) &&  isset($_POST['telofprof']) &&  isset($_POST['emailofprof']) &&  isset($_POST['purposeofinfo']) &&  isset($_POST['infototransfer']) &&  isset($_POST['timeofexpire']) &&  isset($_POST['signedinfo'])){
+ makenull();
  $stmt = $db->prepare('INSERT INTO ComLog(patientID,typeof,nameofprof,addressofprof,cityofprof,telofprof,emailofprof,purposeofinfo,infototransfer,timeofexpire,signedinfo) VALUES(:id,:typeof,:nameofprof,:addressofprof,:cityofprof,:telofprof,:emailofprof,:purposeofinfo,:infototransfer,:timeofexpire,:signedinfo)');
  $stmt->bindParam(':id',$_POST['id']);
  $stmt->bindParam(':typeof',$_POST['typeof']);
