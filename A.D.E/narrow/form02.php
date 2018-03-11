@@ -143,6 +143,7 @@
 							<input type="number" class="form-control" id="age" placeholder="" name="age">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="sex" />
 							<label for="sex"><b>5. Φύλο:</b></label>
 							<input type="radio" name="sex" value="male">
 							A
@@ -194,6 +195,7 @@
 							<input type="number" class="form-control" id="year" placeholder="" name="year">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="level" />
 							<label for="level"><b>16. Επίπεδο Σπουδών:</b></label>
 							<input type="radio" name="level" value="proptixiako">
 							Προπτυχιακό
@@ -203,6 +205,7 @@
 							Διδακτορικό
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="erasmus" />
 							<label for="erasmus"><b>17. Φοιτητής Erasmus:</b></label>
 							<input type="radio" name="erasmus" value="yes">
 							Ναι
@@ -210,6 +213,7 @@
 							Όχι
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="status" />
 							<label for="status"><b>18. Κατάσταση Φοίτησης:</b></label>
 							<br>
 							<input type="radio" name="status" value="active">
@@ -273,6 +277,7 @@
 							<input type="radio" name="previous" value="yesuni">
 							Ναι, στο Πανεπιστήμιο Κύπρου
 							<br>
+							<input type="hidden" name="previoustherapist" />
 							<input type="radio" name="previoustherapist" value="yesnouni">
 							Ναι, σε άλλη υπηρεσία(διευκρινίστε)
 							<br>
@@ -307,6 +312,7 @@
 							<input type="text" class="form-control" id="referred" name="referred">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="otherservices" />
 							<label for="otherservices"><b>26. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="otherservices" value="no">
@@ -316,12 +322,15 @@
 							Ναι (διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="otherservices" name="otherservices">
+						</div>
+						<div class="form-group">
+							<input type="hidden" name="contactothers" />
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
 							<br>
-							<input type="radio" name="contactothers" value="no">
+							<input type="radio"  name="contactothers" id="contactothers" value="no">
 							Όχι
 							<br>
-							<input type="radio" name="contactothers" value="yes">
+							<input type="radio"  name="contactothers" id="contactothers" value="yes">
 							Ναι
 							<br>
 						</div>
@@ -393,7 +402,7 @@ $postfields=http_build_query(array(
   'emergencynumber' => $_POST['emphone'],
   'maritalstatus' => $_POST['family'], 
   'previoustherapy' => $_POST['previous'],
-  'previoustherapist' => $_POST['previous'],
+  'previoustherapist' => $_POST['previoustherapist'],
   'nowtherapist' => $_POST['otherservices'],
   'comnowtherapistb' => $_POST['contactothers']
 ));
