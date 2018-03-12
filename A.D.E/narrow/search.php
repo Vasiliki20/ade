@@ -66,7 +66,18 @@
 			transform: rotate(45deg);
 			-webkit-transform: rotate(45deg);
 		}
-
+		label {
+			display: inline-block;
+			width: 140px;
+			text-align: left;
+			float: left;
+		}​
+		
+		input {
+			display: inline-block;
+			float: right;
+			text-align: right;
+		}
 	</style>
 	<body>
 		<header>
@@ -120,7 +131,7 @@
 						<div class="navbar-collapse collapse ">
 							<ul id="menu-top" class="nav navbar-nav navbar-right">
 								<li>
-									<a class="menu-top-active" href="calendar.html">Calendar</a>
+									<a class="menu-top-active" href="psyfirstpage.html">Calendar</a>
 								</li>
 								<li>
 									<a data-toggle="dropdown" class="dropdown-toggle">Open</a>
@@ -155,7 +166,7 @@
 									<a href="help.html">Help</a>
 								</li>
 								<li>
-									<a href="psychlogin.html">Logout</a>
+									<a href="psychloginfinal.php">Logout</a>
 								</li>
 							</ul>
 						</div>
@@ -219,18 +230,18 @@
 	</body>
 </html>
 <?php
-if(isset($_POST['submit'])) {
-$request=new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/register.php');
-$request->setMethod(HTTP_METH_POST);
-$request->setHeaders(array('cache-control'=>'no-cache','content-type'=>'application/x-www-form-urlencoded','authorization'=>'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'));
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array('id'=>$_POST['studentid'],'name'=>$_POST['studentname'],'surname'=>$_POST['studentsurname']));
-try {
-$response=$request->send();
-echo $response->getBody();
-} catch (HttpException $ex) {
-echo $ex;
-}
+if (isset($_POST['submit'])) {
+	$request = new HttpRequest();
+	$request -> setUrl('http://localhost/mhcserver/post/register.php');
+	$request -> setMethod(HTTP_METH_POST);
+	$request -> setHeaders(array('cache-control' => 'no-cache', 'content-type' => 'application/x-www-form-urlencoded', 'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'));
+	$request -> setContentType('application/x-www-form-urlencoded');
+	$request -> setPostFields(array('id' => $_POST['studentid'], 'name' => $_POST['studentname'], 'surname' => $_POST['studentsurname']));
+	try {
+		$response = $request -> send();
+		echo $response -> getBody();
+	} catch (HttpException $ex) {
+		echo $ex;
+	}
 }
 ?>
