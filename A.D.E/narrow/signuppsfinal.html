@@ -6,8 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>BootZard - Bootstrap Wizard Template</title>
-
+		<title>Κέντρο Ψυχικής Υγείας</title>
 		<!-- CSS -->
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/bootstrap/css/bootstrap.min.css">
@@ -23,14 +22,19 @@
 		<![endif]-->
 
 		<!-- Favicon and touch icons -->
-		<link rel="shortcut icon" href="bootzard-bootstrap-wizard-template/assets/ico/favicon.png">
+	<!--	<link rel="shortcut icon" href="bootzard-bootstrap-wizard-template/assets/ico/favicon.png">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-144-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-114-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-57-precomposed.png">
-
+-->
 	</head>
 
+<style>
+	body {
+		background-image: url("1.jpg");
+	}
+</style>
 	<body>
 
 		<!-- Top content -->
@@ -39,14 +43,17 @@
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
 						<form role="form" action="" method="post" class="f1">
-
-							<h3>Εγγραφή</h3>
+							<img src="logo_el.png">
+							<br>
+							<br>
+							<br>
+							<h3>Εγγραφη</h3>
 							<p>
 								Συμπληρώστε την πάρακατω φόρμα για την ολοκλήρωση της εγγραφής σας
 							</p>
 							<div class="f1-steps">
 								<div class="f1-progress">
-									<div class="f1-progress-line" data-now-value="50" data-number-of-steps="2" style="width: 50%;"></div>
+									<div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
 								</div>
 								<div class="f1-step active">
 									<div class="f1-step-icon">
@@ -64,6 +71,14 @@
 										Περισσότερα
 									</p>
 								</div>
+								<div class="f1-step">
+									<div class="f1-step-icon">
+										<i class="fa fa-pencil"></i>
+									</div>
+									<p>
+										Δημιουργία Λογαριασμού
+									</p>
+								</div>
 							</div>
 
 							<fieldset>
@@ -78,19 +93,13 @@
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="id">Αριθμός Ταυτότητας</label>
-									<input type="text" name="id" placeholder="Επίθετο" class="form-control" id="id">
+									<input type="text" name="id" placeholder="Αριθμός Ταυτότητας" class="form-control" id="id">
 								</div>
 								<div class="form-group">
-									<label class="sr-only" for="email">Ηλεκτρονική Διεύθυνση</label>
-									<input type="email" name="email" placeholder="Ηλεκτρονική Διεύθυνση" class="form-control" id="email">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="password">Κωδικός</label>
-									<input type="password" name="password" placeholder="Κωδικός" class="form-control" id="password">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="confirm">Επιβεβέωση Κωδικού</label>
-									<input type="password" name="confirm" placeholder="Επιβεβέωση Κωδικού" class="form-control" id="confirm">
+									<input class="w3-radio" type="radio" name="gender" value="male" checked>
+									<label>Άρρεν</label>
+									<input class="w3-radio" type="radio" name="gender" value="female">
+									<label>Θήλυ</label>
 								</div>
 								<div class="f1-buttons">
 									<button type="button" class="btn btn-next">
@@ -100,19 +109,39 @@
 							</fieldset>
 
 							<fieldset>
-								<h4>Set up your account:</h4>
+								<h4>Περισσότερα στοιχεία:</h4>
+
 								<div class="form-group">
-									<label class="sr-only" for="f1-email">Email</label>
-									<input type="text" name="f1-email" placeholder="Email..." class="f1-email form-control" id="f1-email">
+									<label class="sr-only" for="age">Ηλικία</label>
+									<input type="text" name="age" placeholder="Ηλικία" class="form-control" id="age">
 								</div>
 								<div class="form-group">
-									<label class="sr-only" for="f1-password">Password</label>
-									<input type="password" name="f1-password" placeholder="Password..." class="f1-password form-control" id="f1-password">
+									<label class="sr-only" for="address">Διεύθυνση Διαμονής</label>
+									<input type="text" name="address" placeholder="Διεύθυνση Διαμονής" class="form-control" id="address">
 								</div>
 								<div class="form-group">
-									<label class="sr-only" for="f1-repeat-password">Repeat password</label>
-									<input type="password" name="f1-repeat-password" placeholder="Repeat password..."
-									class="f1-repeat-password form-control" id="f1-repeat-password">
+									<label class="sr-only" for="phone">Τηλέφωνο</label>
+									<input type="number" name="phone" placeholder="Τηλέφωνο" class="form-control" id="phone">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="fax">Fax</label>
+									<input type="number" name="fax" placeholder="Fax" class="form-control" id="fax">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="position">Θέση Εργασίας</label>
+									<input type="text" name="position" placeholder="Θέση Εργασίας" class="form-control" id="position">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="specialty">Ειδικότητα</label>
+									<input type="text" name="specialty" placeholder="Ειδικότητα" class="form-control" id="specialty">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="building">Κτήριο</label>
+									<input type="text" name="building" placeholder="Κτήριο" class="form-control" id="building">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="officenum">Αριθμός Γραφείου</label>
+									<input type="number" name="officenum" placeholder="Αριθμός Γραφείου" class="form-control" id="officenum">
 								</div>
 								<div class="f1-buttons">
 									<button type="button" class="btn btn-previous">
@@ -125,18 +154,18 @@
 							</fieldset>
 
 							<fieldset>
-								<h4>Social media profiles:</h4>
+								<h4>Δημιουργία Λογαριασμού</h4>
 								<div class="form-group">
-									<label class="sr-only" for="f1-facebook">Facebook</label>
-									<input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
+									<label class="sr-only" for="email">Ηλεκτρονική Διεύθυνση</label>
+									<input type="email" name="email" placeholder="Ηλεκτρονική Διεύθυνση" class="form-control" id="email">
 								</div>
 								<div class="form-group">
-									<label class="sr-only" for="f1-twitter">Twitter</label>
-									<input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
+									<label class="sr-only" for="password">Κωδικός</label>
+									<input type="password" name="password" placeholder="Κωδικός" class="form-control" id="password">
 								</div>
 								<div class="form-group">
-									<label class="sr-only" for="f1-google-plus">Google plus</label>
-									<input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
+									<label class="sr-only" for="confirm">Επιβεβέωση Κωδικού</label>
+									<input type="password" name="confirm" placeholder="Επιβεβέωση Κωδικού" class="form-control" id="confirm">
 								</div>
 								<div class="f1-buttons">
 									<button type="button" class="btn btn-previous">
