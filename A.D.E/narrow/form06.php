@@ -309,155 +309,112 @@
 							<br>
 							<label for="states"><em>Συμπληρώνεται από το θεραπευτή (προαιρετικά) </em></label>
 							<br>
-							<div style="width: 40%; float:left">
-								<label for="r1"><strong>Σχέση</strong></label>
-							</div>
-							<div style="width: 20%; float:left">
-								<label for="r1"><strong>Όνομα</strong></label>
-							</div>
-							<div style="width: 20%; float:left">
-								<label for="r1"><strong>Ηλικία</strong></label>
-							</div>
-							<div style="width: 20%; float:left">
-								<label for="r1"><strong>Ποιότητα σχέσης</strong></label>
-							</div>
 
-							<div style="width: 40%; float:left">
-								<label for="r1">Μητέρα</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r1" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r1" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r1" value="">
-							</div>
+							<script>
+								function addFieldFamily(argument) {
+									var myTable = document.getElementById("familytable");
+									var currentIndex = myTable.rows.length;
+									var currentRow = myTable.insertRow(-1);
 
-							<div style="width: 40%; float:left">
-								<label for="r2">Πατέρας</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
+									var sxesiBox = document.createElement("input");
+									sxesiBox.setAttribute("name", "sxesi" + currentIndex);
 
-							<div style="width: 40%; float:left">
-								<label for="r2">Αδέλφια</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 40%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 40%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 40%; float:left">
-								<label for="r1">Μητριά</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r1" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r1" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r1" value="">
-							</div>
+									var onomaBox = document.createElement("input");
+									onomaBox.setAttribute("name", "onoma" + currentIndex);
 
-							<div style="width: 40%; float:left">
-								<label for="r2">Πατριός</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
+									var ilikiaBox = document.createElement("input");
+									ilikiaBox.setAttribute("name", "ilikia" + currentIndex);
 
-							<div style="width: 40%; float:left">
-								<label for="r2">Σύντροφος/σύζυγος</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 40%; float:left">
-								<label for="r2">Παιδιά</label>
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 40%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 40%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
-							<div style="width: 20%; float:left">
-								<input type="text" name="r2" value="">
-							</div>
+									var poiotitasxesisBox = document.createElement("input");
+									poiotitasxesisBox.setAttribute("name", "poiotitasxesis" + currentIndex);
+
+									var addRowBox = document.createElement("input");
+									addRowBox.setAttribute("type", "button");
+									addRowBox.setAttribute("value", "Add");
+									addRowBox.setAttribute("onclick", "addField();");
+									addRowBox.setAttribute("class", "button");
+
+									var currentCell = currentRow.insertCell(-1);
+									currentCell.appendChild(sxesiBox);
+
+									currentCell = currentRow.insertCell(-1);
+									currentCell.appendChild(onomaBox);
+
+									currentCell = currentRow.insertCell(-1);
+									currentCell.appendChild(ilikiaBox);
+
+									currentCell = currentRow.insertCell(-1);
+									currentCell.appendChild(poiotitasxesisBox);
+								}
+							</script>
+							<input type="button" class="button" value="Add" onclick="addFieldFamily();">
+							<br>
+							<br>
+							<table id="familytable" style="width:80%">
+								<tr>
+									<th>
+									<center>
+										Σχέση
+									</center></th>
+									<th>
+									<center>
+										Όνομα
+									</center></th>
+									<th>
+									<center>
+										Ηλικία
+									</center></th>
+									<th>
+									<center>
+										Ποιότητα σχέσης
+									</center></th>
+								</tr>
+								<tr>
+									<td><strong>
+									<center>
+										Μητέρα
+									</center></strong></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="onoma">
+									</input></td>
+									<td>
+									<input type="number" class="form-control" id="familyrelation" name="ilikia">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis">
+									</input></td>
+								</tr>
+								<tr>
+									<td><strong>
+									<center>
+										Πατέρας
+									</center></strong></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="onoma">
+									</input></td>
+									<td>
+									<input type="number" class="form-control" id="familyrelation" name="ilikia">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis">
+									</input></td>
+								</tr>
+								<tr>
+									<td><strong>
+									<center>
+										Αδέλφια
+									</center></strong></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="onoma">
+									</input></td>
+									<td>
+									<input type="number" class="form-control" id="familyrelation" name="ilikia">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis">
+									</input></td>
+								</tr>
+							</table>
 						</div>
 
 						<div class="form-group">
@@ -683,21 +640,11 @@
 							</script>
 							<table id="myTable">
 								<tr>
-									<td>
-									<label for="farmaka">Φάρμακα</label>
-									</td>
-									<td>
-									<label for="imerominia">Ημερομηνία</label>
-									</td>
-									<td>
-									<label for="diarkia">Διάρκεια</label>
-									</td>
-									<td>
-									<label for="therapeutis">Θεραπευτής</label>
-									</td>
-									<td>
-									<label for="logostherapias">Λόγος/Είδος Θεραπείας</label>
-									</td>
+									<td><label for="farmaka">Φάρμακα</label></td>
+									<td><label for="imerominia">Ημερομηνία</label></td>
+									<td><label for="diarkia">Διάρκεια</label></td>
+									<td><label for="therapeutis">Θεραπευτής</label></td>
+									<td><label for="logostherapias">Λόγος/Είδος Θεραπείας</label></td>
 									<td>
 									<input type="button" class="button" value="Add" onclick="addField();">
 									</td>
@@ -999,23 +946,89 @@
 
 <?php
 
-if (isset($_POST['submit'])) {
-	$request = new HttpRequest();
-	$request -> setUrl('http://localhost/mhcserver/post/form6.php');
-	$request -> setMethod(HTTP_METH_POST);
+if (isset($_POST['submit'])){
+$request = new HttpRequest();
+$request->setUrl('http://localhost/mhcserver/post/form6.php');
+$request->setMethod(HTTP_METH_POST);
 
-	$request -> setHeaders(array('cache-control' => 'no-cache', 'content-type' => 'application/x-www-form-urlencoded', 'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'));
+$request->setHeaders(array(
+  'cache-control' => 'no-cache',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
+));
 
-	$request -> setContentType('application/x-www-form-urlencoded');
-	$request -> setPostFields(array('patientID' => $_POST['id'], 'feelaboutstudies' => $_POST['feel'], 'jobtime' => $_POST['timeworking'], 'jobdutys' => $_POST['duties'], 'jobstress' => $_POST['stress'], 'jobprevious' => $_POST['previouswork'], 'relationshipin' => $_POST['relationship'], 'relationshipinfo' => $_POST['relationshipinfo'], 'relationshipname' => $_POST['namerel'], 'relationshipjob' => $_POST['workrel'], 'children' => $_POST['kids'], 'staywith' => $_POST['living'], 'staydificulties' => $_POST['livingmore'], 'familysynthesis' => $_POST['enviromentmore'], 'support' => $_POST['support'], 'economicstatus' => $_POST['finance'], 'economichelp' => $_POST['financehelp'], 'economichelp1' => $_POST['financehelpyes'], 'legalissues' => $_POST['legalissues'], 'legalissues1' => $_POST['legalissuesyes'], 'healthissues' => $_POST['healthproblem'], 'healthconsernes' => $_POST['concerns'], 'doctor' => $_POST['otherdoc'], 'doctorcontacts' => $_POST['otherdocyes'], 'medicines' => $_POST['meds'], 'medicines1' => $_POST['r1'], 'generalhealth' => $_POST['care'], 'smoking' => $_POST['smoking'], 'smoking1' => $_POST['smokingyes'], 'alcohol' => $_POST['alcohol'], 'alcohol1' => $_POST['alcoholyes'], 'drugs' => $_POST['illigal'], 'drugs1' => $_POST['illigalyes'], 'marihuanafrequency' => $_POST['mar'], 'luckygames' => $_POST['games'], 'luckygames1' => $_POST['gamesyes'], 'betmore' => $_POST['bet'], 'childlife' => $_POST['descr'], 'childlifeproblems' => $_POST['problems'], 'militarylife' => $_POST['army'], 'familyproblems' => $_POST['familyissues'], 'trauma' => $_POST['trauma'], 'psychosupport' => $_POST['previous'], 'psychosupport1' => $_POST['alloop'], 'psychodiagnosis' => $_POST['diagnosi'], 'psychodiagnosis1' => $_POST['diagnosi1'], 'disability' => $_POST['anapiria'], 'disability1' => $_POST['anapiria1'], 'suicideprothesis' => $_POST['hurtself'], 'suicideprothesis1' => $_POST['hurtself'], 'violenceprothesis' => $_POST['hurtothers'], 'violenceprothesis1' => $_POST['hurtothers'], 'violence' => $_POST['hurtothers1'], 'violence1' => $_POST['hurtothers1'], 'feelfortherapy' => $_POST[''], 'otherseriousinfo' => $_POST[''], 'reasonsfortherapy' => $_POST['']));
+$request->setContentType('application/x-www-form-urlencoded');
+$request->setPostFields(array(
+  'patientID' => $_POST['id'],
+  'feelaboutstudies' => $_POST['feel'],
+  'jobtime' => $_POST['timeworking'],
+  'jobdutys' => $_POST['duties'],
+  'jobstress' => $_POST['stress'],
+  'jobprevious' => $_POST['previouswork'],
+  'relationshipin' => $_POST['relationship'],
+  'relationshipinfo' => $_POST['relationshipinfo'],
+  'relationshipname' => $_POST['namerel'],
+  'relationshipjob' => $_POST['workrel'],
+  'children' => $_POST['kids'],
+  'staywith' => $_POST['living'],
+  'staydificulties' => $_POST['livingmore'], 
+  'familysynthesis' => $_POST['enviromentmore'],
+  'support' => $_POST['support'],
+  'economicstatus' => $_POST['finance'],
+  'economichelp' => $_POST['financehelp'],
+  'economichelp1' => $_POST['financehelpyes'],
+  'legalissues' => $_POST['legalissues'],
+  'legalissues1' => $_POST['legalissuesyes'], 
+  'healthissues' => $_POST['healthproblem'],
+  'healthconsernes' => $_POST['concerns'],
+  'doctor' => $_POST['otherdoc'],
+  'doctorcontacts' => $_POST['otherdocyes'],
+  'medicines' => $_POST['meds'],
+  'medicines1' => $_POST['r1'],
+  'generalhealth' => $_POST['care'], 
+  'smoking' => $_POST['smoking'],
+  'smoking1' => $_POST['smokingyes'],
+  'alcohol' => $_POST['alcohol'],
+  'alcohol1' => $_POST['alcoholyes'],
+  'drugs' => $_POST['illigal'],
+  'drugs1' => $_POST['illigalyes'],
+  'marihuanafrequency' => $_POST['mar'], 
+  'luckygames' => $_POST['games'],
+  'luckygames1' => $_POST['gamesyes'],
+  'betmore' => $_POST['bet'],
+  'childlife' => $_POST['descr'],
+  'childlifeproblems' => $_POST['problems'],
+  'militarylife' => $_POST['army'],
+  'familyproblems' => $_POST['familyissues'], 
+  'trauma' => $_POST['trauma'],
+  'psychosupport' => $_POST['previous'],
+  'psychosupport1' => $_POST['alloop'],
+  'psychodiagnosis' => $_POST['diagnosi'],
+  'psychodiagnosis1' => $_POST['diagnosi1'],
+  'disability' => $_POST['anapiria'],
+  'disability1' => $_POST['anapiria1'], 
+  
+  'suicideprothesis' => $_POST['hurtself'],
+  'suicideprothesis1' => $_POST['hurtself'],
+  'violenceprothesis' => $_POST['hurtothers'],
+  'violenceprothesis1' => $_POST['hurtothers'],
+  'violence' => $_POST['hurtothers1'], 
+  'violence1' => $_POST['hurtothers1'],
+  
+  'feelfortherapy' => $_POST[''],
+  'otherseriousinfo' => $_POST[''],
+  'reasonsfortherapy' => $_POST['']
+));
 
-	try {
-		$response = $request -> send();
+try {
+  $response = $request->send();
 
-		echo $response -> getBody();
-	} catch (HttpException $ex) {
-		echo $ex;
-	}
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
 
 }
+
 ?>
+
