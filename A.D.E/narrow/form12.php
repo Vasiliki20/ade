@@ -145,77 +145,40 @@
 					</div>
 
 					<form action="" method="post">
-						<label><strong>Α. ΣΤΟΙΧΕΙΑ ΠΕΛΑΤΗ</strong></label>
 						<div class="form-group">
-							<label for="surname"><strong>1. Επώνυμο: </strong></label>
-							<input type="text" class="form-control" id="surname" placeholder="απο βάση" name="surname">
-						</div>
-						<div class="form-group">
-							<label for="name"><strong>2. Όνομα(τα): </strong></label>
-							<input type="text" class="form-control" id="name" placeholder="απο βάση" name="name">
-						</div>
-						<div class="form-group">
-							<label for="date"><strong>3. Ημερομηνία Γέννησης:</strong></label>
-							<input type="date" class="form-control" id="date" placeholder="απο βάση" name="date">
-						</div>
-						<div class="form-group">
-							<label for="id"><strong>4. Αρ. Δελτίου Ταυτότητας:</strong></label>
-							<input type="number" class="form-control" id="id" placeholder="απο βάση" name="id">
-						</div>
-						<div class="form-group">
-							<label for="address"><strong>5. Παρούσα Διεύθυνση Διαμονής:</strong></label>
-							<input type="text" class="form-control" id="address" placeholder="απο βάση" name="address">
-						</div>
-						<div class="form-group">
-							<label for="city"><strong>6. Πόλη/χωριό:</strong></label>
-							<input type="text" class="form-control" id="city" placeholder="απο βάση" name="city">
-						</div>
-						<div class="form-group">
-							<label for="tk"><strong>7. Τ.Κ.:</strong></label>
-							<input type="number" class="form-control" id="tk" placeholder="απο βάση" name="tk">
-						</div>
-						<div class="form-group">
-							<label for="phone"><strong>8. Τηλ. Επικοινωνίας:</strong></label>
-							<input type="number" class="form-control" id="phone" placeholder="απο βάση" name="phone">
-						</div>
-						<div class="form-group">
-							<label for="email"><strong>9. Ηλ. Διεύθυνση: </strong></label>
-							<input type="email" class="form-control" id="email" placeholder="απο βάση" name="email">
-						</div>
-						<div class="form-group">
-							<label for="eksousiodotisi"><strong>Β. ΕΞΟΥΣΙΟΔΟΤΗΣΗ</strong> </label>
+							<label for="eksousiodotisi"><strong>ΕΞΟΥΣΙΟΔΟΤΗΣΗ</strong> </label>
 							<label for="eksousiodotisi"><em>Εξουσιοδοτώ το Κέντρο Ψυχικής Υγείας (ΚΕΨΥ) του Πανεπιστημίου Κύπρου να μεταβιβάσει/λάβει/ ανταλλάξει (υπογραμμίστε ό,τι ισχύει) εμπιστευτικές πληροφορίες για το άτομό μου με:</em> </label>
 						</div>
 						<div class="form-group">
-							<label for="namepr"><strong>10. Ονοματεπώνυμο επαγγελματία ή Υπηρεσίας/Δομής:</strong></label>
+							<label for="namepr"><strong>1. Ονοματεπώνυμο επαγγελματία ή Υπηρεσίας/Δομής:</strong></label>
 							<input type="text" class="form-control" id="namepr" placeholder="" name="nameofprof">
 						</div>
 						<div class="form-group">
-							<label for="addresspr"><strong>11. Διεύθυνση:</strong></label>
+							<label for="addresspr"><strong>2. Διεύθυνση:</strong></label>
 							<input type="text" class="form-control" id="addresspr" placeholder="" name="addressofprof">
 						</div>
 						<div class="form-group">
-							<label for="citypr"><strong>12. Πόλη/χωριό:</strong></label>
+							<label for="citypr"><strong>3. Πόλη/χωριό:</strong></label>
 							<input type="text" class="form-control" id="citypr" placeholder="" name="cityofprof">
 						</div>
 						<div class="form-group">
-							<label for="tkpr"><strong>13. Τ.Κ.:</strong></label>
+							<label for="tkpr"><strong>4. Τ.Κ.:</strong></label>
 							<input type="text" class="form-control" id="tkpr" placeholder="" name="tkpr">
 						</div>
 						<div class="form-group">
-							<label for="phonepr"><strong>14. Τηλ. Επικοινωνίας:</strong></label>
+							<label for="phonepr"><strong>5. Τηλ. Επικοινωνίας:</strong></label>
 							<input type="number" class="form-control" id="phonepr" placeholder="" name="telofprof">
 						</div>
 						<div class="form-group">
-							<label for="emailpr"><strong>15. Ηλ. Διεύθυνση: </strong></label>
+							<label for="emailpr"><strong>6. Ηλ. Διεύθυνση: </strong></label>
 							<input type="email" class="form-control" id="emailpr" placeholder="" name="emailofprof">
 						</div>
 						<div class="form-group">
-							<label for="purpose"><strong>16. Σκοπός (διευκρινίστε, π.χ. «επιβεβαίωση παρουσίας στη συνεδρία», «παραπομπή», «αίτημα πελάτη»)</strong></label>
+							<label for="purpose"><strong>7. Σκοπός (διευκρινίστε, π.χ. «επιβεβαίωση παρουσίας στη συνεδρία», «παραπομπή», «αίτημα πελάτη»)</strong></label>
 							<input type="text" class="form-control" id="purpose" placeholder="" name="purposeofinfo">
 						</div>
 						<div class="form-group">
-							<label for="q17"><strong>17. Κατηγορίες πληροφοριών που συναινώ να μεταβιβαστούν <em>(Σημειώστε τη μονογραφή σας σε όσα ισχύουν)</em></strong></label>
+							<label for="q17"><strong>8. Κατηγορίες πληροφοριών που συναινώ να μεταβιβαστούν <em>(Σημειώστε τη μονογραφή σας σε όσα ισχύουν)</em></strong></label>
 							<br>
 							<input type="checkbox" name="infototransfer" class="form-group" id="q17a">
 							Μόνο συμμετοχή σε συνεδρία/ες
@@ -244,7 +207,7 @@
 							<br>
 						</div>
 						<div class="form-group">
-							<label for="q18"><strong>18. Η πιο πάνω εξουσιοδότηση θα ισχύει για: (επιλέξτε ό,τι ισχύει) </strong></label>
+							<label for="q18"><strong>9. Η πιο πάνω εξουσιοδότηση θα ισχύει για: (επιλέξτε ό,τι ισχύει) </strong></label>
 							<br>
 							<input type="checkbox" name="timeofexpire" class="form-group" id="q18a">
 							μόνο μια φορά

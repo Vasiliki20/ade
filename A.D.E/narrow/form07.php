@@ -143,10 +143,6 @@
 					</div>
 					<form action="" method="post">
 						<div class="form-group">
-							<label for="name"><strong>Ονοματεπώνυμο πελάτη:</strong></label>
-							<input type="name" class="form-control" id="name" placeholder="from database" name="name">
-						</div>
-						<div class="form-group">
 							<label for="q1"><strong>1. Παρουσιαζόμενο πρόβλημα (διάρκεια, συχνότητα, σχέση με παράγοντες της κατάστασης, παράγοντες που συντείνουν στη διατήρηση, δευτερεύοντα οφέλη). Σχετικές δημογραφικές πληροφορίες:</strong></label>
 							<input type="text" class="form-control" id="q1" placeholder="" name="mainproblem">
 						</div>

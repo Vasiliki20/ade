@@ -136,74 +136,61 @@
 					</div>
 					<form action="" method="post">
 						<div class="form-group">
-							<label for="surname"><b>1. Επώνυμο:</b></label>
-							<input type="text" class="form-control" id="surname" placeholder="" name="surname">
-						</div>
-						<div class="form-group">
-							<label for="name"><b>2. Όνομα(τα):</b></label>
-							<input type="text" class="form-control" id="name" placeholder="" name="name">
-						</div>
-						<div class="form-group">
-							<label for="dob"><b>3. Ημερομηνία γέννησης:</b></label>
+							<label for="dob"><b>1. Ημερομηνία γέννησης:</b></label>
 							<input type="date" class="form-control" id="dob" placeholder="" name="dob">
 						</div>
 						<div class="form-group">
-							<label for="age"><b>4. Ηλικία:</b></label>
+							<label for="age"><b>2. Ηλικία:</b></label>
 							<input type="number" class="form-control" id="age" placeholder="" name="age">
 						</div>
 						<div class="form-group">
-							<label for="sex"><b>5. Φύλο:</b></label>
+							<label for="sex"><b>3. Φύλο:</b></label>
 							<input type="radio" name="sex" value="male">
 							A
 							<input type="radio" name="sex" value="female">
 							Θ
 						</div>
 						<div class="form-group">
-							<label for="citizenship"><b>6. Υπηκοότητα:</b></label>
+							<label for="citizenship"><b>4. Υπηκοότητα:</b></label>
 							<input type="text" class="form-control" id="citizenship" placeholder="" name="citizenship">
 						</div>
 						<div class="form-group">
-							<label for="id"><b>7. Αρ. Δελτίου Ταυτότητας:</b></label>
+							<label for="id"><b>5. Αρ. Δελτίου Ταυτότητας:</b></label>
 							<input type="number" class="form-control" id="id" placeholder="" name="id">
 						</div>
 						<div class="form-group">
-							<label for="address"><b>8. Παρούσα Διεύθυνση Διαμονής:</b></label>
+							<label for="address"><b>6. Παρούσα Διεύθυνση Διαμονής:</b></label>
 							<input type="text" class="form-control" id="address" placeholder="" name="address">
 						</div>
 						<div class="form-group">
-							<label for="city"><b>9. Πόλη/Χωριό:</b></label>
+							<label for="city"><b>7. Πόλη/Χωριό:</b></label>
 							<input type="text" class="form-control" id="city" placeholder="" name="city">
 						</div>
 						<div class="form-group">
-							<label for="tk"><b>10. Τ.Κ:</b></label>
+							<label for="tk"><b>8. Τ.Κ:</b></label>
 							<input type="number" class="form-control" id="tk" placeholder="" name="tk">
 						</div>
 						<div class="form-group">
-							<label for="phone"><b>11. Τηλέφωνο Επικοινωνίας:</b></label>
-							<input type="number" class="form-control" id="phone" placeholder="" name="phone">
-						</div>
-						<div class="form-group">
-							<label for="emailaddress"><b>12. Ηλ.Διεύθυνση:</b></label>
-							<input type="email" class="form-control" id="emailaddress" placeholder="" name="emailaddress">
-						</div>
-						<div class="form-group">
-							<label for="contact"><b>13. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>
-							<input type="text" class="form-control" id="contact" placeholder="" name="contact">
+							<label for="contact"><b>9. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>
+							<input type="radio" name="contact" value="email">
+							Email
+							<input type="radio" name="contact" value="phone">
+							Τηλέφωνο
 						</div>
 
 						<div align="left">
 							<h5><b>Β. ΕΠΑΦΗ ΕΚΤΑΚΤΗΣ ΑΝΑΓΚΗΣ</b></h5>
 						</div>
 						<div class="form-group">
-							<label for="emname"><b>14. Ονοματεπώνυμο:</b></label>
+							<label for="emname"><b>10. Ονοματεπώνυμο:</b></label>
 							<input type="text" class="form-control" id="emname" placeholder="" name="emname">
 						</div>
 						<div class="form-group">
-							<label for="emrelationship"><b>15. Σχέση:</b></label>
+							<label for="emrelationship"><b>11. Σχέση:</b></label>
 							<input type="text" class="form-control" id="emrelationship" placeholder="" name="emrelationship">
 						</div>
 						<div class="form-group">
-							<label for="emphone"><b>16. Τηλ. Επικοινωνίας:</b></label>
+							<label for="emphone"><b>12. Τηλ. Επικοινωνίας:</b></label>
 							<input type="number" class="form-control" id="emphone" placeholder="" name="emphone">
 						</div>
 
@@ -211,7 +198,7 @@
 							<h5><b>Γ. ΠΡΟΣΩΠΙΚΑ ΣΤΟΙΧΕΙΑ-ΙΣΤΟΡΙΚΟ</b></h5>
 						</div>
 						<div class="form-group">
-							<label for="family"><b>17. Οικογενειακή Κατάσταση:</b></label>
+							<label for="family"><b>13. Οικογενειακή Κατάσταση:</b></label>
 							<br>
 							<input type="radio" name="family" value="anipantros">
 							Ανύπαντρος/η
@@ -236,7 +223,7 @@
 							<input type="text" class="form-control" id="family" name="family">
 						</div>
 						<div class="form-group">
-							<label for="previous"><b>18. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
+							<label for="previous"><b>14. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="previous" value="oxi">
 							Όχι
@@ -250,7 +237,7 @@
 							<input type="text" class="form-control" id="previous" name="previous">
 						</div>
 						<div class="form-group">
-							<label for="currentlystaying"><b>19. Αυτή τη στιγμή διαμένεται:</b></label>
+							<label for="currentlystaying"><b>15. Αυτή τη στιγμή διαμένεται:</b></label>
 							<br>
 							<input type="radio" name="currentlystaying" value="stayingalone">
 							Μόνος/η
@@ -267,7 +254,7 @@
 							<input type="text" class="form-control" id="currentlystaying" name="currentlystaying">
 						</div>
 						<div class="form-group">
-							<label for="referred"><b>20. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
+							<label for="referred"><b>16. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
 							<br>
 							<input type="radio" name="referred" value="no">
 							Όχι
@@ -278,7 +265,7 @@
 							<input type="text" class="form-control" id="referred" name="referred">
 						</div>
 						<div class="form-group">
-							<label for="otherservices"><b>21. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
+							<label for="otherservices"><b>17. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="otherservices" value="no">
 							Όχι
@@ -297,16 +284,13 @@
 							<br>
 						</div>
 						<div class="form-group">
-							<label for="job"><b>22. Εργασία:</b></label>
+							<label for="job"><b>18. Εργασία:</b></label>
 							<input type="text" class="form-control" id="job" placeholder="" name="job">
 						</div>
 						<div class="form-group">
-							<label for="dimos"><b>23. Δήμος:</b></label>
+							<label for="dimos"><b>19. Δήμος:</b></label>
 							<input type="text" class="form-control" id="dimos" placeholder="" name="dimos">
 						</div>
-						<br>
-						<label for="signature">Υπογραφή</label>
-						<br>
 						<button type="submit" class="btn btn-default" name="submit">
 							Submit
 						</button>
@@ -350,47 +334,23 @@
 
 <?php
 
-if (isset($_POST['submit'])){
-$request = new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/form2d.php');
-$request->setMethod(HTTP_METH_POST);
+if (isset($_POST['submit'])) {
+	$request = new HttpRequest();
+	$request -> setUrl('http://localhost/mhcserver/post/form2d.php');
+	$request -> setMethod(HTTP_METH_POST);
 
-$request->setHeaders(array(
-  'cache-control' => 'no-cache',
-  'content-type' => 'application/x-www-form-urlencoded',
-  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
-));
+	$request -> setHeaders(array('cache-control' => 'no-cache', 'content-type' => 'application/x-www-form-urlencoded', 'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'));
 
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array(
-  'id' => $_POST['id'],
-  'dateofbirth' => $_POST['dob'],
-  'age' => $_POST['age'],
-  'sex' => $_POST['sex'],
-  'citizenship' => $_POST['citizenship'],
-  'address' => $_POST['address'],
-  'city' => $_POST['city'],
-  'postalcode' => $_POST['tk'],
-  'communicatevia' => $_POST['contact'],
+	$request -> setContentType('application/x-www-form-urlencoded');
+	$request -> setPostFields(array('id' => $_POST['id'], 'dateofbirth' => $_POST['dob'], 'age' => $_POST['age'], 'sex' => $_POST['sex'], 'citizenship' => $_POST['citizenship'], 'address' => $_POST['address'], 'city' => $_POST['city'], 'postalcode' => $_POST['tk'], 'communicatevia' => $_POST['contact'], 'emergencyname' => $_POST['emname'], 'emergencyrelation' => $_POST['emrelationship'], 'emergencynumber' => $_POST['emphone'], 'maritalstatus' => $_POST['family'], 'previoustherapy' => $_POST['previous'], 'previoustherapist' => $_POST['previoustherapist'], 'nowtherapist' => $_POST['otherservices'], 'comnowtherapistb' => $_POST['contactothers']));
 
-  'emergencyname' => $_POST['emname'],
-  'emergencyrelation' => $_POST['emrelationship'],
-  'emergencynumber' => $_POST['emphone'],
-  'maritalstatus' => $_POST['family'], 
-  'previoustherapy' => $_POST['previous'],
-  'previoustherapist' => $_POST['previoustherapist'],
-  'nowtherapist' => $_POST['otherservices'],
-  'comnowtherapistb' => $_POST['contactothers']
-));
+	try {
+		$response = $request -> send();
 
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
+		echo $response -> getBody();
+	} catch (HttpException $ex) {
+		echo $ex;
+	}
 
 }
-
 ?>
