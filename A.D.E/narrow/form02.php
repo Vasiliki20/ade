@@ -23,9 +23,15 @@
 			input {
 				font-size: 13px;
 			}
+			.form-group {
+				font-size: 13px;
+			}
+			.form-control {
+				font-size: 13px;
+			}
 			.sidenav {
 				height: 100%;
-				width: 200px;
+				width: 300px;
 				position: fixed;
 				z-index: 1;
 				top: 0;
@@ -36,9 +42,9 @@
 			}
 
 			.sidenav a {
-				padding: 6px 6px 6px 32px;
+				padding: 6px 6px 6px 6px;
 				text-decoration: none;
-				font-size: 15px;
+				font-size: 13px;
 				color: #818181;
 				display: block;
 			}
@@ -47,7 +53,7 @@
 				color: #f1f1f1;
 			}
 			.main {
-				margin-left: 200px; /* Same as the width of the sidenav */
+				margin-left: 300px; /* Same as the width of the sidenav */
 			}
 
 			@media screen and (max-height: 450px) {
@@ -57,6 +63,10 @@
 				.sidenav a {
 					font-size: 18px;
 				}
+			}
+
+			div {
+				padding: 10px;
 			}
 		</style>
 		<!-- Animate.css -->
@@ -127,76 +137,61 @@
 					</div>
 					<form action="" method="post">
 						<div class="form-group">
-							<label for="surname"><b>1. Επώνυμο:</b></label>
-							<input type="text" class="form-control" id="surname" placeholder="" name="surname">
-						</div>
-						<div class="form-group">
-							<label for="name"><b>2. Όνομα(τα):</b></label>
-							<input type="text" class="form-control" id="name" placeholder="" name="name">
-						</div>
-						<div class="form-group">
-							<label for="dob"><b>3. Ημερομηνία γέννησης:</b></label>
+							<label for="dob"><b>1. Ημερομηνία γέννησης:</b></label>
 							<input type="date" class="form-control" id="dob" placeholder="" name="dob">
 						</div>
 						<div class="form-group">
-							<label for="age"><b>4. Ηλικία:</b></label>
+							<label for="age"><b>2. Ηλικία:</b></label>
 							<input type="number" class="form-control" id="age" placeholder="" name="age">
 						</div>
 						<div class="form-group">
-							<input type="hidden" name="sex" />
-							<label for="sex"><b>5. Φύλο:</b></label>
+							<label for="sex"><b>3. Φύλο:</b></label>
 							<input type="radio" name="sex" value="male">
 							A
 							<input type="radio" name="sex" value="female">
 							Θ
 						</div>
 						<div class="form-group">
-							<label for="citizenship"><b>6. Υπηκοότητα:</b></label>
+							<label for="citizenship"><b>4. Υπηκοότητα:</b></label>
 							<input type="text" class="form-control" id="citizenship" placeholder="" name="citizenship">
 						</div>
 						<div class="form-group">
-							<label for="id"><b>7. Αρ. Δελτίου Ταυτότητας:</b></label>
+							<label for="id"><b>5. Αρ. Δελτίου Ταυτότητας:</b></label>
 							<input type="number" class="form-control" id="id" placeholder="" name="id">
 						</div>
 						<div class="form-group">
-							<label for="address"><b>8. Παρούσα Διεύθυνση Διαμονής:</b></label>
+							<label for="address"><b>6. Παρούσα Διεύθυνση Διαμονής:</b></label>
 							<input type="text" class="form-control" id="address" placeholder="" name="address">
 						</div>
 						<div class="form-group">
-							<label for="city"><b>9. Πόλη/Χωριό:</b></label>
+							<label for="city"><b>7. Πόλη/Χωριό:</b></label>
 							<input type="text" class="form-control" id="city" placeholder="" name="city">
 						</div>
 						<div class="form-group">
-							<label for="tk"><b>10. Τ.Κ:</b></label>
+							<label for="tk"><b>8. Τ.Κ:</b></label>
 							<input type="number" class="form-control" id="tk" placeholder="" name="tk">
 						</div>
 						<div class="form-group">
-							<label for="phone"><b>11. Τηλέφωνο Επικοινωνίας:</b></label>
-							<input type="number" class="form-control" id="phone" placeholder="" name="phone">
-						</div>
-						<div class="form-group">
-							<label for="emailaddress"><b>12. Ηλ.Διεύθυνση:</b></label>
-							<input type="email" class="form-control" id="emailaddress" placeholder="" name="emailaddress">
-						</div>
-						<div class="form-group">
-							<label for="contact"><b>13. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>
-							<input type="text" class="form-control" id="contact" placeholder="" name="contact">
+							<label for="contact"><b>9. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>
+							<input type="radio" name="contact" value="email">
+							Email
+							<input type="radio" name="contact" value="phone">
+							Τηλέφωνο
 						</div>
 
 						<div align="left">
 							<h5><b>B. ΣΤΟΙΧΕΙΑ ΦΟΙΤΗΣΗΣ</b></h5>
 						</div>
 						<div class="form-group">
-							<label for="department"><b>14. Τμήμα/Πρόγραμμα Σπουδών:</b></label>
+							<label for="department"><b>10. Τμήμα/Πρόγραμμα Σπουδών:</b></label>
 							<input type="text" class="form-control" id="department" placeholder="" name="department">
 						</div>
 						<div class="form-group">
-							<label for="year"><b>15. Έτος Σπουδών:</b></label>
+							<label for="year"><b>11. Έτος Σπουδών:</b></label>
 							<input type="number" class="form-control" id="year" placeholder="" name="year">
 						</div>
 						<div class="form-group">
-							<input type="hidden" name="level" />
-							<label for="level"><b>16. Επίπεδο Σπουδών:</b></label>
+							<label for="level"><b>12. Επίπεδο Σπουδών:</b></label>
 							<input type="radio" name="level" value="proptixiako">
 							Προπτυχιακό
 							<input type="radio" name="level" value="metaptixiako">
@@ -205,16 +200,14 @@
 							Διδακτορικό
 						</div>
 						<div class="form-group">
-							<input type="hidden" name="erasmus" />
-							<label for="erasmus"><b>17. Φοιτητής Erasmus:</b></label>
+							<label for="erasmus"><b>13. Φοιτητής Erasmus:</b></label>
 							<input type="radio" name="erasmus" value="yes">
 							Ναι
 							<input type="radio" name="erasmus" value="no">
 							Όχι
 						</div>
 						<div class="form-group">
-							<input type="hidden" name="status" />
-							<label for="status"><b>18. Κατάσταση Φοίτησης:</b></label>
+							<label for="status"><b>14. Κατάσταση Φοίτησης:</b></label>
 							<br>
 							<input type="radio" name="status" value="active">
 							Ενεργή
@@ -228,15 +221,15 @@
 							<h5><b>Γ. ΕΠΑΦΗ ΕΚΤΑΚΤΗΣ ΑΝΑΓΚΗΣ</b></h5>
 						</div>
 						<div class="form-group">
-							<label for="emname"><b>19. Ονοματεπώνυμο:</b></label>
+							<label for="emname"><b>15. Ονοματεπώνυμο:</b></label>
 							<input type="text" class="form-control" id="emname" placeholder="" name="emname">
 						</div>
 						<div class="form-group">
-							<label for="emrelationship"><b>20. Σχέση:</b></label>
+							<label for="emrelationship"><b>16. Σχέση:</b></label>
 							<input type="text" class="form-control" id="emrelationship" placeholder="" name="emrelationship">
 						</div>
 						<div class="form-group">
-							<label for="emphone"><b>21. Τηλ. Επικοινωνίας:</b></label>
+							<label for="emphone"><b>17. Τηλ. Επικοινωνίας:</b></label>
 							<input type="number" class="form-control" id="emphone" placeholder="" name="emphone">
 						</div>
 
@@ -244,7 +237,7 @@
 							<h5><b>Δ. ΠΡΟΣΩΠΙΚΑ ΣΤΟΙΧΕΙΑ-ΙΣΤΟΡΙΚΟ</b></h5>
 						</div>
 						<div class="form-group">
-							<label for="family"><b>22. Οικογενειακή Κατάσταση:</b></label>
+							<label for="family"><b>18. Οικογενειακή Κατάσταση:</b></label>
 							<br>
 							<input type="radio" name="family" value="anipantros">
 							Ανύπαντρος/η
@@ -269,7 +262,7 @@
 							<input type="text" class="form-control" id="family" name="family">
 						</div>
 						<div class="form-group">
-							<label for="previous"><b>23. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
+							<label for="previous"><b>19. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="previous" value="oxi">
 							Όχι
@@ -277,14 +270,13 @@
 							<input type="radio" name="previous" value="yesuni">
 							Ναι, στο Πανεπιστήμιο Κύπρου
 							<br>
-							<input type="hidden" name="previoustherapist" />
 							<input type="radio" name="previoustherapist" value="yesnouni">
 							Ναι, σε άλλη υπηρεσία(διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="previous" name="previous">
 						</div>
 						<div class="form-group">
-							<label for="currentlystaying"><b>24. Αυτή τη στιγμή διαμένεται:</b></label>
+							<label for="currentlystaying"><b>20. Αυτή τη στιγμή διαμένεται:</b></label>
 							<br>
 							<input type="radio" name="currentlystaying" value="stayingalone">
 							Μόνος/η
@@ -301,7 +293,7 @@
 							<input type="text" class="form-control" id="currentlystaying" name="currentlystaying">
 						</div>
 						<div class="form-group">
-							<label for="referred"><b>25. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
+							<label for="referred"><b>21. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
 							<br>
 							<input type="radio" name="referred" value="no">
 							Όχι
@@ -312,8 +304,7 @@
 							<input type="text" class="form-control" id="referred" name="referred">
 						</div>
 						<div class="form-group">
-							<input type="hidden" name="otherservices" />
-							<label for="otherservices"><b>26. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
+							<label for="otherservices"><b>22. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="otherservices" value="no">
 							Όχι
@@ -322,21 +313,16 @@
 							Ναι (διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="otherservices" name="otherservices">
-						</div>
-						<div class="form-group">
-							<input type="hidden" name="contactothers" />
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
 							<br>
-							<input type="radio"  name="contactothers" id="contactothers" value="no">
+							<input type="radio" name="contactothers" value="no">
 							Όχι
 							<br>
-							<input type="radio"  name="contactothers" id="contactothers" value="yes">
+							<input type="radio" name="contactothers" value="yes">
 							Ναι
 							<br>
 						</div>
-						<br>
-						<label for="signature">Υπογραφή</label>
-						<br>
+						
 						<button type="submit" class="btn btn-default" name="submit">
 							Submit
 						</button>
