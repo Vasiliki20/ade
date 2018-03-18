@@ -679,23 +679,50 @@
 </html>
 
 <?php
-
-if (isset($_POST['submit'])) {
-	$request = new HttpRequest();
-	$request -> setUrl('http://localhost/mhcserver/post/form15.php');
-	$request -> setMethod(HTTP_METH_POST);
-
-	$request -> setHeaders(array('cache-control' => 'no-cache', 'content-type' => 'application/x-www-form-urlencoded', 'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'));
-
-	$request -> setContentType('application/x-www-form-urlencoded');
-	$request -> setPostFields(array('id' => $_POST['id'], 'q1' => $_POST['q1'], 'q2' => $_POST['q2'], 'q3' => $_POST['q3'], 'q4' => $_POST['q4'], 'q5' => $_POST['q5'], 'q6' => $_POST['q6'], 'q7' => $_POST['q7'], 'q8' => $_POST['q8'], 'q9' => $_POST['q9'], 'q10' => $_POST['q10'], 'q11' => $_POST['q11'], 'q12' => $_POST['q12'], 'q13' => $_POST['q13'], 'q14' => $_POST['q14'], 'q15' => $_POST['q15'], 'q16' => $_POST['q16'], 'q17' => $_POST['q17'], 'q18' => $_POST['q18'], 'q19' => $_POST['q19'], 'q20' => $_POST['q20'], 'q21' => $_POST['q21'], 'helpful' => $_POST['q22'], 'negative' => $_POST['q23'], 'sugestions' => $_POST['q24'], 'other' => $_POST['q25'], 'whyterminate1' => $_POST['whyend']));
-
-	try {
-		$response = $request -> send();
-
-		echo $response -> getBody();
-	} catch (HttpException $ex) {
-		echo $ex;
-	}
-
+if (isset($_POST['submit'])){
+$request = new HttpRequest();
+$request->setUrl('http://localhost/mhcserver/post/register.php');
+$request->setMethod(HTTP_METH_POST);
+$request->setHeaders(array(
+  'cache-control' => 'no-cache',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
+));
+$request->setContentType('application/x-www-form-urlencoded');
+$request->setPostFields(array(
+  'id' => $_POST['id'],
+  'q1' => $_POST['q1'],
+  'q2' => $_POST['q2'],
+  'q3' => $_POST['q3'],
+  'q4' => $_POST['q4'],
+  'q5' => $_POST['q5'],
+  'q6' => $_POST['q6'],
+  'q7' => $_POST['q7'],
+  'q8' => $_POST['q8'],
+  'q9' => $_POST['q9'],
+  'q10' => $_POST['q10'],
+  'q11' => $_POST['q11'],
+  'q12' => $_POST['q12'],
+  'q13' => $_POST['q13'],
+  'q14' => $_POST['q14'],
+  'q15' => $_POST['q15'],
+  'q16' => $_POST['q16'],
+  'q17' => $_POST['q17'],
+  'q18' => $_POST['q18'],
+  'q19' => $_POST['q19'],
+  'q20' => $_POST['q20'],
+  'q21' => $_POST['q21'],
+  'helpful' => $_POST['q22'],
+  'negative' => $_POST['q23'],
+  'sugestions' => $_POST['q24'],
+  'other' => $_POST['q25'],
+  'whyterminate1' => $_POST['whyend']
+));
+try {
+  $response = $request->send();
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
 }
+}
+?>
