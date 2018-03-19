@@ -317,16 +317,16 @@
 									var currentRow = myTable.insertRow(-1);
 
 									var sxesiBox = document.createElement("input");
-									sxesiBox.setAttribute("name", "sxesi" + currentIndex);
+									sxesiBox.setAttribute("name", "sxesi[]");
 
 									var onomaBox = document.createElement("input");
-									onomaBox.setAttribute("name", "onoma" + currentIndex);
+									onomaBox.setAttribute("name", "onoma[]");
 
 									var ilikiaBox = document.createElement("input");
-									ilikiaBox.setAttribute("name", "ilikia" + currentIndex);
+									ilikiaBox.setAttribute("name", "ilikia[]");
 
 									var poiotitasxesisBox = document.createElement("input");
-									poiotitasxesisBox.setAttribute("name", "poiotitasxesis" + currentIndex);
+									poiotitasxesisBox.setAttribute("name", "poiotitasxesis[]");
 
 									var addRowBox = document.createElement("input");
 									addRowBox.setAttribute("type", "button");
@@ -372,46 +372,46 @@
 								<tr>
 									<td><strong>
 									<center>
-										Μητέρα
+										<input  value="Μητέρα" type="text" class="form-control" id="familyrelation" name="sxesi[]">
 									</center></strong></td>
 									<td>
-									<input type="text" class="form-control" id="familyrelation" name="onoma">
+									<input type="text" class="form-control" id="familyrelation" name="onoma[]">
 									</input></td>
 									<td>
-									<input type="number" class="form-control" id="familyrelation" name="ilikia">
+									<input type="number" class="form-control" id="familyrelation" name="ilikia[]">
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis">
+									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis[]">
 									</input></td>
 								</tr>
 								<tr>
 									<td><strong>
 									<center>
-										Πατέρας
+										<input  value="Πατέρας" type="text" class="form-control" id="familyrelation" name="sxesi[]">
 									</center></strong></td>
 									<td>
-									<input type="text" class="form-control" id="familyrelation" name="onoma">
+									<input type="text" class="form-control" id="familyrelation" name="onoma[]">
 									</input></td>
 									<td>
-									<input type="number" class="form-control" id="familyrelation" name="ilikia">
+									<input type="number" class="form-control" id="familyrelation" name="ilikia[]">
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis">
+									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis[]">
 									</input></td>
 								</tr>
 								<tr>
 									<td><strong>
 									<center>
-										Αδέλφια
+										<input  value="Αδέλφια" type="text" class="form-control" id="familyrelation" name="sxesi[]">
 									</center></strong></td>
 									<td>
-									<input type="text" class="form-control" id="familyrelation" name="onoma">
+									<input type="text" class="form-control" id="familyrelation" name="onoma[]">
 									</input></td>
 									<td>
-									<input type="number" class="form-control" id="familyrelation" name="ilikia">
+									<input type="number" class="form-control" id="familyrelation" name="ilikia[]">
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis">
+									<input type="text" class="form-control" id="familyrelation" name="poiotitasxesis[]">
 									</input></td>
 								</tr>
 							</table>

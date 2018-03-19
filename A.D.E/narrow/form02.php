@@ -127,14 +127,6 @@
 					</div>
 					<form action="" method="post">
 						<div class="form-group">
-							<label for="surname"><b>1. Επώνυμο:</b></label>
-							<input type="text" class="form-control" id="surname" placeholder="" name="surname">
-						</div>
-						<div class="form-group">
-							<label for="name"><b>2. Όνομα(τα):</b></label>
-							<input type="text" class="form-control" id="name" placeholder="" name="name">
-						</div>
-						<div class="form-group">
 							<label for="dob"><b>3. Ημερομηνία γέννησης:</b></label>
 							<input type="date" class="form-control" id="dob" placeholder="" name="dob">
 						</div>
@@ -169,14 +161,6 @@
 						<div class="form-group">
 							<label for="tk"><b>10. Τ.Κ:</b></label>
 							<input type="number" class="form-control" id="tk" placeholder="" name="tk">
-						</div>
-						<div class="form-group">
-							<label for="phone"><b>11. Τηλέφωνο Επικοινωνίας:</b></label>
-							<input type="number" class="form-control" id="phone" placeholder="" name="phone">
-						</div>
-						<div class="form-group">
-							<label for="emailaddress"><b>12. Ηλ.Διεύθυνση:</b></label>
-							<input type="email" class="form-control" id="emailaddress" placeholder="" name="emailaddress">
 						</div>
 						<div class="form-group">
 							<label for="contact"><b>13. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>

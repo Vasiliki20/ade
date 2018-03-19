@@ -134,19 +134,6 @@
 					</div>
 					<form action="" method="post">
 						<div class="form-group">
-							<label for="email"><b>Ηλεκτρονική Διεύθυνση:</b></label>
-
-							<input type="email" class="form-control" id="email" placeholder="" name="email">
-						</div>
-						<div class="form-group">
-							<label for="name"><b>Όνομα:</b></label>
-							<input type="text" class="form-control" id="name" placeholder="" name="name">
-						</div>
-						<div class="form-group">
-							<label for="surname"><b>Επώνυμο:</b></label>
-							<input type="text" class="form-control" id="surname" placeholder="" name="surname">
-						</div>
-						<div class="form-group">
 							<label for="phone"><b>Τηλέφωνο Επικοινωνίας:</b></label>
 							<input type="number" class="form-control" id="tilephono" placeholder="" name="phone">
 						</div>
