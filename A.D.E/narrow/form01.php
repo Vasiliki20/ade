@@ -186,6 +186,7 @@
 							<br>
 							<label><i>(η περίδος διευθέτησης συνάντησης κυμαίνεται ανάλογα με το φόρτο εργασίας του ΚΕΨΥ)**</i></label>
 							<br>
+							<input type="hidden" name="needfordate">
 							<input type="radio" name="needfordate" value="asap">
 							Χρειάζομαι ραντεβού το συντομότερο
 							<br>
@@ -205,6 +206,7 @@
 						<div class="form-group">
 							<label for="info"><b>Πώς ενημερωθήκατε για το ΚΕΨΥ(σημειώστε ό,τι ισχύει):</b></label>
 							<br>
+							<input type="hidden" name="info">
 							<input type="radio" name="info" value="webpage">
 							Ιστοσελίδα
 							<br>
@@ -217,6 +219,7 @@
 						<div class="form-group">
 							<label for="belong"><b>Είμαι:</b></label>
 							<br>
+							<input type="hidden" name="belong">
 							<input type="radio" name="belong" value="foititis">
 							Φοιτητής
 							<br>
