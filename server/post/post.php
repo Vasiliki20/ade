@@ -13,7 +13,7 @@ function makenull(){
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
  foreach($_POST as $key => $value){
-	if (preg_match('/[\0\'\"\b\n\r\t\Z\\\%\_]/', $value))
+	if (preg_match('/[\0\'\"\b\n\r\t\Z\\\%]/', $value))
 	{
 		//echo "\nNot acceptable!";
 		//http_response_code(406);

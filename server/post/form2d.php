@@ -1,9 +1,9 @@
  <?php
  include('post.php');
- if(isset($_POST['id']) && isset($_POST['dateofbirth']) && isset($_POST['age']) && isset($_POST['sex']) && isset($_POST['citizenship']) &&  isset($_POST['address']) && isset($_POST['city']) && isset($_POST['postalcode']) && isset($_POST['communicatevia'])  && isset($_POST['emergencyname']) && isset($_POST['emergencyrelation']) && isset($_POST['emergencynumber']) && isset($_POST['maritalstatus']) && isset($_POST['previoustherapy']) && isset($_POST['previoustherapist']) && isset($_POST['comnowtherapistb'])){
+ if(isset($_POST['job']) && isset($_POST['municipality']) && isset($_POST['id']) && isset($_POST['dateofbirth']) && isset($_POST['age']) && isset($_POST['sex']) && isset($_POST['citizenship']) &&  isset($_POST['address']) && isset($_POST['city']) && isset($_POST['postalcode']) && isset($_POST['communicatevia'])  && isset($_POST['emergencyname']) && isset($_POST['emergencyrelation']) && isset($_POST['emergencynumber']) && isset($_POST['maritalstatus']) && isset($_POST['previoustherapy']) && isset($_POST['previoustherapist']) && isset($_POST['comnowtherapistb'])){
  makenull();
  $stmt = $db->prepare('UPDATE patient
-SET dateofbirth=:dateofbirth,age=:age,sex=:sex,citizenship=:citizenship,address=:address,city=:city,postalCode=:postalcode,communicatevia=:communicatevia,emergencyname=:emergencyname,emergencyrelation=:emergencyrelation,emergencynumber=:emergencynumber,maritalstatus=:maritalstatus,previoustherapy=:previoustherapy,previoustherapist=:previoustherapist,nowtherapist=:nowtherapist,comnowtherapistb=:comnowtherapistb
+SET job=:job,municipality=:municipality,dateofbirth=:dateofbirth,age=:age,sex=:sex,citizenship=:citizenship,address=:address,city=:city,postalCode=:postalcode,communicatevia=:communicatevia,emergencyname=:emergencyname,emergencyrelation=:emergencyrelation,emergencynumber=:emergencynumber,maritalstatus=:maritalstatus,previoustherapy=:previoustherapy,previoustherapist=:previoustherapist,nowtherapist=:nowtherapist,comnowtherapistb=:comnowtherapistb
 WHERE patientID=:id');
  $stmt->bindParam(':id',$_POST['id']);
  $stmt->bindParam(':dateofbirth',$_POST['dateofbirth']);
@@ -14,7 +14,8 @@ WHERE patientID=:id');
  $stmt->bindParam(':city',$_POST['city']);
  $stmt->bindParam(':postalcode',$_POST['postalcode']);
  $stmt->bindParam(':communicatevia',$_POST['communicatevia']);
-
+ $stmt->bindParam(':job',$_POST['job']);
+ $stmt->bindParam(':municipality',$_POST['municipality']);
  $stmt->bindParam(':emergencyname',$_POST['emergencyname']);
  $stmt->bindParam(':emergencyrelation',$_POST['emergencyrelation']);
  $stmt->bindParam(':emergencynumber',$_POST['emergencynumber']);
