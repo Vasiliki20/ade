@@ -40,7 +40,6 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-
 			.sidenav a {
 				padding: 6px 6px 6px 6px;
 				text-decoration: none;
@@ -48,14 +47,12 @@
 				color: #818181;
 				display: block;
 			}
-
 			.sidenav a:hover {
 				color: #f1f1f1;
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
 			}
-
 			@media screen and (max-height: 450px) {
 				.sidenav {
 					padding-top: 15px;
@@ -67,7 +64,6 @@
 			div {
 				padding: 10px;
 			}
-
 			table, th, td {
 				border: 1px solid black;
 				border-collapse: collapse;
@@ -165,47 +161,36 @@
 							function show1() {
 								document.getElementById('div1').style.display = 'none';
 							}
-
 							function show2() {
 								document.getElementById('div1').style.display = 'block';
 							}
-
 							function show3() {
 								document.getElementById('div2').style.display = 'none';
 							}
-
 							function show4() {
 								document.getElementById('div2').style.display = 'block';
 							}
-
 							function show5() {
 								document.getElementById('div3').style.display = 'none';
 							}
-
 							function show6() {
 								document.getElementById('div3').style.display = 'block';
 							}
-
 							function show7() {
 								document.getElementById('div4').style.display = 'none';
 							}
-
 							function show8() {
 								document.getElementById('div4').style.display = 'block';
 							}
-
 							function show9() {
 								document.getElementById('div5').style.display = 'none';
 							}
-
 							function show10() {
 								document.getElementById('div5').style.display = 'block';
 							}
-
 							function show11() {
 								document.getElementById('div6').style.display = 'none';
 							}
-
 							function show12() {
 								document.getElementById('div6').style.display = 'block';
 							}
@@ -315,9 +300,16 @@
 									var myTable = document.getElementById("familytable");
 									var currentIndex = myTable.rows.length;
 									var currentRow = myTable.insertRow(-1);
-
 									var sxesiBox = document.createElement("input");
 									sxesiBox.setAttribute("name", "sxesi[]");
+<<<<<<< HEAD
+									var onomaBox = document.createElement("input");
+									onomaBox.setAttribute("name", "onoma[]");
+									var ilikiaBox = document.createElement("input");
+									ilikiaBox.setAttribute("name", "ilikia[]");
+									var poiotitasxesisBox = document.createElement("input");
+									poiotitasxesisBox.setAttribute("name", "poiotitasxesis[]");
+=======
 
 									var onomaBox = document.createElement("input");
 									onomaBox.setAttribute("name", "onoma[]");
@@ -328,21 +320,18 @@
 									var poiotitasxesisBox = document.createElement("input");
 									poiotitasxesisBox.setAttribute("name", "poiotitasxesis[]");
 
+>>>>>>> e6f9475a8c98327323641c664051a28d3a2d1cab
 									var addRowBox = document.createElement("input");
 									addRowBox.setAttribute("type", "button");
 									addRowBox.setAttribute("value", "Add");
 									addRowBox.setAttribute("onclick", "addField();");
 									addRowBox.setAttribute("class", "button");
-
 									var currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(sxesiBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(onomaBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(ilikiaBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(poiotitasxesisBox);
 								}
@@ -600,40 +589,29 @@
 									var myTable = document.getElementById("myTable");
 									var currentIndex = myTable.rows.length;
 									var currentRow = myTable.insertRow(-1);
-
 									var farmakaBox = document.createElement("input");
 									farmakaBox.setAttribute("name", "farmaka" + currentIndex);
-
 									var imerominiaBox = document.createElement("input");
 									imerominiaBox.setAttribute("name", "imerominia" + currentIndex);
-
 									var diarkiaBox = document.createElement("input");
 									diarkiaBox.setAttribute("name", "diarkia" + currentIndex);
-
 									var therapeutisBox = document.createElement("input");
 									therapeutisBox.setAttribute("name", "therapeutis" + currentIndex);
-
 									var logostherapiasBox = document.createElement("input");
 									logostherapiasBox.setAttribute("name", "logostherapias" + currentIndex);
-
 									var addRowBox = document.createElement("input");
 									addRowBox.setAttribute("type", "button");
 									addRowBox.setAttribute("value", "Add");
 									addRowBox.setAttribute("onclick", "addField();");
 									addRowBox.setAttribute("class", "button");
-
 									var currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(farmakaBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(imerominiaBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(diarkiaBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(therapeutisBox);
-
 									currentCell = currentRow.insertCell(-1);
 									currentCell.appendChild(logostherapiasBox);
 								}
@@ -945,20 +923,11 @@
 </html>
 
 <?php
-
-if (isset($_POST['submit'])){
-$request = new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/form6.php');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'cache-control' => 'no-cache',
-  'content-type' => 'application/x-www-form-urlencoded',
-  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
-));
-
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array(
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form6.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
   'patientID' => $_POST['id'],
   'feelaboutstudies' => $_POST['feel'],
   'jobtime' => $_POST['timeworking'],
@@ -1019,16 +988,23 @@ $request->setPostFields(array(
   'otherseriousinfo' => $_POST[''],
   'reasonsfortherapy' => $_POST['']
 ));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
+if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
 }
-
-}
-
 ?>
-
