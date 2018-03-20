@@ -352,7 +352,9 @@ $postfields=http_build_query(array(
   'previoustherapy' => $_POST['previous'],
   'previoustherapist' => $_POST['previoustherapist'],
   'nowtherapist' => $_POST['otherservices'],
-  'comnowtherapistb' => $_POST['contactothers']
+  'comnowtherapistb' => $_POST['contactothers'],
+  'job' => $_POST['job'],
+  'municipality' => $_POST['dimos']
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
