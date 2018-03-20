@@ -207,33 +207,33 @@
 </html>
 
 <?php
-
-if (isset($_POST['submit'])){
-$request = new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/form17.php');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'cache-control' => 'no-cache',
-  'content-type' => 'application/x-www-form-urlencoded',
-  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form17.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+'id' => $_POST['id'],
+'dateof' => $_POST['date'],
+'people' => $_POST['people'],
+'description' => $_POST['description'],
+'affirmation' => $_POST['affirmation']
 ));
-
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array(
-  'id' => $_POST['id'],
-  'dateof' => $_POST['date'],
-  'people' => $_POST['people'],
-  'description' => $_POST['description'],
-  'affirmation' => $_POST['affirmation']
-));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
 }
 
 }
+?>
