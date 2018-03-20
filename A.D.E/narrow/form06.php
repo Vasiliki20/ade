@@ -190,6 +190,7 @@
 						</script>
 
 						<div class="form-group">
+							<input type="hidden" name="working" />
 							<label for="working"><strong>2. Εργάζεσαι κάπου;</strong></label>
 							<br>
 							<input type="radio" name="working" value="no" onclick="show1()">
@@ -209,6 +210,7 @@
 							<label for="duties">Καθήκοντα:</label>
 							<input type="text" class="form-control" id="duties" name="duties">
 							<br>
+							<input type="hidden" name="stress" />
 							<label for="stress">Εργασιακό άγχος:</label>
 							<br>
 							<input type="radio" name="stress" value="low">
@@ -226,6 +228,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="relationship" />
 							<label for="relationship"><strong>3. Βρίσκεσται αυτή τη περίοδο σε κάποια σχέση;</strong></label>
 							<br>
 							<input type="radio" name="relationship" value="no" onclick="show3()">
@@ -254,6 +257,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="living" />
 							<label for="living"><strong>5. Συνθήκες διαβίωσης. Με ποιο διαμένεις/συγκατοικείς αυτή τη στιγμή;</strong></label>
 							<br>
 							<input type="radio" name="living" value="alone">
@@ -295,21 +299,21 @@
 									var currentRow = myTable.insertRow(-1);
 									var sxesiBox = document.createElement("input");
 									sxesiBox.setAttribute("name", "sxesi[]");
-<<<<<<< HEAD
+
 									var onomaBox = document.createElement("input");
 									onomaBox.setAttribute("name", "onoma[]");
 									var ilikiaBox = document.createElement("input");
 									ilikiaBox.setAttribute("name", "ilikia[]");
 									var poiotitasxesisBox = document.createElement("input");
 									poiotitasxesisBox.setAttribute("name", "poiotitasxesis[]");
-=======
+
 									var onomaBox = document.createElement("input");
 									onomaBox.setAttribute("name", "onoma[]");
 									var ilikiaBox = document.createElement("input");
 									ilikiaBox.setAttribute("name", "ilikia[]");
 									var poiotitasxesisBox = document.createElement("input");
 									poiotitasxesisBox.setAttribute("name", "poiotitasxesis[]");
->>>>>>> e6f9475a8c98327323641c664051a28d3a2d1cab
+
 									var addRowBox = document.createElement("input");
 									addRowBox.setAttribute("type", "button");
 									addRowBox.setAttribute("value", "Add");
@@ -408,6 +412,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="financehelp" />
 							<label for="financehelp"><strong>9. Λαμβάνετε οποιοδήποτε οικονομικό βοήθημα;</strong></label>
 							<br>
 							<input type="radio" name="financehelp" value="no" onclick="show5()">
@@ -423,6 +428,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="legalissues" />
 							<label for="legal"><strong>10. Νομικά θέματα:</strong></label>
 							<br>
 							<label for="legalissues">Έχεις ποτέ καταδικαστεί; </label>
@@ -518,6 +524,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="otherdoc" />
 							<label for="otherdoc"><strong>13. Έχεις κάποιο τακτικό ιατρό που σε παρακολουθεί;
 								<br>
 								Αυτή τη στιγμή συνεργάζεσαι με κάποιο γιατρό/ψυχίατρο ή άλλο ειδικό; </strong></label>
@@ -536,6 +543,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="meds" />
 							<label for="meds"><strong>14. Παίρνεις οποιαδήποτε φάρμακα; </strong></label>
 							<br>
 							<input type="radio" name="meds" value="no" onclick="show11()">
@@ -645,6 +653,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="smoking" />
 							<label for="smoking"><strong>16. Καπνίζεις τσιγάρα; </strong></label>
 							<br>
 							<input type="radio" name="smoking" value="smokingno">
@@ -658,6 +667,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="alcohol" />
 							<label for="alcohol"><strong>17. Καταναλώνεις αλκοόλ; </strong></label>
 							<br>
 							<input type="radio" name="alcohol" value="alcoholno">
@@ -671,6 +681,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="illigal" />
 							<label for="illegal"><strong>18. Έχεις οποιαδήποτε επαφή ή εμπειρία με άλλες (παράνομες) ουσίες; </strong></label>
 							<br>
 							<input type="radio" name="illegal" value="illegalno">
@@ -684,6 +695,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="mar" />
 							<label for="mar"><strong>19. Τις τελευταίες δύο εβδομάδες πόσες φορές έχεις καπνίσει μαριχουάνα (κάνναβη); </strong></label>
 							<br>
 							<input type="radio" name="mar" value="none">
@@ -707,6 +719,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="games" />
 							<label for="games"><strong>20. Τους τελευταίους 6 μήνες έχεις παίξει τυχερά παιχνίδια; </strong></label>
 							<br>
 							<input type="radio" name="games" value="gamesno">
@@ -720,6 +733,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="bet" />
 							<label for="games"><strong>21. Έχεις νιώσει ποτέ την ανάγκη να στοιχηματίσεις όλο και περισσότερα χρήματα; </strong></label>
 							<br>
 							<input type="radio" name="bet" value="gamesno">
@@ -730,6 +744,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="talked" />
 							<label for="talked"><strong>22. Έχεις μιλήσει ποτέ με κοντινά σου άτομα σχετικά με το πόσο παίζεις τυχερά παιχνίδια; </strong></label>
 							<br>
 							<input type="radio" name="talked" value="talkedno">
@@ -816,6 +831,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="diagnosi" />
 							<label for="diagnosi"><strong>26. Σου έχει δοθεί ποτέ κάποια διάγνωση για την ψυχική σου υγεία από κάποιο επαγγελματία; </strong></label>
 							<br>
 							<input type="radio" name="diagnosi" value="diagnosino">
@@ -829,6 +845,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="anapiria" />
 							<label for="anapiria"><strong>27. Στο Πανεπιστήμιο έχεις δηλώσει ότι έχεις κάποια αναπηρία παρουσιάζοντας κάποια σχετικά έγγραφα και τη διάγνωση; </strong></label>
 							<br>
 							<input type="radio" name="anapiria" value="anapiriano">
@@ -842,6 +859,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="hurtself" />
 							<label for="hurtself"><strong>28. Είχες ποτέ σκέψεις, έκανες δηλώσεις ή αποπειράθηκες να βλάψεις στον εαυτό σου; </strong></label>
 							<br>
 							<input type="radio" name="hurtself" value="hurtselfno">
@@ -852,6 +870,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="hurtothers" />
 							<label for="hurtothers"><strong>29. Είχες ποτέ σκέψεις, έκανες δηλώσεις ή αποπειράθηκες να βλάψεις κάποιο άλλο άτομο; </strong></label>
 							<br>
 							<input type="radio" name="hurtothers" value="hurtothersno">
@@ -862,6 +881,7 @@
 						</div>
 
 						<div class="form-group">
+							<input type="hidden" name="hurtothers1" />
 							<label for="hurtsm"><strong>30. Έχεις πρόσφατα τραυματιστεί ή απειληθεί από κάποιο άτομο; </strong></label>
 							<br>
 							<input type="radio" name="hurtothers1" value="hurtsmno">
