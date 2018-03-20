@@ -300,37 +300,37 @@
 </html>
 
 <?php
-
-if (isset($_POST['submit'])){
-$request = new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/form14.php');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'cache-control' => 'no-cache',
-  'content-type' => 'application/x-www-form-urlencoded',
-  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
-));
-
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array(
-  'id' => $_POST['id'],
-  'dateended' => $_POST['dateend'],
-  'whyterminate' => $_POST['reasons'],
-  'infoterminate' => $_POST['brief'],
-  'therapyend' => $_POST['more'],
-  'epsychologicalfunc' => $_POST['epsychologicalfunc'],
-  'eprofessionacademicfunc' => $_POST['eprofessionacademicfunc'],
-  'esocialfunc' => $_POST['esocialfunc'],
-  'eautofix' => $_POST['eautofix']
-));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-
-}
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form14.php";
+$method='POST';
+	if(isset($_POST['submit'])){
+		$postfields=http_build_query(array(
+		'id' => $_POST['id'],
+		'dateended' => $_POST['dateend'],
+		'whyterminate' => $_POST['reasons'],
+		'infoterminate' => $_POST['brief'],
+		'therapyend' => $_POST['more'],
+		'epsychologicalfunc' => $_POST['epsychologicalfunc'],
+		'eprofessionacademicfunc' => $_POST['eprofessionacademicfunc'],
+		'esocialfunc' => $_POST['esocialfunc'],
+		'eautofix' => $_POST['eautofix']
+		));
+		if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+		}else{
+		$response=0;
+		}
+		while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response = request($url, $method, $postfields, $tok);
+		}
+	
+	}
+	?>
