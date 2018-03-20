@@ -93,18 +93,11 @@
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
 			<a href="form02.php"><b>Δήλωση στοιχείων για ενήλικες</b></a>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
-			<a href="form04.php"><b>Ενημερομένη συγκατάθεση</b></a>
-			<a href="form05.php"><b>Κανόνες</b></a>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<a href="form08.php"><b>Φόρμα καταγραφής επαφών</b></a>
-			<a href="form09.php"><b>Σημειώσης συνάντησεις</b></a>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
-			<a href="form11.php"><b>Έκθεση ενδιάμεσης αξιολόγησης</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
-			<a href="form13.php"><b>Συμφωνιτικό για την ασφάλεια</b></a>
 			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
-			<a href="form16.php"><b>Αναφορά δραστηριότητηας</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
 		</div>
 		<div class="main">
@@ -202,21 +195,22 @@
 							<br>
 						</div>
 						<div class="form-group">
+							<input type="radio" name="timeofexpire" />
 							<label for="q18"><strong>9. Η πιο πάνω εξουσιοδότηση θα ισχύει για: (επιλέξτε ό,τι ισχύει) </strong></label>
 							<br>
-							<input type="checkbox" name="timeofexpire" class="form-group" id="q18a">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18a">
 							μόνο μια φορά
 							<br>
-							<input type="checkbox" name="timeofexpire" class="form-group" id="q18b">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18b">
 							3 μήνες
 							<br>
-							<input type="checkbox" name="timeofexpire" class="form-group" id="q18c">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18c">
 							6 μήνες
 							<br>
-							<input type="checkbox" name="timeofexpire" class="form-group" id="q18d">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18d">
 							1 χρόνο
 							<br>
-							<input type="checkbox" name="timeofexpire" class="form-group" id="q18e">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18e">
 							άλλο, διευκρινίστε:
 							<br>
 							<input type="text" name="timeofexpire" class="form-group" id="q18fmore">
