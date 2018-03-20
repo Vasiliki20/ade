@@ -23,7 +23,6 @@
 			input {
 				font-size: 13px;
 			}
-
 			table, th, td {
 				border: 1px solid black;
 				border-collapse: collapse;
@@ -43,7 +42,6 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-
 			.sidenav a {
 				padding: 6px 6px 6px 6px;
 				text-decoration: none;
@@ -51,14 +49,12 @@
 				color: #818181;
 				display: block;
 			}
-
 			.sidenav a:hover {
 				color: #f1f1f1;
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
 			}
-
 			@media screen and (max-height: 450px) {
 				.sidenav {
 					padding-top: 15px;
@@ -67,7 +63,6 @@
 					font-size: 18px;
 				}
 			}
-
 			.form-group {
 				font-size: 13px;
 			}
@@ -384,9 +379,10 @@
 		</div>
 	</body>
 </html>
+
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form7.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form6.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
@@ -411,7 +407,7 @@ $postfields=http_build_query(array(
   'signed' => $_POST['signed'],
   'datecompleted' => $_POST['datecompleted']
 ));
-	if(isset($_COOKIE['token'])){
+if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{
 		$response=0;
@@ -431,4 +427,3 @@ $postfields=http_build_query(array(
 	
 }
 ?>
-
