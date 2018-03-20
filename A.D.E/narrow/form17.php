@@ -98,18 +98,11 @@
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
 			<a href="form02.php"><b>Δήλωση στοιχείων για ενήλικες</b></a>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
-			<a href="form04.php"><b>Ενημερομένη συγκατάθεση</b></a>
-			<a href="form05.php"><b>Κανόνες</b></a>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<a href="form08.php"><b>Φόρμα καταγραφής επαφών</b></a>
-			<a href="form09.php"><b>Σημειώσης συνάντησεις</b></a>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
-			<a href="form11.php"><b>Έκθεση ενδιάμεσης αξιολόγησης</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
-			<a href="form13.php"><b>Συμφωνιτικό για την ασφάλεια</b></a>
 			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
-			<a href="form16.php"><b>Αναφορά δραστηριότητηας</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
 		</div>
 		<div class="main">
@@ -149,19 +142,16 @@
 					<form action="" method="post">
 						<div class="row">
 							<div class="column">
-								<label for="q1">1.  Ονοματεπώνυμο παραπονούμενου:</label>
-								<input for="q1" class="form-control" type="text" id="q1" name="name" placeholder="">
-								<br>
-								<label for="q2">2. Ημερομηνία που συνέβη το/α περιστατικό/α (αν αφορά συγκεκριμένα περιστατικά)</label>
+								<label for="q2">1. Ημερομηνία που συνέβη το/α περιστατικό/α (αν αφορά συγκεκριμένα περιστατικά)</label>
 								<input for ="q2" class="form-control" type="date" name="date" id="q2">
 								<br>
-								<label for="q3">3. Άτομα τα οποία εμπλέκονται (όπου ισχύει) :</label>
+								<label for="q3">2. Άτομα τα οποία εμπλέκονται (όπου ισχύει) :</label>
 								<input type="text" class="form-control" name="q3" name="people" id="q3">
 								<br>
-								<label for="q4">4. Περιγραφή του παραπόνου/των παραπόνων και σχετικά συμβάντα:</label>
+								<label for="q4">3. Περιγραφή του παραπόνου/των παραπόνων και σχετικά συμβάντα:</label>
 								<input type="text" class="form-control" name="description" id="q4">
 								<br>
-								<label for="q5">5. Υπεύθυνη δήλωση </label>
+								<label for="q5">4. Υπεύθυνη δήλωση </label>
 								<input type="text" class="form-control" name="affirmation" id="q5">
 								<br>
 								<button type="submit" class="btn btn-default" name="submit">
