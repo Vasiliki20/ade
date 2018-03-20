@@ -266,7 +266,7 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form10.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
