@@ -40,7 +40,6 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-
 			.sidenav a {
 				padding: 6px 6px 6px 6px;
 				text-decoration: none;
@@ -48,14 +47,12 @@
 				color: #818181;
 				display: block;
 			}
-
 			.sidenav a:hover {
 				color: #f1f1f1;
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
 			}
-
 			@media screen and (max-height: 450px) {
 				.sidenav {
 					padding-top: 15px;
@@ -87,18 +84,11 @@
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
 			<a href="form02.php"><b>Δήλωση στοιχείων για ενήλικες</b></a>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
-			<a href="form04.php"><b>Ενημερομένη συγκατάθεση</b></a>
-			<a href="form05.php"><b>Κανόνες</b></a>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<a href="form08.php"><b>Φόρμα καταγραφής επαφών</b></a>
-			<a href="form09.php"><b>Σημειώσης συνάντησεις</b></a>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
-			<a href="form11.php"><b>Έκθεση ενδιάμεσης αξιολόγησης</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
-			<a href="form13.php"><b>Συμφωνιτικό για την ασφάλεια</b></a>
 			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
-			<a href="form16.php"><b>Αναφορά δραστηριότητηας</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
 		</div>
 		<div class="main">
@@ -144,6 +134,7 @@
 							<input type="number" class="form-control" id="age" placeholder="" name="age">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="sex" />
 							<label for="sex"><b>3. Φύλο:</b></label>
 							<input type="radio" name="sex" value="male">
 							A
@@ -171,6 +162,7 @@
 							<input type="number" class="form-control" id="tk" placeholder="" name="tk">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="contact" />
 							<label for="contact"><b>9. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>
 							<input type="radio" name="contact" value="email">
 							Email
@@ -198,6 +190,7 @@
 							<h5><b>Γ. ΠΡΟΣΩΠΙΚΑ ΣΤΟΙΧΕΙΑ-ΙΣΤΟΡΙΚΟ</b></h5>
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="family" />
 							<label for="family"><b>13. Οικογενειακή Κατάσταση:</b></label>
 							<br>
 							<input type="radio" name="family" value="anipantros">
@@ -223,6 +216,7 @@
 							<input type="text" class="form-control" id="family" name="family">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="previous" />
 							<label for="previous"><b>14. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="previous" value="oxi">
@@ -237,6 +231,7 @@
 							<input type="text" class="form-control" id="previous" name="previous">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="currentlystaying" />
 							<label for="currentlystaying"><b>15. Αυτή τη στιγμή διαμένεται:</b></label>
 							<br>
 							<input type="radio" name="currentlystaying" value="stayingalone">
@@ -254,6 +249,7 @@
 							<input type="text" class="form-control" id="currentlystaying" name="currentlystaying">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="referred" />
 							<label for="referred"><b>16. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
 							<br>
 							<input type="radio" name="referred" value="no">
@@ -265,6 +261,7 @@
 							<input type="text" class="form-control" id="referred" name="referred">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="otherservices" />
 							<label for="otherservices"><b>17. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="otherservices" value="no">
@@ -274,6 +271,7 @@
 							Ναι (διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="otherservices" name="otherservices">
+							<input type="hidden" name="contactothers" />
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
 							<br>
 							<input type="radio" name="contactothers" value="no">
