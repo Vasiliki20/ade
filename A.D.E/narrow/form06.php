@@ -945,90 +945,87 @@
 </html>
 
 <?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$method='POST';
+if(isset($_POST['submit'])){
+	$postfields=http_build_query(array(
+		'patientID' => $_POST['id'],
+		'feelaboutstudies' => $_POST['feel'],
+		'jobtime' => $_POST['timeworking'],
+		'jobdutys' => $_POST['duties'],
+		'jobstress' => $_POST['stress'],
+		'jobprevious' => $_POST['previouswork'],
+		'relationshipin' => $_POST['relationship'],
+		'relationshipinfo' => $_POST['relationshipinfo'],
+		'relationshipname' => $_POST['namerel'],
+		'relationshipjob' => $_POST['workrel'],
+		'children' => $_POST['kids'],
+		'staywith' => $_POST['living'],
+		'staydificulties' => $_POST['livingmore'],
+		'familysynthesis' => $_POST['enviromentmore'],
+		'support' => $_POST['support'],
+		'economicstatus' => $_POST['finance'],
+		'economichelp' => $_POST['financehelp'],
+		'economichelp1' => $_POST['financehelpyes'],
+		'legalissues' => $_POST['legalissues'],
+		'legalissues1' => $_POST['legalissuesyes'],
+		'healthissues' => $_POST['healthproblem'],
+		'healthconsernes' => $_POST['concerns'],
+		'doctor' => $_POST['otherdoc'],
+		'doctorcontacts' => $_POST['otherdocyes'],
+		'medicines' => $_POST['meds'],
+		'medicines1' => $_POST['r1'],
+		'generalhealth' => $_POST['care'],
+		'smoking' => $_POST['smoking'],
+		'smoking1' => $_POST['smokingyes'],
+		'alcohol' => $_POST['alcohol'],
+		'alcohol1' => $_POST['alcoholyes'],
+		'drugs' => $_POST['illigal'],
+		'drugs1' => $_POST['illigalyes'],
+		'marihuanafrequency' => $_POST['mar'],
+		'luckygames' => $_POST['games'],
+		'luckygames1' => $_POST['gamesyes'],
+		'betmore' => $_POST['bet'],
+		'childlife' => $_POST['descr'],
+		'childlifeproblems' => $_POST['problems'],
+		'militarylife' => $_POST['army'],
+		'familyproblems' => $_POST['familyissues'],
+		'trauma' => $_POST['trauma'],
+		'psychosupport' => $_POST['previous'],
+		'psychosupport1' => $_POST['alloop'],
+		'psychodiagnosis' => $_POST['diagnosi'],
+		'psychodiagnosis1' => $_POST['diagnosi1'],
+		'disability' => $_POST['anapiria'],
+		'disability1' => $_POST['anapiria1'],
+		
+		'suicideprothesis' => $_POST['hurtself'],
+		'suicideprothesis1' => $_POST['hurtself'],
+		'violenceprothesis' => $_POST['hurtothers'],
+		'violenceprothesis1' => $_POST['hurtothers'],
+		'violence' => $_POST['hurtothers1'],
+		'violence1' => $_POST['hurtothers1'],
+		
+		'feelfortherapy' => $_POST[''],
+		'otherseriousinfo' => $_POST[''],
+		'reasonsfortherapy' => $_POST['']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+		document.cookie='token=<?= $tok ?>';</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response = request($url, $method, $postfields, $tok);
+	}
 
-if (isset($_POST['submit'])){
-$request = new HttpRequest();
-$request->setUrl('http://localhost/mhcserver/post/form6.php');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'cache-control' => 'no-cache',
-  'content-type' => 'application/x-www-form-urlencoded',
-  'authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTg3LCJleHAiOjE1MTgyNzI4NzV9.J90clNUiOoVLnqc9ND_mivBdf7mtxtL6BoE3yEYpQ2c'
-));
-
-$request->setContentType('application/x-www-form-urlencoded');
-$request->setPostFields(array(
-  'patientID' => $_POST['id'],
-  'feelaboutstudies' => $_POST['feel'],
-  'jobtime' => $_POST['timeworking'],
-  'jobdutys' => $_POST['duties'],
-  'jobstress' => $_POST['stress'],
-  'jobprevious' => $_POST['previouswork'],
-  'relationshipin' => $_POST['relationship'],
-  'relationshipinfo' => $_POST['relationshipinfo'],
-  'relationshipname' => $_POST['namerel'],
-  'relationshipjob' => $_POST['workrel'],
-  'children' => $_POST['kids'],
-  'staywith' => $_POST['living'],
-  'staydificulties' => $_POST['livingmore'], 
-  'familysynthesis' => $_POST['enviromentmore'],
-  'support' => $_POST['support'],
-  'economicstatus' => $_POST['finance'],
-  'economichelp' => $_POST['financehelp'],
-  'economichelp1' => $_POST['financehelpyes'],
-  'legalissues' => $_POST['legalissues'],
-  'legalissues1' => $_POST['legalissuesyes'], 
-  'healthissues' => $_POST['healthproblem'],
-  'healthconsernes' => $_POST['concerns'],
-  'doctor' => $_POST['otherdoc'],
-  'doctorcontacts' => $_POST['otherdocyes'],
-  'medicines' => $_POST['meds'],
-  'medicines1' => $_POST['r1'],
-  'generalhealth' => $_POST['care'], 
-  'smoking' => $_POST['smoking'],
-  'smoking1' => $_POST['smokingyes'],
-  'alcohol' => $_POST['alcohol'],
-  'alcohol1' => $_POST['alcoholyes'],
-  'drugs' => $_POST['illigal'],
-  'drugs1' => $_POST['illigalyes'],
-  'marihuanafrequency' => $_POST['mar'], 
-  'luckygames' => $_POST['games'],
-  'luckygames1' => $_POST['gamesyes'],
-  'betmore' => $_POST['bet'],
-  'childlife' => $_POST['descr'],
-  'childlifeproblems' => $_POST['problems'],
-  'militarylife' => $_POST['army'],
-  'familyproblems' => $_POST['familyissues'], 
-  'trauma' => $_POST['trauma'],
-  'psychosupport' => $_POST['previous'],
-  'psychosupport1' => $_POST['alloop'],
-  'psychodiagnosis' => $_POST['diagnosi'],
-  'psychodiagnosis1' => $_POST['diagnosi1'],
-  'disability' => $_POST['anapiria'],
-  'disability1' => $_POST['anapiria1'], 
-  
-  'suicideprothesis' => $_POST['hurtself'],
-  'suicideprothesis1' => $_POST['hurtself'],
-  'violenceprothesis' => $_POST['hurtothers'],
-  'violenceprothesis1' => $_POST['hurtothers'],
-  'violence' => $_POST['hurtothers1'], 
-  'violence1' => $_POST['hurtothers1'],
-  
-  'feelfortherapy' => $_POST[''],
-  'otherseriousinfo' => $_POST[''],
-  'reasonsfortherapy' => $_POST['']
-));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
 }
-
-}
-
 ?>
-
