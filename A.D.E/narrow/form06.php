@@ -890,6 +890,39 @@
 							<input type="radio" name="hurtothers1" value="hurtsmyes">
 							Ναι
 						</div>
+						
+						<div align="left">
+							<h5>Ζ. ΠΑΡΟΥΣΙΑΖΟΜΕΝΑ ΖΗΤΗΜΑΤΑ </h5>
+						</div>
+						
+						<div class="form-group">
+							<input type="hidden" name="referredby" />
+							<label for="referredby"><strong>31. Σας παρέπεμψε κάποιος στο ΚΕΨΥ</strong></label>
+							<br>
+							<input type="radio" name="referredby" value="referredno">
+							Όχι
+							<br>
+							<input type="radio" name="referredby" value="referredyes">
+							Ναι
+							<br>
+							<label for="referredwho">Εάν ναι ποιος;</label>
+							<input type="text" class="form-group" id="referredby" name="referredby">
+						</div>
+						
+						<div class="form-group">
+							<label for="feelfortherapy"><strong>32. Πως νίωθεις για την επίσκεψη σου εδώ; (Είσαι εδώ με τη θέληση σου;)</strong></label>
+							<input type="text" class="form-control" id="feelfortherapy" name="feelfortherapy">
+						</div> 
+						
+						<div class="form-group">
+							<label for="otherseriousinfo"><strong>33. Υπάρχουν οποιεσδήποτε άλλες πληροφορίες που νομίζεις ότι είναι σημαντικό να γνωρίζουμε;</strong></label>
+							<input type="text" class="form-control" id="otherseriousinfo" name="otherseriousinfo">
+						</div> 
+						
+						<div class="form-group">
+							<label for="reasonsfortherapy"><strong>34. Παρακαλώ ανάφερε του λόγους/σκέψεις που σε έκαναν να αποταθείς στο Κέντρο Ψυχικής Υγείας (ΚΕΨΥ);<br> Τι επιθημείς να έχεις πετύχει ολοκληρώνοντας τη θεραπεία;</strong></label>
+							<input type="text" class="form-control" id="reasonsfortherapy" name="reasonsfortherapy">
+						</div> 
 						<button type="submit" class="btn btn-default" name="submit">
 							Submit
 						</button>
@@ -939,6 +972,7 @@ if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
   'patientID' => $_POST['id'],
   'feelaboutstudies' => $_POST['feel'],
+  'job' => $_POST['working'],
   'jobtime' => $_POST['timeworking'],
   'jobdutys' => $_POST['duties'],
   'jobstress' => $_POST['stress'],
@@ -993,9 +1027,9 @@ $postfields=http_build_query(array(
   'violence' => $_POST['hurtothers1'], 
   'violence1' => $_POST['hurtothers1'],
   
-  'feelfortherapy' => $_POST[''],
-  'otherseriousinfo' => $_POST[''],
-  'reasonsfortherapy' => $_POST['']
+  'feelfortherapy' => $_POST['feelfortherapy'],
+  'otherseriousinfo' => $_POST['otherseriousinfo'],
+  'reasonsfortherapy' => $_POST['reasonsfortherapy']
 ));
 if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
