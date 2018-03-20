@@ -40,7 +40,6 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-
 			.sidenav a {
 				padding: 6px 6px 6px 6px;
 				text-decoration: none;
@@ -48,14 +47,12 @@
 				color: #818181;
 				display: block;
 			}
-
 			.sidenav a:hover {
 				color: #f1f1f1;
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
 			}
-
 			@media screen and (max-height: 450px) {
 				.sidenav {
 					padding-top: 15px;
@@ -64,7 +61,6 @@
 					font-size: 18px;
 				}
 			}
-
 			div {
 				padding: 10px;
 			}
@@ -230,7 +226,7 @@
 							Μέλος του διοικητικού
 							<br>
 							<input type="radio" name="belong" value="politis">
-							Απλός πολίτης
+							Άλλο
 						</div>
 				</div>
 
@@ -310,4 +306,3 @@ $response = request($url, $method, $postfields, $tok);
 }
 }
 ?>
-
