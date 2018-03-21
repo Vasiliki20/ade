@@ -52,6 +52,11 @@
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
+				display: inline-block;
+				position: relative;
+				width: 90%;
+				background-size: contain;
+			}
 			}
 			@media screen and (max-height: 450px) {
 				.sidenav {
@@ -62,7 +67,7 @@
 				}
 			}
 			div {
-				padding: 10px;
+				padding: 5px;
 			}
 		</style>
 		<!-- Animate.css -->
@@ -97,15 +102,13 @@
 					<div class="container">
 						<nav class="navbar navbar-default">
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
 									</div>
-								</div>
-								<div class="col-md-9 main-nav">
-									<ul class="nav text-right">
+									<ul class="nav text-left">
 										<li>
-											<a href="contact.html"><span>Contact Us</span></a>
+											<a href="contact.html">Contact Us</a>
 										</li>
 										<li>
 											<a href="#">Logout</a>
@@ -370,7 +373,7 @@ $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>
 <script>
-		document.cookie='token=<?= $tok ?>';</script>
+			document.cookie='token=<?= $tok ?>';</script>
 <?php
 //$GLOBALS['curtoken']=giveToken();
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
