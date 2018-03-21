@@ -136,10 +136,12 @@
 						<div class="form-group">
 							<input type="hidden" name="sex" />
 							<label for="sex"><b>3. Φύλο:</b></label>
+							<br>
 							<input type="radio" name="sex" value="male">
-							A
+							Άρρεν
+							<br>
 							<input type="radio" name="sex" value="female">
-							Θ
+							Θύλη
 						</div>
 						<div class="form-group">
 							<label for="citizenship"><b>4. Υπηκοότητα:</b></label>
