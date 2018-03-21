@@ -167,6 +167,7 @@
 							<br>
 							<input type="radio" name="contact" value="email">
 							Email
+							<br>
 							<input type="radio" name="contact" value="phone">
 							Τηλέφωνο
 						</div>
@@ -185,18 +186,23 @@
 						<div class="form-group">
 							<input type="hidden" name="level" />
 							<label for="level"><b>12. Επίπεδο Σπουδών:</b></label>
+							<br>
 							<input type="radio" name="level" value="proptixiako">
 							Προπτυχιακό
+							<br>
 							<input type="radio" name="level" value="metaptixiako">
 							Μεταπτυχιακό
+							<br>
 							<input type="radio" name="level" value="didaktoriko">
 							Διδακτορικό
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="erasmus" />
 							<label for="erasmus"><b>13. Φοιτητής Erasmus:</b></label>
+							<br>
 							<input type="radio" name="erasmus" value="yes">
 							Ναι
+							<br>
 							<input type="radio" name="erasmus" value="no">
 							Όχι
 						</div>
