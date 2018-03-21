@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -52,6 +51,10 @@
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
+				display: inline-block;
+				position: relative;
+				width: 90%;
+				background-size: contain;
 			}
 			@media screen and (max-height: 450px) {
 				.sidenav {
@@ -62,7 +65,7 @@
 				}
 			}
 			div {
-				padding: 10px;
+				padding: 5px;
 			}
 		</style>
 		<!-- Animate.css -->
@@ -102,7 +105,7 @@
 										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
 									</div>
 								</div>
-								<div class="col-md-8 main-nav">
+								<div class="col-md-8 main-nav" style="width:80%">
 									<ul class="nav text-right">
 										<li>
 											<a href="contact.html">Contact Us</a>
@@ -144,14 +147,15 @@
 						<div class="form-group">
 							<label for="available"><b>Μέρες και ώρες που είστε διαθέσιμοι για συνάντηση εντός του ωραρίου του ΚΕΨΥ:</b></label>
 							<div>
-							<input type="button" value="Add another!" onClick="addInput('dynamicInput');">
 							<div id="dynamicInput"><div><select id="daysselect" name="myInputs[]">
 										<option value="1">Δευτέρα</option>
 										<option value="2" selected="selected">Τρίτη</option>
 										<option value="3">Τετάρτη</option>
 										<option value="4">Πέμπτη</option>
 										<option value="5">Παρασκευή</option>
-									</select><input type="time" id="timeav" name="myInputs1[]"  placeholder="time"><div></div> 
+									</select>
+							<input type="time" id="timeav" name="myInputs1[]"  placeholder="time"> 
+							<input type="button" value="Add another!" onClick="addInput('dynamicInput');">
 									
 							
 							</div>
@@ -291,7 +295,7 @@ $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>
 <script>
-	document.cookie='token=<?= $tok ?>';</script>
+			document.cookie='token=<?= $tok ?>';</script>
 <?php
 //$GLOBALS['curtoken']=giveToken();
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
