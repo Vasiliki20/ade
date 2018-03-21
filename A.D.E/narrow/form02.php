@@ -322,8 +322,7 @@
 							Ναι (διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="otherservices" name="otherservices">
-						</div>
-						<div class="form-group">
+
 							<input type="hidden" name="contactothers" />
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
 							<br>
