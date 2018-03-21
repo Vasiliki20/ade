@@ -55,6 +55,10 @@
 			}
 			.main {
 				margin-left: 300px; /* Same as the width of the sidenav */
+				display: inline-block;
+				position: relative;
+				width: 90%;
+				background-size: contain;
 			}
 			@media screen and (max-height: 450px) {
 				.sidenav {
@@ -71,7 +75,7 @@
 				font-size: 13px;
 			}
 			div {
-				padding: 10px;
+				padding: 5px;
 			}
 		</style>
 		<!-- Animate.css -->
@@ -108,13 +112,11 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
 									</div>
-								</div>
-								<div class="col-md-8 main-nav">
-									<ul class="nav text-right">
+									<ul class="nav text-left">
 										<li>
-											<a href="contact.html"><span>Contact Us</span></a>
+											<a href="contact.html">Contact Us</a>
 										</li>
 										<li>
 											<a href="#">Logout</a>
@@ -186,16 +188,16 @@
 							<input type="checkbox" name="infototransfer" class="form-group" id="q17f">
 							Ψυχομετρική αξιολόγηση/τεστ, διευκρινίστε:
 							<br>
-							<input type="text" class="form-group" name="infototransfer" id="q17fmore">
+							<input type="text" class="form-control" name="infototransfer" id="q17fmore">
 							<br>
 							<input type="checkbox" class="form-group" name="infototransfer" id="q17g">
 							Άλλο, διευκρινίστε:
 							<br>
-							<input type="text" class="form-group" name="infototransfer" id="q17gmore">
+							<input type="text" class="form-control" name="infototransfer" id="q17gmore">
 							<br>
 						</div>
 						<div class="form-group">
-							<input type="radio" name="timeofexpire" />
+							<input type="hidden" name="timeofexpire" />
 							<label for="q18"><strong>9. Η πιο πάνω εξουσιοδότηση θα ισχύει για: (επιλέξτε ό,τι ισχύει) </strong></label>
 							<br>
 							<input type="radio" name="timeofexpire" class="form-group" id="q18a">
@@ -211,9 +213,9 @@
 							1 χρόνο
 							<br>
 							<input type="radio" name="timeofexpire" class="form-group" id="q18e">
-							άλλο, διευκρινίστε:
+							Άλλο, διευκρινίστε:
 							<br>
-							<input type="text" name="timeofexpire" class="form-group" id="q18fmore">
+							<input type="text" name="timeofexpire" class="form-control" id="q18fmore">
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
 							Submit
