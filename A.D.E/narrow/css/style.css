@@ -28,7 +28,7 @@ a {
 	transition: 0.5s;
 }
 a:hover {
-	text-decoration: underline !important;
+	text-decoration: none !important;
 	color: #a980cd !important;
 }
 a:focus, a:active {
@@ -111,14 +111,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+		text-decoration: none;
 }
-#fh5co-header .fh5co-navbar-brand .fh5co-logo:focus, #fh5co-header .fh5co-navbar-brand .fh5co-logo:hover {
-	text-decoration: none !important;
+#fh5co-header .fh5co-navbar-brand .fh5co-logo:hover, #fh5co-header .fh5co-navbar-brand:hover .fh5co-logo:hover {
+	text-decoration: none;
 }
 @media screen and (max-width: 992px) {
 	#fh5co-header .fh5co-navbar-brand {
 		text-align: center;
 		margin-bottom: 40px;
+		text-decoration:none;
 	}
 }
 #fh5co-header .nav {
