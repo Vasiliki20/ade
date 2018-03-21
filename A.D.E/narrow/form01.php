@@ -104,9 +104,7 @@
 									<div class="fh5co-navbar-brand">
 										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
 									</div>
-								</div>
-								<div class="col-md-8 main-nav" style="width:80%">
-									<ul class="nav text-right">
+									<ul class="nav text-left">
 										<li>
 											<a href="contact.html">Contact Us</a>
 										</li>
@@ -114,7 +112,10 @@
 											<a href="#">Logout</a>
 										</li>
 									</ul>
+									
+									
 								</div>
+								
 							</div>
 						</nav>
 					</div>
