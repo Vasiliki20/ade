@@ -124,7 +124,7 @@
 											<a href="contact.html">Contact Us</a>
 										</li>
 										<li>
-											<a href="#">Logout</a>
+											<a href="index.php">Logout</a>
 										</li>
 									</ul>
 								</div>
@@ -517,7 +517,7 @@
 							<br>
 							<input type="checkbox" name="healthproblem" value="zalades">
 							Άλλο
-							<input type="text" class="form-group" id="healthproblemmore" name="healthproblem">
+							<input type="text" class="form-control" id="healthproblemmore" name="healthproblem">
 						</div>
 
 						<div class="form-group">
@@ -665,7 +665,7 @@
 							Ναι
 							<br>
 							<label for="smoking">Αν ναι σημειώστε διάρκεια και κατανάλωση</label>
-							<input type="text" class="form-group" id="smokingyes" name="smokingyes">
+							<input type="text" class="form-control" id="smokingyes" name="smokingyes">
 						</div>
 
 						<div class="form-group">
@@ -679,7 +679,7 @@
 							Ναι
 							<br>
 							<label for="alcohol">Αν ναι σημειώστε συχνότητα και κατανάλωση</label>
-							<input type="text" class="form-group" id="alcoholyes" name="alcoholyes">
+							<input type="text" class="form-control" id="alcoholyes" name="alcoholyes">
 						</div>
 
 						<div class="form-group">
@@ -693,7 +693,7 @@
 							Ναι
 							<br>
 							<label for="illegal">Αν ναι σημειώστε διάρκεια και κατανάλωση</label>
-							<input type="text" class="form-group" id="illegalyes" name="illegalyes">
+							<input type="text" class="form-control" id="illegalyes" name="illegalyes">
 						</div>
 
 						<div class="form-group">
@@ -731,7 +731,7 @@
 							Ναι
 							<br>
 							<label for="illegal">Εάν ναι, διερευνήστε συχνότητα και ένταση (π.χ. ποσά, ερεθίσματα)</label>
-							<input type="text" class="form-group" id="gamesyes" name="gamesyes">
+							<input type="text" class="form-control" id="gamesyes" name="gamesyes">
 						</div>
 
 						<div class="form-group">
@@ -828,7 +828,7 @@
 							<input type="checkbox" name="previous" value="op7">
 							Ναι, άλλο (διευκρινίστε)
 							<br>
-							<input type="text" id="alloop" name="alloop" class="form-group">
+							<input type="text" id="alloop" name="alloop" class="form-control">
 							<br>
 						</div>
 
@@ -843,7 +843,7 @@
 							Ναι
 							<br>
 							<label for="alcohol">Εάν ναι, παρακαλώ δήλωσε τη διάγνωση που πήρες (και πότε):</label>
-							<input type="text" class="form-group" id="diagnosi" name="diagnosi1">
+							<input type="text" class="form-control" id="diagnosi" name="diagnosi1">
 						</div>
 
 						<div class="form-group">
@@ -857,7 +857,7 @@
 							Ναι
 							<br>
 							<label for="alcohol">Εάν ναι, παρακαλώ δήλωσε την αναπηρία:</label>
-							<input type="text" class="form-group" id="anapiria" name="anapiria1">
+							<input type="text" class="form-control" id="anapiria" name="anapiria1">
 						</div>
 
 						<div class="form-group">
@@ -908,7 +908,7 @@
 							Ναι
 							<br>
 							<label for="referredwho">Εάν ναι ποιος;</label>
-							<input type="text" class="form-group" id="referredby" name="referredby">
+							<input type="text" class="form-control" id="referredby" name="referredby">
 						</div>
 						
 						<div class="form-group">
