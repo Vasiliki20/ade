@@ -109,13 +109,10 @@
 											<a href="contact.html">Contact Us</a>
 										</li>
 										<li>
-											<a href="#">Logout</a>
+											<a href="index.php">Logout</a>
 										</li>
 									</ul>
-									
-									
 								</div>
-								
 							</div>
 						</nav>
 					</div>
@@ -156,7 +153,7 @@
 										<option value="5">Παρασκευή</option>
 									</select>
 							<input type="time" id="timeav" name="myInputs1[]"  placeholder="time"> 
-							<input type="button" value="Add another!" onClick="addInput('dynamicInput');">
+							<input type="button" value="Add another" onClick="addInput('dynamicInput');">
 									
 							
 							</div>
