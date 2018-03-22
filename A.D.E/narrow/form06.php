@@ -586,15 +586,15 @@
 									var currentIndex = myTable.rows.length;
 									var currentRow = myTable.insertRow(-1);
 									var farmakaBox = document.createElement("input");
-									farmakaBox.setAttribute("name", "farmaka" + currentIndex);
+									farmakaBox.setAttribute("name", "farmaka[]");
 									var imerominiaBox = document.createElement("input");
-									imerominiaBox.setAttribute("name", "imerominia" + currentIndex);
+									imerominiaBox.setAttribute("name", "imerominia[]");
 									var diarkiaBox = document.createElement("input");
-									diarkiaBox.setAttribute("name", "diarkia" + currentIndex);
+									diarkiaBox.setAttribute("name", "diarkia[]");
 									var therapeutisBox = document.createElement("input");
-									therapeutisBox.setAttribute("name", "therapeutis" + currentIndex);
+									therapeutisBox.setAttribute("name", "therapeutis[]");
 									var logostherapiasBox = document.createElement("input");
-									logostherapiasBox.setAttribute("name", "logostherapias" + currentIndex);
+									logostherapiasBox.setAttribute("name", "logostherapias[]");
 									var addRowBox = document.createElement("input");
 									addRowBox.setAttribute("type", "button");
 									addRowBox.setAttribute("value", "Add");
@@ -625,19 +625,19 @@
 								</tr>
 								<tr>
 									<td>
-									<input type="text" name="farmaka">
+									<input type="text" name="farmaka[]">
 									</td>
 									<td>
-									<input type="text" name="imeromia">
+									<input type="text" name="imerominia[]">
 									</td>
 									<td>
-									<input type="text" name="diarkia">
+									<input type="text" name="diarkia[]">
 									</td>
 									<td>
-									<input type="text" name="therapeutis">
+									<input type="text" name="therapeutis[]">
 									</td>
 									<td>
-									<input type="text" name="logostherapias">
+									<input type="text" name="logostherapias[]">
 									</td>
 								</tr>
 							</table>
@@ -680,7 +680,7 @@
 						</div>
 
 						<div class="form-group">
-							<input type="hidden" name="illigal" />
+							<input type="hidden" name="illegal" />
 							<label for="illegal"><strong>18. Έχεις οποιαδήποτε επαφή ή εμπειρία με άλλες (παράνομες) ουσίες; </strong></label>
 							<br>
 							<input type="radio" name="illegal" value="illegalno">
@@ -804,25 +804,26 @@
 							<label for="previous"><strong>Έχεις προηγουμένως λάβει (ή λαμβάνεις τώρα) υπηρεσίες ψυχολογικής στήριξης ή συμβουλευτικής;</strong></label>
 							<label for="previous"><em> (σημειώστε όσα ισχύουν) </em></label>
 							<br>
-							<input type="checkbox" name="previous" value="no">
+							<input type="hidden" name="previous">
+							<input type="radio" name="previous" value="no">
 							Όχι
 							<br>
-							<input type="checkbox" name="previous" value="op2">
+							<input type="radio" name="previous" value="op2">
 							Ναι, από το  Γραφείο Ψυχολογικής Στήριξης (ΓΨΣ) του Πανεπιστημίου Κύπρου
 							<br>
-							<input type="checkbox" name="previous" value="op3">
+							<input type="radio" name="previous" value="op3">
 							Ναι, από το  Κέντρο Ψυχικής Υγείας (ΚΕΨΥ) του Πανεπιστημίου Κύπρου
 							<br>
-							<input type="checkbox" name="previous" value="op4">
+							<input type="radio" name="previous" value="op4">
 							Ναι, από σχολικό/εκπαιδευτικό ψυχολόγο (ΥΕΨ)
 							<br>
-							<input type="checkbox" name="previous" value="op5">
+							<input type="radio" name="previous" value="op5">
 							Ναι, από εξωτερικό σύμβουλο ή ψυχολόγο
 							<br>
-							<input type="checkbox" name="previous" value="op6">
+							<input type="radio" name="previous" value="op6">
 							Ναι, από ψυχίατρο
 							<br>
-							<input type="checkbox" name="previous" value="op7">
+							<input type="radio" name="previous" value="op7">
 							Ναι, άλλο (διευκρινίστε)
 							<br>
 							<input type="text" id="alloop" name="alloop" class="form-control">
@@ -968,8 +969,17 @@ require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form6.php";
 $method='POST';
 if(isset($_POST['submit'])){
+$sxesi=base64_encode(serialize($_POST["sxesi"]));
+$onoma=base64_encode(serialize($_POST["onoma"]));
+$ilikia=base64_encode(serialize($_POST["ilikia"]));
+$poiotita=base64_encode(serialize($_POST["poiotitasxesis"]));
+$farmako=base64_encode(serialize($_POST["farmaka"]));
+$imfarm=base64_encode(serialize($_POST["imerominia"]));
+$diarkeia=base64_encode(serialize($_POST["diarkia"]));
+$therapist=base64_encode(serialize($_POST["therapeutis"]));
+$comments=base64_encode(serialize($_POST["logostherapias"]));
 $postfields=http_build_query(array(
-  'patientID' => $_POST['id'],
+  'patientID' => $_SESSION['id'],
   'feelaboutstudies' => $_POST['feel'],
   'job' => $_POST['working'],
   'jobtime' => $_POST['timeworking'],
@@ -995,18 +1005,19 @@ $postfields=http_build_query(array(
   'doctor' => $_POST['otherdoc'],
   'doctorcontacts' => $_POST['otherdocyes'],
   'medicines' => $_POST['meds'],
-  'medicines1' => $_POST['r1'],
+  'medicines1' => $_POST['meds'],
   'generalhealth' => $_POST['care'], 
   'smoking' => $_POST['smoking'],
   'smoking1' => $_POST['smokingyes'],
   'alcohol' => $_POST['alcohol'],
   'alcohol1' => $_POST['alcoholyes'],
-  'drugs' => $_POST['illigal'],
-  'drugs1' => $_POST['illigalyes'],
+  'drugs' => $_POST['illegal'],
+  'drugs1' => $_POST['illegalyes'],
   'marihuanafrequency' => $_POST['mar'], 
   'luckygames' => $_POST['games'],
   'luckygames1' => $_POST['gamesyes'],
   'betmore' => $_POST['bet'],
+  'speakaboutlucky' => $_POST['talked'],
   'childlife' => $_POST['descr'],
   'childlifeproblems' => $_POST['problems'],
   'militarylife' => $_POST['army'],
@@ -1028,14 +1039,24 @@ $postfields=http_build_query(array(
   
   'feelfortherapy' => $_POST['feelfortherapy'],
   'otherseriousinfo' => $_POST['otherseriousinfo'],
-  'reasonsfortherapy' => $_POST['reasonsfortherapy']
+  'reasonsfortherapy' => $_POST['reasonsfortherapy'],
+  
+  'relations' =>$sxesi,
+  'namerel' =>$onoma,
+  'agerel' =>$ilikia,
+  'qualityrel' =>$poiotita,
+  'namemed' =>$farmako,
+  'datemed' =>$imfarm,
+  'durationmed'=>$diarkeia,
+  'doctormed'=>$therapist,
+  'commentsmed'=>$comments
 ));
 if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{
 		$response=0;
 	}
-	while($response['status']!=1){
+	if($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
 		?>

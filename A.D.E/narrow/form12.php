@@ -263,8 +263,8 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form12.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-  'id' => $_POST['id'],
-  'typeof' => $_POST[''],
+  'id' => $_SESSION['id'],
+  'typeof' => "Transport infos",
   'nameofprof' => $_POST['nameofprof'],
   'addressofprof' => $_POST['addressofprof'],
   'cityofprof' => $_POST['cityofprof'],
@@ -273,7 +273,7 @@ $postfields=http_build_query(array(
   'purposeofinfo' => $_POST['purposeofinfo'],
   'infototransfer' => $_POST['infototransfer'],
   'timeofexpire' => $_POST['timeofexpire'],
-  'signedinfo' => $_POST['afora']
+  'signedinfo' => "YES"
 	));
 	if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);

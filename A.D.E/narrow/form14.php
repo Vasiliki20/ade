@@ -192,63 +192,63 @@
 									<th>Σοβαρή</th>
 								</tr>
 								<tr>
-									<td>α. ψυχολογική</td>
+									<td>α. ψυχολογική</td><input type="hidden" name="epsychologicalfunc">
 									<td>
-									<input type="checkbox" name="epsychologicalfunc" class="form-group" id="a1">
+									<input type="radio" name="epsychologicalfunc" class="form-group" id="a1">
 									</td>
 									<td>
-									<input type="checkbox" name="epsychologicalfunc" class="form-group" id="a2">
+									<input type="radio" name="epsychologicalfunc" class="form-group" id="a2">
 									</td>
 									<td>
-									<input type="checkbox" name="epsychologicalfunc" class="form-group" id="a3">
+									<input type="radio" name="epsychologicalfunc" class="form-group" id="a3">
 									</td>
 									<td>
-									<input type="checkbox" name="epsychologicalfunc" class="form-group" id="a4">
-									</td>
-								</tr>
-								<tr>
-									<td>β. επαγγελματική/ακαδημαϊκή</td>
-									<td>
-									<input type="checkbox" name="eprofessionacademicfunc" class="form-group" id="b1">
-									</td>
-									<td>
-									<input type="checkbox" name="eprofessionacademicfunc" class="form-group" id="b2">
-									</td>
-									<td>
-									<input type="checkbox" name="eprofessionacademicfunc" class="form-group" id="b3">
-									</td>
-									<td>
-									<input type="checkbox" name="eprofessionacademicfunc" class="form-group" id="b4">
+									<input type="radio" name="epsychologicalfunc" class="form-group" id="a4">
 									</td>
 								</tr>
 								<tr>
-									<td>γ. κοινωνική</td>
+									<td>β. επαγγελματική/ακαδημαϊκή</td><input type="hidden" name="eprofessionacademicfunc">
 									<td>
-									<input type="checkbox" name="esocialfunc" class="form-group" id="g1">
+									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b1">
 									</td>
 									<td>
-									<input type="checkbox" name="esocialfunc" class="form-group" id="g2">
+									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b2">
 									</td>
 									<td>
-									<input type="checkbox" name="esocialfunc" class="form-group" id="g3">
+									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b3">
 									</td>
 									<td>
-									<input type="checkbox" name="esocialfunc" class="form-group" id="g4">
+									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b4">
 									</td>
 								</tr>
 								<tr>
-									<td>δ. αυτοφροντίδα</td>
+									<td>γ. κοινωνική</td><input type="hidden" name="esocialfunc">
 									<td>
-									<input type="checkbox" name="eautofix" class="form-group" id="d1">
+									<input type="radio" name="esocialfunc" class="form-group" id="g1">
 									</td>
 									<td>
-									<input type="checkbox" name="eautofix" class="form-group" id="d2">
+									<input type="radio" name="esocialfunc" class="form-group" id="g2">
 									</td>
 									<td>
-									<input type="checkbox" name="eautofix" class="form-group" id="d3">
+									<input type="radio" name="esocialfunc" class="form-group" id="g3">
 									</td>
 									<td>
-									<input type="checkbox" name="eautofix" class="form-group" id="d4">
+									<input type="radio" name="esocialfunc" class="form-group" id="g4">
+									</td>
+								</tr>
+								<tr>
+									<td>δ. αυτοφροντίδα</td><input type="hidden" name="eautofix">
+									<td>
+									<input type="radio" name="eautofix" class="form-group" id="d1">
+									</td>
+									<td>
+									<input type="radio" name="eautofix" class="form-group" id="d2">
+									</td>
+									<td>
+									<input type="radio" name="eautofix" class="form-group" id="d3">
+									</td>
+									<td>
+									<input type="radio" name="eautofix" class="form-group" id="d4">
 									</td>
 								</tr>
 							</table>
@@ -305,7 +305,7 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form14.php";
 $method='POST';
 	if(isset($_POST['submit'])){
 		$postfields=http_build_query(array(
-		'id' => $_POST['id'],
+		'id' => $_SESSION['id'],
 		'dateended' => $_POST['dateend'],
 		'whyterminate' => $_POST['reasons'],
 		'infoterminate' => $_POST['brief'],
