@@ -1,8 +1,9 @@
 <?php
  include('post.php');
- if(isset($_POST['job']) && isset($_POST['patientID']) && isset($_POST['feelaboutstudies']) && isset($_POST['jobtime']) && isset($_POST['jobdutys']) && isset($_POST['jobstress']) && isset($_POST['jobprevious']) && isset($_POST['relationshipin']) && isset($_POST['relationshipinfo']) && isset($_POST['relationshipname']) && isset($_POST['relationshipjob']) && isset($_POST['children']) && isset($_POST['staywith']) && isset($_POST['staydificulties']) && isset($_POST['familysynthesis']) && isset($_POST['support']) && isset($_POST['economicstatus']) && isset($_POST['economichelp']) && isset($_POST['economichelp1']) && isset($_POST['legalissues']) && isset($_POST['legalissues1']) && isset($_POST['healthissues']) && isset($_POST['healthconsernes']) && isset($_POST['doctor']) && isset($_POST['doctorcontacts']) && isset($_POST['medicines']) && isset($_POST['medicines1']) && isset($_POST['generalhealth']) && isset($_POST['smoking']) && isset($_POST['smoking1']) && isset($_POST['alcohol']) && isset($_POST['alcohol1']) && isset($_POST['drugs']) && isset($_POST['drugs1']) && isset($_POST['marihuanafrequency']) && isset($_POST['luckygames']) && isset($_POST['luckygames1']) && isset($_POST['betmore']) && isset($_POST['speakaboutlucky']) && isset($_POST['childlife']) && isset($_POST['childlifeproblems']) && isset($_POST['militarylife']) && isset($_POST['familyproblems']) && isset($_POST['trauma']) && isset($_POST['psychosupport']) && isset($_POST['psychosupport1']) && isset($_POST['psychodiagnosis']) && isset($_POST['psychodiagnosis1']) && isset($_POST['disability']) && isset($_POST['disability1']) && isset($_POST['suicideprothesis']) && isset($_POST['suicideprothesis1']) && isset($_POST['violenceprothesis']) && isset($_POST['violenceprothesis1']) && isset($_POST['violence']) && isset($_POST['violence1']) && isset($_POST['feelfortherapy']) && isset($_POST['otherseriousinfo']) && isset($_POST['reasonsfortherapy']) && isset($_POST['relations']) && isset($_POST['namerel']) && isset($_POST['agerel']) && isset($_POST['qualityrel']) && isset($_POST['psychorel']) && isset($_POST['namemed']) && isset($_POST['datemed']) && isset($_POST['durationmed']) && isset($_POST['doctormed']) && isset($_POST['commentsmed'])){ 
+ if(isset($_POST['job']) && isset($_POST['patientID']) && isset($_POST['feelaboutstudies']) && isset($_POST['jobtime']) && isset($_POST['jobdutys']) && isset($_POST['jobstress']) && isset($_POST['jobprevious']) && isset($_POST['relationshipin']) && isset($_POST['relationshipinfo']) && isset($_POST['relationshipname']) && isset($_POST['relationshipjob']) && isset($_POST['children']) && isset($_POST['staywith']) && isset($_POST['staydificulties']) && isset($_POST['familysynthesis']) && isset($_POST['support']) && isset($_POST['economicstatus']) && isset($_POST['economichelp']) && isset($_POST['economichelp1']) && isset($_POST['legalissues']) && isset($_POST['legalissues1']) && isset($_POST['healthissues']) && isset($_POST['healthconsernes']) && isset($_POST['doctor']) && isset($_POST['doctorcontacts']) && isset($_POST['medicines']) && isset($_POST['medicines1']) && isset($_POST['generalhealth']) && isset($_POST['smoking']) && isset($_POST['smoking1']) && isset($_POST['alcohol']) && isset($_POST['alcohol1']) && isset($_POST['drugs']) && isset($_POST['drugs1']) && isset($_POST['marihuanafrequency']) && isset($_POST['luckygames']) && isset($_POST['luckygames1']) && isset($_POST['betmore']) && isset($_POST['speakaboutlucky']) && isset($_POST['childlife']) && isset($_POST['childlifeproblems']) && isset($_POST['militarylife']) && isset($_POST['familyproblems']) && isset($_POST['trauma']) && isset($_POST['psychosupport']) && isset($_POST['psychosupport1']) && isset($_POST['psychodiagnosis']) && isset($_POST['psychodiagnosis1']) && isset($_POST['disability']) && isset($_POST['disability1']) && isset($_POST['suicideprothesis']) && isset($_POST['suicideprothesis1']) && isset($_POST['violenceprothesis']) && isset($_POST['violenceprothesis1']) && isset($_POST['violence']) && isset($_POST['violence1']) && isset($_POST['feelfortherapy']) && isset($_POST['otherseriousinfo']) && isset($_POST['reasonsfortherapy']) && isset($_POST['relations']) && isset($_POST['namerel']) && isset($_POST['agerel']) && isset($_POST['qualityrel']) && isset($_POST['namemed']) && isset($_POST['datemed']) && isset($_POST['durationmed']) && isset($_POST['doctormed']) && isset($_POST['commentsmed'])){ 
  makenull();
- $stmt = $db->prepare('INSERT INTO Medlog(job,patientID,feelaboutstudies,jobtime,jobdutys,jobstress,jobprevious,relationshipin,relationshipinfo,relationshipname,relationshipjob,children,staywith,staydificulties,familysynthesis,support,economicstatus,economichelp,economichelp1,legalissues,legalissues1,healthconsernes,doctor,doctorcontacts,medicines,medicines1,generalhealth,smoking,smoking1,alcohol,alcohol1,drugs,drugs1,marihuanafrequency,luckygames,luckygames1,betmore,speakaboutlucky,childlife,childlifeproblems,militarylife,familyproblems,trauma,psychosupport,psychosupport1,psychodiagnosis,psychodiagnosis1,disability,disability1,suicideprothesis,suicideprothesis1,violenceprothesis,violenceprothesis1,violence,violence1,feelfortherapy,otherseriousinfo,reasonsfortherapy) VALUES(:job,:patientID,:feelaboutstudies,:jobtime,:jobdutys,:jobstress,:jobprevious,:relationshipin,:relationshipinfo,:relationshipname,:relationshipjob,:children,:staywith,:staydificulties,:familysynthesis,:support,:economicstatus,:economichelp,:economichelp1,:legalissues,:legalissues1,:healthconsernes,:doctor,:doctorcontacts,:medicines,:medicines1,:generalhealth,:smoking,:smoking1,:alcohol,:alcohol1,:drugs,:drugs1,:marihuanafrequency,:luckygames,:luckygames1,:betmore,:speakaboutlucky,:childlife,:childlifeproblems,:militarylife,:familyproblems,:trauma,:psychosupport,:psychosupport1,:psychodiagnosis,:psychodiagnosis1,:disability,:disability1,:suicideprothesis,:suicideprothesis1,:violenceprothesis,:violenceprothesis1,:violence,:violence1,:feelfortherapy,:otherseriousinfo,:reasonsfortherapy)');
+ try{
+ $stmt = $db->prepare('INSERT INTO Medlog(patientID,feelaboutstudies,job,jobtime,jobdutys,jobstress,jobprevious,relationshipin,relationshipinfo,relationshipname,relationshipjob,children,staywith,staydificulties,familysynthesis,support,economicstatus,economichelp,economichelp1,legalissues,legalissues1,healthissues,healthconsernes,doctor,doctorcontacts,medicines,medicines1,generalhealth,smoking,smoking1,alcohol,alcohol1,drugs,drugs1,marihuanafrequency,luckygames,luckygames1,betmore,speakaboutlucky,childlife,childlifeproblems,militarylife,familyproblems,trauma,psychosupport,psychosupport1,psychodiagnosis,psychodiagnosis1,disability,disability1,suicideprothesis,suicideprothesis1,violenceprothesis,violenceprothesis1,violence,violence1,feelfortherapy,otherseriousinfo,reasonsfortherapy) VALUES(:patientID,:feelaboutstudies,:job,:jobtime,:jobdutys,:jobstress,:jobprevious,:relationshipin,:relationshipinfo,:relationshipname,:relationshipjob,:children,:staywith,:staydificulties,:familysynthesis,:support,:economicstatus,:economichelp,:economichelp1,:legalissues,:legalissues1,:healthissues,:healthconsernes,:doctor,:doctorcontacts,:medicines,:medicines1,:generalhealth,:smoking,:smoking1,:alcohol,:alcohol1,:drugs,:drugs1,:marihuanafrequency,:luckygames,:luckygames1,:betmore,:speakaboutlucky,:childlife,:childlifeproblems,:militarylife,:familyproblems,:trauma,:psychosupport,:psychosupport1,:psychodiagnosis,:psychodiagnosis1,:disability,:disability1,:suicideprothesis,:suicideprothesis1,:violenceprothesis,:violenceprothesis1,:violence,:violence1,:feelfortherapy,:otherseriousinfo,:reasonsfortherapy);');
  $stmt->bindParam(':patientID',$_POST['patientID']); 
  $stmt->bindParam(':feelaboutstudies',$_POST['feelaboutstudies']); 
  $stmt->bindParam(':job',$_POST['job']);
@@ -41,7 +42,7 @@
  $stmt->bindParam(':luckygames',$_POST['luckygames']);
  $stmt->bindParam(':luckygames1',$_POST['luckygames1']);
  $stmt->bindParam(':betmore',$_POST['betmore']);
- $stmt->bindParam(':speakaboutlucky',$_POST['']);
+ $stmt->bindParam(':speakaboutlucky',$_POST['speakaboutlucky']);
  $stmt->bindParam(':childlife',$_POST['childlife']);
  $stmt->bindParam(':childlifeproblems',$_POST['childlifeproblems']);
  $stmt->bindParam(':militarylife',$_POST['militarylife']);
@@ -64,27 +65,25 @@
  $stmt->bindParam(':reasonsfortherapy',$_POST['reasonsfortherapy']);
  $stmt->execute();
 
+
  
  
  $relations=$_POST['relations'];
  $namerel=$_POST['namerel'];
  $agerel=$_POST['agerel'];
  $qualityrel=$_POST['qualityrel'];
- $psychorel=$_POST['psychorel'];
  $arrayrel=unserialize(base64_decode($relations));
  $arraynamerel=unserialize(base64_decode($namerel));
  $arrayagerel=unserialize(base64_decode($agerel));
  $arrayqualityrel=unserialize(base64_decode($qualityrel));
- $arraypsychorel=unserialize(base64_decode($psychorel));
  $j=0;
  foreach($arrayrel as $i){
-	$stmt = $db->prepare('INSERT INTO patientrelationships(patientID,relation,name,age,quality,psychoproblem) VALUES(:id,:relation,:name,:age,:quality,:psychoproblem);');
+	$stmt = $db->prepare('INSERT INTO patientrelationships(patientID,relation,name,age,quality) VALUES(:id,:relation,:name,:age,:quality);');
 	$stmt->bindParam(':id',$_POST['patientID']);
 	$stmt->bindParam(':relation',$i);
 	$stmt->bindParam(':name',$arraynamerel[$j]);
 	$stmt->bindParam(':age',$arrayagerel[$j]);
 	$stmt->bindParam(':quality',$arrayqualityrel[$j]);
-	$stmt->bindParam(':psychoproblem',$arraypsychorel[$j]);
 	$stmt->execute();
 	$j++;
  }
@@ -111,7 +110,9 @@
 	$stmt->execute();
 	$j++;
  }
- 
+  }catch(PDOException $e){ 
+	$response['success']=0; $response['error']=$e->getMessage(); echo json_encode($response); exit(); //echo "\n".$e->getMessage()."\n"; exit();
+ }
  $response['success']=1; echo json_encode($response);
  }else{$response['success']=0; $response['error']="Wrong Fields!"; echo json_encode($response);}
  ?>
