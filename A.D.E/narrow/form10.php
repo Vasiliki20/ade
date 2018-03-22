@@ -123,7 +123,7 @@
 											<a href="contact.html">Contact Us</a>
 										</li>
 										<li>
-											<a href="#">Logout</a>
+											<a href="index.php">Logout</a>
 										</li>
 									</ul>
 								</div>
