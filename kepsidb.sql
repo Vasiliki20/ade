@@ -80,6 +80,7 @@ CREATE table IF NOT EXISTS patient(
 	redflag 			varchar(10),
 	parapona 			text,
 	aksiologisi 		text,
+	approved 			int,
     PRIMARY KEY(patientID),
 	CONSTRAINT FOREIGN KEY (psychologistID) REFERENCES psychologist(psychologistID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
