@@ -258,9 +258,6 @@
 										<a href="#">Approve Incoming Data</a>
 									</li>
 									<li>
-										<a href="#">Notes</a>
-									</li>
-									<li>
 										<a href="waitinglistfinal.php">Waiting List</a>
 									</li>
 									<li>

@@ -17,22 +17,17 @@
 		<!-- MetisMenu CSS -->
 		<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-		<!-- DataTables CSS -->
-		<link href="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-		<!-- DataTables Responsive CSS -->
-		<link href="bootstrap/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
-
 		<!-- Custom CSS -->
 		<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
 
+		<!-- Morris Charts CSS -->
+		<link href="bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
+
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 	</head>
-	<script>
-		$(document).ready(function() {
-			$('myTable').DataTable();
-		});
-	</script>
+
 	<body>
 
 		<div id="wrapper">
@@ -228,6 +223,7 @@
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
+
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
@@ -258,6 +254,9 @@
 										<a href="#">Approve Incoming Data</a>
 									</li>
 									<li>
+										<a href="#">Notes</a>
+									</li>
+									<li>
 										<a href="waitinglistfinal.php">Waiting List</a>
 									</li>
 									<li>
@@ -282,106 +281,139 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Calendar</h1>
 					</div>
-				</div>
-				<div>
 					<!-- /.col-lg-12 -->
-					<nav class="navbar navbar-default">
-						<div class="container-fluid">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav">
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="personalinformation.php">Προσωπικά Στοιχεία</a>
-											</li>
-											<li>
-												<a href="#">Χρονολογικό πρόγραμμα Πελάτη</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Ερωτηματολόγιο</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικό Ιστορικό <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
-											</li>
-											<li>
-												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιστορικό Επικοινωνίας<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="#">Μεταφορές Στοιχείων</a>
-											</li>
-											<li>
-												<a href="#">Εξωτερικές Επικοινωνίες</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="billingfinal.php">Πληρωμές</a>
-									</li>
-								</ul>
-
-							</div><!-- /.navbar-collapse -->
-						</div><!-- /.container-fluid -->
-					</nav>
 				</div>
-
-				<div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Στοιχεία Πληρωμών για τον Χ πελάτη
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-3">
+										<i class="fa fa-comments fa-5x"></i>
+									</div>
+									<div class="col-xs-9 text-right">
+										<div class="huge">
+											26
+										</div>
+										<div>
+											New Comments!
+										</div>
+									</div>
+								</div>
+							</div>
+							<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div> </a>
 						</div>
-						<div class="panel-body">
-							<div class="form-group">
-								<label for="date">Ημερομηνία</label>
-								<input type="date" class="form-control" id="date" placeholder="" />
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="panel panel-green">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-3">
+										<i class="fa fa-tasks fa-5x"></i>
+									</div>
+									<div class="col-xs-9 text-right">
+										<div class="huge">
+											12
+										</div>
+										<div>
+											New Tasks!
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="form-group">
-								<label for="number">Αριθμός Συνεδρίων</label>
-								<input type="number" class="form-control" id="number" placeholder="" />
-							</div>
-							<div class="form-group">
-								<label for="price">Ποσό</label>
-								<input type="number" class="form-control" id="price" placeholder="" />
-							</div>
-
+							<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div> </a>
 						</div>
-						<div class="form-group" align="center">
-							<button type="button" class="form-group" name="submit" id="submit">
-								Submit
-							</button>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="panel panel-yellow">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-3">
+										<i class="fa fa-shopping-cart fa-5x"></i>
+									</div>
+									<div class="col-xs-9 text-right">
+										<div class="huge">
+											124
+										</div>
+										<div>
+											New Orders!
+										</div>
+									</div>
+								</div>
+							</div>
+							<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div> </a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="panel panel-red">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-3">
+										<i class="fa fa-support fa-5x"></i>
+									</div>
+									<div class="col-xs-9 text-right">
+										<div class="huge">
+											13
+										</div>
+										<div>
+											Support Tickets!
+										</div>
+									</div>
+								</div>
+							</div>
+							<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div> </a>
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<i class="fa fa-bar-chart-o fa-fw"></i> Calendar <div class="pull-right">
+
+								</div>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<iframe src="https://calendar.google.com/calendar/embed?title=My%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=r5jn7emrtpentupqiipojavnig%40group.calendar.google.com&amp;color=%235F6B02&amp;ctz=Asia%2FNicosia" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+							</div>
+							<!-- /.panel-body -->
 						</div>
 
 					</div>
+						<!-- /.panel -->
 				</div>
+				<!-- /.col-lg-8 -->
+				<div class="col-lg-4"></div>
+				<!-- /.col-lg-4 -->
 			</div>
-			<div>
-				<br>
-				<br>
-			</div>
-			<!-- /#page-wrapper -->
+			<!-- /.row -->
+		</div>
+		<!-- /#page-wrapper -->
 
 		</div>
 		<!-- /#wrapper -->
@@ -395,22 +427,13 @@
 		<!-- Metis Menu Plugin JavaScript -->
 		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+		<!-- Morris Charts JavaScript -->
+		<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
+		<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
+		<script src="bootstrap/data/morris-data.js"></script>
 
 		<!-- Custom Theme JavaScript -->
 		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
 
 	</body>
 
