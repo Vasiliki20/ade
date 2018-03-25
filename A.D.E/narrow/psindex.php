@@ -215,7 +215,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychloginfinal.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -245,10 +245,10 @@
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklistfinal.php">Task List</a>
+										<a href="tasklist.php">Task List</a>
 									</li>
 									<li>
-										<a href="myclientsfinal.php">My clients</a>
+										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
 										<a href="#">Approve Incoming Data</a>
@@ -257,19 +257,19 @@
 										<a href="#">Notes</a>
 									</li>
 									<li>
-										<a href="waitinglistfinal.php">Waiting List</a>
+										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="searchfinal.php">Search</a>
+										<a href="search.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reportsfinal.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 							<li>
-								<a href="helpfinal.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>

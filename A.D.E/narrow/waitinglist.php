@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>SB Admin 2 - Bootstrap Admin Theme</title>
+		<title>Κέντρο Ψυχικής Υγείας</title>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -318,28 +318,28 @@
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklistfinal.php">Task List</a>
+										<a href="tasklist.php">Task List</a>
 									</li>
 									<li>
-										<a href="myclientsfinal.php">My clients</a>
+										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
 										<a href="#">Approve Incoming Data</a>
 									</li>
 									<li>
-										<a href="waitinglistfinal.php">Waiting List</a>
+										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="searchfinal.php">Search</a>
+										<a href="search.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reportsfinal.php"><i class="fa fa-table fa-fw"></i> Reports</a>
+								<a href="reports.php"><i class="fa fa-table fa-fw"></i> Reports</a>
 							</li>
 							<li>
-								<a href="helpfinal.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
