@@ -17,17 +17,22 @@
 		<!-- MetisMenu CSS -->
 		<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+		<!-- DataTables CSS -->
+		<link href="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+		<!-- DataTables Responsive CSS -->
+		<link href="bootstrap/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
 		<!-- Custom CSS -->
 		<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
 
-		<!-- Morris Charts CSS -->
-		<link href="bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
-
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 	</head>
-
+	<script>
+		$(document).ready(function() {
+			$('myTable').DataTable();
+		});
+	</script>
 	<body>
 
 		<div id="wrapper">
@@ -215,7 +220,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychloginfinal.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -223,7 +228,6 @@
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
-
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
@@ -281,159 +285,177 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Calendar</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
+				</div>
+				<div>
 					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία</a>
+											</li>
+											<li>
+												<a href="#">Χρονολογικό πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Ερωτηματολόγιο</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικό Ιστορικό <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιστορικό Επικοινωνίας<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Μεταφορές Στοιχείων</a>
+											</li>
+											<li>
+												<a href="#">Εξωτερικές Επικοινωνίες</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="billingfinal.php">Πληρωμές</a>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
 				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-comments fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											26
-										</div>
-										<div>
-											New Comments!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
+
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Προσωπικές Πληροφορίες Πελάτη
 						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-green">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-tasks fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											12
-										</div>
-										<div>
-											New Tasks!
-										</div>
-									</div>
-								</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="num">Αριθμός ασθενή:</label>
+								<input type="number" class="form-control" id="num" placeholder="1" name="num">
 							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-yellow">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-shopping-cart fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											124
-										</div>
-										<div>
-											New Orders!
-										</div>
-									</div>
-								</div>
+							<div class="form-group">
+								<label for="name">Όνομα:</label>
+								<input type="text" class="form-control" id="name" placeholder="Βασιλική" name="name">
 							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-red">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-support fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											13
-										</div>
-										<div>
-											Support Tickets!
-										</div>
-									</div>
-								</div>
+							<div class="form-group">
+								<label for="surname">Επίθετο:</label>
+								<input type="text" class="form-control" id="surname" placeholder="Παντελή" name="surname">
 							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-bar-chart-o fa-fw"></i> Calendar <div class="pull-right">
-
-								</div>
+							<div class="form-group">
+								<label for="phone">Τηλέφωνο:</label>
+								<input type="number" class="form-control" id="phone" placeholder="99393131" name="phone">
 							</div>
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<iframe src="https://calendar.google.com/calendar/embed?title=My%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=r5jn7emrtpentupqiipojavnig%40group.calendar.google.com&amp;color=%235F6B02&amp;ctz=Asia%2FNicosia" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+							<div class="form-group">
+								<label for="email">Ηλ.Διεύθυνση:</label>
+								<input type="email" class="form-control" id="email" placeholder="vpante02@cs.ucy.ac.cy" name="email">
 							</div>
-							<!-- /.panel-body -->
-						</div>
+							<div class="form-group">
+								<label for="epipedo">Επίπεδο σπουδών:</label>
+								<input type="text" class="form-control" id="epipedo" placeholder="Προπτυχιακό" name="epipedo">
+							</div>
+							<div class="form-group">
+								<label for="klados">Κλάδος/Έτος σπουδών:</label>
+								<input type="text" class="form-control" id="klados" placeholder="4ο έτος/Πληροφορική" name="klados">
+							</div>
+							<div class="form-group">
+								<label for="dob">Ημ.Γέννησης:</label>
+								<input type="date" class="form-control" id="dob" placeholder="20/12/1996" name="dob">
+							</div>
+							<div class="form-group">
+								<label for="age">Ηλικία:</label>
+								<input type="date" class="form-control" id="age" placeholder="21" name="age">
+							</div>
+							<div class="form-group">
+								<label for="sex">Φύλο:</label>
+								<input type="text" class="form-control" id="sex" placeholder="Θ" name="sex">
+							</div>
+							<div class="form-group">
+								<label for="ipikootita">Υπηκοότητα:</label>
+								<input type="text" class="form-control" id="ipikootita" placeholder="Κυπριακή" name="ipikootita">
+							</div>
+							<div class="form-group">
+								<label for="id">Αρ.Ταυτότητας:</label>
+								<input type="text" class="form-control" id="id" placeholder="917830" name="id">
+							</div>
+							<div class="form-group">
+								<label for="address">Διεύθυνση Διαμονής:</label>
+								<input type="text" class="form-control" id="address" placeholder="Καθαρής 11, Αγλατζιά" name="address">
+							</div>
+							<div class="form-group">
+								<label for="city">Πόλη/Χωριό:</label>
+								<input type="text" class="form-control" id="city" placeholder="Λευκωσία" name="city">
+							</div>
+							<div class="form-group"
+							<label for="tk">Τ.Κ:</label>
+							<input type="text" class="form-control" id="tk" placeholder="3011" name="tk">
+							</div>
 
-					</div>
-						<!-- /.panel -->
-				</div>
-				<!-- /.col-lg-8 -->
-				<div class="col-lg-4"></div>
-				<!-- /.col-lg-4 -->
-			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /#page-wrapper -->
+							</div>
+							</div></div>
+							</div>
+							<div>
+							<br>
+							<br>
+							</div>
+							<!-- /#page-wrapper -->
 
-		</div>
-		<!-- /#wrapper -->
+							</div>
+							<!-- /#wrapper -->
+							</div>
 
-		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+							<!-- jQuery -->
+							<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+							<!-- Bootstrap Core JavaScript -->
+							<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+							<!-- Metis Menu Plugin JavaScript -->
+							<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-		<!-- Morris Charts JavaScript -->
-		<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
-		<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
-		<script src="bootstrap/data/morris-data.js"></script>
+							<!-- DataTables JavaScript -->
+							<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+							<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+							<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+							<!-- Custom Theme JavaScript -->
+							<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+							<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+							<script>
+								$(document).ready(function() {
+									$('#dataTables-example').DataTable({
+										responsive : true
+									});
+								});
+							</script>
 
 	</body>
 

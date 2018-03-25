@@ -17,17 +17,22 @@
 		<!-- MetisMenu CSS -->
 		<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+		<!-- DataTables CSS -->
+		<link href="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+		<!-- DataTables Responsive CSS -->
+		<link href="bootstrap/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
 		<!-- Custom CSS -->
 		<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
 
-		<!-- Morris Charts CSS -->
-		<link href="bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
-
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 	</head>
-
+	<script>
+		$(document).ready(function() {
+			$('myTable').DataTable();
+		});
+	</script>
 	<body>
 
 		<div id="wrapper">
@@ -215,7 +220,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychloginfinal.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -223,7 +228,6 @@
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
-
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
@@ -281,139 +285,111 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Calendar</h1>
+						<h1 class="page-header">My clients</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
 				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-comments fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											26
-										</div>
-										<div>
-											New Comments!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-green">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-tasks fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											12
-										</div>
-										<div>
-											New Tasks!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-yellow">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-shopping-cart fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											124
-										</div>
-										<div>
-											New Orders!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-red">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-support fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											13
-										</div>
-										<div>
-											Support Tickets!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-bar-chart-o fa-fw"></i> Calendar <div class="pull-right">
-
-								</div>
-							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-								<iframe src="https://calendar.google.com/calendar/embed?title=My%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=r5jn7emrtpentupqiipojavnig%40group.calendar.google.com&amp;color=%235F6B02&amp;ctz=Asia%2FNicosia" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Όνομα</th>
+											<th>Επίθετο</th>
+											<th>Ταυτότητα</th>
+											<th>Case File</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Μαρία</td>
+											<td>Γιαννακού</td>
+											<td>224335</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Χριστίνα</td>
+											<td>Κωνσταντίνου</td>
+											<td>432533</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Σωτηρία</td>
+											<td>Κυριάκου</td>
+											<td>432432</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Κυριάκος</td>
+											<td>Αθανασίου</td>
+											<td>949323</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Γιώργος</td>
+											<td>Ματθαίου</td>
+											<td>234325</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
 							</div>
 							<!-- /.panel-body -->
 						</div>
-
-					</div>
 						<!-- /.panel -->
+					</div>
+					<!-- /.col-lg-12 -->
 				</div>
-				<!-- /.col-lg-8 -->
-				<div class="col-lg-4"></div>
-				<!-- /.col-lg-4 -->
 			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /#page-wrapper -->
+			<!-- /#page-wrapper -->
 
 		</div>
 		<!-- /#wrapper -->
@@ -427,13 +403,22 @@
 		<!-- Metis Menu Plugin JavaScript -->
 		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-		<!-- Morris Charts JavaScript -->
-		<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
-		<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
-		<script src="bootstrap/data/morris-data.js"></script>
+		<!-- DataTables JavaScript -->
+		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
 		<!-- Custom Theme JavaScript -->
 		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+		<script>
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
+				});
+			});
+		</script>
 
 	</body>
 
