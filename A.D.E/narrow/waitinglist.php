@@ -324,9 +324,6 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-										<a href="#">Approve Incoming Data</a>
-									</li>
-									<li>
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -469,3 +466,37 @@
 	</body>
 
 </html>
+
+
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'id' => $_POST['id'],
+		'email' => $_POST['email'],
+		'name' => $_POST['name'],
+		'lastname' => $_POST['surname'],
+		'password' => $_POST['password']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+}
+?>
