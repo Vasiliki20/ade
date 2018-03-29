@@ -135,7 +135,7 @@
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="specialty">Ειδικότητα</label>
-									<input type="text" name="specialty" placeholder="Ειδικότητα" class="form-control" id="specialty">
+									<input type="text" name="speciality" placeholder="Ειδικότητα" class="form-control" id="specialty">
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="building">Κτήριο</label>
@@ -173,7 +173,7 @@
 									<button type="button" class="btn btn-previous">
 										Previous
 									</button>
-									<button type="submit" class="btn btn-submit">
+									<button type="submit" name="submit" class="btn btn-submit">
 										Submit
 									</button>
 								</div>
@@ -202,16 +202,25 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psyregister.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
+	'id'=> $_POST['id'],		
+	'name'=> $_POST['name'],		
+	'lastname'=> $_POST['surname'],		
+	'sex' => $_POST['gender'],		
+	'age' => $_POST['age'],		
+	'address' => $_POST['address'],		
+	'telephone' => $_POST['phone'],		
+	'fax' => $_POST['fax'],
+	'position' => $_POST['position'],		
+	'speciality' => $_POST['speciality'],		
+	'building' => $_POST['building'],		
+	'office_num' => $_POST['officenum'],		
+	'email' => $_POST['email'],		
+	'password' => $_POST['password']	
+		));
 	if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{

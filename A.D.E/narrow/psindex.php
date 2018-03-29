@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@
 	</head>
 
 	<body>
-
+		<h5> <?= $_SESSION['id'] ?> </h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
