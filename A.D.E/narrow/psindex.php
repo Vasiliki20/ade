@@ -17,45 +17,16 @@
 		<!-- MetisMenu CSS -->
 		<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-		<!-- DataTables CSS -->
-		<link href="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-		<!-- DataTables Responsive CSS -->
-		<link href="bootstrap/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
-
 		<!-- Custom CSS -->
 		<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
 
+		<!-- Morris Charts CSS -->
+		<link href="bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
+
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 	</head>
-	<script>
-		$(document).ready(function() {
-			$('myTable').DataTable();
-		});
-	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
 
 	<body>
 
@@ -244,7 +215,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -252,6 +223,7 @@
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
+
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
@@ -282,6 +254,9 @@
 										<a href="#">Approve Incoming Data</a>
 									</li>
 									<li>
+										<a href="#">Notes</a>
+									</li>
+									<li>
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -306,78 +281,179 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">Calendar</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Αναζήτηση Πελάτη
-						<br>
-					</div>
-					<div>
-						<br>
-					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
+				<!--	<div class="row">
+				<div class="col-lg-3 col-md-6">
+				<div class="panel panel-primary">
+				<div class="panel-heading">
+				<div class="row">
+				<div class="col-xs-3">
+				<i class="fa fa-comments fa-5x"></i>
 				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
+				<div class="col-xs-9 text-right">
+				<div class="huge">
+				26
 				</div>
+				<div>
+				New Comments!
+				</div>
+				</div>
+				</div>
+				</div>
+				<a href="#">
+				<div class="panel-footer">
+				<span class="pull-left">View Details</span>
+				<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+				<div class="clearfix"></div>
+				</div> </a>
+				</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+				<div class="panel panel-green">
+				<div class="panel-heading">
+				<div class="row">
+				<div class="col-xs-3">
+				<i class="fa fa-tasks fa-5x"></i>
+				</div>
+				<div class="col-xs-9 text-right">
+				<div class="huge">
+				12
+				</div>
+				<div>
+				New Tasks!
+				</div>
+				</div>
+				</div>
+				</div>
+				<a href="#">
+				<div class="panel-footer">
+				<span class="pull-left">View Details</span>
+				<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+				<div class="clearfix"></div>
+				</div> </a>
+				</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+				<div class="panel panel-yellow">
+				<div class="panel-heading">
+				<div class="row">
+				<div class="col-xs-3">
+				<i class="fa fa-shopping-cart fa-5x"></i>
+				</div>
+				<div class="col-xs-9 text-right">
+				<div class="huge">
+				124
+				</div>
+				<div>
+				New Orders!
+				</div>
+				</div>
+				</div>
+				</div>
+				<a href="#">
+				<div class="panel-footer">
+				<span class="pull-left">View Details</span>
+				<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+				<div class="clearfix"></div>
+				</div> </a>
+				</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+				<div class="panel panel-red">
+				<div class="panel-heading">
+				<div class="row">
+				<div class="col-xs-3">
+				<i class="fa fa-support fa-5x"></i>
+				</div>
+				<div class="col-xs-9 text-right">
+				<div class="huge">
+				13
+				</div>
+				<div>
+				Support Tickets!
+				</div>
+				</div>
+				</div>
+				</div>
+				<a href="#">
+				<div class="panel-footer">
+				<span class="pull-left">View Details</span>
+				<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+				<div class="clearfix"></div>
+				</div> </a>
+				</div>
+				</div>
+				</div> -->
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<i class="fa fa-bar-chart-o fa-fw"></i> Calendar <div class="pull-right">
+
+								</div>
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<iframe src="https://calendar.google.com/calendar/embed?title=My%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=r5jn7emrtpentupqiipojavnig%40group.calendar.google.com&amp;color=%235F6B02&amp;ctz=Asia%2FNicosia" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+
+					</div>
+					<!-- /.panel -->
+
+					<!-- /.col-lg-8 -->
+
+					<div class="col-lg-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<i class="fa fa-pencil"></i> Appointments <div class="pull-right"></div>
+							</div>
+							<div>
+								<br>
+							</div>
+							<div align="center">
+								<button type="submit" name="submit" onclick="showadd()">
+									Add appointment
+								</button>
+							</div>
+							<div>
+								<br>
+							</div>
+						</div>
+					</div>
+
+					<!-- /.row -->
+				</div>
+				<!-- /#page-wrapper -->
+
 			</div>
-			<!-- /#page-wrapper -->
-		</div>
-		<!-- /#wrapper -->
+			<!-- /#wrapper -->
 
-		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+			<!-- jQuery -->
+			<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+			<!-- Bootstrap Core JavaScript -->
+			<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+			<!-- Metis Menu Plugin JavaScript -->
+			<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+			<!-- Morris Charts JavaScript -->
+			<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
+			<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
+			<script src="bootstrap/data/morris-data.js"></script>
 
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
+			<!-- Custom Theme JavaScript -->
+			<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
 	</body>
-
 </html>
-
 
 <?php
 require_once("requests.php");

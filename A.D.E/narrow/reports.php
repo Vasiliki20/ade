@@ -302,77 +302,62 @@
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
-
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">Reports</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Αναζήτηση Πελάτη
+						Reports
 						<br>
 					</div>
 					<div>
 						<br>
 					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
+					<ul>
+						<li>
+							<a href="report1.php">Μέσος Όρος Γυναικών</a>
+						</li>
+						<li>
+							<a href="report1.php">Μέσος Όρος Ανδρών</a>
+						</li>
+						<li>
+							<a href="report1.php">Μέσος Όρος Φοιτητών</a>
+						</li>
+					</ul>
 				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
-				</div>
-			</div>
-			<!-- /#page-wrapper -->
-		</div>
-		<!-- /#wrapper -->
 
-		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+				<!-- /#wrapper -->
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+				<!-- jQuery -->
+				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+				<!-- Bootstrap Core JavaScript -->
+				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+				<!-- Metis Menu Plugin JavaScript -->
+				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+				<!-- DataTables JavaScript -->
+				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
+				<!-- Custom Theme JavaScript -->
+				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+				<script>
+					$(document).ready(function() {
+						$('#dataTables-example').DataTable({
+							responsive : true
+						});
+					});
+				</script>
 
 	</body>
 

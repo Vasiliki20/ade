@@ -199,28 +199,36 @@
 	</body>
 </html>
 
+
 <?php
-include ('post.php');
-if (isset($_POST['id']) && isset($_POST['email']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['password'])) {
-	$name = $_POST['name'];
-	$stmt = $db -> prepare('INSERT INTO patient(patientID,email,firstname,lastname,password) VALUES(:id,:email,:name,:lastname,:password)');
-	$stmt -> bindParam(':id', $_POST['id']);
-	$stmt -> bindParam(':email', $_POST['email']);
-	$stmt -> bindParam(':name', $_POST['name']);
-	$stmt -> bindParam(':lastname', $_POST['surname']);
-	$stmt -> bindParam(':password', $_POST['password']);
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'id' => $_POST['id'],
+		'email' => $_POST['email'],
+		'name' => $_POST['name'],
+		'lastname' => $_POST['surname'],
+		'password' => $_POST['password']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
 	
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	
-	$stmt -> execute();
-	//$result = $stmt->fetch(PDO::FETCH_ASSOC);
-	echo "\nThanks $name for the information!\n";
-} else {echo "\nYou didn't put all information\n";
 }
 ?>

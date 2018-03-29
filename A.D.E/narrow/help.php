@@ -28,35 +28,80 @@
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
+	<style>
+		.dropbtn {
+			background-color: white;
+			color: black;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+		}
+
+		.dropbtn:hover, .dropbtn:focus {
+			background-color: white;
+		}
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: white;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+
+		.dropdown a:hover {
+			background-color: #ddd
+		}
+
+		.show {
+			display: block;
+		}
+		.down {
+			transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+		}
+	</style>
 	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
 	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
+	<script>
+		/* When the user clicks on the button,
+		 toggle between hiding and showing the dropdown content */
+		function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
 		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
 
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for ( i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
 		}
-	</style>
-
+	</script>
 	<body>
 
 		<div id="wrapper">
@@ -306,45 +351,16 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">Help</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
-				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Αναζήτηση Πελάτη
-						<br>
-					</div>
-					<div>
-						<br>
-					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
-				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
+				<div>
+					Manual for the program
 				</div>
 			</div>
 			<!-- /#page-wrapper -->
+
 		</div>
 		<!-- /#wrapper -->
 

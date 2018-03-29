@@ -33,30 +33,6 @@
 			$('myTable').DataTable();
 		});
 	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
-
 	<body>
 
 		<div id="wrapper">
@@ -306,73 +282,177 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
+				</div>
+				<div>
 					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία</a>
+											</li>
+											<li>
+												<a href="#">Χρονολογικό πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Ερωτηματολόγιο</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικό Ιστορικό <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιστορικό Επικοινωνίας<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Μεταφορές Στοιχείων</a>
+											</li>
+											<li>
+												<a href="#">Εξωτερικές Επικοινωνίες</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="billing.php">Πληρωμές</a>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
 				</div>
-				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Αναζήτηση Πελάτη
-						<br>
-					</div>
-					<div>
-						<br>
-					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
-				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
-				</div>
-			</div>
-			<!-- /#page-wrapper -->
-		</div>
-		<!-- /#wrapper -->
 
-		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Προσωπικές Πληροφορίες Πελάτη
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="num">Αριθμός ασθενή:</label>
+								<input type="number" class="form-control" id="num" placeholder="1" name="num">
+							</div>
+							<div class="form-group">
+								<label for="name">Όνομα:</label>
+								<input type="text" class="form-control" id="name" placeholder="Βασιλική" name="name">
+							</div>
+							<div class="form-group">
+								<label for="surname">Επίθετο:</label>
+								<input type="text" class="form-control" id="surname" placeholder="Παντελή" name="surname">
+							</div>
+							<div class="form-group">
+								<label for="phone">Τηλέφωνο:</label>
+								<input type="number" class="form-control" id="phone" placeholder="99393131" name="phone">
+							</div>
+							<div class="form-group">
+								<label for="email">Ηλ.Διεύθυνση:</label>
+								<input type="email" class="form-control" id="email" placeholder="vpante02@cs.ucy.ac.cy" name="email">
+							</div>
+							<div class="form-group">
+								<label for="epipedo">Επίπεδο σπουδών:</label>
+								<input type="text" class="form-control" id="epipedo" placeholder="Προπτυχιακό" name="epipedo">
+							</div>
+							<div class="form-group">
+								<label for="klados">Κλάδος/Έτος σπουδών:</label>
+								<input type="text" class="form-control" id="klados" placeholder="4ο έτος/Πληροφορική" name="klados">
+							</div>
+							<div class="form-group">
+								<label for="dob">Ημ.Γέννησης:</label>
+								<input type="date" class="form-control" id="dob" placeholder="20/12/1996" name="dob">
+							</div>
+							<div class="form-group">
+								<label for="age">Ηλικία:</label>
+								<input type="date" class="form-control" id="age" placeholder="21" name="age">
+							</div>
+							<div class="form-group">
+								<label for="sex">Φύλο:</label>
+								<input type="text" class="form-control" id="sex" placeholder="Θ" name="sex">
+							</div>
+							<div class="form-group">
+								<label for="ipikootita">Υπηκοότητα:</label>
+								<input type="text" class="form-control" id="ipikootita" placeholder="Κυπριακή" name="ipikootita">
+							</div>
+							<div class="form-group">
+								<label for="id">Αρ.Ταυτότητας:</label>
+								<input type="text" class="form-control" id="id" placeholder="917830" name="id">
+							</div>
+							<div class="form-group">
+								<label for="address">Διεύθυνση Διαμονής:</label>
+								<input type="text" class="form-control" id="address" placeholder="Καθαρής 11, Αγλατζιά" name="address">
+							</div>
+							<div class="form-group">
+								<label for="city">Πόλη/Χωριό:</label>
+								<input type="text" class="form-control" id="city" placeholder="Λευκωσία" name="city">
+							</div>
+							<div class="form-group"
+							<label for="tk">Τ.Κ:</label>
+							<input type="text" class="form-control" id="tk" placeholder="3011" name="tk">
+							</div>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+							</div>
+							</div></div>
+							</div>
+							<div>
+							<br>
+							<br>
+							</div>
+							<!-- /#page-wrapper -->
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+							</div>
+							<!-- /#wrapper -->
+							</div>
 
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+							<!-- jQuery -->
+							<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+							<!-- Bootstrap Core JavaScript -->
+							<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
+							<!-- Metis Menu Plugin JavaScript -->
+							<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+							<!-- DataTables JavaScript -->
+							<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+							<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+							<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+							<!-- Custom Theme JavaScript -->
+							<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+							<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+							<script>
+								$(document).ready(function() {
+									$('#dataTables-example').DataTable({
+										responsive : true
+									});
+								});
+							</script>
 
 	</body>
 

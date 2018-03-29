@@ -33,30 +33,6 @@
 			$('myTable').DataTable();
 		});
 	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
-
 	<body>
 
 		<div id="wrapper">
@@ -244,7 +220,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -306,45 +282,107 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
+				</div>
+				<div>
 					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία</a>
+											</li>
+											<li>
+												<a href="#">Χρονολογικό πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Ερωτηματολόγιο</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικό Ιστορικό <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιστορικό Επικοινωνίας<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Μεταφορές Στοιχείων</a>
+											</li>
+											<li>
+												<a href="#">Εξωτερικές Επικοινωνίες</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="billing.php">Πληρωμές</a>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
 				</div>
-				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Αναζήτηση Πελάτη
-						<br>
+
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Στοιχεία Πληρωμών για τον Χ πελάτη
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="date">Ημερομηνία</label>
+								<input type="date" class="form-control" id="date" placeholder="" />
+							</div>
+							<div class="form-group">
+								<label for="number">Αριθμός Συνεδρίων</label>
+								<input type="number" class="form-control" id="number" placeholder="" />
+							</div>
+							<div class="form-group">
+								<label for="price">Ποσό</label>
+								<input type="number" class="form-control" id="price" placeholder="" />
+							</div>
+
+						</div>
+						<div class="form-group" align="center">
+							<button type="button" class="form-group" name="submit" id="submit">
+								Submit
+							</button>
+						</div>
+
 					</div>
-					<div>
-						<br>
-					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
-				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
 				</div>
 			</div>
+			<div>
+				<br>
+				<br>
+			</div>
 			<!-- /#page-wrapper -->
+
 		</div>
 		<!-- /#wrapper -->
 

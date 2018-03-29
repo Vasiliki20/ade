@@ -33,30 +33,6 @@
 			$('myTable').DataTable();
 		});
 	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
-
 	<body>
 
 		<div id="wrapper">
@@ -306,45 +282,112 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">My clients</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Αναζήτηση Πελάτη
-						<br>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Όνομα</th>
+											<th>Επίθετο</th>
+											<th>Ταυτότητα</th>
+											<th>Case File</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Μαρία</td>
+											<td>Γιαννακού</td>
+											<td>224335</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Χριστίνα</td>
+											<td>Κωνσταντίνου</td>
+											<td>432533</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Σωτηρία</td>
+											<td>Κυριάκου</td>
+											<td>432432</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Κυριάκος</td>
+											<td>Αθανασίου</td>
+											<td>949323</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Γιώργος</td>
+											<td>Ματθαίου</td>
+											<td>234325</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a></td>
+										</tr>
+										<tr>
+											<td>Βασιλική</td>
+											<td>Παντελή</td>
+											<td>123456</td>
+											<td><a href="casefile.php">link</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
 					</div>
-					<div>
-						<br>
-					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
-				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
+					<!-- /.col-lg-12 -->
 				</div>
 			</div>
 			<!-- /#page-wrapper -->
+
 		</div>
 		<!-- /#wrapper -->
 
