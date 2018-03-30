@@ -4,8 +4,9 @@
  makenull();
  $name=$_POST['name'];
  try{ 
- $stmt = $db->prepare('INSERT INTO patient(patientID,email,firstname,lastname,password) VALUES(:id,:email,:name,:lastname,:password)');
+ $stmt = $db->prepare('INSERT INTO patient(patientID,datesubmited,email,firstname,lastname,password) VALUES(:id,:datesubmited,:email,:name,:lastname,:password)');
  $stmt->bindParam(':id',$_POST['id']);
+ $stmt->bindParam(':datesubmited',date("d/m/Y"));
  $stmt->bindParam(':email',$_POST['email']);
  $stmt->bindParam(':name',$_POST['name']);
  $stmt->bindParam(':lastname',$_POST['lastname']);

@@ -1,4 +1,32 @@
+<?php ob_start(); session_start();?>
 <!DOCTYPE html>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+//}
+?>
 <html lang="en">
 
 	<head>
@@ -364,6 +392,7 @@
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
+								<form method="post" action="" >
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
@@ -374,9 +403,10 @@
 										</tr>
 									</thead>
 									<tbody>
+										<?php for($j=0;$j<count($response['result1']);$j++){?>
 										<tr>
-											<td>12/01/2018</td>
-											<td>Βασιλική Παντελή</td>
+											<td><?=$response['result1'][$j]['datesubmited']?></td>
+											<td><?=$response['result1'][$j]['firstname']?> <?= $response['result1'][$j]['lastname']?></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
 												<option value="1">1</option>
@@ -384,52 +414,21 @@
 												<option value="3">3</option>
 											</select></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1">Ψυχολόγος 1</option>
-												<option value="2" selected="selected">Ψυχολόγος 2</option>
-												<option value="3">Ψυχολόγος 3</option>
+											<select name=<?=$response['result1'][$j]['patientID']?>>
+												<option selected="selected"></option>
+												<?php for($i=0;$i<count($response['result']);$i++){ ?>
+												<option value=<?=$response['result'][$i]['psychologistID']?>><?=$response['result'][$i]['firstname'] ?> <?=$response['result'][$i]['lastname'] ?></option>
+												<?php } ?>
 											</select></td>
 										</tr>
-										<tr>
-											<td>02/03/2018</td>
-											<td>Γιώργος Νικολάου</td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1">1</option>
-												<option value="2" selected="selected">2</option>
-												<option value="3">3</option>
-											</select></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1">Ψυχολόγος 1</option>
-												<option value="2" selected="selected">Ψυχολόγος 2</option>
-												<option value="3">Ψυχολόγος 3</option>
-											</select></td>
-										</tr>
-										<tr>
-											<td>02/02/2018</td>
-											<td>Μαρία Έλληνα</td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1">1</option>
-												<option value="2" selected="selected">2</option>
-												<option value="3">3</option>
-											</select></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1">Ψυχολόγος 1</option>
-												<option value="2" selected="selected">Ψυχολόγος 2</option>
-												<option value="3">Ψυχολόγος 3</option>
-											</select></td>
-										</tr>
+										<?php } ?>
 									</tbody>
 								</table>
 								<br>
 								<div class="form-group" align="left">
-									<button type="button" class="form-group" name="submit" id="submit">
-										Submit
-									</button>
+									<input type="submit" class="form-group" name="submit" id="submit">
 								</div>
+								</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -472,26 +471,23 @@
 	</body>
 
 </html>
-
-
-<?php
+<?php 
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/waitlist.php";
 $method='POST';
 if(isset($_POST['submit'])){
+for($i=0;$i<count($response['result1']);$i++){	
+	if($_POST[$response['result1'][$i]['patientID']]!=NULL){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
+	'patientID'=>$response['result1'][$i]['patientID'],
+	'psychID'=>$_POST[$response['result1'][$i]['patientID']]
 	));
 	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
+		$response1=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{
-		$response=0;
+		$response1=0;
 	}
-	while($response['status']!=1){
+	while($response1['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
 		?>
@@ -501,8 +497,10 @@ $postfields=http_build_query(array(
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
+		$response1=request($url,$method,$postfields,$tok);
 	}
-	
+	}
+	}
+header("Refresh:0");
 }
 ?>
