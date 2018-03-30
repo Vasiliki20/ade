@@ -342,7 +342,7 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><a href="casefile.php">link</a></td>
+											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
 										<!--<tr>
