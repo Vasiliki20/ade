@@ -397,6 +397,8 @@
 								</button>
 							</div>
 						</div>
+					</div>
+					<div>
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								Στοιχεία πληρωμής
@@ -417,19 +419,19 @@
 								</div>
 								<script>
 									function yesnoCheck(that) {
+										if (that.value=="1") {
+											document.getElementById("ifepitagi").style.display = "none";
+											document.getElementById("ifallo").style.display = "none";
+										}
 										if (that.value == "2") {
 											document.getElementById("ifepitagi").style.display = "block";
 											document.getElementById("ifallo").style.display = "none";
 										}
 										if (that.value == "3") {
 											document.getElementById("ifallo").style.display = "block";
-											getElementById("ifepitagi").style.display = "none";
+											document.getElementById("ifepitagi").style.display = "none";
 										}
-										if (that.value == "1") {
-										getElementById("ifepitagi").style.display = "none";
-										document.getElementById("ifallo").style.display = "none";
-									}
-
+										
 									}
 								</script>
 
@@ -447,10 +449,10 @@
 										Submit
 									</button>
 								</div>
-
 							</div>
 						</div>
-					</div>
+					</div> <!--end box-->
+					
 					<div>
 						<br>
 						<br>
