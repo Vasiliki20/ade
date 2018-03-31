@@ -1,332 +1,502 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
+
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Κέντρο Ψυχικής Υγείας</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Kentro Psixikis Ygias" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link rel="shortcut icon" href="favicon.ico">
+		<title>Κέντρο Ψυχικής Υγείας</title>
 
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- Bootstrap Core CSS -->
+		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		<style>
-			form {
-				font-size: 13px;
-			}
-			input {
-				font-size: 13px;
-			}
+		<!-- MetisMenu CSS -->
+		<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-			table, th, td {
-				border: 1px solid black;
-				border-collapse: collapse;
-			}
-			th, td {
-				padding: 5px;
-				text-align: left;
-			}
-			.sidenav {
-				height: 100%;
-				width: 300px;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: #111;
-				overflow-x: hidden;
-				padding-top: 20px;
-			}
+		<!-- DataTables CSS -->
+		<link href="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+		<!-- DataTables Responsive CSS -->
+		<link href="bootstrap/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
-			.sidenav a {
-				padding: 6px 6px 6px 6px;
-				text-decoration: none;
-				font-size: 13px;
-				color: #818181;
-				display: block;
-			}
+		<!-- Custom CSS -->
+		<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
 
-			.sidenav a:hover {
-				color: #f1f1f1;
-			}
-			.main {
-				margin-left: 300px; /* Same as the width of the sidenav */
-			}
-
-			@media screen and (max-height: 450px) {
-				.sidenav {
-					padding-top: 15px;
-				}
-				.sidenav a {
-					font-size: 18px;
-				}
-			}
-
-			.form-group {
-				font-size: 13px;
-			}
-			.form-control {
-				font-size: 13px;
-			}
-			div {
-				padding: 10px;
-			}
-		</style>
-		<!-- Animate.css -->
-		<link rel="stylesheet" href="css/animate.css">
-		<!-- Icomoon Icon Fonts-->
-		<link rel="stylesheet" href="css/icomoon.css">
-		<!-- Bootstrap  -->
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<!-- Owl Carousel -->
-		<link rel="stylesheet" href="css/owl.carousel.min.css">
-		<link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/modernizr-2.6.2.min.js"></script>
-
+		<!-- Custom Fonts -->
+		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
+	<script>
+		$(document).ready(function() {
+			$('myTable').DataTable();
+		});
+	</script>
+	<style>
+		label {
+			font-size: smaller;
+		}
+	</style>
 	<body>
-		<div class="sidenav">
-			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
-			<a href="form02.php"><b>Δήλωση στοιχείων για ενήλικες</b></a>
-			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
-			<a href="form04.php"><b>Ενημερομένη συγκατάθεση</b></a>
-			<a href="form05.php"><b>Κανόνες</b></a>
-			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<a href="form08.php"><b>Φόρμα καταγραφής επαφών</b></a>
-			<a href="form09.php"><b>Σημειώσης συνάντησεις</b></a>
-			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
-			<a href="form11.php"><b>Έκθεση ενδιάμεσης αξιολόγησης</b></a>
-			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
-			<a href="form13.php"><b>Συμφωνιτικό για την ασφάλεια</b></a>
-			<a href="form14.php"><b>Τερματισμός</b></a>
-			<a href="form15.php"><b>Αξιολόγηση</b></a>
-			<a href="form16.php"><b>Αναφορά δραστηριότητηας</b></a>
-			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
-		</div>
-		<div class="main">
-			<div class="box-wrap">
-				<header role="banner" id="fh5co-header">
-					<div class="container">
-						<nav class="navbar navbar-default">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+
+		<div id="wrapper">
+
+			<!-- Navigation -->
+			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="psindex.php">Κέντρο Ψυχικής Υγείας</a>
+				</div>
+				<!-- /.navbar-header -->
+
+				<ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
+						<ul class="dropdown-menu dropdown-messages">
+							<li>
+								<a href="#">
+								<div>
+									John Smith
+									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
+								</div>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									John Smith
+									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
+								</div>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									John Smith
+									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
+								</div>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a class="text-center" href="#"> Read All Messages <i class="fa fa-angle-right"></i> </a>
+							</li>
+						</ul>
+						<!-- /.dropdown-messages -->
+					</li>
+					<!-- /.dropdown -->
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
+						<ul class="dropdown-menu dropdown-tasks">
+							<li>
+								<a href="#">
+								<div>
+									<p>
+										Task 1
+										<span class="pull-right text-muted">40% Complete</span>
+									</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+											<span class="sr-only">40% Complete (success)</span>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-8 main-nav">
-									<ul class="nav text-right">
-										<li>
-											<a href="contact.html"><span>Contact Us</span></a>
-										</li>
-										<li>
-											<a href="#">Logout</a>
-										</li>
-									</ul>
-								</div>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<p>
+										<strong>Task 2</strong>
+										<span class="pull-right text-muted">20% Complete</span>
+									</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+											<span class="sr-only">20% Complete</span>
+										</div>
+									</div>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<p>
+										<strong>Task 3</strong>
+										<span class="pull-right text-muted">60% Complete</span>
+									</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+											<span class="sr-only">60% Complete (warning)</span>
+										</div>
+									</div>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<p>
+										<strong>Task 4</strong>
+										<span class="pull-right text-muted">80% Complete</span>
+									</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+											<span class="sr-only">80% Complete (danger)</span>
+										</div>
+									</div>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
+							</li>
+						</ul>
+						<!-- /.dropdown-tasks -->
+					</li>
+					<!-- /.dropdown -->
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
+						<ul class="dropdown-menu dropdown-alerts">
+							<li>
+								<a href="#">
+								<div>
+									<i class="fa fa-comment fa-fw"></i> New Comment <span class="pull-right text-muted small">4 minutes ago</span>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<i class="fa fa-twitter fa-fw"></i> 3 New Followers <span class="pull-right text-muted small">12 minutes ago</span>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<i class="fa fa-envelope fa-fw"></i> Message Sent <span class="pull-right text-muted small">4 minutes ago</span>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<i class="fa fa-tasks fa-fw"></i> New Task <span class="pull-right text-muted small">4 minutes ago</span>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+								<div>
+									<i class="fa fa-upload fa-fw"></i> Server Rebooted <span class="pull-right text-muted small">4 minutes ago</span>
+								</div> </a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a class="text-center" href="#"> <strong>See All Alerts</strong> <i class="fa fa-angle-right"></i> </a>
+							</li>
+						</ul>
+						<!-- /.dropdown-alerts -->
+					</li>
+					<!-- /.dropdown -->
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
+						<ul class="dropdown-menu dropdown-user">
+							<li>
+								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+							</li>
+						</ul>
+						<!-- /.dropdown-user -->
+					</li>
+					<!-- /.dropdown -->
+				</ul>
+				<!-- /.navbar-top-links -->
+				<div class="navbar-default sidebar" role="navigation">
+					<div class="sidebar-nav navbar-collapse">
+						<ul class="nav" id="side-menu">
+							<!--
+							<li class="sidebar-search">
+							<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+							<i class="fa fa-search"></i>
+							</button> </span>
 							</div>
-						</nav>
+							<!-- /input-group -->
+							<!--</li>-->
+							<li>
+								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level">
+									<li>
+										<a href="tasklist.php">Task List</a>
+									</li>
+									<li>
+										<a href="myclients.php">My clients</a>
+									</li>
+									<li>
+										<a href="waitinglist.php">Waiting List</a>
+									</li>
+									<li>
+										<a href="search.php">Search</a>
+									</li>
+								</ul>
+								<!-- /.nav-second-level -->
+							</li>
+							<li>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+							</li>
+							<li>
+								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+							</li>
+						</ul>
 					</div>
-				</header>
-
-				<div class="container">
-					<div align="center">
-						<h4><strong>ΑΝΑΣΚΟΠΗΣΗ ΘΕΡΑΠΕΥΤΙΚΗΣ ΔΙΑΔΙΚΑΣΙΑΣ/ ΠΑΡΕΜΒΑΣΗΣ</strong></h4>
-						<div align="center">
-							<em><h6>(συμπληρώνεται ανά τρίμηνο ή κατόπιν οδηγιών) </h6></em>
-						</div>
-					</div>
-
-					<form action="" method="post">
-
-						<table style="width:100%">
-							<div class="form-group">
-								<label for="date"><strong>1. Ημερ. Έναρξης Υπηρεσιών: </strong></label>
-								<input type="date" class="form-control" id="date" placeholder="" name="date">
-							</div>
-							<div class="form-group">
-								<label for="number"><strong>2. Αρ. Συνεδριών</strong></label>
-								<input type="number" class="form-control" id="number" placeholder="" name="number">
-							</div>
-							<div class="form-group">
-								<label for="time"><strong>3. Υπό επισκόπηση χρονική περίοδος :</strong> </label>
-								<input type="text" class="form-control" id="time" placeholder="" name="time">
-							</div>
-							<div class="form-group">
-								<label for="eidos"><strong>4. Είδος θεραπείας/υπηρεσιών: </strong></label>
-								<input type="text" class="form-control" id="eidos" placeholder="" name="eidos">
-							</div>
-							<div class="form-group">
-								<label for="issues"><strong>5. Παρουσιαζόμενα ζητήματα : </strong></label>
-								<input type="text" class="form-control" id="issues" placeholder="" name="issues">
-							</div>
-
-							<div class="form-group">
-								<label for="firstissues"><strong>6. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </strong></label>
-								<input type="text" class="form-control" id="firstissues" placeholder="" name="firstissues">
-							</div>
-							<div class="form-group">
-								<label for="firstdate"><strong>7. Ημερ. Αρχικής Έκθεσης Αξιολόγησης:</strong></label>
-								<input type="date" class="form-control" id="firstdate" placeholder="" name="firstdate">
-							</div>
-							<div class="form-group">
-								<label for="brief"><strong>8. Σύνοψη Αρχικής Αξιολόγησης:</strong></label>
-								<br>
-								<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
-								<br>
-								<input type="text" class="form-control" id="brief" placeholder="" name="brief">
-							</div>
-							<div class="form-group">
-								<label for="changes"><strong>9. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</strong></label>
-								<br>
-								<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
-								<br>
-								<input type="text" class="form-control" id="changes" placeholder="" name="changes">
-							</div>
-						</table>
-						<div class="form-group">
-							<label for="progress"><strong>10. Εξέλιξη θεραπείας : </strong></label>
-							<br>
-							<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
-							<br>
-							<input type="text" class="form-control" id="progress" placeholder="" name="progress">
-						</div>
-						<div class="form-group">
-							<label for="xeirismos"><strong>11. Αλλαγές ως αποτέλεσμα της θεραπείας </strong></label>
-							<br>
-							<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
-							<br>
-							<input type="text" class="form-control" id="xeirismos" placeholder="" name="xeirismos">
-						</div>
-						<div class="form-group">
-							<label for="future"><strong>12. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</strong></label>
-							<br>
-							<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
-							<br>
-							<input type="text" class="form-control" id="future" placeholder="" name="future">
-						</div>
-						<div class="form-group">
-							<table style="width:100%">
-								<tr>
-									<th></th>
-									<th>Απούσα</th>
-									<th>Ήπια</th>
-									<th>Μέτρια</th>
-									<th>Σοβαρή</th>
-								</tr>
-								<tr>
-									<td>α. ψυχολογική</td>
-									<td>
-									<input type="checkbox" class="form-group" id="a1">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="a2">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="a3">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="a4">
-									</td>
-								</tr>
-								<tr>
-									<td>β. επαγγελματική/ακαδημαϊκή</td>
-									<td>
-									<input type="checkbox" class="form-group" id="b1">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="b2">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="b3">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="b4">
-									</td>
-								</tr>
-								<tr>
-									<td>γ. κοινωνική</td>
-									<td>
-									<input type="checkbox" class="form-group" id="g1">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="g2">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="g3">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="g4">
-									</td>
-								</tr>
-								<tr>
-									<td>δ. αυτοφροντίδα</td>
-									<td>
-									<input type="checkbox" class="form-group" id="d1">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="d2">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="d3">
-									</td>
-									<td>
-									<input type="checkbox" class="form-group" id="d4">
-									</td>
-								</tr>
-							</table>
-						</div>
-						<div class="form-group">
-							<label for="more"><strong>14. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</strong></label>
-							<input type="text" class="form-control" id="more" placeholder="" name="more">
-						</div>
-						<button type="submit" class="btn btn-default" name="submit">
-							Submit
-						</button>
-					</form>
+					<!-- /.sidebar-collapse -->
 				</div>
-			</div>
+				<!-- /.navbar-static-side -->
+			</nav>
 
-			<footer>
-				<div id="footer" class="fh5co-border-line">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 text-center">
-								<p class="fh5co-social-icons">
-									<a href="https://twitter.com/MentalHealthUCY"><i class="icon-twitter-with-circle"></i></a>
-									<a href="https://www.facebook.com/ucykepsy/"><i class="icon-facebook-with-circle"></i></a>
-								</p>
-							</div>
-						</div>
+			<div id="page-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
 					</div>
 				</div>
-			</footer>
-			<!-- END: box-wrap -->
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form action="" method="post">
+								<div class="form-group">
+									<label for="date"><strong>1. Ημερ. Έναρξης Υπηρεσιών: </strong></label>
+									<input type="date" class="form-control" id="date" placeholder="" name="date">
+								</div>
+								<div class="form-group">
+									<label for="number"><strong>2. Αρ. Συνεδριών</strong></label>
+									<input type="number" class="form-control" id="number" placeholder="" name="number">
+								</div>
+								<div class="form-group">
+									<label for="time"><strong>3. Υπό επισκόπηση χρονική περίοδος :</strong> </label>
+									<input type="text" class="form-control" id="time" placeholder="" name="time">
+								</div>
+								<div class="form-group">
+									<label for="eidos"><strong>4. Είδος θεραπείας/υπηρεσιών: </strong></label>
+									<input type="text" class="form-control" id="eidos" placeholder="" name="eidos">
+								</div>
+								<div class="form-group">
+									<label for="issues"><strong>5. Παρουσιαζόμενα ζητήματα : </strong></label>
+									<input type="text" class="form-control" id="issues" placeholder="" name="issues">
+								</div>
 
-			<!-- jQuery -->
-			<script src="js/jquery.min.js"></script>
-			<!-- jQuery Easing -->
-			<script src="js/jquery.easing.1.3.js"></script>
-			<!-- Bootstrap -->
-			<script src="js/bootstrap.min.js"></script>
-			<!-- Owl carousel -->
-			<script src="js/owl.carousel.min.js"></script>
-			<!-- Waypoints -->
-			<script src="js/jquery.waypoints.min.js"></script>
-			<!-- Parallax Stellar -->
-			<script src="js/jquery.stellar.min.js"></script>
+								<div class="form-group">
+									<label for="firstissues"><strong>6. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </strong></label>
+									<input type="text" class="form-control" id="firstissues" placeholder="" name="firstissues">
+								</div>
+								<div class="form-group">
+									<label for="firstdate"><strong>7. Ημερ. Αρχικής Έκθεσης Αξιολόγησης:</strong></label>
+									<input type="date" class="form-control" id="firstdate" placeholder="" name="firstdate">
+								</div>
+								<div class="form-group">
+									<label for="brief"><strong>8. Σύνοψη Αρχικής Αξιολόγησης:</strong></label>
+									<br>
+									<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
+									<br>
+									<input type="text" class="form-control" id="brief" placeholder="" name="brief">
+								</div>
+								<div class="form-group">
+									<label for="changes"><strong>9. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</strong></label>
+									<br>
+									<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
+									<br>
+									<input type="text" class="form-control" id="changes" placeholder="" name="changes">
+								</div>
+								</table>
+								<div class="form-group">
+									<label for="progress"><strong>10. Εξέλιξη θεραπείας : </strong></label>
+									<br>
+									<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
+									<br>
+									<input type="text" class="form-control" id="progress" placeholder="" name="progress">
+								</div>
+								<div class="form-group">
+									<label for="xeirismos"><strong>11. Αλλαγές ως αποτέλεσμα της θεραπείας </strong></label>
+									<br>
+									<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
+									<br>
+									<input type="text" class="form-control" id="xeirismos" placeholder="" name="xeirismos">
+								</div>
+								<div class="form-group">
+									<label for="future"><strong>12. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</strong></label>
+									<br>
+									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
+									<br>
+									<input type="text" class="form-control" id="future" placeholder="" name="future">
+								</div>
+								<div class="form-group">
+									<table style="width:100%">
+										<tr>
+											<th></th>
+											<th>Απούσα</th>
+											<th>Ήπια</th>
+											<th>Μέτρια</th>
+											<th>Σοβαρή</th>
+										</tr>
+										<tr>
+											<td>α. ψυχολογική</td>
+											<td>
+											<input type="checkbox" class="form-group" id="a1">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="a2">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="a3">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="a4">
+											</td>
+										</tr>
+										<tr>
+											<td>β. επαγγελματική/ακαδημαϊκή</td>
+											<td>
+											<input type="checkbox" class="form-group" id="b1">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="b2">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="b3">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="b4">
+											</td>
+										</tr>
+										<tr>
+											<td>γ. κοινωνική</td>
+											<td>
+											<input type="checkbox" class="form-group" id="g1">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="g2">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="g3">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="g4">
+											</td>
+										</tr>
+										<tr>
+											<td>δ. αυτοφροντίδα</td>
+											<td>
+											<input type="checkbox" class="form-group" id="d1">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="d2">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="d3">
+											</td>
+											<td>
+											<input type="checkbox" class="form-group" id="d4">
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="form-group">
+									<label for="more"><strong>14. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</strong></label>
+									<input type="text" class="form-control" id="more" placeholder="" name="more">
+								</div>
+								<button type="submit" class="btn btn-default" name="submit">
+									Submit
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
 
-			<!-- Main JS (Do not remove) -->
-			<script src="js/main.js"></script>
-		</div>
+				<!-- jQuery -->
+				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+				<!-- Bootstrap Core JavaScript -->
+				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+				<!-- Metis Menu Plugin JavaScript -->
+				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+				<!-- DataTables JavaScript -->
+				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+				<!-- Custom Theme JavaScript -->
+				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+				<script>
+					$(document).ready(function() {
+						$('#dataTables-example').DataTable({
+							responsive : true
+						});
+					});
+				</script>
+
 	</body>
+
 </html>
+
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+}
+?>
