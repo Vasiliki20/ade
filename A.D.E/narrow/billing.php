@@ -354,7 +354,7 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Στοιχεία Πληρωμών για τον Χ πελάτη
+							Τιμολόγιο για τον Χ πελάτη
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
@@ -362,63 +362,185 @@
 								<input type="date" class="form-control" id="date" placeholder="" />
 							</div>
 							<div class="form-group">
-								<label for="number">Αριθμός Συνεδρίων</label>
-								<input type="number" class="form-control" id="number" placeholder="" />
+								<label for="name">Όνομα Πελάτη</label>
+								<input type="text" class="form-control" id="name" placeholder="" />
 							</div>
 							<div class="form-group">
-								<label for="price">Ποσό</label>
-								<input type="number" class="form-control" id="price" placeholder="" />
+								<label for="psychologist">Όνομα Θεραπευτή</label>
+								<input type="text" class="form-control" id="psychologist" placeholder="" />
 							</div>
+							<div class="form-group">
+								<label for="dateofservices">Ημερομηνία λήψης υπηρεσιών</label>
+								<input type="date" class="form-control" id="dateofservices" placeholder="" />
+							</div>
+							<div class="form-group">
+								<label for="code">Κωδικός χρέωσης </label>
+								<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+								<select onchange="yesnoCheck(this);">
+									<option value="1">Ατομική</option>
+									<option value="2" selected="selected">Ομαδική</option>
+									<option value="3">Ζευγάρι/Οικογένεια</option>
+									<option value="4">Συμβουλευτική</option>
+									<option value="5">Άλλο</option>
+								</select>
+							</div>
+							<div id="ifYes" style="display: none;">
+								<input type="text" class="form-control" id="other" placeholder="" />
+							</div>
+							<script>
+								function yesnoCheck(that) {
+									if (that.value == "5") {
+										document.getElementById("ifYes").style.display = "block";
+									} else {
+										document.getElementById("ifYes").style.display = "none";
+									}
+								}
+							</script>
+							<br>
+							<div class="form-group" align="center">
+								<button type="button" class="form-group" name="submit" id="submit">
+									Submit
+								</button>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Στοιχεία πληρωμής
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label for="date">Ημερομηνία πληρωμής</label>
+									<input type="dateofpayment" class="form-control" id="dateofpayment" placeholder="" />
+								</div>
+								<div class="form-group">
+									<label for="name">Μέθοδος πληρωμής</label>
+									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+									<select onchange="yesnoCheck(this);">
+										<option value="1" selected="selected">Μετρητά</option>
+										<option value="2">Επιταγή</option>
+										<option value="3">Άλλο</option>
+									</select>
+								</div>
+								<script>
+									function yesnoCheck(that) {
+										if (that.value == "1") {
+											document.getElementById("ifepitagi").style.display = "none";
+											document.getElementById("ifallo").style.display = "none";
+										}
+										if (that.value == "2") {
+											document.getElementById("ifepitagi").style.display = "block";
+											document.getElementById("ifallo").style.display = "none";
+										}
+										if (that.value == "3") {
+											document.getElementById("ifallo").style.display = "block";
+											document.getElementById("ifepitagi").style.display = "none";
+										}
 
+									}
+								</script>
+
+								<div id="ifepitagi" style="display: none;">
+									<label for="number">Αριθμός Επιταγής</label>
+									<input type="number" class="form-control" id="number" placeholder="" />
+								</div>
+								<div id="ifallo" style="display: none;">
+									<input type="number" class="form-control" id="other2" placeholder="" />
+								</div>
+
+								<br>
+								<div class="form-group" align="center">
+									<button type="button" class="form-group" name="submit" id="submit">
+										Submit
+									</button>
+								</div>
+							</div>
 						</div>
-						<div class="form-group" align="center">
-							<button type="button" class="form-group" name="submit" id="submit">
-								Submit
-							</button>
+					</div>
+					<!--end box-->
+					<div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Διαδικασία πληρωμής
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label for="payments">Κατάσταση πληρωμής </label>
+									<input type="hidden" name="payment" />
+									<br>
+									<input type="radio" name="payment" value="pending">
+									Εκκρεμεί
+									<br>
+									<input type="radio" name="payment" value="submitted">
+									Κατατέθηκε
+									<br>
+									<input type="radio" name="payment" value="completed">
+									Ολοκληρώθηκε
+									<br>
+									<input type="radio" name="payment" value="canceled">
+									Ακυρώθηκε
+									<br>
+									<input type="radio" name="payment" value="rejected">
+									Απορρίφθηκε
+									<br>
+									<input type="radio" name="payment" value="repeated">
+									Επανακατατέθηκε
+									<br>
+									<input type="radio" name="payment" value="late">
+									Καθυστερημένη
+									<br>
+									<input type="radio" name="payment" value="deleted">
+									Διαγράφηκε
+									<br>
+									<input type="radio" name="payment" value="refund">
+									Επιστράφηκε 
+								</div>
+								<div class="form-group" align="center">
+									<button type="button" class="form-group" name="submit" id="submit">
+										Submit
+									</button>
+								</div>
+							</div>
 						</div>
+						<div>
+							<br>
+							<br>
+						</div>
+						<!-- /#page-wrapper -->
 
 					</div>
-				</div>
-			</div>
-			<div>
-				<br>
-				<br>
-			</div>
-			<!-- /#page-wrapper -->
+					<!-- /#wrapper -->
 
-		</div>
-		<!-- /#wrapper -->
+					<!-- jQuery -->
+					<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+					<!-- Bootstrap Core JavaScript -->
+					<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+					<!-- Metis Menu Plugin JavaScript -->
+					<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+					<!-- DataTables JavaScript -->
+					<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+					<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+					<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+					<!-- Custom Theme JavaScript -->
+					<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
+					<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+					<script>
+						$(document).ready(function() {
+							$('#dataTables-example').DataTable({
+								responsive : true
+							});
+						});
+					</script>
 
 	</body>
 
 </html>
-
 
 <?php
 require_once("requests.php");
@@ -426,29 +548,28 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
