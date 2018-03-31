@@ -419,7 +419,7 @@
 								</div>
 								<script>
 									function yesnoCheck(that) {
-										if (that.value=="1") {
+										if (that.value == "1") {
 											document.getElementById("ifepitagi").style.display = "none";
 											document.getElementById("ifallo").style.display = "none";
 										}
@@ -431,7 +431,7 @@
 											document.getElementById("ifallo").style.display = "block";
 											document.getElementById("ifepitagi").style.display = "none";
 										}
-										
+
 									}
 								</script>
 
@@ -451,42 +451,86 @@
 								</div>
 							</div>
 						</div>
-					</div> <!--end box-->
-					
-					<div>
-						<br>
-						<br>
 					</div>
-					<!-- /#page-wrapper -->
+					<!--end box-->
+					<div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Διαδικασία πληρωμής
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label for="payments">Κατάσταση πληρωμής </label>
+									<input type="hidden" name="payment" />
+									<br>
+									<input type="radio" name="payment" value="pending">
+									Εκκρεμεί
+									<br>
+									<input type="radio" name="payment" value="submitted">
+									Κατατέθηκε
+									<br>
+									<input type="radio" name="payment" value="completed">
+									Ολοκληρώθηκε
+									<br>
+									<input type="radio" name="payment" value="canceled">
+									Ακυρώθηκε
+									<br>
+									<input type="radio" name="payment" value="rejected">
+									Απορρίφθηκε
+									<br>
+									<input type="radio" name="payment" value="repeated">
+									Επανακατατέθηκε
+									<br>
+									<input type="radio" name="payment" value="late">
+									Καθυστερημένη
+									<br>
+									<input type="radio" name="payment" value="deleted">
+									Διαγράφηκε
+									<br>
+									<input type="radio" name="payment" value="refund">
+									Επιστράφηκε 
+								</div>
+								<div class="form-group" align="center">
+									<button type="button" class="form-group" name="submit" id="submit">
+										Submit
+									</button>
+								</div>
+							</div>
+						</div>
+						<div>
+							<br>
+							<br>
+						</div>
+						<!-- /#page-wrapper -->
 
-				</div>
-				<!-- /#wrapper -->
+					</div>
+					<!-- /#wrapper -->
 
-				<!-- jQuery -->
-				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+					<!-- jQuery -->
+					<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-				<!-- Bootstrap Core JavaScript -->
-				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+					<!-- Bootstrap Core JavaScript -->
+					<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-				<!-- Metis Menu Plugin JavaScript -->
-				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+					<!-- Metis Menu Plugin JavaScript -->
+					<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-				<!-- DataTables JavaScript -->
-				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+					<!-- DataTables JavaScript -->
+					<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+					<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+					<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-				<!-- Custom Theme JavaScript -->
-				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+					<!-- Custom Theme JavaScript -->
+					<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
+					<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+					<script>
+						$(document).ready(function() {
+							$('#dataTables-example').DataTable({
+								responsive : true
+							});
 						});
-					});
-				</script>
+					</script>
 
 	</body>
 
