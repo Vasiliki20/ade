@@ -73,12 +73,23 @@
 					</div>
 				</div>
 			</div>
+<script language=JavaScript>
 
+function checkCheckBox(f){
+if (f.agree.checked == false )
+{
+alert('Please agree on terms and conditions to continue');
+return false;
+}else
+return true;
+}
+
+</script>
 			<div class="container">
 				<div align="center">
 					<h4>Διευθετήστε συνάντηση με Ψυχολόγο</h4>
 				</div>
-				<form method="post" action="">
+				<form method="post" action="" onsubmit="return checkCheckBox(this)">
 					<div class="form-group">
 						<label for="email">Ηλεκτρονική Διεύθυνση για Επικοινωνία:</label>
 						<input type="email" class="form-control" id="email" placeholder="Ηλεκτρονική Διεύθυνση" name="email">
@@ -98,6 +109,10 @@
 					<div class="form-group">
 						<label for="pwd">Κωδικός:</label>
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="password">
+					</div>
+					<div class="form-group">
+						<input name="agree" type="checkbox" value="0" />
+						I agree to <a href="termsandcond.html">terms and conditins</a> 
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
 						Submit
