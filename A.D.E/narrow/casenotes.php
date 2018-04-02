@@ -292,24 +292,11 @@
 						<div class="panel-body">
 							<form action="" method="post">
 								<div class="form-group">
-									<label for="id">Μοναδικός κωδικός Case Note</label>
-									<input type="number" class="form-control" id="id" placeholder="" name="id">
-								</div>
-								<div class="form-group">
-									<label for="idappointment">Μοναδικός κωδικός appointment</label>
-									<input type="number" class="form-control" id="idappointment" placeholder="" name="idappointment">
-								</div>
-								<div class="form-group">
-									<label for="action">Action Required</label>
-									<input type="text" class="form-control" id="action" placeholder="" name="action">
-								</div>
-
-								<div class="form-group">
 									<label for="observations">Κλινικές παρατηρήσεις</label>
 									<input type="text" class="form-control" id="observations" placeholder="" name="observations">
 								</div>
 								<div class="form-group">
-									<label for="sessions">Περιεχόμενα sessions</label>
+									<label for="sessions">Περιεχόμενα session</label>
 									<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
 								</div>
 								<div class="form-group">
@@ -381,15 +368,20 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenote.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
+'appointmentID'=>"803",
+'clinical'=>$_POST['observations'],	
+'content'=>$_POST['sessions'],			
+'observations'=>$_POST['other'],		
+'goalsnext'=>$_POST['goals'],			
+'type'=>$_POST['type'],
+'date'=>$_POST['date'],
+'time'=>$_POST['time'], 
+'signed'=>$_POST['signed'],
+'note'=>$_POST['notes'],
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
