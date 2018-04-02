@@ -260,6 +260,9 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
+										<a href="myappointments.php">My appointments</a>
+									</li>
+									<li>
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -292,23 +295,6 @@
 						<div class="panel-body">
 							<form action="" method="post">
 								<div class="form-group">
-									<label for="id">Μοναδικός κωδικός συνάντησης</label>
-									<input type="number" class="form-control" id="id" placeholder="" name="id">
-								</div>
-								<div class="form-group">
-									<label for="idclient">Κωδικός ασθενή ή ασθενών που συμμετέχουν</label>
-									<input type="number" class="form-control" id="idclient" placeholder="" name="idclient">
-								</div>
-								<div class="form-group">
-									<label for="action">Action Required</label>
-									<input type="text" class="form-control" id="action" placeholder="" name="action">
-								</div>
-
-								<div class="form-group">
-									<label for="psychologist">Όνομα ψυχολόγου που συμμετέχει</label>
-									<input type="text" class="form-control" id="psychologist" placeholder="" name="psychologist">
-								</div>
-								<div class="form-group">
 									<label for="appointmentname">Όνομα συνάντησης</label>
 									<input type="text" class="form-control" id="appointmentname" placeholder="" name="appointmentname">
 								</div>
@@ -317,24 +303,63 @@
 									<input type="text" class="form-control" id="appointmentsubject" placeholder="" name="appointmentsubject">
 								</div>
 								<div class="form-group">
+									<input type="hidden" name="type">
 									<label for="type">Τύπος</label>
 									<br>
-									<input type="radio" class="form-group" name="type">
+									<input type="radio" class="form-group" name="type" value="Individual">
 									Individual
 									<br>
-									<input type="radio" class="form-group" name="type">
+									<input type="radio" class="form-group" name="type" value="Group" >
 									Group
 									<br>
 								</div>
 								<div class="form-group">
-									<label for="kind">Είδος</label>
+									<input type="hidden" name="code">
+									<label for="type">Είδος</label>
 									<br>
-									<input type="radio" class="form-group" name="kind">
-									Individual
+									<input type="radio" class="form-group" name="code" value="Personal">
+									Personal
 									<br>
-									<input type="radio" class="form-group" name="kind">
-									Group
+									<input type="radio" class="form-group" name="code" value="Counseling">
+									Counseling
 									<br>
+								</div>
+<?php	require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=8888";
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
+								<div class="form-group">
+									<label for="idclient">Κωδικός ασθενή ή ασθενών που συμμετέχουν</label>
+									<?php 
+											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+									<br>
+									<?=$response['result'][$i]['firstname']?> <?=$response['result'][$i]['lastname']?> <?=$response['result'][$i]['patientID']?>
+									<input type="checkbox" class="form-group" id="idclient" value=<?=$response['result'][$i]['patientID']?> name="idclient[]">
+									<br>
+									<?php }} ?>
 								</div>
 								<div class="form-group">
 									<label for="date">Ημερομηνία</label>
@@ -357,45 +382,56 @@
 									<input type="text" class="form-control" id="room" placeholder="" name="room">
 								</div>
 								<div class="form-group">
-									<label for="attendance">Attendance</label>
-									<br>
-									<input type="radio" class="form-group" name="attendance">
-									Scheduled
-									<br>
-									<input type="radio" class="form-group" name="attendance">
-									Attended
-									<br>
-									<input type="radio" class="form-group" name="attendance">
-									Not Attended
-									<br>
-								</div>
-								<div class="form-group">
 									<label for="comments">Σχόλια</label>
 									<input type="text" class="form-control" id="comments" placeholder="" name="comments">
 								</div>
 								<div class="form-group">
-									<label for="remindclient">Remind Client</label>
+									<input type="hidden" name="clientSMS">
+									<label for="remindclient">Remind Client via SMS</label>
 									<br>
-									<input type="radio" class="form-group" name="remindclient">
-									via SMS
+									<input type="radio" class="form-group" name="clientSMS" value="yes">
+									Yes
 									<br>
-									<input type="radio" class="form-group" name="remindclient">
-									via Email
+									<input type="radio" class="form-group" name="clientSMS" value="no">
+									No
 									<br>								
 								</div>
 								<div class="form-group">
-									<label for="remindpsychologist">Remind Psychologist</label>
+									<input type="hidden" name="clientEMAIL">
+									<label for="remindclient">Remind Client via Email</label>
 									<br>
-									<input type="radio" class="form-group" name="remindpsychologist">
-									via SMS
+									<input type="radio" class="form-group" name="clientEMAIL" value="yes">
+									Yes
 									<br>
-									<input type="radio" class="form-group" name="remindpsychologist">
-									via Email
+									<input type="radio" class="form-group" name="clientEMAIL" value="no">
+									No
+									<br>								
+								</div>
+								<div class="form-group">
+									<input type="hidden" name="psychSMS">
+									<label for="remindclient">Remind Psychologist via SMS</label>
+									<br>
+									<input type="radio" class="form-group" name="psychSMS" value="yes">
+									Yes
+									<br>
+									<input type="radio" class="form-group" name="psychSMS" value="no">
+									No
+									<br>								
+								</div>
+								<div class="form-group">
+									<input type="hidden" name="psychEMAIL">
+									<label for="remindclient">Remind Psychologist via Email</label>
+									<br>
+									<input type="radio" class="form-group" name="psychEMAIL" value="yes">
+									Yes
+									<br>
+									<input type="radio" class="form-group" name="psychEMAIL" value="no">
+									No
 									<br>								
 								</div>
 								<div class="form-group">
 									<label for="remindpsychologist">Remind time before time</label>
-									<input type="text" class="form-control" id="comments" placeholder="" name="comments">						
+									<input type="text" class="form-control" id="comments" placeholder="" name="timebefore">						
 								</div>
 						</div>
 					</div>
@@ -438,15 +474,29 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/appointment.php";
 $method='POST';
 if(isset($_POST['submit'])){
+	var_dump($_POST['idclient']);
+$arr=base64_encode(serialize($_POST['idclient']));
 $postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
+'patientID' => $arr,
+'psychID' => "8888",
+'name' => $_POST['appointmentname'],
+'subject' => $_POST['appointmentsubject'],
+'type' => $_POST['type'],
+'date' => $_POST['date'],
+'time' => $_POST['time'],
+'length' => $_POST['duration'],
+'building' => $_POST['building'],
+'room' => $_POST['room'],
+'code' => $_POST['code'],
+'comments' => $_POST['comments'],
+'clientSMS' => $_POST['clientSMS'],
+'clientEMAIL' => $_POST['clientEMAIL'],
+'psychSMS' => $_POST['psychSMS'],
+'psychEMAIL' => $_POST['psychEMAIL'],
+'timebefore' => $_POST['timebefore']
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
