@@ -255,6 +255,9 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
+										<a href="myappointments.php">My appointments</a>
+									</li>
+									<li>
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
