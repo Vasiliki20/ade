@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +29,7 @@
 	</head>
 
 	<body>
-		<h5> <?= $_SESSION['id'] ?> </h5>
+
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -252,18 +251,6 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-										<a href="#">Approve Incoming Data</a>
-									</li>
-									<li>
-=======
->>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
-										<a href="#">Notes</a>
-									</li>
-									<li>
-=======
->>>>>>> 745f80b8031c0e6e843c09ed414af4cb7ccc93c0
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
