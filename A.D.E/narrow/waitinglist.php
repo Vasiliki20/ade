@@ -409,9 +409,10 @@ $postfields=http_build_query(array(
 											<td><?=$response['result1'][$j]['firstname']?> <?= $response['result1'][$j]['lastname']?></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="1">1</option>
-												<option value="2" selected="selected">2</option>
-												<option value="3">3</option>
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence" selected="selected">Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability">Disability</option>
 											</select></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select name=<?=$response['result1'][$j]['patientID']?>>
