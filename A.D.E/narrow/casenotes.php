@@ -358,7 +358,7 @@ $response = request($url, $method, $postfields, $tok);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
 												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
