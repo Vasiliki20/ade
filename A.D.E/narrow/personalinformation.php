@@ -316,16 +316,8 @@
 											</li>
 										</ul>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="personalinformation.php">Προσωπικές πληροφορίες</a>
-											</li>
-											<li>
-												<a href="medhistory.php">Ιστορικό</a>
-											</li>
-										</ul>
+									<li>
+										<a href="personalinformation.php">Γενικές πληροφορίες</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -337,7 +329,7 @@
 												<a href="clientmedication.php">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="#">Medlog</a>
+												<a href="medhistory.php">Medlog</a>
 											</li>
 										</ul>
 									</li>
@@ -504,7 +496,7 @@
 								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
 								<input type="text" class="form-control" id="review" placeholder="" name="review">
 							</div>
-							
+
 							<div class="form-group">
 								<label for="level">Επίπεδο σπουδών:</label>
 								<input type="text" class="form-control" id="level" placeholder="" name="level">

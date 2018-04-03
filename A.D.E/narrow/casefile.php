@@ -343,16 +343,8 @@ $postfields=http_build_query(array(
 											</li>
 										</ul>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="personalinformation.php">Προσωπικές πληροφορίες</a>
-											</li>
-											<li>
-												<a href="medhistory.php">Ιστορικό</a>
-											</li>
-										</ul>
+									<li>
+										<a href="personalinformation.php">Γενικές πληροφορίες</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -364,7 +356,7 @@ $postfields=http_build_query(array(
 												<a href="clientmedication.php">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="#">Medlog</a>
+												<a href="medhistory.php">Medlog</a>
 											</li>
 										</ul>
 									</li>
