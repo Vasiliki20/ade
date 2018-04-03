@@ -369,7 +369,7 @@ $postfields=http_build_query(array(
 										</ul>
 									</li>
 									<li>
-										<a href="#">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
 										<a href="billing.php">Πληρωμές</a>

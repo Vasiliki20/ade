@@ -357,175 +357,78 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Προσωπικές Πληροφορίες Πελάτη
+							Εξωτερική πληροφόρηση
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
-								<label for="type">Τύπος πελάτη:</label>
+								<label for="idcom">Μοναδικός κωδικός ιστορικού επικοινωνίας:</label>
+								<input type="number" class="form-control" id="idcom" placeholder="" name="idcom">
+							</div>
+							<div class="form-group">
+								<label for="idclient">Μοναδικός κωδικός ασθενή:</label>
+								<input type="number" class="form-control" id="idclient" placeholder="" name="idclient">
+							</div>
+							<div class="form-group">
+								<label for="type">Τύπος:</label>
 								<input type="text" class="form-control" id="type" placeholder="" name="type">
 							</div>
+
 							<div class="form-group">
-								<label for="id">Αρ.Ταυτότητας:</label>
-								<input type="text" class="form-control" id="id" placeholder="" name="id">
+								<label for="typeofcomm">Τύπος επικοινωνίας:</label>
+								<input type="text" class="form-control" id="typeofcomm" placeholder="" name="typeofcomm">
 							</div>
 							<div class="form-group">
-								<label for="assigned">Ανάθεση σε ψυχολόγο:</label>
-								<input type="text" class="form-control" id="assigned" placeholder="" name="assigned">
+								<label for="wayofcomm">Τρόπος κλήσης:</label>
+								<input type="text" class="form-control" id="wayofcomm" placeholder="" name="wayofcomm">
 							</div>
 							<div class="form-group">
-								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
-								<input type="number" class="form-control" id="idofps" placeholder="" name="idofps">
+								<label for="dateofcomm">Ημερομηνία κλήσης:</label>
+								<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm">
 							</div>
 							<div class="form-group">
-								<label for="name">Όνομα:</label>
-								<input type="text" class="form-control" id="name" placeholder="" name="name">
+								<label for="timeofcomm">Ώρα κλήσης:</label>
+								<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm">
 							</div>
 							<div class="form-group">
-								<label for="surname">Επίθετο:</label>
-								<input type="text" class="form-control" id="surname" placeholder="" name="surname">
+								<label for="namecaller">Όνομα caller:</label>
+								<input type="date" class="form-control" id="namecaller" placeholder="" name="namecaller">
 							</div>
 							<div class="form-group">
-								<label for="appointment">Περίδος Ραντεβού:</label>
-								<input type="text" class="form-control" id="appointment" placeholder="" name="appointment">
+								<label for="surnamecaller">Επίθετο caller:</label>
+								<input type="text" class="form-control" id="surnamecaller" placeholder="" name="surnamecaller">
 							</div>
 							<div class="form-group">
-								<label for="age">Ηλικία:</label>
-								<input type="date" class="form-control" id="age" placeholder="" name="age">
+								<label for="rolecaller">Ρόλος caller:</label>
+								<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller">
 							</div>
 							<div class="form-group">
-								<label for="sex">Φύλο:</label>
-								<input type="text" class="form-control" id="sex" placeholder="" name="sex">
+								<label for="namecalled">Όνομα called:</label>
+								<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled">
 							</div>
 							<div class="form-group">
-								<label for="dob">Ημ.Γέννησης:</label>
-								<input type="date" class="form-control" id="dob" placeholder="" name="dob">
+								<label for="surnamecalled">Επίθετο called:</label>
+								<input type="text" class="form-control" id="surnamecalled" placeholder="" name="surnamecalled">
 							</div>
 							<div class="form-group">
-								<label for="ipikootita">Υπηκοότητα:</label>
-								<input type="text" class="form-control" id="ipikootita" placeholder="" name="ipikootita">
+								<label for="rolecalled">Ρόλος called:</label>
+								<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled">
 							</div>
 							<div class="form-group">
-								<label for="phone">Τηλέφωνο:</label>
-								<input type="number" class="form-control" id="phone" placeholder="" name="phone">
+								<label for="subject">Θέμα κλήσης:</label>
+								<input type="text" class="form-control" id="subject" placeholder="" name="subject">
 							</div>
 							<div class="form-group">
-								<label for="email">Ηλ.Διεύθυνση:</label>
-								<input type="email" class="form-control" id="email" placeholder="" name="email">
+								<label for="description">Περιγραφή κλήσης:</label>
+								<input type="text" class="form-control" id="description" placeholder="" name="description">
 							</div>
 							<div class="form-group">
-								<label for="address">Διεύθυνση Διαμονής:</label>
-								<input type="text" class="form-control" id="address" placeholder="" name="address">
+								<label for="manage">Διαχείριση κλήσης:</label>
+								<input type="text" class="form-control" id="manage" placeholder="" name="manage">
 							</div>
 							<div class="form-group">
-								<label for="tk">Τ.Κ:</label>
-								<input type="text" class="form-control" id="tk" placeholder="" name="tk">
+								<label for="comments">Άλλα σχόλια:</label>
+								<input type="text" class="form-control" id="comments" placeholder="" name="comments">
 							</div>
-							<div class="form-group">
-								<label for="city">Πόλη/Χωριό:</label>
-								<input type="text" class="form-control" id="city" placeholder="" name="city">
-							</div>
-							<div class="form-group">
-								<label for="contact">Πως να επικοινωνεί το κέντρο μαζί του:</label>
-								<input type="text" class="form-control" id="contact" placeholder="" name="contact">
-							</div>
-							<div class="form-group">
-								<label for="recommended">Ποιός του σύστησε το κέντρο:</label>
-								<input type="text" class="form-control" id="recommended" placeholder="" name="recommended">
-							</div>
-							<div class="form-group">
-								<label for="mainproblem">Κύριο πρόβλημα:</label>
-								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainproblem">
-							</div>
-							<div class="form-group">
-								<label for="goal">Σκοπός θεραπείας:</label>
-								<input type="text" class="form-control" id="goal" placeholder="" name="goal">
-							</div>
-							<div class="form-group">
-								<label for="typeoftreatment">Είδος θεραπείας:</label>
-								<input type="text" class="form-control" id="typeoftreatment" placeholder="" name="typeoftreatment">
-							</div>
-							<div class="form-group">
-								<label for="previoustreatment">Προηγούμενες θεραπείες και που:</label>
-								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustreatment">
-							</div>
-							<div class="form-group">
-								<label for="treatmentnow">Θεραπευτής τώρα:</label>
-								<input type="text" class="form-control" id="treatmentnow" placeholder="" name="treatmentnow">
-							</div>
-							<div class="form-group">
-								<label for="phoneofps">Τηλέφωνο θεραπευτή:</label>
-								<input type="number" class="form-control" id="phoneofps" placeholder="" name="phoneofps">
-							</div>
-							<div class="form-group">
-								<label for="numberofsessions">Αριθμός θεραπειών:</label>
-								<input type="number" class="form-control" id="numberofsessions" placeholder="" name="numberofsessions">
-							</div>
-							<div class="form-group">
-								<label for="firstcontact">Ημερομηνία πρώτης επικοινωνίας με ΚΕΨΥ:</label>
-								<input type="date" class="form-control" id="firstcontact" placeholder="" name="firstcontact">
-							</div>
-							<div class="form-group">
-								<label for="firstappointment">Ημερομηνία πρώτου ραντεβού με ΚΕΨΥ:</label>
-								<input type="date" class="form-control" id="firstappointment" placeholder="" name="firstappointment">
-							</div>
-							<div class="form-group">
-								<label for="status">Status:</label>
-								<input type="text" class="form-control" id="status" placeholder="" name="status">
-							</div>
-							<div class="form-group">
-								<label for="marital">Οικογενειακή κατάσταση:</label>
-								<input type="text" class="form-control" id="marital" placeholder="" name="marital">
-							</div>
-							<div class="form-group">
-								<label for="flag">Red flag:</label>
-								<input type="text" class="form-control" id="flag" placeholder="" name="flag">
-							</div>
-							<div class="form-group">
-								<label for="billing">Υπάρχει πληρωμή:</label>
-								<input type="text" class="form-control" id="billing" placeholder="" name="billing">
-							</div>
-							<div class="form-group">
-								<label for="moreinfo">Άλλες πληροφορίες:</label>
-								<input type="text" class="form-control" id="moreinfo" placeholder="" name="moreinfo">
-							</div>
-							<div class="form-group">
-								<label for="complaints">Παράπονα:</label>
-								<input type="text" class="form-control" id="complaints" placeholder="" name="complaints">
-							</div>
-							<div class="form-group">
-								<label for="dateofend">Ημερομηνία Τερματισμού:</label>
-								<input type="date" class="form-control" id="dateofend" placeholder="" name="dateofend">
-							</div>
-							<div class="form-group">
-								<label for="whyend">Λόγος διακοπής:</label>
-								<input type="text" class="form-control" id="whyend" placeholder="" name="whyend">
-							</div>
-							<div class="form-group">
-								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
-								<input type="text" class="form-control" id="review" placeholder="" name="review">
-							</div>
-							
-							<div class="form-group">
-								<label for="position">Θέση στην ιεραρχία:</label>
-								<input type="text" class="form-control" id="position" placeholder="" name="position">
-							</div>
-							<div class="form-group">
-								<label for="specialty">Ειδικότητα:</label>
-								<input type="text" class="form-control" id="specialty" placeholder="" name="specialty">
-							</div>
-							<div class="form-group">
-								<label for="building">Κτήριο:</label>
-								<input type="text" class="form-control" id="building" placeholder="" name="building">
-							</div>
-							<div class="form-group">
-								<label for="officenumber">Αριθμός Γραφείου:</label>
-								<input type="number" class="form-control" id="officenumber" placeholder="" name="officenumber">
-							</div>
-							<div class="form-group">
-								<label for="fax">Fax:</label>
-								<input type="number" class="form-control" id="fax" placeholder="" name="fax">
-							</div>
-							
 						</div>
 					</div>
 				</div>
