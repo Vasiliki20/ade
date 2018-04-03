@@ -357,44 +357,32 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Contact Log
+							Φαρμακευτική αγωγή πελάτη
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
-								<label for="name">Όνομα επαγγελματία ή υπηρεσίας:</label>
-								<input type="text" class="form-control" id="name" placeholder="" name="name">
+								<label for="id">Αρ.Ταυτότητας:</label>
+								<input type="text" class="form-control" id="id" placeholder="" name="id">
 							</div>
 							<div class="form-group">
-								<label for="surname">Επίθετο επαγγελματία:</label>
-								<input type="text" class="form-control" id="surname" placeholder="" name="surname">
+								<label for="nameof">Όνομα:</label>
+								<input type="text" class="form-control" id="nameof" placeholder="" name="nameof">
 							</div>
 							<div class="form-group">
-								<label for="address">Διεύθυνση:</label>
-								<input type="text" class="form-control" id="address" placeholder="" name="address">
+								<label for="dateof">Ημερομηνία:</label>
+								<input type="date" class="form-control" id="dateof" placeholder="" name="dateof">
 							</div>
 							<div class="form-group">
-								<label for="city">Πόλη:</label>
-								<input type="text" class="form-control" id="city" placeholder="" name="city">
+								<label for="duration">Διάρκεια:</label>
+								<input type="text" class="form-control" id="duration" placeholder="" name="duration">
 							</div>
 							<div class="form-group">
-								<label for="phone">Τηλέφωνο:</label>
-								<input type="number" class="form-control" id="phone" placeholder="" name="phone">
+								<label for="doctor">Ιατρός:</label>
+								<input type="text" class="form-control" id="doctor" placeholder="" name="doctor">
 							</div>
 							<div class="form-group">
-								<label for="email">Ηλεκτρονική Διεύθυνση:</label>
-								<input type="email" class="form-control" id="email" placeholder="" name="email">
-							</div>
-							<div class="form-group">
-								<label for="reason">Λόγος μεταβίβασης:</label>
-								<input type="text" class="form-control" id="reason" placeholder="" name="reason">
-							</div>
-							<div class="form-group">
-								<label for="information">Πληροφορίες για μεταβίβαση:</label>
-								<input type="text" class="form-control" id="information" placeholder="" name="information">
-							</div>
-							<div class="form-group">
-								<label for="time">Χρόνος μέχρι να λήξει η εξουσιοδότηση:</label>
-								<input type="text" class="form-control" id="time" placeholder="" name="time">
+								<label for="comments">Σχόλια:</label>
+								<input type="text" class="form-control" id="comments" placeholder="" name="comments">
 							</div>
 						</div>
 					</div>

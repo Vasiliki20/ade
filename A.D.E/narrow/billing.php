@@ -332,7 +332,7 @@
 												<a href="clientrelationships.php">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
 												<a href="#">Medlog</a>
