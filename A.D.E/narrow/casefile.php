@@ -339,7 +339,7 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="#">Contact Logs</a>
+												<a href="contactlog.php">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
