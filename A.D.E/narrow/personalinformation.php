@@ -355,109 +355,217 @@
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
-								<label for="num">Αριθμός ασθενή:</label>
-								<input type="number" class="form-control" id="num" placeholder="1" name="num">
-							</div>
-							<div class="form-group">
-								<label for="name">Όνομα:</label>
-								<input type="text" class="form-control" id="name" placeholder="Βασιλική" name="name">
-							</div>
-							<div class="form-group">
-								<label for="surname">Επίθετο:</label>
-								<input type="text" class="form-control" id="surname" placeholder="Παντελή" name="surname">
-							</div>
-							<div class="form-group">
-								<label for="phone">Τηλέφωνο:</label>
-								<input type="number" class="form-control" id="phone" placeholder="99393131" name="phone">
-							</div>
-							<div class="form-group">
-								<label for="email">Ηλ.Διεύθυνση:</label>
-								<input type="email" class="form-control" id="email" placeholder="vpante02@cs.ucy.ac.cy" name="email">
-							</div>
-							<div class="form-group">
-								<label for="epipedo">Επίπεδο σπουδών:</label>
-								<input type="text" class="form-control" id="epipedo" placeholder="Προπτυχιακό" name="epipedo">
-							</div>
-							<div class="form-group">
-								<label for="klados">Κλάδος/Έτος σπουδών:</label>
-								<input type="text" class="form-control" id="klados" placeholder="4ο έτος/Πληροφορική" name="klados">
-							</div>
-							<div class="form-group">
-								<label for="dob">Ημ.Γέννησης:</label>
-								<input type="date" class="form-control" id="dob" placeholder="20/12/1996" name="dob">
-							</div>
-							<div class="form-group">
-								<label for="age">Ηλικία:</label>
-								<input type="date" class="form-control" id="age" placeholder="21" name="age">
-							</div>
-							<div class="form-group">
-								<label for="sex">Φύλο:</label>
-								<input type="text" class="form-control" id="sex" placeholder="Θ" name="sex">
-							</div>
-							<div class="form-group">
-								<label for="ipikootita">Υπηκοότητα:</label>
-								<input type="text" class="form-control" id="ipikootita" placeholder="Κυπριακή" name="ipikootita">
+								<label for="type">Τύπος πελάτη:</label>
+								<input type="text" class="form-control" id="type" placeholder="" name="type">
 							</div>
 							<div class="form-group">
 								<label for="id">Αρ.Ταυτότητας:</label>
-								<input type="text" class="form-control" id="id" placeholder="917830" name="id">
+								<input type="text" class="form-control" id="id" placeholder="" name="id">
+							</div>
+							<div class="form-group">
+								<label for="assigned">Ανάθεση σε ψυχολόγο:</label>
+								<input type="text" class="form-control" id="assigned" placeholder="" name="assigned">
+							</div>
+							<div class="form-group">
+								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
+								<input type="number" class="form-control" id="idofps" placeholder="" name="idofps">
+							</div>
+							<div class="form-group">
+								<label for="name">Όνομα:</label>
+								<input type="text" class="form-control" id="name" placeholder="" name="name">
+							</div>
+							<div class="form-group">
+								<label for="surname">Επίθετο:</label>
+								<input type="text" class="form-control" id="surname" placeholder="" name="surname">
+							</div>
+							<div class="form-group">
+								<label for="appointment">Περίδος Ραντεβού:</label>
+								<input type="text" class="form-control" id="appointment" placeholder="" name="appointment">
+							</div>
+							<div class="form-group">
+								<label for="age">Ηλικία:</label>
+								<input type="date" class="form-control" id="age" placeholder="" name="age">
+							</div>
+							<div class="form-group">
+								<label for="sex">Φύλο:</label>
+								<input type="text" class="form-control" id="sex" placeholder="" name="sex">
+							</div>
+							<div class="form-group">
+								<label for="dob">Ημ.Γέννησης:</label>
+								<input type="date" class="form-control" id="dob" placeholder="" name="dob">
+							</div>
+							<div class="form-group">
+								<label for="ipikootita">Υπηκοότητα:</label>
+								<input type="text" class="form-control" id="ipikootita" placeholder="" name="ipikootita">
+							</div>
+							<div class="form-group">
+								<label for="phone">Τηλέφωνο:</label>
+								<input type="number" class="form-control" id="phone" placeholder="" name="phone">
+							</div>
+							<div class="form-group">
+								<label for="email">Ηλ.Διεύθυνση:</label>
+								<input type="email" class="form-control" id="email" placeholder="" name="email">
 							</div>
 							<div class="form-group">
 								<label for="address">Διεύθυνση Διαμονής:</label>
-								<input type="text" class="form-control" id="address" placeholder="Καθαρής 11, Αγλατζιά" name="address">
+								<input type="text" class="form-control" id="address" placeholder="" name="address">
+							</div>
+							<div class="form-group">
+								<label for="tk">Τ.Κ:</label>
+								<input type="text" class="form-control" id="tk" placeholder="" name="tk">
 							</div>
 							<div class="form-group">
 								<label for="city">Πόλη/Χωριό:</label>
-								<input type="text" class="form-control" id="city" placeholder="Λευκωσία" name="city">
+								<input type="text" class="form-control" id="city" placeholder="" name="city">
 							</div>
-							<div class="form-group"
-							<label for="tk">Τ.Κ:</label>
-							<input type="text" class="form-control" id="tk" placeholder="3011" name="tk">
+							<div class="form-group">
+								<label for="contact">Πως να επικοινωνεί το κέντρο μαζί του:</label>
+								<input type="text" class="form-control" id="contact" placeholder="" name="contact">
 							</div>
-
+							<div class="form-group">
+								<label for="recommended">Ποιός του σύστησε το κέντρο:</label>
+								<input type="text" class="form-control" id="recommended" placeholder="" name="recommended">
 							</div>
-							</div></div>
+							<div class="form-group">
+								<label for="mainproblem">Κύριο πρόβλημα:</label>
+								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainproblem">
 							</div>
-							<div>
-							<br>
-							<br>
+							<div class="form-group">
+								<label for="goal">Σκοπός θεραπείας:</label>
+								<input type="text" class="form-control" id="goal" placeholder="" name="goal">
 							</div>
-							<!-- /#page-wrapper -->
-
+							<div class="form-group">
+								<label for="typeoftreatment">Είδος θεραπείας:</label>
+								<input type="text" class="form-control" id="typeoftreatment" placeholder="" name="typeoftreatment">
 							</div>
-							<!-- /#wrapper -->
+							<div class="form-group">
+								<label for="previoustreatment">Προηγούμενες θεραπείες και που:</label>
+								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustreatment">
 							</div>
+							<div class="form-group">
+								<label for="treatmentnow">Θεραπευτής τώρα:</label>
+								<input type="text" class="form-control" id="treatmentnow" placeholder="" name="treatmentnow">
+							</div>
+							<div class="form-group">
+								<label for="phoneofps">Τηλέφωνο θεραπευτή:</label>
+								<input type="number" class="form-control" id="phoneofps" placeholder="" name="phoneofps">
+							</div>
+							<div class="form-group">
+								<label for="numberofsessions">Αριθμός θεραπειών:</label>
+								<input type="number" class="form-control" id="numberofsessions" placeholder="" name="numberofsessions">
+							</div>
+							<div class="form-group">
+								<label for="firstcontact">Ημερομηνία πρώτης επικοινωνίας με ΚΕΨΥ:</label>
+								<input type="date" class="form-control" id="firstcontact" placeholder="" name="firstcontact">
+							</div>
+							<div class="form-group">
+								<label for="firstappointment">Ημερομηνία πρώτου ραντεβού με ΚΕΨΥ:</label>
+								<input type="date" class="form-control" id="firstappointment" placeholder="" name="firstappointment">
+							</div>
+							<div class="form-group">
+								<label for="status">Status:</label>
+								<input type="text" class="form-control" id="status" placeholder="" name="status">
+							</div>
+							<div class="form-group">
+								<label for="marital">Οικογενειακή κατάσταση:</label>
+								<input type="text" class="form-control" id="marital" placeholder="" name="marital">
+							</div>
+							<div class="form-group">
+								<label for="flag">Red flag:</label>
+								<input type="text" class="form-control" id="flag" placeholder="" name="flag">
+							</div>
+							<div class="form-group">
+								<label for="billing">Υπάρχει πληρωμή:</label>
+								<input type="text" class="form-control" id="billing" placeholder="" name="billing">
+							</div>
+							<div class="form-group">
+								<label for="moreinfo">Άλλες πληροφορίες:</label>
+								<input type="text" class="form-control" id="moreinfo" placeholder="" name="moreinfo">
+							</div>
+							<div class="form-group">
+								<label for="complaints">Παράπονα:</label>
+								<input type="text" class="form-control" id="complaints" placeholder="" name="complaints">
+							</div>
+							<div class="form-group">
+								<label for="dateofend">Ημερομηνία Τερματισμού:</label>
+								<input type="date" class="form-control" id="dateofend" placeholder="" name="dateofend">
+							</div>
+							<div class="form-group">
+								<label for="whyend">Λόγος διακοπής:</label>
+								<input type="text" class="form-control" id="whyend" placeholder="" name="whyend">
+							</div>
+							<div class="form-group">
+								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
+								<input type="text" class="form-control" id="review" placeholder="" name="review">
+							</div>
+							
+							<div class="form-group">
+								<label for="level">Επίπεδο σπουδών:</label>
+								<input type="text" class="form-control" id="level" placeholder="" name="level">
+							</div>
+							<div class="form-group">
+								<label for="year">Έτος σπουδών:</label>
+								<input type="text" class="form-control" id="year" placeholder="" name="year">
+							</div>
+							<div class="form-group">
+								<label for="department">Τμήμα σπουδών:</label>
+								<input type="text" class="form-control" id="department" placeholder="" name="department">
+							</div>
+							<div class="form-group">
+								<label for="study">Σχολή σπουδών:</label>
+								<input type="text" class="form-control" id="study" placeholder="" name="study">
+							</div>
+							<div class="form-group">
+								<label for="erasmus">Erasmus:</label>
+								<input type="text" class="form-control" id="erasmus" placeholder="" name="erasmus">
+							</div>
+							<div class="form-group">
+								<label for="attendancestatus">Κατάσταση φοίτησης:</label>
+								<input type="text" class="form-control" id="attendancestatus" placeholder="" name="attendancestatus">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<br>
+				<br>
+			</div>
+			<!-- /#page-wrapper -->
 
-							<!-- jQuery -->
-							<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+		</div>
+		<!-- /#wrapper -->
+		</div>
 
-							<!-- Bootstrap Core JavaScript -->
-							<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!-- jQuery -->
+		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-							<!-- Metis Menu Plugin JavaScript -->
-							<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-							<!-- DataTables JavaScript -->
-							<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-							<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-							<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-							<!-- Custom Theme JavaScript -->
-							<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+		<!-- DataTables JavaScript -->
+		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-							<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-							<script>
-								$(document).ready(function() {
-									$('#dataTables-example').DataTable({
-										responsive : true
-									});
-								});
-							</script>
+		<!-- Custom Theme JavaScript -->
+		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+		<script>
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
+				});
+			});
+		</script>
 
 	</body>
 
 </html>
-
 
 <?php
 require_once("requests.php");
@@ -465,29 +573,28 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
