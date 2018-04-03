@@ -329,22 +329,33 @@ $postfields=http_build_query(array(
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
+									<li>
+										<a href="casenotes.php">Σημειώσεις Προόδου</a>
+									</li>
+									<li>
+										<a href="#">Αναφορές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Contact Logs</a>
+											</li>
+										</ul>
+									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php">Προσωπικά Στοιχεία</a>
+												<a href="personalinformation.php">Προσωπικές πληροφορίες</a>
 											</li>
 											<li>
-												<a href="#">Χρονολογικό πρόγραμμα Πελάτη</a>
+												<a href="#">Ιστορικό</a>
 											</li>
 										</ul>
 									</li>
-									<li>
-										<a href="#">Ερωτηματολόγιο</a>
-									</li>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικό Ιστορικό <span class="caret"></span></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
 												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
@@ -352,18 +363,13 @@ $postfields=http_build_query(array(
 											<li>
 												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
+											<li>
+												<a href="#">Medlog</a>
+											</li>
 										</ul>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιστορικό Επικοινωνίας<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="#">Μεταφορές Στοιχείων</a>
-											</li>
-											<li>
-												<a href="#">Εξωτερικές Επικοινωνίες</a>
-											</li>
-										</ul>
+									<li>
+										<a href="#">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
 										<a href="billing.php">Πληρωμές</a>

@@ -1,3 +1,30 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,11 +60,6 @@
 			$('myTable').DataTable();
 		});
 	</script>
-	<style>
-		label {
-			font-size: smaller;
-		}
-	</style>
 	<body>
 
 		<div id="wrapper">
@@ -62,7 +84,7 @@
 							<li>
 								<a href="#">
 								<div>
-									John Smith
+									<strong>John Smith</strong>
 									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
 								</div>
 								<div>
@@ -73,7 +95,7 @@
 							<li>
 								<a href="#">
 								<div>
-									John Smith
+									<strong>John Smith</strong>
 									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
 								</div>
 								<div>
@@ -84,7 +106,7 @@
 							<li>
 								<a href="#">
 								<div>
-									John Smith
+									<strong>John Smith</strong>
 									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
 								</div>
 								<div>
@@ -93,7 +115,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a class="text-center" href="#"> Read All Messages <i class="fa fa-angle-right"></i> </a>
+								<a class="text-center" href="#"> <strong>Read All Messages</strong> <i class="fa fa-angle-right"></i> </a>
 							</li>
 						</ul>
 						<!-- /.dropdown-messages -->
@@ -106,7 +128,7 @@
 								<a href="#">
 								<div>
 									<p>
-										Task 1
+										<strong>Task 1</strong>
 										<span class="pull-right text-muted">40% Complete</span>
 									</p>
 									<div class="progress progress-striped active">
@@ -225,7 +247,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -287,101 +309,167 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header"><small>Case Notes</small></h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
 				</div>
 				<div>
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<form action="" method="post">
-								<div class="form-group">
-									<label for="id">Μοναδικός κωδικός Case Note</label>
-									<input type="number" class="form-control" id="id" placeholder="" name="id">
-								</div>
-								<div class="form-group">
-									<label for="idappointment">Μοναδικός κωδικός appointment</label>
-									<input type="number" class="form-control" id="idappointment" placeholder="" name="idappointment">
-								</div>
-								<div class="form-group">
-									<label for="action">Action Required</label>
-									<input type="text" class="form-control" id="action" placeholder="" name="action">
-								</div>
+					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
 
-								<div class="form-group">
-									<label for="observations">Κλινικές παρατηρήσεις</label>
-									<input type="text" class="form-control" id="observations" placeholder="" name="observations">
-								</div>
-								<div class="form-group">
-									<label for="sessions">Περιεχόμενα sessions</label>
-									<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
-								</div>
-								<div class="form-group">
-									<label for="other">Άλλες παρατηρήσεις</label>
-									<input type="text" class="form-control" id="other" placeholder="" name="other">
-								</div>
-								<div class="form-group">
-									<label for="goals">Στόχος επόμενου appointment</label>
-									<input type="text" class="form-control" id="goals" placeholder="" name="goals">
-								</div>
-								<div class="form-group">
-									<label for="type">Τύπος</label>
-									<input type="text" class="form-control" id="type" placeholder="" name="type">
-								</div>
-								<div class="form-group">
-									<label for="date">Ημερομηνία γραφής</label>
-									<input type="date" class="form-control" id="date" placeholder="" name="date">
-								</div>
-								<div class="form-group">
-									<label for="time">Ώρα γραφής</label>
-									<input type="time" class="form-control" id="time" placeholder="" name="time">
-								</div>
-								<div class="form-group">
-									<label for="signed">Υπογράφτηκε από supervisor</label>
-									<input type="text" class="form-control" id="signed" placeholder="" name="signed">
-								</div>
-								<div class="form-group">
-									<label for="notes">Σημειώσεις</label>
-									<input type="text" class="form-control" id="notes" placeholder="" name="notes">
-								</div>
-						</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="casenotes.php">Σημειώσεις Προόδου</a>
+									</li>
+									<li>
+										<a href="#">Αναφορές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Contact Logs</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικά Στοιχεία<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικές πληροφορίες</a>
+											</li>
+											<li>
+												<a href="#">Ιστορικό</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="#">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+											<li>
+												<a href="#">Medlog</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Εξωτερική Πληροφόρηση</a>
+									</li>
+									<li>
+										<a href="billing.php">Πληρωμές</a>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+
+				<form action="" method="post">
+					<div class="form-group">
+						<label for="id">Μοναδικός κωδικός Case Note</label>
+						<input type="number" class="form-control" id="id" placeholder="" name="id">
+					</div>
+					<div class="form-group">
+						<label for="idappointment">Μοναδικός κωδικός appointment</label>
+						<input type="number" class="form-control" id="idappointment" placeholder="" name="idappointment">
+					</div>
+					<div class="form-group">
+						<label for="action">Action Required</label>
+						<input type="text" class="form-control" id="action" placeholder="" name="action">
+					</div>
+
+					<div class="form-group">
+						<label for="observations">Κλινικές παρατηρήσεις</label>
+						<input type="text" class="form-control" id="observations" placeholder="" name="observations">
+					</div>
+					<div class="form-group">
+						<label for="sessions">Περιεχόμενα sessions</label>
+						<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
+					</div>
+					<div class="form-group">
+						<label for="other">Άλλες παρατηρήσεις</label>
+						<input type="text" class="form-control" id="other" placeholder="" name="other">
+					</div>
+					<div class="form-group">
+						<label for="goals">Στόχος επόμενου appointment</label>
+						<input type="text" class="form-control" id="goals" placeholder="" name="goals">
+					</div>
+					<div class="form-group">
+						<label for="type">Τύπος</label>
+						<input type="text" class="form-control" id="type" placeholder="" name="type">
+					</div>
+					<div class="form-group">
+						<label for="date">Ημερομηνία γραφής</label>
+						<input type="date" class="form-control" id="date" placeholder="" name="date">
+					</div>
+					<div class="form-group">
+						<label for="time">Ώρα γραφής</label>
+						<input type="time" class="form-control" id="time" placeholder="" name="time">
+					</div>
+					<div class="form-group">
+						<label for="signed">Υπογράφτηκε από supervisor</label>
+						<input type="text" class="form-control" id="signed" placeholder="" name="signed">
+					</div>
+					<div class="form-group">
+						<label for="notes">Σημειώσεις</label>
+						<input type="text" class="form-control" id="notes" placeholder="" name="notes">
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
 						Submit
 					</button>
-				</div>
-
 			</div>
 
-			<!-- jQuery -->
-			<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+			<!-- /#page-wrapper -->
 
-			<!-- Bootstrap Core JavaScript -->
-			<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+		</div>
+		<!-- /#wrapper -->
 
-			<!-- Metis Menu Plugin JavaScript -->
-			<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+		<!-- jQuery -->
+		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-			<!-- DataTables JavaScript -->
-			<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-			<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-			<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-			<!-- Custom Theme JavaScript -->
-			<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-			<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-			<script>
-				$(document).ready(function() {
-					$('#dataTables-example').DataTable({
-						responsive : true
-					});
+		<!-- DataTables JavaScript -->
+		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+		<!-- Custom Theme JavaScript -->
+		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+		<script>
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
 				});
-			</script>
+			});
+		</script>
 
 	</body>
 
 </html>
-
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
