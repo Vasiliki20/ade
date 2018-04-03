@@ -350,7 +350,7 @@ $response = request($url, $method, $postfields, $tok);
 												<a href="personalinformation.php">Προσωπικές πληροφορίες</a>
 											</li>
 											<li>
-												<a href="#">Ιστορικό</a>
+												<a href="medhistory.php">Ιστορικό</a>
 											</li>
 										</ul>
 									</li>

@@ -350,7 +350,7 @@ $postfields=http_build_query(array(
 												<a href="personalinformation.php">Προσωπικές πληροφορίες</a>
 											</li>
 											<li>
-												<a href="#">Ιστορικό</a>
+												<a href="medhistory.php">Ιστορικό</a>
 											</li>
 										</ul>
 									</li>
