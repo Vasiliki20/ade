@@ -309,7 +309,7 @@ $response = request($url, $method, $postfields, $tok);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Σημειώσεις προόδου</h1>
 					</div>
 				</div>
 				<div>
@@ -380,64 +380,71 @@ $response = request($url, $method, $postfields, $tok);
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Προσωπικές Πληροφορίες Πελάτη
+						</div>
+						<div class="panel-body">
+							<form action="" method="post">
+								<div class="form-group">
+									<label for="id">Μοναδικός κωδικός Case Note</label>
+									<input type="number" class="form-control" id="id" placeholder="" name="id">
+								</div>
+								<div class="form-group">
+									<label for="idappointment">Μοναδικός κωδικός appointment</label>
+									<input type="number" class="form-control" id="idappointment" placeholder="" name="idappointment">
+								</div>
+								<div class="form-group">
+									<label for="action">Action Required</label>
+									<input type="text" class="form-control" id="action" placeholder="" name="action">
+								</div>
 
-				<form action="" method="post">
-					<div class="form-group">
-						<label for="id">Μοναδικός κωδικός Case Note</label>
-						<input type="number" class="form-control" id="id" placeholder="" name="id">
-					</div>
-					<div class="form-group">
-						<label for="idappointment">Μοναδικός κωδικός appointment</label>
-						<input type="number" class="form-control" id="idappointment" placeholder="" name="idappointment">
-					</div>
-					<div class="form-group">
-						<label for="action">Action Required</label>
-						<input type="text" class="form-control" id="action" placeholder="" name="action">
-					</div>
+								<div class="form-group">
+									<label for="observations">Κλινικές παρατηρήσεις</label>
+									<input type="text" class="form-control" id="observations" placeholder="" name="observations">
+								</div>
+								<div class="form-group">
+									<label for="sessions">Περιεχόμενα sessions</label>
+									<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
+								</div>
+								<div class="form-group">
+									<label for="other">Άλλες παρατηρήσεις</label>
+									<input type="text" class="form-control" id="other" placeholder="" name="other">
+								</div>
+								<div class="form-group">
+									<label for="goals">Στόχος επόμενου appointment</label>
+									<input type="text" class="form-control" id="goals" placeholder="" name="goals">
+								</div>
+								<div class="form-group">
+									<label for="type">Τύπος</label>
+									<input type="text" class="form-control" id="type" placeholder="" name="type">
+								</div>
+								<div class="form-group">
+									<label for="date">Ημερομηνία γραφής</label>
+									<input type="date" class="form-control" id="date" placeholder="" name="date">
+								</div>
+								<div class="form-group">
+									<label for="time">Ώρα γραφής</label>
+									<input type="time" class="form-control" id="time" placeholder="" name="time">
+								</div>
+								<div class="form-group">
+									<label for="signed">Υπογράφτηκε από supervisor</label>
+									<input type="text" class="form-control" id="signed" placeholder="" name="signed">
+								</div>
+								<div class="form-group">
+									<label for="notes">Σημειώσεις</label>
+									<input type="text" class="form-control" id="notes" placeholder="" name="notes">
+								</div>
+								<button type="submit" class="btn btn-default" name="submit">
+									Submit
+								</button>
+						</div>
 
-					<div class="form-group">
-						<label for="observations">Κλινικές παρατηρήσεις</label>
-						<input type="text" class="form-control" id="observations" placeholder="" name="observations">
+						<!-- /#page-wrapper -->
 					</div>
-					<div class="form-group">
-						<label for="sessions">Περιεχόμενα sessions</label>
-						<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
-					</div>
-					<div class="form-group">
-						<label for="other">Άλλες παρατηρήσεις</label>
-						<input type="text" class="form-control" id="other" placeholder="" name="other">
-					</div>
-					<div class="form-group">
-						<label for="goals">Στόχος επόμενου appointment</label>
-						<input type="text" class="form-control" id="goals" placeholder="" name="goals">
-					</div>
-					<div class="form-group">
-						<label for="type">Τύπος</label>
-						<input type="text" class="form-control" id="type" placeholder="" name="type">
-					</div>
-					<div class="form-group">
-						<label for="date">Ημερομηνία γραφής</label>
-						<input type="date" class="form-control" id="date" placeholder="" name="date">
-					</div>
-					<div class="form-group">
-						<label for="time">Ώρα γραφής</label>
-						<input type="time" class="form-control" id="time" placeholder="" name="time">
-					</div>
-					<div class="form-group">
-						<label for="signed">Υπογράφτηκε από supervisor</label>
-						<input type="text" class="form-control" id="signed" placeholder="" name="signed">
-					</div>
-					<div class="form-group">
-						<label for="notes">Σημειώσεις</label>
-						<input type="text" class="form-control" id="notes" placeholder="" name="notes">
-					</div>
-					<button type="submit" class="btn btn-default" name="submit">
-						Submit
-					</button>
+				</div>
 			</div>
-
-			<!-- /#page-wrapper -->
-
 		</div>
 		<!-- /#wrapper -->
 
