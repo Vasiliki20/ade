@@ -255,18 +255,9 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-										<a href="#">Approve Incoming Data</a>
-									</li>
-									<li>
-=======
->>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
-=======
 										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
->>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -505,31 +496,28 @@
 								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
 								<input type="text" class="form-control" id="review" placeholder="" name="review">
 							</div>
-
+							
 							<div class="form-group">
-								<label for="level">Επίπεδο σπουδών:</label>
-								<input type="text" class="form-control" id="level" placeholder="" name="level">
-							</div>
-							<div class="form-group">
-								<label for="year">Έτος σπουδών:</label>
-								<input type="text" class="form-control" id="year" placeholder="" name="year">
-							</div>
-							<div class="form-group">
-								<label for="department">Τμήμα σπουδών:</label>
+								<label for="department">Τμήμα:</label>
 								<input type="text" class="form-control" id="department" placeholder="" name="department">
 							</div>
 							<div class="form-group">
-								<label for="study">Σχολή σπουδών:</label>
-								<input type="text" class="form-control" id="study" placeholder="" name="study">
+								<label for="level">Επίπεδο ακαδημαικού:</label>
+								<input type="text" class="form-control" id="level" placeholder="" name="level">
 							</div>
 							<div class="form-group">
-								<label for="erasmus">Erasmus:</label>
-								<input type="text" class="form-control" id="erasmus" placeholder="" name="erasmus">
+								<label for="building">Κτήριο:</label>
+								<input type="text" class="form-control" id="building" placeholder="" name="building">
 							</div>
 							<div class="form-group">
-								<label for="attendancestatus">Κατάσταση φοίτησης:</label>
-								<input type="text" class="form-control" id="attendancestatus" placeholder="" name="attendancestatus">
+								<label for="officenumber">Αριθμός Γραφείου:</label>
+								<input type="number" class="form-control" id="officenumber" placeholder="" name="officenumber">
 							</div>
+							<div class="form-group">
+								<label for="fax">Fax:</label>
+								<input type="number" class="form-control" id="fax" placeholder="" name="fax">
+							</div>
+							
 						</div>
 					</div>
 				</div>

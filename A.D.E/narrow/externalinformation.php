@@ -28,79 +28,10 @@
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<style>
-		.dropbtn {
-			background-color: white;
-			color: black;
-			padding: 16px;
-			font-size: 16px;
-			border: none;
-			cursor: pointer;
-		}
-
-		.dropbtn:hover, .dropbtn:focus {
-			background-color: white;
-		}
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: white;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-
-		.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-		}
-
-		.dropdown a:hover {
-			background-color: #ddd
-		}
-
-		.show {
-			display: block;
-		}
-		.down {
-			transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
-		}
-	</style>
 	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
-	</script>
-	<script>
-		/* When the user clicks on the button,
-		 toggle between hiding and showing the dropdown content */
-		function myFunction() {
-			document.getElementById("myDropdown").classList.toggle("show");
-		}
-
-		// Close the dropdown if the user clicks outside of it
-		window.onclick = function(event) {
-			if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for ( i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-		}
 	</script>
 	<body>
 
@@ -324,15 +255,9 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-
-										<a href="#">Approve Incoming Data</a>
-									</li>
-									<li>
-
 										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
-
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -357,95 +282,158 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Task List</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
-					<!-- /.col-lg-12 -->
 				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="panel panel-default">
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Ημερομηνία</th>
-											<th>Κατηγορία</th>
-											<th>Πελάτης</th>
-											<th>Περιγραφή</th>
-											<th>Δράση</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>12/01/2018</td>
-											<td>Case Note</td>
-											<td>Βασιλική Παντελή</td>
-											<td>Περιγραφή</td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-											<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note is blank</option>
-												<option value="3">Note not signed</option>
-												<option value="4">Deactivate client</option>
-												<option value="5">Mark attendance</option>
-												<option value="6">Terminate client</option>
-												<option value="7">Delete client</option>	
-											</select></td>
-										</tr>
-										<tr>
-											<td>02/03/2018</td>
-											<td>Case Note</td>
-											<td>Γιώργος Νικολάου</td>
-											<td>Περιγραφή</td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note is blank</option>
-												<option value="3">Note not signed</option>
-												<option value="4">Deactivate client</option>
-												<option value="5">Mark attendance</option>
-												<option value="6">Terminate client</option>
-												<option value="7">Delete client</option>
-											</select></td>
-										</tr>
-										<tr>
-											<td>02/02/2018</td>
-											<td>Case Note</td>
-											<td>Μαρία Έλληνα</td>
-											<td>Περιγραφή</td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note is blank</option>
-												<option value="3">Note not signed</option>
-												<option value="4">Deactivate client</option>
-												<option value="5">Mark attendance</option>
-												<option value="6">Terminate client</option>
-												<option value="7">Delete client</option>
-											</select></td>
-										</tr>
-									</tbody>
-								</table>
-								<br>
-								<div class="form-group" align="left">
-									<button type="button" class="form-group" name="submit" id="submit">
-										Submit
-									</button>
-								</div>
+				<div>
+					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
 							</div>
-							<!-- /.panel-body -->
-						</div>
-						<!-- /.panel -->
-					</div>
-					<!-- /.col-lg-12 -->
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="casenotes.php">Σημειώσεις Προόδου</a>
+									</li>
+									<li>
+										<a href="#">Αναφορές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="contactlog.php">Contact Logs</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="personalinformation.php">Γενικές πληροφορίες</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="clientrelationships.php">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="clientmedication.php">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+											<li>
+												<a href="medhistory.php">Medlog</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="externalinformation.php">Εξωτερική Πληροφόρηση</a>
+									</li>
+									<li>
+										<a href="billing.php">Πληρωμές</a>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
 				</div>
+
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Εξωτερική πληροφόρηση
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="idcom">Μοναδικός κωδικός ιστορικού επικοινωνίας:</label>
+								<input type="number" class="form-control" id="idcom" placeholder="" name="idcom">
+							</div>
+							<div class="form-group">
+								<label for="idclient">Μοναδικός κωδικός ασθενή:</label>
+								<input type="number" class="form-control" id="idclient" placeholder="" name="idclient">
+							</div>
+							<div class="form-group">
+								<label for="type">Τύπος:</label>
+								<input type="text" class="form-control" id="type" placeholder="" name="type">
+							</div>
+
+							<div class="form-group">
+								<label for="typeofcomm">Τύπος επικοινωνίας:</label>
+								<input type="text" class="form-control" id="typeofcomm" placeholder="" name="typeofcomm">
+							</div>
+							<div class="form-group">
+								<label for="wayofcomm">Τρόπος κλήσης:</label>
+								<input type="text" class="form-control" id="wayofcomm" placeholder="" name="wayofcomm">
+							</div>
+							<div class="form-group">
+								<label for="dateofcomm">Ημερομηνία κλήσης:</label>
+								<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm">
+							</div>
+							<div class="form-group">
+								<label for="timeofcomm">Ώρα κλήσης:</label>
+								<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm">
+							</div>
+							<div class="form-group">
+								<label for="namecaller">Όνομα caller:</label>
+								<input type="date" class="form-control" id="namecaller" placeholder="" name="namecaller">
+							</div>
+							<div class="form-group">
+								<label for="surnamecaller">Επίθετο caller:</label>
+								<input type="text" class="form-control" id="surnamecaller" placeholder="" name="surnamecaller">
+							</div>
+							<div class="form-group">
+								<label for="rolecaller">Ρόλος caller:</label>
+								<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller">
+							</div>
+							<div class="form-group">
+								<label for="namecalled">Όνομα called:</label>
+								<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled">
+							</div>
+							<div class="form-group">
+								<label for="surnamecalled">Επίθετο called:</label>
+								<input type="text" class="form-control" id="surnamecalled" placeholder="" name="surnamecalled">
+							</div>
+							<div class="form-group">
+								<label for="rolecalled">Ρόλος called:</label>
+								<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled">
+							</div>
+							<div class="form-group">
+								<label for="subject">Θέμα κλήσης:</label>
+								<input type="text" class="form-control" id="subject" placeholder="" name="subject">
+							</div>
+							<div class="form-group">
+								<label for="description">Περιγραφή κλήσης:</label>
+								<input type="text" class="form-control" id="description" placeholder="" name="description">
+							</div>
+							<div class="form-group">
+								<label for="manage">Διαχείριση κλήσης:</label>
+								<input type="text" class="form-control" id="manage" placeholder="" name="manage">
+							</div>
+							<div class="form-group">
+								<label for="comments">Άλλα σχόλια:</label>
+								<input type="text" class="form-control" id="comments" placeholder="" name="comments">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<br>
+				<br>
 			</div>
 			<!-- /#page-wrapper -->
 
 		</div>
 		<!-- /#wrapper -->
+		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -477,36 +465,34 @@
 
 </html>
 
-
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
