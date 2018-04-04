@@ -13,7 +13,7 @@ function request($url,$method,$fields,$cookie){
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url,false, $context);
 		//if ($result === FALSE) { /* Handle error */ }
-		var_dump($result);
+		//var_dump($result);
 		
 		return json_decode($result,true);
 }

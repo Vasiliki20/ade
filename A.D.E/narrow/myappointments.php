@@ -340,7 +340,7 @@ $postfields=http_build_query(array(
 											<td><?=$response['result1'][$j]['firstname']?></td>
 											<td><?=$response['result1'][$j]['lastname']?></td>
 											<td><?=$response['result'][$j]['patientID']?></td>
-											<td><?=$response['result'][$j]['dateof']?></td>
+											<td><?=$response['result'][$j]['start']?></td>
 											<td><a href="casenotes.php?pID=<?=$response['result'][$j]['appointmentID']?>">link</a></td>
 										</tr>
 									<?php  } ?>
