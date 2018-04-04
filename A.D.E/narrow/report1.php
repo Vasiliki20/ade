@@ -312,7 +312,7 @@
 				<!-- /.row -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Μέσος Όρος Γυναικών
+						Appointment Statistics
 						<br>
 					</div>
 					<div>
@@ -320,12 +320,12 @@
 					</div>
 
 					<div class="form-group">
-						<label for="yearstart"><b> &nbsp;Χρονιά Έναρξης:</b></label>
-						<input type="number" class="form-control" id="yearstart" placeholder="" name="yearstart">
+						<label for="yearstart"><b> &nbsp;Start Date:</b></label>
+						<input type="date" class="form-control" id="yearstart" placeholder="" name="yearstart">
 					</div>
 					<div class="form-group">
-						<label for="yearend"><b> &nbsp;Χρονιά Λήξης:</b></label>
-						<input type="number" class="form-control" id="yearend" placeholder="" name="yearend">
+						<label for="yearend"><b> &nbsp;End Date:</b></label>
+						<input type="date" class="form-control" id="yearend" placeholder="" name="yearend">
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
 						 &nbsp;OK
