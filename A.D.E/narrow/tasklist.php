@@ -379,9 +379,13 @@
 											<td>Περιγραφή</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="1">Signature required</option>
-												<option value="2" selected="selected">Create Note</option>
-												<option value="3">Note is blank</option>
+											<option value="1" selected="selected">Signature required</option>
+												<option value="2">Note is blank</option>
+												<option value="3">Note not signed</option>
+												<option value="4">Deactivate client</option>
+												<option value="5">Mark attendance</option>
+												<option value="6">Terminate client</option>
+												<option value="7">Delete client</option>	
 											</select></td>
 										</tr>
 										<tr>
@@ -391,9 +395,13 @@
 											<td>Περιγραφή</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="1">Signature required</option>
-												<option value="2" selected="selected">Create Note</option>
-												<option value="3">Note is blank</option>
+												<option value="1" selected="selected">Signature required</option>
+												<option value="2">Note is blank</option>
+												<option value="3">Note not signed</option>
+												<option value="4">Deactivate client</option>
+												<option value="5">Mark attendance</option>
+												<option value="6">Terminate client</option>
+												<option value="7">Delete client</option>
 											</select></td>
 										</tr>
 										<tr>
@@ -403,9 +411,13 @@
 											<td>Περιγραφή</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="1">Signature required</option>
-												<option value="2" selected="selected">Create Note</option>
-												<option value="3">Note is blank</option>
+												<option value="1" selected="selected">Signature required</option>
+												<option value="2">Note is blank</option>
+												<option value="3">Note not signed</option>
+												<option value="4">Deactivate client</option>
+												<option value="5">Mark attendance</option>
+												<option value="6">Terminate client</option>
+												<option value="7">Delete client</option>
 											</select></td>
 										</tr>
 									</tbody>
