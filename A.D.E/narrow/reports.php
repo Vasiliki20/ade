@@ -320,13 +320,7 @@
 					</div>
 					<ul>
 						<li>
-							<a href="report1.php">Μέσος Όρος Γυναικών</a>
-						</li>
-						<li>
-							<a href="report1.php">Μέσος Όρος Ανδρών</a>
-						</li>
-						<li>
-							<a href="report1.php">Μέσος Όρος Φοιτητών</a>
+							<a href="report1.php">Στατιστικά Συνεδριάσεων</a>
 						</li>
 					</ul>
 				</div>
