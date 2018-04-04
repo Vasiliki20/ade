@@ -1,4 +1,32 @@
-<?php session_start(); ?>
+<?php session_start(); 
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myappointments.php?psychID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		//print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +40,10 @@
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
 
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+
+		<!-- daypilot libraries -->
+        <script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -35,10 +67,7 @@
         <link type="text/css" rel="stylesheet" href="themes/calendar_white.css" />
 		
 			<!-- helper libraries -->
-	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 
-	<!-- daypilot libraries -->
-        <script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -337,7 +366,9 @@
 
                 var dp = new DayPilot.Calendar("dp");
                 dp.viewType = "Week";
-
+				dp.init();
+				 
+				
                 dp.onEventMoved = function (args) {
 					$.post("moveappo.php",
                             {
@@ -396,19 +427,16 @@
                 dp.onEventClick = function(args) {
                     alert("clicked: " + args.e.id());
                 };
-
-                dp.init();
-
-                loadEvents();
+				loadEvents();
 
                 function loadEvents() {
-                    var start = dp.visibleStart();
-                    var end = dp.visibleEnd();
+                    var start = nav.visibleStart();
+                    var end = nav.visibleEnd();
 					$.post("getevents.php",
-                    {
+                    {	
                         start: start.toString(),
                         end: end.toString(),
-						psychID:<?= json_encode($_SESSION['id']) ?>
+						psychID:<?=json_encode($_SESSION['id']) ?>
                     },
                     function(data) {
                         console.log(data);
@@ -416,7 +444,7 @@
                         dp.update();
                     });
                 }
-
+				
             </script>
 
             <script type="text/javascript">
@@ -437,22 +465,7 @@
 			</div>
 			<!-- /#wrapper -->
 
-			<!-- jQuery -->
-			<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
-
-			<!-- Bootstrap Core JavaScript -->
-			<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-			<!-- Metis Menu Plugin JavaScript -->
-			<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-			<!-- Morris Charts JavaScript -->
-			<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
-			<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
-			<script src="bootstrap/data/morris-data.js"></script>
-
-			<!-- Custom Theme JavaScript -->
-			<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+			
 
 	</body>
 </html>
