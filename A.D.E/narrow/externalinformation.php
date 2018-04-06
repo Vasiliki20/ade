@@ -360,75 +360,109 @@
 							Εξωτερική πληροφόρηση
 						</div>
 						<div class="panel-body">
-							<div class="form-group">
-								<label for="idcom">Μοναδικός κωδικός ιστορικού επικοινωνίας:</label>
-								<input type="number" class="form-control" id="idcom" placeholder="" name="idcom">
-							</div>
-							<div class="form-group">
-								<label for="idclient">Μοναδικός κωδικός ασθενή:</label>
-								<input type="number" class="form-control" id="idclient" placeholder="" name="idclient">
-							</div>
-							<div class="form-group">
-								<label for="type">Τύπος:</label>
-								<input type="text" class="form-control" id="type" placeholder="" name="type">
-							</div>
-
-							<div class="form-group">
-								<label for="typeofcomm">Τύπος επικοινωνίας:</label>
-								<input type="text" class="form-control" id="typeofcomm" placeholder="" name="typeofcomm">
-							</div>
-							<div class="form-group">
-								<label for="wayofcomm">Τρόπος κλήσης:</label>
-								<input type="text" class="form-control" id="wayofcomm" placeholder="" name="wayofcomm">
-							</div>
-							<div class="form-group">
-								<label for="dateofcomm">Ημερομηνία κλήσης:</label>
-								<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm">
-							</div>
-							<div class="form-group">
-								<label for="timeofcomm">Ώρα κλήσης:</label>
-								<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm">
-							</div>
-							<div class="form-group">
-								<label for="namecaller">Όνομα caller:</label>
-								<input type="date" class="form-control" id="namecaller" placeholder="" name="namecaller">
-							</div>
-							<div class="form-group">
-								<label for="surnamecaller">Επίθετο caller:</label>
-								<input type="text" class="form-control" id="surnamecaller" placeholder="" name="surnamecaller">
-							</div>
-							<div class="form-group">
-								<label for="rolecaller">Ρόλος caller:</label>
-								<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller">
-							</div>
-							<div class="form-group">
-								<label for="namecalled">Όνομα called:</label>
-								<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled">
-							</div>
-							<div class="form-group">
-								<label for="surnamecalled">Επίθετο called:</label>
-								<input type="text" class="form-control" id="surnamecalled" placeholder="" name="surnamecalled">
-							</div>
-							<div class="form-group">
-								<label for="rolecalled">Ρόλος called:</label>
-								<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled">
-							</div>
-							<div class="form-group">
-								<label for="subject">Θέμα κλήσης:</label>
-								<input type="text" class="form-control" id="subject" placeholder="" name="subject">
-							</div>
-							<div class="form-group">
-								<label for="description">Περιγραφή κλήσης:</label>
-								<input type="text" class="form-control" id="description" placeholder="" name="description">
-							</div>
-							<div class="form-group">
-								<label for="manage">Διαχείριση κλήσης:</label>
-								<input type="text" class="form-control" id="manage" placeholder="" name="manage">
-							</div>
-							<div class="form-group">
-								<label for="comments">Άλλα σχόλια:</label>
-								<input type="text" class="form-control" id="comments" placeholder="" name="comments">
-							</div>
+							<table id="casenotes" style="width:100%">
+								<tr>
+									<th> Μοναδικός κωδικός ιστορικού επικοινωνίας: </th>
+									<td>
+									<input type="number" class="form-control" id="idcom" placeholder="" name="idcom">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Μοναδικός κωδικός ασθενή:</th>
+									<td>
+									<input type="number" class="form-control" id="idclient" placeholder="" name="idclient">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Τύπος: </th>
+									<td>
+									<input type="text" class="form-control" id="type" placeholder="" name="type">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Τύπος επικοινωνίας: </th>
+									<td>
+									<input type="text" class="form-control" id="typeofcomm" placeholder="" name="typeofcomm">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Τρόπος κλήσης: </th>
+									<td>
+									<input type="text" class="form-control" id="wayofcomm" placeholder="" name="wayofcomm">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ημερομηνία κλήσης: </th>
+									<td>
+									<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ώρα κλήσης: </th>
+									<td>
+									<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Όνομα caller: </th>
+									<td>
+									<input type="date" class="form-control" id="namecaller" placeholder="" name="namecaller">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Επίθετο caller: </th>
+									<td>
+									<input type="text" class="form-control" id="surnamecaller" placeholder="" name="surnamecaller">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ρόλος caller: </th>
+									<td>
+									<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Όνομα called: </th>
+									<td>
+									<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Επίθετο called: </th>
+									<td>
+									<input type="text" class="form-control" id="surnamecalled" placeholder="" name="surnamecalled">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ρόλος called: </th>
+									<td>
+									<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Θέμα κλήσης: </th>
+									<td>
+									<input type="text" class="form-control" id="subject" placeholder="" name="subject">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Περιγραφή κλήσης: </th>
+									<td>
+									<input type="text" class="form-control" id="description" placeholder="" name="description">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Διαχείριση κλήσης: </th>
+									<td>
+									<input type="text" class="form-control" id="manage" placeholder="" name="manage">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Άλλα σχόλια: </th>
+									<td>
+									<input type="text" class="form-control" id="comments" placeholder="" name="comments">
+									</input></td>
+								</tr>
 						</div>
 					</div>
 				</div>
