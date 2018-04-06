@@ -383,49 +383,79 @@ $response = request($url, $method, $postfields, $tok);
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Προσωπικές Πληροφορίες Πελάτη
+							Σημειώσεις προόδου
 						</div>
 						<div class="panel-body">
-							<form action="" method="post">
-								<div class="form-group">
-									<label for="observations">Κλινικές παρατηρήσεις</label>
-									<input type="text" class="form-control" id="observations" placeholder="" name="observations">
-								</div>
-								<div class="form-group">
-									<label for="sessions">Περιεχόμενα session</label>
-									<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
-								</div>
-								<div class="form-group">
-									<label for="other">Άλλες παρατηρήσεις</label>
-									<input type="text" class="form-control" id="other" placeholder="" name="other">
-								</div>
-								<div class="form-group">
-									<label for="goals">Στόχος επόμενου appointment</label>
-									<input type="text" class="form-control" id="goals" placeholder="" name="goals">
-								</div>
-								<div class="form-group">
-									<label for="type">Τύπος</label>
-									<input type="text" class="form-control" id="type" placeholder="" name="type">
-								</div>
-								<div class="form-group">
-									<label for="date">Ημερομηνία γραφής</label>
-									<input type="date" class="form-control" id="date" placeholder="" name="date">
-								</div>
-								<div class="form-group">
-									<label for="time">Ώρα γραφής</label>
-									<input type="time" class="form-control" id="time" placeholder="" name="time">
-								</div>
-								<div class="form-group">
-									<label for="signed">Υπογράφτηκε από supervisor</label>
-									<input type="text" class="form-control" id="signed" placeholder="" name="signed">
-								</div>
-								<div class="form-group">
-									<label for="notes">Σημειώσεις</label>
-									<input type="text" class="form-control" id="notes" placeholder="" name="notes">
-								</div>
-								<button type="submit" class="btn btn-default" name="submit">
-									Submit
-								</button>
+							<table id="casenotes" style="width:100%">
+								<tr>
+									<th>
+									<center>
+										Κλινικές παρατηρήσεις:
+									</center></th>
+									<th>
+									<center>
+										Περιεχόμενα session:
+									</center></th>
+									<th>
+									<center>
+										Άλλες παρατηρήσεις:
+									</center></th>
+									<th>
+									<center>
+										Στόχος επόμενου appointment:
+									</center></th>
+									<th>
+									<center>
+										Τύπος:
+									</center></th>
+									<th>
+									<center>
+										Ημερομηνία γραφής:
+									</center></th>
+									<th>
+									<center>
+										Ώρα γραφής:
+									</center></th>
+									<th>
+									<center>
+										Υπογράφτηκε:
+									</center></th>
+									<th>
+									<center>
+										Σημειώσεις:
+									</center></th>
+									
+								</tr>
+								<tr>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="clinicalobservations">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="sessions">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="othercomments">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="goal">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="type">
+									</input></td>
+									<td>
+									<input type="date" class="form-control" id="casenotes" name="date">
+									</input></td>
+									<td>
+									<input type="time" class="form-control" id="casenotes" name="time">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="supervisor">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="notes">
+									</input></td>
+								</tr>
+						</div>
 						</div>
 
 						<!-- /#page-wrapper -->
