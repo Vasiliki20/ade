@@ -139,7 +139,7 @@
 
 				<div class="container">
 					<div align="center">
-						<h4><strong>ΤΕΡΜΑΤΙΣΜΟΣ ΘΕΡΑΠΕΙΑΣ/ΠΑΡΕΜΒΑΣΗΣ</strong></h4>
+						<h4>ΤΕΡΜΑΤΙΣΜΟΣ ΘΕΡΑΠΕΙΑΣ/ΠΑΡΕΜΒΑΣΗΣ</h4>
 					</div>
 
 					<form action="" method="post">

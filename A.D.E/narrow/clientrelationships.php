@@ -352,30 +352,49 @@
 							Οικογενειακές σχέσεις πελάτη
 						</div>
 						<div class="panel-body">
-							<div class="form-group">
-								<label for="id">Αρ.Ταυτότητας:</label>
-								<input type="text" class="form-control" id="id" placeholder="" name="id">
-							</div>
-							<div class="form-group">
-								<label for="name">Όνομα:</label>
-								<input type="text" class="form-control" id="name" placeholder="" name="name">
-							</div>
-							<div class="form-group">
-								<label for="relation">Σχέση:</label>
-								<input type="text" class="form-control" id="relation" placeholder="" name="relation">
-							</div>
-							<div class="form-group">
-								<label for="age">Ηλικία:</label>
-								<input type="number" class="form-control" id="age" placeholder="" name="age">
-							</div>
-							<div class="form-group">
-								<label for="quality">Ποιότητα:</label>
-								<input type="text" class="form-control" id="quality" placeholder="" name="quality">
-							</div>
-							<div class="form-group">
-								<label for="psychoproblem">Πρόβλημα:</label>
-								<input type="text" class="form-control" id="psychoproblem" placeholder="" name="psychoproblem">
-							</div>
+							
+							<table id="familytable" style="width:100%">
+								<tr>
+									<th>
+									<center>
+										Όνομα:
+									</center></th>
+									<th>
+									<center>
+										Σχέση:
+									</center></th>
+									<th>
+									<center>
+										Ηλικία:
+									</center></th>
+									<th>
+									<center>
+										Ποιότητα:
+									</center></th>
+									<th>
+									<center>
+										Πρόβλημα:
+									</center></th>
+								</tr>
+								<tr>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="name">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="relationship">
+									</input></td>
+									<td>
+									<input type="number" class="form-control" id="familyrelation" name="age">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="quality">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="familyrelation" name="problem">
+									</input></td>
+								</tr>
+								
+							</table>
 						</div>
 					</div>
 				</div>

@@ -132,7 +132,7 @@
 
 				<div class="container">
 					<div align="center">
-						<h4><strong>Καταγραφή Επικοινωνίας </strong> (εκτός συνεδριών)</h4>
+						<h4>ΚΑΤΑΓΡΑΦΗ ΕΠΙΚΟΙΝΩΝΙΑΣ (εκτός συνεδριών)</h4>
 					</div>
 
 					<form action="" method="post">

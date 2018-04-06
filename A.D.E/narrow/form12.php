@@ -123,12 +123,12 @@
 							</div>
 							</div>
 						</nav>
-					</div>
+					
 				</header>
 
 				<div class="container">
 					<div align="center">
-						<h4><strong>Συγκατάθεση για Μεταβίβαση/Λήψη/Ανταλλαγή πληροφοριών – Ενήλικες</strong></h4>
+						<h4>ΣΥΓΚΑΤΑΘΕΣΗ ΓΙΑ ΜΕΤΑΒΙΒΑΣΗ/ΛΗΨΗ/ΑΝΤΑΛΛΑΓΗ ΠΛΗΡΟΦΟΡΙΩΝ</h4>
 						<h5>Για να μπορεί το ΚΕΨΥ να μεταβιβάσει, να λάβει, ή να ανταλλάξει εμπιστευτικές πληροφορίες που σε αφορούν, είναι απαραίτητη προϋπόθεση να συμπληρώσεις το παρόν έντυπο σύμφωνα με τις οδηγίες. </h5>
 					</div>
 
@@ -236,6 +236,7 @@
 					</div>
 				</div>
 			</footer>
+			</div>
 			<!-- END: box-wrap -->
 
 			<!-- jQuery -->
@@ -285,13 +286,14 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-			document.cookie='token=<?= $tok ?>';
+									document.cookie='token=<?= $tok ?>
+							';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>
+		$response = request($url, $method, $postfields, $tok);
+		}
+
+		}
+	?>
