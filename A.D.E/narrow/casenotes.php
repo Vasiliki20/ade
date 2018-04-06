@@ -388,80 +388,66 @@ $response = request($url, $method, $postfields, $tok);
 						<div class="panel-body">
 							<table id="casenotes" style="width:100%">
 								<tr>
-									<th>
-									<center>
-										Κλινικές παρατηρήσεις:
-									</center></th>
-									<th>
-									<center>
-										Περιεχόμενα session:
-									</center></th>
-									<th>
-									<center>
-										Άλλες παρατηρήσεις:
-									</center></th>
-									<th>
-									<center>
-										Στόχος επόμενου appointment:
-									</center></th>
-									<th>
-									<center>
-										Τύπος:
-									</center></th>
-									<th>
-									<center>
-										Ημερομηνία γραφής:
-									</center></th>
-									<th>
-									<center>
-										Ώρα γραφής:
-									</center></th>
-									<th>
-									<center>
-										Υπογράφτηκε:
-									</center></th>
-									<th>
-									<center>
-										Σημειώσεις:
-									</center></th>
-									
-								</tr>
-								<tr>
+									<th> Κλινικές παρατηρήσεις: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="clinicalobservations">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Περιεχόμενα session: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="sessions">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Άλλες παρατηρήσεις: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="othercomments">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Στόχος επόμενου appointment: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="goal">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Τύπος: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="type">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Ημερομηνία γραφής: </th>
 									<td>
 									<input type="date" class="form-control" id="casenotes" name="date">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Ώρα γραφής: </th>
 									<td>
 									<input type="time" class="form-control" id="casenotes" name="time">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Υπογράφτηκε: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="supervisor">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Σημειώσεις: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="notes">
 									</input></td>
 								</tr>
 						</div>
-						</div>
-
-						<!-- /#page-wrapper -->
 					</div>
+
+					<!-- /#page-wrapper -->
 				</div>
 			</div>
+		</div>
 		</div>
 		<!-- /#wrapper -->
 
@@ -501,13 +487,13 @@ $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
 'appointmentID'=>$_GET['pID'],
-'clinical'=>$_POST['observations'],	
-'content'=>$_POST['sessions'],			
-'observations'=>$_POST['other'],		
-'goalsnext'=>$_POST['goals'],			
+'clinical'=>$_POST['observations'],
+'content'=>$_POST['sessions'],
+'observations'=>$_POST['other'],
+'goalsnext'=>$_POST['goals'],
 'type'=>$_POST['type'],
 'date'=>$_POST['date'],
-'time'=>$_POST['time'], 
+'time'=>$_POST['time'],
 'signed'=>$_POST['signed'],
 'note'=>$_POST['notes'],
 ));
