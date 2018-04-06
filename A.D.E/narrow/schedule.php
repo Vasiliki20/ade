@@ -298,8 +298,7 @@
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
+<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
@@ -350,6 +349,7 @@
 								</ul>
 
 							</div><!-- /.navbar-collapse -->
+							
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
@@ -357,77 +357,30 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Contact Log
+							Διαθέσιμο Πρόγραμμα Πελάτη
 						</div>
 						<div class="panel-body">
-							<table id="contactlog" style="width:100%">
+							<table id="available" style="width:100%">
 								<tr>
 									<th>
 									<center>
-										Όνομα επαγγελματία:
+										Ημερομηνίες που είναι διαθέσιμος:
 									</center></th>
 									<th>
 									<center>
-										Επίθετο επαγγελματία:
-									</center></th>
-									<th>
-									<center>
-										Διεύθυνση:
-									</center></th>
-									<th>
-									<center>
-										Πόλη:
-									</center></th>
-									<th>
-									<center>
-										Τηλέφωνο:
-									</center></th>
-									<th>
-									<center>
-										Ηλεκτρονική Διεύθυνση:
-									</center></th>
-									<th>
-									<center>
-										Λόγος μεταβίβασης:
-									</center></th>
-									<th>
-									<center>
-										Πληροφορίες:
-									</center></th>
-									<th>
-									<center>
-										Χρόνος μέχρι να λήξει η εξουσιοδότηση:
+										Ώρες που είναι διαθέσιμος:
 									</center></th>
 								</tr>
 								<tr>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="name">
+									<input type="date" class="form-control" id="available" name="date">
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="surname">
+									<input type="datetime" class="form-control" id="available" name="time">
 									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="address">
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="city">
-									</input></td>
-									<td>
-									<input type="number" class="form-control" id="contactlog" name="phone">
-									</input></td>
-									<td>
-									<input type="email" class="form-control" id="contactlog" name="email">
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="reason">
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="details">
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="time">
-									</input></td>
+									
 								</tr>
+						</div>
 						</div>
 					</div>
 				</div>

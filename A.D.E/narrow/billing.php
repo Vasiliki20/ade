@@ -255,18 +255,18 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-<<<<<<< HEAD
-<<<<<<< HEAD
+										<<<<<<< HEAD
+										<<<<<<< HEAD
 										<a href="#">Approve Incoming Data</a>
 									</li>
 									<li>
-=======
->>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
-=======
+										=======
+										>>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
+										=======
 										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
->>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
+										>>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -307,7 +307,8 @@
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
 										<a href="casenotes.php">Σημειώσεις Προόδου</a>
@@ -323,8 +324,16 @@
 											</li>
 										</ul>
 									</li>
-									<li>
-										<a href="personalinformation.php">Γενικές πληροφορίες</a>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -347,12 +356,11 @@
 										<a href="billing.php">Πληρωμές</a>
 									</li>
 								</ul>
-								
-								
+
 							</div><!-- /.navbar-collapse -->
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
-						<!-- /.container-fluid -->
+							<!-- /.container-fluid -->
 					</nav>
 				</div>
 

@@ -316,8 +316,16 @@
 											</li>
 										</ul>
 									</li>
-									<li>
-										<a href="personalinformation.php">Γενικές πληροφορίες</a>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -349,7 +357,7 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Προσωπικές Πληροφορίες Πελάτη
+							Προσωπικά Στοιχεία Πελάτη
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
