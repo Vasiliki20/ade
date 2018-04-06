@@ -118,7 +118,7 @@
 
 				<div class="container">
 					<div align="center">
-						<h4>Ερωτηματολόγιο Αρχικής Επίσκεψης</h4>
+						<h4>ΕΡΩΤΗΜΑΤΟΛΟΓΙΟ ΑΡΧΙΚΗΣ ΕΠΙΣΚΕΨΗΣ</h4>
 					</div>
 					<div align="left">
 						<h5>Σας παρακαλούμε βάλτε σε κύκλο τον αριθμό που αντιπροσωπεύει το βαθμό που επηρεάζεστε αρνητικά τώρα στο κάθε θέμα που αναφέρεται. Παρακαλώ απαντήστε σε ΟΛΑ τα θέματα. Οι απαντήσεις σας θα είναι πολύ βοηθητικές για να καθορίσουμε τους στόχους στις επόμενες συνεδρίες</h5>
@@ -795,26 +795,26 @@
 									<br>
 									<label for="q61">61. Άλλο</label>
 									<input type="text" class="form-control" id="q61" name="q61">
-									<input type="hidden" name="q61">
-									<input type="radio"  name="q61" value="0">
+									<input type="hidden" name="q62">
+									<input type="radio"  name="q62" value="0">
 									0
-									<input type="radio"  name="q61" value="1">
+									<input type="radio"  name="q62" value="1">
 									1
-									<input type="radio"  name="q61" value="2">
+									<input type="radio"  name="q62" value="2">
 									2
-									<input type="radio"  name="q61" value="3">
+									<input type="radio"  name="q62" value="3">
 									3
 									<br>
-									<label for="q62">62. Άλλο</label>
-									<input type="text" class="form-control" id="q62" name="q62">
-									<input type="hidden" name="q62">
-									<input type="radio" name="q62" value="0">
+									<label for="q63">62. Άλλο</label>
+									<input type="text" class="form-control" id="q63" name="q63">
+									<input type="hidden" name="q64">
+									<input type="radio" name="q64" value="0">
 									0
-									<input type="radio" name="q62" value="1">
+									<input type="radio" name="q64" value="1">
 									1
-									<input type="radio" name="q62" value="2">
+									<input type="radio" name="q64" value="2">
 									2
-									<input type="radio" name="q62" value="3">
+									<input type="radio" name="q64" value="3">
 									3
 								</div>
 							</div>
@@ -900,6 +900,7 @@ if(isset($_POST['submit'])){
   		'q29' => $_POST['q29'],
   		'q30' => $_POST['q30'],
   		'q31' => $_POST['q31'],
+		'q32' => $_POST['q32'],
  		'q33' => $_POST['q33'],
   		'q34' => $_POST['q34'],
   		'q35' => $_POST['q35'],
@@ -931,8 +932,7 @@ if(isset($_POST['submit'])){
   		'q61' => $_POST['q61'],
   		'q62' => $_POST['q62'],
 		'q63' => $_POST['q63'],
-  		'q64' => $_POST['q64'],
-  		'q65' => $_POST['q65']
+  		'q64' => $_POST['q64']
 	));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);

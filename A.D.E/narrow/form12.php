@@ -123,12 +123,12 @@
 							</div>
 							</div>
 						</nav>
-					</div>
+					
 				</header>
 
 				<div class="container">
 					<div align="center">
-						<h4><strong>Συγκατάθεση για Μεταβίβαση/Λήψη/Ανταλλαγή πληροφοριών – Ενήλικες</strong></h4>
+						<h4>ΣΥΓΚΑΤΑΘΕΣΗ ΓΙΑ ΜΕΤΑΒΙΒΑΣΗ/ΛΗΨΗ/ΑΝΤΑΛΛΑΓΗ ΠΛΗΡΟΦΟΡΙΩΝ</h4>
 						<h5>Για να μπορεί το ΚΕΨΥ να μεταβιβάσει, να λάβει, ή να ανταλλάξει εμπιστευτικές πληροφορίες που σε αφορούν, είναι απαραίτητη προϋπόθεση να συμπληρώσεις το παρόν έντυπο σύμφωνα με τις οδηγίες. </h5>
 					</div>
 
@@ -236,6 +236,7 @@
 					</div>
 				</div>
 			</footer>
+			</div>
 			<!-- END: box-wrap -->
 
 			<!-- jQuery -->
@@ -263,8 +264,8 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form12.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-  'id' => $_POST['id'],
-  'typeof' => $_POST[''],
+  'id' => $_SESSION['id'],
+  'typeof' => "Transport infos",
   'nameofprof' => $_POST['nameofprof'],
   'addressofprof' => $_POST['addressofprof'],
   'cityofprof' => $_POST['cityofprof'],
@@ -273,7 +274,7 @@ $postfields=http_build_query(array(
   'purposeofinfo' => $_POST['purposeofinfo'],
   'infototransfer' => $_POST['infototransfer'],
   'timeofexpire' => $_POST['timeofexpire'],
-  'signedinfo' => $_POST['afora']
+  'signedinfo' => "YES"
 	));
 	if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
@@ -285,13 +286,14 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-			document.cookie='token=<?= $tok ?>';
+									document.cookie='token=<?= $tok ?>
+							';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>
+		$response = request($url, $method, $postfields, $tok);
+		}
+
+		}
+	?>

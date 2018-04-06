@@ -306,48 +306,44 @@
 										</tr>
 									</thead>
 									<tbody>
+																			<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myappointments.php?psychID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
+									<?php for($j=0;$j<count($response['result']);$j++){ ?>
 										<tr>
-											<td>Μαρία</td>
-											<td>Γιαννακού</td>
-											<td>224335</td>
-											<td>01.01.2018</td>
-											<td><a href="casenotes.php">link</a></td>
+											<td><?=$response['result1'][$j]['firstname']?></td>
+											<td><?=$response['result1'][$j]['lastname']?></td>
+											<td><?=$response['result'][$j]['patientID']?></td>
+											<td><?=$response['result'][$j]['start']?></td>
+											<td><a href="casenotes.php?pID=<?=$response['result'][$j]['appointmentID']?>">link</a></td>
 										</tr>
-										<tr>
-											<td>Χριστίνα</td>
-											<td>Κωνσταντίνου</td>
-											<td>432533</td>
-											<td>01.01.2018</td>
-											<td><a href="casenotes.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Σωτηρία</td>
-											<td>Κυριάκου</td>
-											<td>432432</td>
-											<td>01.01.2018</td>
-											<td><a href="casenotes.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Κυριάκος</td>
-											<td>Αθανασίου</td>
-											<td>949323</td>
-											<td>01.01.2018</td>
-											<td><a href="casenotes.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Γιώργος</td>
-											<td>Ματθαίου</td>
-											<td>234325</td>
-											<td>01.01.2018</td>
-											<td><a href="casenotes.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td>01.01.2018</td>
-											<td><a href="casenotes.php">link</a></td>
-										</tr>
+									<?php  } ?>
 									</tbody>
 								</table>
 

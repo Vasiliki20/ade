@@ -404,7 +404,7 @@
 								<input type="radio" name="q15" value="7">
 								7
 								<br>
-								<input type="hidden" name="q6" />
+								<input type="hidden" name="q16" />
 								<label for="q16">16. να αναπτύξω δεξιότητες ώστε να μπορώ να διαχειριστώ  θέματα που με
 									απασχολούν</label>
 								<input type="radio" name="q16" value="1">
@@ -656,7 +656,7 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form15.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-  'id' => $_POST['id'],
+  'id' => $_SESSION['id'],
   'q1' => $_POST['q1'],
   'q2' => $_POST['q2'],
   'q3' => $_POST['q3'],

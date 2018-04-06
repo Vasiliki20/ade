@@ -255,9 +255,18 @@
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+										<a href="#">Approve Incoming Data</a>
+									</li>
+									<li>
+=======
+>>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
+=======
 										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
+>>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>

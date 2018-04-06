@@ -145,7 +145,7 @@
 								<input for ="q2" class="form-control" type="date" name="date" id="q2">
 								<br>
 								<label for="q3">2. Άτομα τα οποία εμπλέκονται (όπου ισχύει) :</label>
-								<input type="text" class="form-control" name="q3" name="people" id="q3">
+								<input type="text" class="form-control" name="people" id="q3">
 								<br>
 								<label for="q4">3. Περιγραφή του παραπόνου/των παραπόνων και σχετικά συμβάντα:</label>
 								<input type="text" class="form-control" name="description" id="q4">
@@ -201,7 +201,7 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form17.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'id' => $_POST['id'],
+'id' => $_SESSION['id'],
 'dateof' => $_POST['date'],
 'people' => $_POST['people'],
 'description' => $_POST['description'],

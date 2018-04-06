@@ -352,42 +352,74 @@
 							Contact Log
 						</div>
 						<div class="panel-body">
-							<div class="form-group">
-								<label for="name">Όνομα επαγγελματία ή υπηρεσίας:</label>
-								<input type="text" class="form-control" id="name" placeholder="" name="name">
-							</div>
-							<div class="form-group">
-								<label for="surname">Επίθετο επαγγελματία:</label>
-								<input type="text" class="form-control" id="surname" placeholder="" name="surname">
-							</div>
-							<div class="form-group">
-								<label for="address">Διεύθυνση:</label>
-								<input type="text" class="form-control" id="address" placeholder="" name="address">
-							</div>
-							<div class="form-group">
-								<label for="city">Πόλη:</label>
-								<input type="text" class="form-control" id="city" placeholder="" name="city">
-							</div>
-							<div class="form-group">
-								<label for="phone">Τηλέφωνο:</label>
-								<input type="number" class="form-control" id="phone" placeholder="" name="phone">
-							</div>
-							<div class="form-group">
-								<label for="email">Ηλεκτρονική Διεύθυνση:</label>
-								<input type="email" class="form-control" id="email" placeholder="" name="email">
-							</div>
-							<div class="form-group">
-								<label for="reason">Λόγος μεταβίβασης:</label>
-								<input type="text" class="form-control" id="reason" placeholder="" name="reason">
-							</div>
-							<div class="form-group">
-								<label for="information">Πληροφορίες για μεταβίβαση:</label>
-								<input type="text" class="form-control" id="information" placeholder="" name="information">
-							</div>
-							<div class="form-group">
-								<label for="time">Χρόνος μέχρι να λήξει η εξουσιοδότηση:</label>
-								<input type="text" class="form-control" id="time" placeholder="" name="time">
-							</div>
+							<table id="contactlog" style="width:100%">
+								<tr>
+									<th>
+									<center>
+										Όνομα επαγγελματία:
+									</center></th>
+									<th>
+									<center>
+										Επίθετο επαγγελματία:
+									</center></th>
+									<th>
+									<center>
+										Διεύθυνση:
+									</center></th>
+									<th>
+									<center>
+										Πόλη:
+									</center></th>
+									<th>
+									<center>
+										Τηλέφωνο:
+									</center></th>
+									<th>
+									<center>
+										Ηλεκτρονική Διεύθυνση:
+									</center></th>
+									<th>
+									<center>
+										Λόγος μεταβίβασης:
+									</center></th>
+									<th>
+									<center>
+										Πληροφορίες:
+									</center></th>
+									<th>
+									<center>
+										Χρόνος μέχρι να λήξει η εξουσιοδότηση:
+									</center></th>
+								</tr>
+								<tr>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="name">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="surname">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="address">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="city">
+									</input></td>
+									<td>
+									<input type="number" class="form-control" id="contactlog" name="phone">
+									</input></td>
+									<td>
+									<input type="email" class="form-control" id="contactlog" name="email">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="reason">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="details">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="contactlog" name="time">
+									</input></td>
+								</tr>
 						</div>
 					</div>
 				</div>

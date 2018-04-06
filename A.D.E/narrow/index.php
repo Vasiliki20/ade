@@ -1,440 +1,163 @@
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
-
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Kentro Psixikis Ygias" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="shortcut icon" href="favicon.ico">
 
-		<!-- Bootstrap Core CSS -->
-		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-		<!-- MetisMenu CSS -->
-		<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/icomoon.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-		<!-- Custom CSS -->
-		<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
-
-		<!-- Morris Charts CSS -->
-		<link href="bootstrap/vendor/morrisjs/morris.css" rel="stylesheet">
-
-		<!-- Custom Fonts -->
-		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/modernizr-2.6.2.min.js"></script>
 
 	</head>
-
 	<body>
 
-		<div id="wrapper">
-
-			<!-- Navigation -->
-			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="psindex.php">Κέντρο Ψυχικής Υγείας</a>
-				</div>
-				<!-- /.navbar-header -->
-
-				<ul class="nav navbar-top-links navbar-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-messages">
-							<li>
-								<a href="#">
-								<div>
-									<strong>John Smith</strong>
-									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
+		<div class="box-wrap">
+			<header role="banner" id="fh5co-header">
+				<div class="container">
+					<nav class="navbar navbar-default">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="fh5co-navbar-brand">
+									<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 								</div>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<strong>John Smith</strong>
-									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
-								</div>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<strong>John Smith</strong>
-									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
-								</div>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a class="text-center" href="#"> <strong>Read All Messages</strong> <i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-						<!-- /.dropdown-messages -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-tasks">
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 1</strong>
-										<span class="pull-right text-muted">40% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-											<span class="sr-only">40% Complete (success)</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 2</strong>
-										<span class="pull-right text-muted">20% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-											<span class="sr-only">20% Complete</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 3</strong>
-										<span class="pull-right text-muted">60% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-											<span class="sr-only">60% Complete (warning)</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 4</strong>
-										<span class="pull-right text-muted">80% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-											<span class="sr-only">80% Complete (danger)</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-						<!-- /.dropdown-tasks -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-alerts">
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-comment fa-fw"></i> New Comment <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-twitter fa-fw"></i> 3 New Followers <span class="pull-right text-muted small">12 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-envelope fa-fw"></i> Message Sent <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-tasks fa-fw"></i> New Task <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-upload fa-fw"></i> Server Rebooted <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a class="text-center" href="#"> <strong>See All Alerts</strong> <i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-						<!-- /.dropdown-alerts -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-user">
-							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="psychloginfinal.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-							</li>
-						</ul>
-						<!-- /.dropdown-user -->
-					</li>
-					<!-- /.dropdown -->
-				</ul>
-				<!-- /.navbar-top-links -->
-
-				<div class="navbar-default sidebar" role="navigation">
-					<div class="sidebar-nav navbar-collapse">
-						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
 							</div>
-							<!-- /input-group -->
-							<!--</li>-->
-							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
-								<ul class="nav nav-second-level">
+							<div class="col-md-8 main-nav">
+								<ul class="nav text-right">
 									<li>
-										<a href="tasklistfinal.php">Task List</a>
+										<a href="appointment.php"><span>Register</span></a>
 									</li>
 									<li>
-										<a href="myclientsfinal.php">My clients</a>
-									</li>
-									<li>
-										<a href="#">Approve Incoming Data</a>
-									</li>
-									<li>
-										<a href="#">Notes</a>
-									</li>
-									<li>
-										<a href="waitinglistfinal.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="searchfinal.php">Search</a>
+										<a href="contact.html"><span>Contact Us</span></a>
 									</li>
 								</ul>
-								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reportsfinal.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="helpfinal.php"><i class="fa fa-cog"></i> Help</a>
-							</li>
-						</ul>
-					</div>
-					<!-- /.sidebar-collapse -->
-				</div>
-				<!-- /.navbar-static-side -->
-			</nav>
 
-			<div id="page-wrapper">
-				<div class="row">
-					<div class="col-lg-12">
-						<h1 class="page-header">Calendar</h1>
-					</div>
-					<!-- /.col-lg-12 -->
+							</div>
+						</div>
+					</nav>
 				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-comments fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											26
-										</div>
-										<div>
-											New Comments!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-green">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-tasks fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											12
-										</div>
-										<div>
-											New Tasks!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-yellow">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-shopping-cart fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											124
-										</div>
-										<div>
-											New Orders!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="panel panel-red">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-3">
-										<i class="fa fa-support fa-5x"></i>
-									</div>
-									<div class="col-xs-9 text-right">
-										<div class="huge">
-											13
-										</div>
-										<div>
-											Support Tickets!
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#">
-							<div class="panel-footer">
-								<span class="pull-left">View Details</span>
-								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-								<div class="clearfix"></div>
-							</div> </a>
-						</div>
-					</div>
-				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-bar-chart-o fa-fw"></i> Calendar <div class="pull-right">
+			</header>
 
-								</div>
+			<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
+				<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/intro.jpg);">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 float-overlay">
+								<h2>Κεντρο Ψυχικης Υγειας</h2>
+								<h4 style="color:white;"> Τα χρόνια στο Πανεπιστήμιο μπορούν να είναι συναρπαστικά, δημιουργικά, αλλά
+								συνάμα αγχώδη. Κατά τη διάρκεια της φοιτητικής τους ζωής, οι προπτυχιακοί
+								και μεταπτυχιακοί φοιτητές έχουν να αντιμετωπίσουν αρκετές προκλήσεις,
+								όπως να διαχειριστούν την πίεση και το άγχος των σπουδών, να πάρουν αποφάσεις,
+								και να αναλάβουν νέους ρόλους. Είναι μια περίοδος της ζωής σημαντική για την
+								ανακάλυψη της ταυτότητας, τη δημιουργία και διατήρηση σχέσεων με άλλους
+								ανθρώπους, ενώ συχνά οι φοιτητές καλούνται να αντιμετωπίσουν απώλειες στη ζωή
+								τους, να χειριστούν νέες ακαδημαϊκές απαιτήσεις, και να διαχειριστούν τον
+								τρόπο που οι ίδιοι βιώνουν και οι άλλοι αντιμετωπίζουν τη διαφορετικότητά τους.
+								Ως εκ τούτου, κατά τη διάρκεια των σπουδών τους οι φοιτητές μπορεί να
+								χρειαστούν υποστήριξη για την αντιμετώπιση τέτοιων προκλήσεων. </h4>
 							</div>
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<iframe src="https://calendar.google.com/calendar/embed?title=My%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=r5jn7emrtpentupqiipojavnig%40group.calendar.google.com&amp;color=%235F6B02&amp;ctz=Asia%2FNicosia" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
-							</div>
-							<!-- /.panel-body -->
 						</div>
-
 					</div>
-						<!-- /.panel -->
 				</div>
-				<!-- /.col-lg-8 -->
-				<div class="col-lg-4"></div>
-				<!-- /.col-lg-4 -->
 			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /#page-wrapper -->
 
+			<div class="container">
+				<div align="center">
+					<h4>LOGIN</h4>
+				</div>
+				<form action="" method="post">
+					<div class="form-group">
+						<label for="id">Αρ. Ταυτότητας:</label>
+						<input type="number" class="form-control" id="id" placeholder="Αριθμός Ταυτότητας" name="id">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Κωδικός:</label>
+						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
+					</div>
+					<button type="submit" class="btn btn-default" name="submit">
+						Καταχώρηση
+					</button>
+				</form>
+			</div>
+			<footer>
+				<div id="footer" class="fh5co-border-line">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 text-center">
+								<p class="fh5co-social-icons">
+									<a href="https://twitter.com/MentalHealthUCY"><i class="icon-twitter-with-circle"></i></a>
+									<a href="https://www.facebook.com/ucykepsy/"><i class="icon-facebook-with-circle"></i></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
-		<!-- /#wrapper -->
+		<!-- END: box-wrap -->
 
 		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Owl carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<!-- Parallax Stellar -->
+		<script src="js/jquery.stellar.min.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-		<!-- Morris Charts JavaScript -->
-		<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
-		<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
-		<script src="bootstrap/data/morris-data.js"></script>
-
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+		<!-- Main JS (Do not remove) -->
+		<script src="js/main.js"></script>
 
 	</body>
-
 </html>
+
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/login.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+'id' => $_POST['id'],
+'password' => $_POST['pwd']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+$response = request($url, $method, $postfields, $tok);
+}
+if(strnatcmp($response['login'],true)==0){
+	session_start();
+	$_SESSION['id']=$_POST['id'];
+	echo $_SESSION['id'];
+	header('Location: form01.php');
+
+}
+}
+?>

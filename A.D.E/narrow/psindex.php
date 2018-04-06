@@ -1,3 +1,32 @@
+<?php session_start(); 
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myappointments.php?psychID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		//print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +40,10 @@
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
 
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+
+		<!-- daypilot libraries -->
+        <script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -25,6 +58,15 @@
 
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link type="text/css" rel="stylesheet" href="media/layout.css" />
+
+        <link type="text/css" rel="stylesheet" href="themes/calendar_g.css" />
+        <link type="text/css" rel="stylesheet" href="themes/calendar_green.css" />
+        <link type="text/css" rel="stylesheet" href="themes/calendar_traditional.css" />
+        <link type="text/css" rel="stylesheet" href="themes/calendar_transparent.css" />
+        <link type="text/css" rel="stylesheet" href="themes/calendar_white.css" />
+		
+			<!-- helper libraries -->
 
 	</head>
 
@@ -276,108 +318,155 @@
 			</nav>
 
 			<div id="page-wrapper">
-				<div class="row">
-					<div class="col-lg-12">
-						<h1 class="page-header">Calendar</h1>
-					</div>
-					<!-- /.col-lg-12 -->
+				<div id="page-header">
+			<div class="bg-help">
+				<div class="inBox">
+					<h1 id="logo"><a href='https://code.daypilot.org/17910/html5-event-calendar-open-source'>HTML5/JavaScript Event Calendar</a></h1>
+					<p id="claim"><a href="https://javascript.daypilot.org/">DayPilot for JavaScript</a> - AJAX Calendar/Scheduling Widgets for JavaScript/HTML5/jQuery</p>
+					<hr class="hidden" />
 				</div>
-			
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-bar-chart-o fa-fw"></i> Calendar <div class="pull-right">
+			</div>
+        </div>
+        <div class="shadow"></div>
+        <div class="hideSkipLink">
+        </div>
+        <div class="main">
 
-								</div>
-							</div>
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<iframe src="https://calendar.google.com/calendar/embed?title=My%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=r5jn7emrtpentupqiipojavnig%40group.calendar.google.com&amp;color=%235F6B02&amp;ctz=Asia%2FNicosia" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
-							</div>
-							<!-- /.panel-body -->
-						</div>
+            <div style="float:left; width: 160px;">
+                <div id="nav"></div>
+            </div>
+            <div style="margin-left: 160px;">
 
-					</div>
-					<!-- /.panel -->
+                <div class="space">
+                    Theme: <select id="theme">
+                        <option value="calendar_default">Default</option>
+                        <option value="calendar_white">White</option>
+                        <option value="calendar_g">Google-Like</option>
+                        <option value="calendar_green">Green</option>
+                        <option value="calendar_traditional">Traditional</option>
+                        <option value="calendar_transparent">Transparent</option>
+                    </select>
+                </div>
 
-					<!-- /.col-lg-8 -->
+                <div id="dp"></div>
+            </div>
 
-					<div class="col-lg-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-pencil"></i> Appointments <div class="pull-right"></div>
-							</div>
-							<div>
-								<br>
-							</div>
-							<div align="center">
-								<button type="submit" name="submit" onclick="location.href='psappointment.php';">
-									Add appointment
-								</button>
-							</div>
-							<div>
-								<br>
-							</div>
-						</div>
-					</div>
+            <script type="text/javascript">
 
-					<!-- /.row -->
+                var nav = new DayPilot.Navigator("nav");
+                nav.showMonths = 3;
+                nav.skipMonths = 3;
+                nav.selectMode = "week";
+                nav.onTimeRangeSelected = function(args) {
+                    dp.startDate = args.day;
+                    dp.update();
+                    loadEvents();
+                };
+                nav.init();
+
+                var dp = new DayPilot.Calendar("dp");
+                dp.viewType = "Week";
+				dp.init();
+				 
+				
+                dp.onEventMoved = function (args) {
+					$.post("moveappo.php",
+                            {
+                                id: args.e.id(),
+                                newStart: args.newStart.toString(),
+                                newEnd: args.newEnd.toString()
+                            },
+                            function() {
+                                console.log("Moved.");
+                            });
+                };
+
+                dp.onEventResized = function (args) {
+					$.post("moveappo.php",
+                            {
+                                id: args.e.id(),
+                                newStart: args.newStart.toString(),
+                                newEnd: args.newEnd.toString()
+                            },
+                            function() {
+                                console.log("Moved.");
+                            });
+                };
+
+                // event creating
+                dp.onTimeRangeSelected = function (args) {
+                    var name = prompt("New event name:", "Event");
+                    dp.clearSelection();
+                    if (!name) return;
+                    var start=args.start;
+					var end=args.end;
+					var id=DayPilot.guid();
+					var modal = new DayPilot.Modal({
+                    onClosed: function(args) {
+                        if (args.result) { loadEvents(); }
+                    }
+					});
+
+					modal.showUrl("psappointment.php?start=" + args.start +"&end="+ args.end+"&name="+ name +"&id="+id);
+                };
+				
+				dp.eventDeleteHandling = "Update";
+					dp.onEventDelete = function(args) {
+					if (!confirm("Do you really want to delete this event?")) {
+						args.preventDefault();
+					}
+					$.post("appodelete.php",
+								{
+                                id:args.e.id()
+								},
+								function() {
+									console.log("Deleted.");
+								});
+					};
+				
+                dp.onEventClick = function(args) {
+                    alert("clicked: " + args.e.id());
+                };
+				loadEvents();
+
+                function loadEvents() {
+                    var start = nav.visibleStart();
+                    var end = nav.visibleEnd();
+					$.post("getevents.php",
+                    {	
+                        start: start.toString(),
+                        end: end.toString(),
+						psychID:<?=json_encode($_SESSION['id']) ?>
+                    },
+                    function(data) {
+                        console.log(data);
+                        dp.events.list = data;
+                        dp.update();
+                    });
+                }
+				
+            </script>
+
+            <script type="text/javascript">
+            $(document).ready(function() {
+                $("#theme").change(function(e) {
+                    dp.theme = this.value;
+                    dp.update();
+                });
+            });
+            </script>
+
+        </div>
+        <div class="clear">
+        </div>
 				</div>
 				<!-- /#page-wrapper -->
 
 			</div>
 			<!-- /#wrapper -->
 
-			<!-- jQuery -->
-			<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
-
-			<!-- Bootstrap Core JavaScript -->
-			<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-			<!-- Metis Menu Plugin JavaScript -->
-			<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-			<!-- Morris Charts JavaScript -->
-			<script src="bootstrap/vendor/raphael/raphael.min.js"></script>
-			<script src="bootstrap/vendor/morrisjs/morris.min.js"></script>
-			<script src="bootstrap/data/morris-data.js"></script>
-
-			<!-- Custom Theme JavaScript -->
-			<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+			
 
 	</body>
 </html>
 
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>

@@ -135,7 +135,7 @@
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="specialty">Ειδικότητα</label>
-									<input type="text" name="specialty" placeholder="Ειδικότητα" class="form-control" id="specialty">
+									<input type="text" name="speciality" placeholder="Ειδικότητα" class="form-control" id="specialty">
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="building">Κτήριο</label>
@@ -173,7 +173,7 @@
 									<button type="button" class="btn btn-previous">
 										Previous
 									</button>
-									<button type="submit" class="btn btn-submit">
+									<button type="submit" name="submit" class="btn btn-submit">
 										Submit
 									</button>
 								</div>
@@ -199,28 +199,45 @@
 	</body>
 </html>
 
+
 <?php
-include ('post.php');
-if (isset($_POST['id']) && isset($_POST['email']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['password'])) {
-	$name = $_POST['name'];
-	$stmt = $db -> prepare('INSERT INTO patient(patientID,email,firstname,lastname,password) VALUES(:id,:email,:name,:lastname,:password)');
-	$stmt -> bindParam(':id', $_POST['id']);
-	$stmt -> bindParam(':email', $_POST['email']);
-	$stmt -> bindParam(':name', $_POST['name']);
-	$stmt -> bindParam(':lastname', $_POST['surname']);
-	$stmt -> bindParam(':password', $_POST['password']);
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psyregister.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	'id'=> $_POST['id'],		
+	'name'=> $_POST['name'],		
+	'lastname'=> $_POST['surname'],		
+	'sex' => $_POST['gender'],		
+	'age' => $_POST['age'],		
+	'address' => $_POST['address'],		
+	'telephone' => $_POST['phone'],		
+	'fax' => $_POST['fax'],
+	'position' => $_POST['position'],		
+	'speciality' => $_POST['speciality'],		
+	'building' => $_POST['building'],		
+	'office_num' => $_POST['officenum'],		
+	'email' => $_POST['email'],		
+	'password' => $_POST['password']	
+		));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
 	
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	$stmt -> bindParam(':password', $_POST['password']);
-	
-	$stmt -> execute();
-	//$result = $stmt->fetch(PDO::FETCH_ASSOC);
-	echo "\nThanks $name for the information!\n";
-} else {echo "\nYou didn't put all information\n";
 }
 ?>

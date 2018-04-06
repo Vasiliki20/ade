@@ -352,30 +352,47 @@
 							Φαρμακευτική αγωγή πελάτη
 						</div>
 						<div class="panel-body">
-							<div class="form-group">
-								<label for="id">Αρ.Ταυτότητας:</label>
-								<input type="text" class="form-control" id="id" placeholder="" name="id">
-							</div>
-							<div class="form-group">
-								<label for="nameof">Όνομα:</label>
-								<input type="text" class="form-control" id="nameof" placeholder="" name="nameof">
-							</div>
-							<div class="form-group">
-								<label for="dateof">Ημερομηνία:</label>
-								<input type="date" class="form-control" id="dateof" placeholder="" name="dateof">
-							</div>
-							<div class="form-group">
-								<label for="duration">Διάρκεια:</label>
-								<input type="text" class="form-control" id="duration" placeholder="" name="duration">
-							</div>
-							<div class="form-group">
-								<label for="doctor">Ιατρός:</label>
-								<input type="text" class="form-control" id="doctor" placeholder="" name="doctor">
-							</div>
-							<div class="form-group">
-								<label for="comments">Σχόλια:</label>
-								<input type="text" class="form-control" id="comments" placeholder="" name="comments">
-							</div>
+							
+							<table id="meds" style="width:100%">
+								<tr>
+									<th>
+									<center>
+										Όνομα:
+									</center></th>
+									<th>
+									<center>
+										Ημερομηνία:
+									</center></th>
+									<th>
+									<center>
+										Διάρκεια:
+									</center></th>
+									<th>
+									<center>
+										Ιατρός:
+									</center></th>
+									<th>
+									<center>
+										Σχόλια:
+									</center></th>
+								</tr>
+								<tr>
+									<td>
+									<input type="text" class="form-control" id="meds" name="name">
+									</input></td>
+									<td>
+									<input type="date" class="form-control" id="meds" name="date">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="meds" name="duration">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="meds" name="doc">
+									</input></td>
+									<td>
+									<input type="text" class="form-control" id="meds" name="comments">
+									</input></td>
+								</tr>
 						</div>
 					</div>
 				</div>

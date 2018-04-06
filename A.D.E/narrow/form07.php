@@ -296,88 +296,54 @@
 							<form action="" method="post">
 								<div class="form-group">
 									<label for="q1">1. Παρουσιαζόμενο πρόβλημα (διάρκεια, συχνότητα, σχέση με παράγοντες της κατάστασης, παράγοντες που συντείνουν στη διατήρηση, δευτερεύοντα οφέλη). Σχετικές δημογραφικές πληροφορίες:</label>
-									<input type="text" class="form-control" id="q1" placeholder="" name="mainproblem">
+									<input type="text" class="form-control" id="q1" placeholder="" name="q1">
 								</div>
 								<div class="form-group">
 									<label for="q2">2. Ιστορικό προβλήματος και προηγούμενη θεραπεία:</label>
-									<input type="text" class="form-control" id="q2" placeholder="" name="historyofproblem">
+									<input type="text" class="form-control" id="q2" placeholder="" name="q2">
 								</div>
 								<div class="form-group">
 									<label for="q3">3. Τρέχοντες παράγοντες άγχους ή/και έντασης: </label>
-									<input type="number" class="form-control" id="q3" placeholder="" name="anxietyfactors">
-								</div>
-
-								<div class="form-group">
-									<label for="q4">4. Ακαδημαϊκό Πρόγραμμα/εμπειρίες/δυσκολίες: </label>
-									<input type="text" class="form-control" id="q4" placeholder="" name="q4">
-								</div>
-								<div class="form-group">
-									<label for="history">5. Ιστορικό :</label>
-								</div>
-								<div class="form-group">
-									<label for="q51">5.1. Σύντομο σχετικό προσωπικό και οικογενειακό ιστορικό </label>
-									<br>
-									<label><em>(συμπ. σχέσεις με γονείς και αδέλφια)</em></label>
-									<br>
-									<input type="text" class="form-control" id="q51" placeholder="" name="q51">
-								</div>
-								<div class="form-group">
-									<label for="q52">5.2. Διαπροσωπικές/Ερωτικές Σχέσεις (συγκάτοικοι, φίλοι, σύντροφοι, ταυτότητα):</label>
-									<input type="text" class="form-control" id="q52" placeholder="" name="q52">
-								</div>
-								<div class="form-group">
-									<label for="q53">5.3 Ιατρικό ιστορικό </label>
-									<br>
-									<label><em>(Προηγούμενες σοβαρές ιατρικές περιθάλψεις ή σοβαρές καταστάσεις υγείας,  συμπ. παρούσα φαρμακοθεραπεία): </em></label>
-									<br>
-									<input type="text" class="form-control" id="q53" placeholder="" name="q53">
-								</div>
-								<div class="form-group">
-									<label for="q54">5.4. Ιστορικό χρήσης/κατάχρησης ουσιών </label>
-									<input type="text" class="form-control" id="q54" placeholder="" name="q54">
-								</div>
-								<div class="form-group">
-									<label for="q55">5.5. Φαρμακευτική Αγωγή (ή σχετική προηγούμενη): </label>
-									<input type="text" class="form-control" id="q55" placeholder="" name="q54">
+									<input type="number" class="form-control" id="q3" placeholder="" name="q3">
 								</div>
 								<div class="form-group">
 									<label for="q6">6. Ειδικά Αιτήματα/Διευκολύνσεις </label>
-									<input type="text" class="form-control" id="q6" placeholder="" name="q6">
+									<input type="text" class="form-control" id="q6" placeholder="" name="q4">
 								</div>
 								<div class="form-group">
 									<label for="noitiki">7. Νοητική Κατάσταση :</label>
 								</div>
 								<div class="form-group">
 									<label for="q71">7.1. Παρουσία, Στάση, Συμπεριφορά</label>
-									<input type="text" class="form-control" id="q71" placeholder="" name="behaviour">
+									<input type="text" class="form-control" id="q71" placeholder="" name="q5">
 								</div>
 								<div class="form-group">
 									<label for="q72">7.2. Γνωστικές Λειτουργίες </label>
 									<br>
 									<label><em>(προσανατολισμός και μνήμη, γνωστική/νοητική αξιολόγηση, διαδικασία σκέψης, συλλογισμός και κρίση) </em></label>
 									<br>
-									<input type="text" class="form-control" id="q72" placeholder="" name="gnosticfunction">
+									<input type="text" class="form-control" id="q72" placeholder="" name="q6">
 								</div>
 								<div class="form-group">
 									<label for="q73">7.3. Διάθεση, συναίσθημα </label>
 									<br>
 									<label><em>(συμπ. αξιολόγηση για αυτοκτονικό/ανθρωποκτονικό ιδεασμό).</em></label>
 									<br>
-									<input type="text" class="form-control" id="q73" placeholder="" name="mood">
+									<input type="text" class="form-control" id="q73" placeholder="" name="q7">
 								</div>
 								<div class="form-group">
 									<label for="q8">8. Αποτελέσματα Ψυχομετρικής Αξιολόγησης </label>
 									<br>
 									<label><em>(αν υπάρχουν, συνεντεύξεις, έντυπα, κτλ)</em></label>
 									<br>
-									<input type="text" class="form-control" id="q8" placeholder="" name="psychometricresult">
+									<input type="text" class="form-control" id="q8" placeholder="" name="q8">
 								</div>
 								<div class="form-group">
 									<label for="q9">9.Διαγνωστική / Κλινική Εντύπωση </label>
 									<br>
 									<label><em>(πρωτεύων ζήτημα, δευτερεύοντα ζητήματα, συμπτώματα, συμπεριφορές, σχετικά χαρακτηριστικά προσωπικότητας, ψυχοκοινωνικοί παράγοντες άγχους, υγεία)</em></label>
 									<br>
-									<input type="text" class="form-control" id="q9" placeholder="" name="clinicalimpression">
+									<input type="text" class="form-control" id="q9" placeholder="" name="q9">
 								</div>
 								<div class="form-group">
 									<label for="q10">10.Συνολική Λειτουργικότητα – Βαθμός Δυσλειτουργίας </label>
@@ -396,61 +362,61 @@
 									<tr>
 										<td>α. ψυχολογική</td>
 										<td>
-										<input type="checkbox" name="psychologicalfunc" class="form-group" id="a1">
+										<input type="checkbox" name="q10" class="form-group" id="a1">
 										</td>
 										<td>
-										<input type="checkbox" name="psychologicalfunc" class="form-group" id="a2">
+										<input type="checkbox" name="q10" class="form-group" id="a2">
 										</td>
 										<td>
-										<input type="checkbox" name="psychologicalfunc" class="form-group" id="a3">
+										<input type="checkbox" name="q10" class="form-group" id="a3">
 										</td>
 										<td>
-										<input type="checkbox" name="psychologicalfunc" class="form-group" id="a4">
+										<input type="checkbox" name="q10" class="form-group" id="a4">
 										</td>
 									</tr>
 									<tr>
 										<td>β. επαγγελματική/ακαδημαϊκή</td>
 										<td>
-										<input type="checkbox" name="professionacademicfunc" class="form-group" id="b1">
+										<input type="checkbox" name="q11" class="form-group" id="b1">
 										</td>
 										<td>
-										<input type="checkbox" name="professionacademicfunc" class="form-group" id="b2">
+										<input type="checkbox" name="q11" class="form-group" id="b2">
 										</td>
 										<td>
-										<input type="checkbox" name="professionacademicfunc" class="form-group" id="b3">
+										<input type="checkbox" name="q11" class="form-group" id="b3">
 										</td>
 										<td>
-										<input type="checkbox" name="professionacademicfunc" class="form-group" id="b4">
+										<input type="checkbox" name="q11" class="form-group" id="b4">
 										</td>
 									</tr>
 									<tr>
 										<td>γ. κοινωνική</td>
 										<td>
-										<input type="checkbox" name="socialfunc" class="form-group" id="g1">
+										<input type="checkbox" name="q12" class="form-group" id="g1">
 										</td>
 										<td>
-										<input type="checkbox" name="socialfunc" class="form-group" id="g2">
+										<input type="checkbox" name="q12" class="form-group" id="g2">
 										</td>
 										<td>
-										<input type="checkbox" name="socialfunc" class="form-group" id="g3">
+										<input type="checkbox" name="q12" class="form-group" id="g3">
 										</td>
 										<td>
-										<input type="checkbox" name="socialfunc" class="form-group" id="g4">
+										<input type="checkbox" name="q12" class="form-group" id="g4">
 										</td>
 									</tr>
 									<tr>
 										<td>δ. αυτοφροντίδα</td>
 										<td>
-										<input type="checkbox" name="autofix" class="form-group" id="d1">
+										<input type="checkbox" name="q13" class="form-group" id="d1">
 										</td>
 										<td>
-										<input type="checkbox" name="autofix" class="form-group" id="d2">
+										<input type="checkbox" name="q13" class="form-group" id="d2">
 										</td>
 										<td>
-										<input type="checkbox" name="autofix" class="form-group" id="d3">
+										<input type="checkbox" name="q13" class="form-group" id="d3">
 										</td>
 										<td>
-										<input type="checkbox" name="autofix" class="form-group" id="d4">
+										<input type="checkbox" name="q13" class="form-group" id="d4">
 										</td>
 									</tr>
 								</table>
@@ -460,18 +426,18 @@
 									<br>
 									<label><em>(προηγούμενες προσπάθειες θεραπείας, κινητοποίηση/επίγνωση πρόγνωση, καταλληλότητα για θεραπεία) </em></label>
 									<br>
-									<input type="text" class="form-control" id="q11" placeholder="" name="therapyfactors">
+									<input type="text" class="form-control" id="q14" placeholder="" name="q14">
 								</div>
 								<div class="form-group">
 									<label for="q12">12. Εισηγήσεις για θεραπεία </label>
 									<br>
 									<label><em>(ψυχολογικές δυνάμεις, προτεινόμενοι στόχοι, δεξιότητες που μπορούν να αξιοποιηθούν ή να στοχευθούν)</em></label>
 									<br>
-									<input type="text" class="form-control" id="q12" placeholder="" name="therapysuggestions">
+									<input type="text" class="form-control" id="q12" placeholder="" name="q15">
 								</div>
 								<div class="form-group">
 									<label for="q13">13. Ζητήματα που χρήζουν επιπρόσθετη αξιολόγηση </label>
-									<input type="text" class="form-control" id="q13" placeholder="" name="additionalevaluation">
+									<input type="text" class="form-control" id="q13" placeholder="" name="q16">
 								</div>
 								<div class="form-group">
 									<label for="q14">14. Πιθανή Πολυαξονική Εκτίμηση με βάση το DSM </label>
@@ -492,7 +458,7 @@
 									<br>
 									<label><em>(συμπεριλαμβάνονται στόχοι θεραπείας, τρόποι και υπολογιζόμενος χρόνος θεραπείας): </em></label>
 									<br>
-									<input type="text" class="form-control" id="q15" placeholder="" name="initialtherapyprogram">
+									<input type="text" class="form-control" id="q15" placeholder="" name="q17">
 								</div>
 						</div>
 					</div>
@@ -535,15 +501,28 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form7.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
+'patientID' => "12345",
+'mainproblem' => $_POST['q1'],
+'historyofproblem' => $_POST['q2'],
+'anxietyfactors' => $_POST['q3'],
+'specialrequests' => $_POST['q4'],
+'behaviour' => $_POST['q5'],
+'gnosticfunction' => $_POST['q6'],
+'mood' => $_POST['q7'],
+'psychometricresult' => $_POST['q8'],
+'clinicalimpression' => $_POST['q9'],
+'psychologicalfunc' => $_POST['q10'],
+'professionacademicfunc' => $_POST['q11'],
+'socialfunc' => $_POST['q12'],
+'autofix' => $_POST['q13'],
+'therapyfactors' => $_POST['q14'],
+'therapysuggestions' => $_POST['q15'],
+'additionalevaluation' => $_POST['q16'],
+'initialtherapyprogram' => $_POST['q17'],
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);

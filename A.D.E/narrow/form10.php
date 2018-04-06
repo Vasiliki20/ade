@@ -132,7 +132,7 @@
 
 				<div class="container">
 					<div align="center">
-						<h4><strong>Καταγραφή Επικοινωνίας </strong> (εκτός συνεδριών)</h4>
+						<h4>ΚΑΤΑΓΡΑΦΗ ΕΠΙΚΟΙΝΩΝΙΑΣ (εκτός συνεδριών)</h4>
 					</div>
 
 					<form action="" method="post">
@@ -264,9 +264,9 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form10.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-  'id' => $_POST['id'],
-  'typeof' => $_POST['comm'],
-  'typeofcall' => $_POST['communication'],
+  'id' => $_SESSION['id'],
+  'typeof' => "Communication",
+  'typeofcall' => $_POST['comm'],
   'tel' => $_POST['phone'],
   'email' => $_POST['email'],
   'dateofcall' => $_POST['date'],

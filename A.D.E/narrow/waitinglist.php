@@ -352,6 +352,9 @@ $postfields=http_build_query(array(
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
+										<a href="#">Approve Incoming Data</a>
+									</li>
+									<li>
 										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
