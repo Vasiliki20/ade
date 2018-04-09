@@ -1,30 +1,3 @@
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
-$method='GET';
-//if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
-//}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -309,7 +282,7 @@ $postfields=http_build_query(array(
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Σημειώσεις προόδου</h1>
 					</div>
 				</div>
 				<div>
@@ -325,102 +298,87 @@ $postfields=http_build_query(array(
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav">
-									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
-									</li>
-									<li>
-										<a href="#">Αναφορές</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
-											</li>
-											<li>
-												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
-											</li>
-										</ul>
 
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
-											</li>
-											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
-											</li>
-											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
-									</li>
-									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
-									</li>
-								</ul>
-
-							</div><!-- /.navbar-collapse -->
 							
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
-
 				<div>
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							Διαθέσιμο Πρόγραμμα Πελάτη
-						</div>
 						<div class="panel-body">
-							<table id="available" style="width:100%">
+							<form method="post" action="">
+							<table id="casenotes" style="width:100%">
 								<tr>
-									<th>
-									<center>
-										Ημερομηνίες που είναι διαθέσιμος:
-									</center></th>
-									<th>
-									<center>
-										Ώρες που είναι διαθέσιμος:
-									</center></th>
+									<th> Κλινικές παρατηρήσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="observations">
+									</input></td>
 								</tr>
 								<tr>
+									<th> Περιεχόμενα session: </th>
 									<td>
-									<input type="date" class="form-control" id="available" name="date">
+									<input type="text" class="form-control" id="casenotes" name="sessions">
 									</input></td>
+								</tr>
+								<tr>
+									<th> Άλλες παρατηρήσεις: </th>
 									<td>
-									<input type="datetime" class="form-control" id="available" name="time">
+									<input type="text" class="form-control" id="casenotes" name="other">
 									</input></td>
-									
+								</tr>
+								<tr>
+									<th> Στόχος επόμενου appointment: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="goals">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Τύπος: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="type">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ημερομηνία γραφής: </th>
+									<td>
+									<input type="date" class="form-control" id="casenotes" name="date">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ώρα γραφής: </th>
+									<td>
+									<input type="time" class="form-control" id="casenotes" name="time">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Υπογράφτηκε: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="signed">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Σημειώσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="notes">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Σημειώσεις: </th>
+									<td>
+									<input type="submit" name="submit"></input></td>
 								</tr>
 						</div>
-						</div>
+						</form>
+						
+					
 					</div>
+					
+					<!-- /#page-wrapper -->
 				</div>
 			</div>
-			<div>
-				<br>
-				<br>
-			</div>
-			<!-- /#page-wrapper -->
-
+		</div>
 		</div>
 		<!-- /#wrapper -->
-		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -451,18 +409,22 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenote.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
+'appointmentID'=>$_GET['pID'],
+'clinical'=>$_POST['observations'],
+'content'=>$_POST['sessions'],
+'observations'=>$_POST['other'],
+'goalsnext'=>$_POST['goals'],
+'type'=>$_POST['type'],
+'date'=>$_POST['date'],
+'time'=>$_POST['time'],
+'signed'=>$_POST['signed'],
+'note'=>$_POST['notes'],
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);

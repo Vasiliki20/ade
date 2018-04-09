@@ -326,7 +326,6 @@ $postfields=http_build_query(array(
 								</button>
 							</div>
 
-							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
@@ -343,21 +342,17 @@ $postfields=http_build_query(array(
 											</li>
 										</ul>
 									</li>
-<<<<<<< HEAD
-									<li>
-										<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Γενικές πληροφορίες</a>
-=======
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
->>>>>>> beb5bb9b414d54885af857568ff70254e5ca17e5
+
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -380,8 +375,7 @@ $postfields=http_build_query(array(
 										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
 									</li>
 								</ul>
-								
-								
+
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>
