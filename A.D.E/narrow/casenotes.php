@@ -343,8 +343,21 @@ var_dump($response);
 											</li>
 										</ul>
 									</li>
+<<<<<<< HEAD
 									<li>
 										<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Γενικές πληροφορίες</a>
+=======
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
+>>>>>>> beb5bb9b414d54885af857568ff70254e5ca17e5
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -376,55 +389,71 @@ var_dump($response);
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Προσωπικές Πληροφορίες Πελάτη
+							Σημειώσεις προόδου
 						</div>
 						<div class="panel-body">
-							<form action="" method="post">
-								<div class="form-group">
-									<label for="observations">Κλινικές παρατηρήσεις</label>
-									<input type="text" class="form-control" id="observations" placeholder="" name="observations">
-								</div>
-								<div class="form-group">
-									<label for="sessions">Περιεχόμενα session</label>
-									<input type="text" class="form-control" id="sessions" placeholder="" name="sessions">
-								</div>
-								<div class="form-group">
-									<label for="other">Άλλες παρατηρήσεις</label>
-									<input type="text" class="form-control" id="other" placeholder="" name="other">
-								</div>
-								<div class="form-group">
-									<label for="goals">Στόχος επόμενου appointment</label>
-									<input type="text" class="form-control" id="goals" placeholder="" name="goals">
-								</div>
-								<div class="form-group">
-									<label for="type">Τύπος</label>
-									<input type="text" class="form-control" id="type" placeholder="" name="type">
-								</div>
-								<div class="form-group">
-									<label for="date">Ημερομηνία γραφής</label>
-									<input type="date" class="form-control" id="date" placeholder="" name="date">
-								</div>
-								<div class="form-group">
-									<label for="time">Ώρα γραφής</label>
-									<input type="time" class="form-control" id="time" placeholder="" name="time">
-								</div>
-								<div class="form-group">
-									<label for="signed">Υπογράφτηκε από supervisor</label>
-									<input type="text" class="form-control" id="signed" placeholder="" name="signed">
-								</div>
-								<div class="form-group">
-									<label for="notes">Σημειώσεις</label>
-									<input type="text" class="form-control" id="notes" placeholder="" name="notes">
-								</div>
-								<button type="submit" class="btn btn-default" name="submit">
-									Submit
-								</button>
+							<table id="casenotes" style="width:100%">
+								<tr>
+									<th> Κλινικές παρατηρήσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="clinicalobservations">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Περιεχόμενα session: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="sessions">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Άλλες παρατηρήσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="othercomments">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Στόχος επόμενου appointment: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="goal">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Τύπος: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="type">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ημερομηνία γραφής: </th>
+									<td>
+									<input type="date" class="form-control" id="casenotes" name="date">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ώρα γραφής: </th>
+									<td>
+									<input type="time" class="form-control" id="casenotes" name="time">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Υπογράφτηκε: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="supervisor">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Σημειώσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="notes">
+									</input></td>
+								</tr>
 						</div>
-
-						<!-- /#page-wrapper -->
 					</div>
+
+					<!-- /#page-wrapper -->
 				</div>
 			</div>
+		</div>
 		</div>
 		<!-- /#wrapper -->
 
@@ -464,13 +493,13 @@ $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
 'appointmentID'=>$_GET['pID'],
-'clinical'=>$_POST['observations'],	
-'content'=>$_POST['sessions'],			
-'observations'=>$_POST['other'],		
-'goalsnext'=>$_POST['goals'],			
+'clinical'=>$_POST['observations'],
+'content'=>$_POST['sessions'],
+'observations'=>$_POST['other'],
+'goalsnext'=>$_POST['goals'],
 'type'=>$_POST['type'],
 'date'=>$_POST['date'],
-'time'=>$_POST['time'], 
+'time'=>$_POST['time'],
 'signed'=>$_POST['signed'],
 'note'=>$_POST['notes'],
 ));

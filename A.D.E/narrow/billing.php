@@ -282,18 +282,18 @@ $postfields=http_build_query(array(
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-<<<<<<< HEAD
-<<<<<<< HEAD
+										<<<<<<< HEAD
+										<<<<<<< HEAD
 										<a href="#">Approve Incoming Data</a>
 									</li>
 									<li>
-=======
->>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
-=======
+										=======
+										>>>>>>> ac2926d41f494f97110fa55ee65d29e968138987
+										=======
 										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
->>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
+										>>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
 									<li>
@@ -334,7 +334,8 @@ $postfields=http_build_query(array(
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
 										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
@@ -350,8 +351,21 @@ $postfields=http_build_query(array(
 											</li>
 										</ul>
 									</li>
+<<<<<<< HEAD
 									<li>
 										<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Γενικές πληροφορίες</a>
+=======
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+										</ul>
+>>>>>>> beb5bb9b414d54885af857568ff70254e5ca17e5
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -374,12 +388,11 @@ $postfields=http_build_query(array(
 										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
 									</li>
 								</ul>
-								
-								
+
 							</div><!-- /.navbar-collapse -->
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
-						<!-- /.container-fluid -->
+							<!-- /.container-fluid -->
 					</nav>
 				</div>
 
