@@ -366,6 +366,9 @@ $postfields=http_build_query(array(
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
+											</li>
 										</ul>
 									</li>
 									<li>
@@ -392,19 +395,19 @@ $postfields=http_build_query(array(
 								<tr>
 									<th>
 									<center>
-										Όνομα:
+										<label>Όνομα:</label>
 									</center></th>
 									<th>
 									<center>
-										Σχέση:
+										<label>Σχέση:</label>
 									</center></th>
 									<th>
 									<center>
-										Ηλικία:
+									<label>	Ηλικία:</label>
 									</center></th>
 									<th>
 									<center>
-										Ποιότητα:
+										<label>Ποιότητα:</label>
 									</center></th>
 									<th>
 								<!--	<center>

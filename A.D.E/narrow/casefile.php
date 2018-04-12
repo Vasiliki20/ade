@@ -282,11 +282,8 @@ $postfields=http_build_query(array(
 										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-<<<<<<< HEAD
 										<a href="#">Approve Incoming Data</a>
-=======
 										<a href="myappointments.php">My appointments</a>
->>>>>>> ed76859a31fada0ca3ed3c81dd1e31b666a0a84b
 									</li>
 									<li>
 										<a href="waitinglist.php">Waiting List</a>
@@ -368,6 +365,9 @@ $postfields=http_build_query(array(
 											</li>
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
+											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
 											</li>
 										</ul>
 									</li>

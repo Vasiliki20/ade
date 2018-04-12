@@ -358,6 +358,9 @@ $postfields=http_build_query(array(
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
+											</li>
 										</ul>
 									</li>
 									<li>
@@ -381,7 +384,7 @@ $postfields=http_build_query(array(
 						<div class="panel-body">
 							<table id="casenotes" style="width:100%">
 								<tr>
-									<th> Τύπος επικοινωνίας: </th>
+									<th> <label>Τύπος επικοινωνίας:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -390,7 +393,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Τρόπος κλήσης: </th>
+									<th> <label>Τρόπος κλήσης:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -399,7 +402,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Ημερομηνία κλήσης: </th>
+									<th> <label>Ημερομηνία κλήσης:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -408,7 +411,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Ώρα κλήσης: </th>
+									<th><label> Ώρα κλήσης: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -417,7 +420,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Όνομα caller: </th>
+									<th> <label>Όνομα caller:</label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -426,7 +429,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Επίθετο caller: </th>
+									<th><label> Επίθετο caller:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -435,7 +438,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Ρόλος caller: </th>
+									<th> <label>Ρόλος caller: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -444,7 +447,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Όνομα called: </th>
+									<th><label> Όνομα called:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -453,7 +456,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Επίθετο called: </th>
+									<th><label> Επίθετο called: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -462,7 +465,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Ρόλος called: </th>
+									<th> <label>Ρόλος called: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -471,7 +474,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Θέμα κλήσης: </th>
+									<th> <label>Θέμα κλήσης:</label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -480,7 +483,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Περιγραφή κλήσης: </th>
+									<th> <label>Περιγραφή κλήσης:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -489,7 +492,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Διαχείριση κλήσης: </th>
+									<th><label> Διαχείριση κλήσης:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
@@ -498,7 +501,7 @@ $postfields=http_build_query(array(
 									<?php }} ?>
 								</tr>
 								<tr>
-									<th> Άλλα σχόλια: </th>
+									<th><label> Άλλα σχόλια: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>

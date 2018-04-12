@@ -367,6 +367,9 @@ $postfields=http_build_query(array(
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
+											</li>
 										</ul>
 									</li>
 									<li>
@@ -392,39 +395,39 @@ $postfields=http_build_query(array(
 								<tr>
 									<th>
 									<center>
-										Όνομα επαγγελματία:
+										<label>Όνομα επαγγελματία:</label>
 									</center></th>
 									<th>
 									<center>
-										Επίθετο επαγγελματία:
+										<label>Επίθετο επαγγελματία:</label>
 									</center></th>
 									<th>
 									<center>
-										Διεύθυνση:
+										<label>Διεύθυνση:</label>
 									</center></th>
 									<th>
 									<center>
-										Πόλη:
+										<label>Πόλη:</label>
 									</center></th>
 									<th>
 									<center>
-										Τηλέφωνο:
+										<label>Τηλέφωνο:</label>
 									</center></th>
 									<th>
 									<center>
-										Ηλεκτρονική Διεύθυνση:
+										<label>Ηλεκτρονική Διεύθυνση:</label>
 									</center></th>
 									<th>
 									<center>
-										Λόγος μεταβίβασης:
+										<label>Λόγος μεταβίβασης:</label>
 									</center></th>
 									<th>
 									<center>
-										Πληροφορίες:
+										<label>Πληροφορίες:</label>
 									</center></th>
 									<th>
 									<center>
-										Χρόνος μέχρι να λήξει η εξουσιοδότηση:
+										<label>Χρόνος μέχρι να λήξει η εξουσιοδότηση:</label>
 									</center></th>
 								</tr>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 

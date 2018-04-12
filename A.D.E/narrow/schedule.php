@@ -365,6 +365,9 @@ $postfields=http_build_query(array(
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
+											</li>
 										</ul>
 									</li>
 									<li>
@@ -391,11 +394,11 @@ $postfields=http_build_query(array(
 								<tr>
 									<th>
 									<center>
-										Μέρες που είναι διαθέσιμος:
+										<label>Μέρες που είναι διαθέσιμος:</label>
 									</center></th>
 									<th>
 									<center>
-										Ώρες που είναι διαθέσιμος:
+										<label>Ώρες που είναι διαθέσιμος:</label>
 									</center></th>
 								</tr>
 								<?php for($i=0;$i<count($response['timeline']);$i++){ ?>

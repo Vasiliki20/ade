@@ -365,6 +365,9 @@ var_dump($response);
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
+											</li>
 										</ul>
 									</li>
 									<li>
@@ -392,23 +395,23 @@ var_dump($response);
 								<tr>
 									<th>
 									<center>
-										Όνομα:
+										<label>Όνομα:</label>
 									</center></th>
 									<th>
 									<center>
-										Ημερομηνία:
+										<label>Ημερομηνία:</label>
 									</center></th>
 									<th>
 									<center>
-										Διάρκεια:
+										<label>Διάρκεια:</label>
 									</center></th>
 									<th>
 									<center>
-										Ιατρός:
+										<label>Ιατρός:</label>
 									</center></th>
 									<th>
 									<center>
-										Σχόλια:
+										<label>Σχόλια:</label>
 									</center></th>
 								</tr>
 								<?php for($i=0;$i<count($response['medication']);$i++){ ?>

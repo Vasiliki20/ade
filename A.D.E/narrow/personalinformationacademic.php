@@ -325,11 +325,9 @@ $postfields=http_build_query(array(
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<<<<<<< HEAD
 
-=======
+
 <!-- Collect the nav links, forms, and other content for toggling -->
->>>>>>> beb5bb9b414d54885af857568ff70254e5ca17e5
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
@@ -346,10 +344,8 @@ $postfields=http_build_query(array(
 											</li>
 										</ul>
 									</li>
-<<<<<<< HEAD
 									<li>
 										<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Γενικές πληροφορίες</a>
-=======
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
@@ -360,7 +356,6 @@ $postfields=http_build_query(array(
 												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
->>>>>>> beb5bb9b414d54885af857568ff70254e5ca17e5
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
@@ -373,6 +368,9 @@ $postfields=http_build_query(array(
 											</li>
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
+											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
 											</li>
 										</ul>
 									</li>
