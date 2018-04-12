@@ -391,57 +391,75 @@ var_dump($response);
 							<table id="casenotes" style="width:100%">
 								<tr>
 									<th> Κλινικές παρατηρήσεις: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="clinicalobservations">
+									<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['casenotes'][$i]['clinicalobservations']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Περιεχόμενα session: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="sessions">
+									<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['casenotes'][$i]['sessioncontent']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Άλλες παρατηρήσεις: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="othercomments">
+									<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['casenotes'][$i]['otherobservations']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Στόχος επόμενου appointment: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="goal">
+									<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['casenotes'][$i]['goalsfornextappoinment']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Τύπος: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="type">
+									<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['casenotes'][$i]['typeof']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Ημερομηνία γραφής: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="date" class="form-control" id="casenotes" name="date">
+									<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['casenotes'][$i]['dateof']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Ώρα γραφής: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="time" class="form-control" id="casenotes" name="time">
+									<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['casenotes'][$i]['timeof']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Υπογράφτηκε: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="supervisor">
+									<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['casenotes'][$i]['Signed']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Σημειώσεις: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="notes">
+									<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['casenotes'][$i]['Note']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 						</div>
 					</div>

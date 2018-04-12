@@ -427,35 +427,39 @@ $postfields=http_build_query(array(
 										Χρόνος μέχρι να λήξει η εξουσιοδότηση:
 									</center></th>
 								</tr>
-								<tr>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Transport infos")==0){ ?>
+										
+								<tr>	
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="name">
+									<input type="text" class="form-control" id="contactlog" name="name" value=<?= $response['communications'][$i]['nameofprof']?>>
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="surname">
+									<input type="text" class="form-control" id="contactlog" name="surname" value=<?= $response['communications'][$i]['lastnameofprof']?>>
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="address">
+									<input type="text" class="form-control" id="contactlog" name="address" value=<?= $response['communications'][$i]['addressofprof']?>>
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="city">
+									<input type="text" class="form-control" id="contactlog" name="city" value=<?= $response['communications'][$i]['cityofprof']?>>
 									</input></td>
 									<td>
-									<input type="number" class="form-control" id="contactlog" name="phone">
+									<input type="number" class="form-control" id="contactlog" name="phone" value=<?= $response['communications'][$i]['telofprof']?>>
 									</input></td>
 									<td>
-									<input type="email" class="form-control" id="contactlog" name="email">
+									<input type="email" class="form-control" id="contactlog" name="email" value=<?= $response['communications'][$i]['emailofprof']?>>
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="reason">
+									<input type="text" class="form-control" id="contactlog" name="reason" value=<?= $response['communications'][$i]['purposeofinfo']?>>
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="details">
+									<input type="text" class="form-control" id="contactlog" name="details" value=<?= $response['communications'][$i]['infototransfer']?>>
 									</input></td>
 									<td>
-									<input type="text" class="form-control" id="contactlog" name="time">
+									<input type="text" class="form-control" id="contactlog" name="time" value=<?= $response['communications'][$i]['timeofexpire']?>>
 									</input></td>
 								</tr>
+									<?php }} ?>
 						</div>
 					</div>
 				</div>

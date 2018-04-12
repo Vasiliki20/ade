@@ -391,22 +391,23 @@ $postfields=http_build_query(array(
 								<tr>
 									<th>
 									<center>
-										Ημερομηνίες που είναι διαθέσιμος:
+										Μέρες που είναι διαθέσιμος:
 									</center></th>
 									<th>
 									<center>
 										Ώρες που είναι διαθέσιμος:
 									</center></th>
 								</tr>
+								<?php for($i=0;$i<count($response['timeline']);$i++){ ?>
 								<tr>
 									<td>
-									<input type="date" class="form-control" id="available" name="date">
+									<input type="text" class="form-control" id="available" name="date" value=<?=jddayofweek (  $response['timeline'][$i]['day']-1,1) ?>>
 									</input></td>
 									<td>
-									<input type="datetime" class="form-control" id="available" name="time">
+									<input type="time" class="form-control" id="available" name="time" value=<?=$response['timeline'][$i]['hour'] ?>>
 									</input></td>
-									
 								</tr>
+								<?php } ?>
 						</div>
 						</div>
 					</div>
