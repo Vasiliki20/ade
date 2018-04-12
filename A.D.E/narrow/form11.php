@@ -33,11 +33,7 @@
 			$('myTable').DataTable();
 		});
 	</script>
-	<style>
-		label {
-			font-size: smaller;
-		}
-	</style>
+
 	<body>
 
 		<div id="wrapper">
@@ -295,43 +291,43 @@
 						<div class="panel-body">
 							<form action="" method="post">
 								<div class="form-group">
-									<label for="date"><strong>1. Ημερ. Έναρξης Υπηρεσιών: </strong></label>
+									<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
 									<input type="date" class="form-control" id="date" placeholder="" name="date">
 								</div>
 								<div class="form-group">
-									<label for="number"><strong>2. Αρ. Συνεδριών</strong></label>
+									<label for="number"><label>2. Αρ. Συνεδριών</label></label>
 									<input type="number" class="form-control" id="number" placeholder="" name="number">
 								</div>
 								<div class="form-group">
-									<label for="time"><strong>3. Υπό επισκόπηση χρονική περίοδος :</strong> </label>
+									<label for="time"><label>3. Υπό επισκόπηση χρονική περίοδος :</label> </label>
 									<input type="text" class="form-control" id="time" placeholder="" name="time">
 								</div>
 								<div class="form-group">
-									<label for="eidos"><strong>4. Είδος θεραπείας/υπηρεσιών: </strong></label>
+									<label for="eidos"><label>4. Είδος θεραπείας/υπηρεσιών: </label></label>
 									<input type="text" class="form-control" id="eidos" placeholder="" name="eidos">
 								</div>
 								<div class="form-group">
-									<label for="issues"><strong>5. Παρουσιαζόμενα ζητήματα : </strong></label>
+									<label for="issues"><label>5. Παρουσιαζόμενα ζητήματα : </label></label>
 									<input type="text" class="form-control" id="issues" placeholder="" name="issues">
 								</div>
 
 								<div class="form-group">
-									<label for="firstissues"><strong>6. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </strong></label>
+									<label for="firstissues"><label>6. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
 									<input type="text" class="form-control" id="firstissues" placeholder="" name="firstissues">
 								</div>
 								<div class="form-group">
-									<label for="firstdate"><strong>7. Ημερ. Αρχικής Έκθεσης Αξιολόγησης:</strong></label>
+									<label for="firstdate"><label>7. Ημερ. Αρχικής Έκθεσης Αξιολόγησης:</label></label>
 									<input type="date" class="form-control" id="firstdate" placeholder="" name="firstdate">
 								</div>
 								<div class="form-group">
-									<label for="brief"><strong>8. Σύνοψη Αρχικής Αξιολόγησης:</strong></label>
+									<label for="brief"><label>8. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
 									<br>
 									<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
 									<br>
 									<input type="text" class="form-control" id="brief" placeholder="" name="brief">
 								</div>
 								<div class="form-group">
-									<label for="changes"><strong>9. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</strong></label>
+									<label for="changes"><label>9. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
 									<br>
 									<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
 									<br>
@@ -339,21 +335,21 @@
 								</div>
 								</table>
 								<div class="form-group">
-									<label for="progress"><strong>10. Εξέλιξη θεραπείας : </strong></label>
+									<label for="progress"><label>10. Εξέλιξη θεραπείας : </label></label>
 									<br>
 									<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
 									<br>
 									<input type="text" class="form-control" id="progress" placeholder="" name="progress">
 								</div>
 								<div class="form-group">
-									<label for="xeirismos"><strong>11. Αλλαγές ως αποτέλεσμα της θεραπείας </strong></label>
+									<label for="xeirismos"><label>11. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
 									<br>
 									<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
 									<br>
 									<input type="text" class="form-control" id="xeirismos" placeholder="" name="xeirismos">
 								</div>
 								<div class="form-group">
-									<label for="future"><strong>12. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</strong></label>
+									<label for="future"><label>12. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
 									<br>
 									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
 									<br>
@@ -431,7 +427,7 @@
 									</table>
 								</div>
 								<div class="form-group">
-									<label for="more"><strong>14. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</strong></label>
+									<label for="more"><label>14. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
 									<input type="text" class="form-control" id="more" placeholder="" name="more">
 								</div>
 								<button type="submit" class="btn btn-default" name="submit">
