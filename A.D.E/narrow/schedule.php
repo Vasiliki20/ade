@@ -1,3 +1,30 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response);
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -298,11 +325,10 @@
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<!-- Collect the nav links, forms, and other content for toggling -->
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php">Σημειώσεις Προόδου</a>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
 										<a href="#">Αναφορές</a>
@@ -311,7 +337,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="contactlog.php">Contact Logs</a>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
@@ -319,32 +345,33 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
+
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships.php">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication.php">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory.php">Medlog</a>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation.php">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing.php">Πληρωμές</a>
+										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
 									</li>
 								</ul>
 
@@ -364,22 +391,23 @@
 								<tr>
 									<th>
 									<center>
-										Ημερομηνίες που είναι διαθέσιμος:
+										Μέρες που είναι διαθέσιμος:
 									</center></th>
 									<th>
 									<center>
 										Ώρες που είναι διαθέσιμος:
 									</center></th>
 								</tr>
+								<?php for($i=0;$i<count($response['timeline']);$i++){ ?>
 								<tr>
 									<td>
-									<input type="date" class="form-control" id="available" name="date">
+									<input type="text" class="form-control" id="available" name="date" value=<?=jddayofweek (  $response['timeline'][$i]['day']-1,1) ?>>
 									</input></td>
 									<td>
-									<input type="datetime" class="form-control" id="available" name="time">
+									<input type="time" class="form-control" id="available" name="time" value=<?=$response['timeline'][$i]['hour'] ?>>
 									</input></td>
-									
 								</tr>
+								<?php } ?>
 						</div>
 						</div>
 					</div>

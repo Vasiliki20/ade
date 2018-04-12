@@ -1,30 +1,3 @@
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
-$method='GET';
-//if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
-//}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -309,7 +282,7 @@ $postfields=http_build_query(array(
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Σημειώσεις προόδου</h1>
 					</div>
 				</div>
 				<div>
@@ -326,238 +299,86 @@ $postfields=http_build_query(array(
 								</button>
 							</div>
 
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav">
-									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
-									</li>
-									<li>
-										<a href="#">Αναφορές</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
-											</li>
-										</ul>
-									</li>
-<<<<<<< HEAD
-									<li>
-										<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Γενικές πληροφορίες</a>
-=======
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
-											</li>
-											<li>
-												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
-											</li>
-										</ul>
->>>>>>> beb5bb9b414d54885af857568ff70254e5ca17e5
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
-											</li>
-											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
-											</li>
-											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
-									</li>
-									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
-									</li>
-								</ul>
-								
-								
-							</div><!-- /.navbar-collapse -->
+							
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
-
 				<div>
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							Προσωπικά Στοιχεία Πελάτη
-						</div>
 						<div class="panel-body">
-							<div class="form-group">
-								<label for="type">Τύπος πελάτη:</label>
-								<input type="text" class="form-control" id="type" placeholder="" name="type">
-							</div>
-							<div class="form-group">
-								<label for="id">Αρ.Ταυτότητας:</label>
-								<input type="text" class="form-control" id="id" placeholder="" name="id">
-							</div>
-							<div class="form-group">
-								<label for="assigned">Ανάθεση σε ψυχολόγο:</label>
-								<input type="text" class="form-control" id="assigned" placeholder="" name="assigned">
-							</div>
-							<div class="form-group">
-								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
-								<input type="number" class="form-control" id="idofps" placeholder="" name="idofps">
-							</div>
-							<div class="form-group">
-								<label for="name">Όνομα:</label>
-								<input type="text" class="form-control" id="name" placeholder="" name="name">
-							</div>
-							<div class="form-group">
-								<label for="surname">Επίθετο:</label>
-								<input type="text" class="form-control" id="surname" placeholder="" name="surname">
-							</div>
-							<div class="form-group">
-								<label for="appointment">Περίδος Ραντεβού:</label>
-								<input type="text" class="form-control" id="appointment" placeholder="" name="appointment">
-							</div>
-							<div class="form-group">
-								<label for="age">Ηλικία:</label>
-								<input type="date" class="form-control" id="age" placeholder="" name="age">
-							</div>
-							<div class="form-group">
-								<label for="sex">Φύλο:</label>
-								<input type="text" class="form-control" id="sex" placeholder="" name="sex">
-							</div>
-							<div class="form-group">
-								<label for="dob">Ημ.Γέννησης:</label>
-								<input type="date" class="form-control" id="dob" placeholder="" name="dob">
-							</div>
-							<div class="form-group">
-								<label for="ipikootita">Υπηκοότητα:</label>
-								<input type="text" class="form-control" id="ipikootita" placeholder="" name="ipikootita">
-							</div>
-							<div class="form-group">
-								<label for="phone">Τηλέφωνο:</label>
-								<input type="number" class="form-control" id="phone" placeholder="" name="phone">
-							</div>
-							<div class="form-group">
-								<label for="email">Ηλ.Διεύθυνση:</label>
-								<input type="email" class="form-control" id="email" placeholder="" name="email">
-							</div>
-							<div class="form-group">
-								<label for="address">Διεύθυνση Διαμονής:</label>
-								<input type="text" class="form-control" id="address" placeholder="" name="address">
-							</div>
-							<div class="form-group">
-								<label for="tk">Τ.Κ:</label>
-								<input type="text" class="form-control" id="tk" placeholder="" name="tk">
-							</div>
-							<div class="form-group">
-								<label for="city">Πόλη/Χωριό:</label>
-								<input type="text" class="form-control" id="city" placeholder="" name="city">
-							</div>
-							<div class="form-group">
-								<label for="contact">Πως να επικοινωνεί το κέντρο μαζί του:</label>
-								<input type="text" class="form-control" id="contact" placeholder="" name="contact">
-							</div>
-							<div class="form-group">
-								<label for="recommended">Ποιός του σύστησε το κέντρο:</label>
-								<input type="text" class="form-control" id="recommended" placeholder="" name="recommended">
-							</div>
-							<div class="form-group">
-								<label for="mainproblem">Κύριο πρόβλημα:</label>
-								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainproblem">
-							</div>
-							<div class="form-group">
-								<label for="goal">Σκοπός θεραπείας:</label>
-								<input type="text" class="form-control" id="goal" placeholder="" name="goal">
-							</div>
-							<div class="form-group">
-								<label for="typeoftreatment">Είδος θεραπείας:</label>
-								<input type="text" class="form-control" id="typeoftreatment" placeholder="" name="typeoftreatment">
-							</div>
-							<div class="form-group">
-								<label for="previoustreatment">Προηγούμενες θεραπείες και που:</label>
-								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustreatment">
-							</div>
-							<div class="form-group">
-								<label for="treatmentnow">Θεραπευτής τώρα:</label>
-								<input type="text" class="form-control" id="treatmentnow" placeholder="" name="treatmentnow">
-							</div>
-							<div class="form-group">
-								<label for="phoneofps">Τηλέφωνο θεραπευτή:</label>
-								<input type="number" class="form-control" id="phoneofps" placeholder="" name="phoneofps">
-							</div>
-							<div class="form-group">
-								<label for="numberofsessions">Αριθμός θεραπειών:</label>
-								<input type="number" class="form-control" id="numberofsessions" placeholder="" name="numberofsessions">
-							</div>
-							<div class="form-group">
-								<label for="firstcontact">Ημερομηνία πρώτης επικοινωνίας με ΚΕΨΥ:</label>
-								<input type="date" class="form-control" id="firstcontact" placeholder="" name="firstcontact">
-							</div>
-							<div class="form-group">
-								<label for="firstappointment">Ημερομηνία πρώτου ραντεβού με ΚΕΨΥ:</label>
-								<input type="date" class="form-control" id="firstappointment" placeholder="" name="firstappointment">
-							</div>
-							<div class="form-group">
-								<label for="status">Status:</label>
-								<input type="text" class="form-control" id="status" placeholder="" name="status">
-							</div>
-							<div class="form-group">
-								<label for="marital">Οικογενειακή κατάσταση:</label>
-								<input type="text" class="form-control" id="marital" placeholder="" name="marital">
-							</div>
-							<div class="form-group">
-								<label for="flag">Red flag:</label>
-								<input type="text" class="form-control" id="flag" placeholder="" name="flag">
-							</div>
-							<div class="form-group">
-								<label for="billing">Υπάρχει πληρωμή:</label>
-								<input type="text" class="form-control" id="billing" placeholder="" name="billing">
-							</div>
-							<div class="form-group">
-								<label for="moreinfo">Άλλες πληροφορίες:</label>
-								<input type="text" class="form-control" id="moreinfo" placeholder="" name="moreinfo">
-							</div>
-							<div class="form-group">
-								<label for="complaints">Παράπονα:</label>
-								<input type="text" class="form-control" id="complaints" placeholder="" name="complaints">
-							</div>
-							<div class="form-group">
-								<label for="dateofend">Ημερομηνία Τερματισμού:</label>
-								<input type="date" class="form-control" id="dateofend" placeholder="" name="dateofend">
-							</div>
-							<div class="form-group">
-								<label for="whyend">Λόγος διακοπής:</label>
-								<input type="text" class="form-control" id="whyend" placeholder="" name="whyend">
-							</div>
-							<div class="form-group">
-								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
-								<input type="text" class="form-control" id="review" placeholder="" name="review">
-							</div>
-							
-							<div class="form-group">
-								<label for="job">Εργασία:</label>
-								<input type="text" class="form-control" id="job" placeholder="" name="job">
-							</div>
-							<div class="form-group">
-								<label for="municipality">Δήμος:</label>
-								<input type="text" class="form-control" id="municipality" placeholder="" name="municipality">
-							</div>							
+							<form method="post" action="">
+							<table id="casenotes" style="width:100%">
+								<tr>
+									<th> Κλινικές παρατηρήσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="observations">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Περιεχόμενα session: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="sessions">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Άλλες παρατηρήσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="other">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Στόχος επόμενου appointment: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="goals">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Τύπος: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="type">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ημερομηνία γραφής: </th>
+									<td>
+									<input type="date" class="form-control" id="casenotes" name="date">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Ώρα γραφής: </th>
+									<td>
+									<input type="time" class="form-control" id="casenotes" name="time">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Υπογράφτηκε: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="signed">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Σημειώσεις: </th>
+									<td>
+									<input type="text" class="form-control" id="casenotes" name="notes">
+									</input></td>
+								</tr>
+								<tr>
+									<th> Σημειώσεις: </th>
+									<td>
+									<input type="submit" name="submit"></input></td>
+								</tr>
 						</div>
+						</form>
+						
+					
 					</div>
+					
+					<!-- /#page-wrapper -->
 				</div>
 			</div>
-			<div>
-				<br>
-				<br>
-			</div>
-			<!-- /#page-wrapper -->
-
+		</div>
 		</div>
 		<!-- /#wrapper -->
-		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -588,18 +409,22 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenote.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
+'appointmentID'=>$_GET['pID'],
+'clinical'=>$_POST['observations'],
+'content'=>$_POST['sessions'],
+'observations'=>$_POST['other'],
+'goalsnext'=>$_POST['goals'],
+'type'=>$_POST['type'],
+'date'=>$_POST['date'],
+'time'=>$_POST['time'],
+'signed'=>$_POST['signed'],
+'note'=>$_POST['notes'],
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);

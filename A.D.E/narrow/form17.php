@@ -105,7 +105,6 @@
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
-			<a href="formupload.php"><b>Ανάρτηση αρχείων</b></a>
 			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>

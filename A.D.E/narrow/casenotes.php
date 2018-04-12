@@ -22,7 +22,7 @@ $postfields=http_build_query(array(
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-
+var_dump($response);
 //}
 ?>
 <!DOCTYPE html>
@@ -327,10 +327,11 @@ $response = request($url, $method, $postfields, $tok);
 							</div>
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
+							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php">Σημειώσεις Προόδου</a>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
 										<a href="#">Αναφορές</a>
@@ -339,7 +340,7 @@ $response = request($url, $method, $postfields, $tok);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="contactlog.php">Contact Logs</a>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
@@ -347,32 +348,33 @@ $response = request($url, $method, $postfields, $tok);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
+
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships.php">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication.php">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory.php">Medlog</a>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation.php">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing.php">Πληρωμές</a>
+										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
 									</li>
 								</ul>
 
@@ -389,57 +391,75 @@ $response = request($url, $method, $postfields, $tok);
 							<table id="casenotes" style="width:100%">
 								<tr>
 									<th> Κλινικές παρατηρήσεις: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="clinicalobservations">
+									<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['casenotes'][$i]['clinicalobservations']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Περιεχόμενα session: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="sessions">
+									<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['casenotes'][$i]['sessioncontent']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Άλλες παρατηρήσεις: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="othercomments">
+									<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['casenotes'][$i]['otherobservations']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Στόχος επόμενου appointment: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="goal">
+									<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['casenotes'][$i]['goalsfornextappoinment']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Τύπος: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="type">
+									<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['casenotes'][$i]['typeof']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Ημερομηνία γραφής: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="date" class="form-control" id="casenotes" name="date">
+									<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['casenotes'][$i]['dateof']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Ώρα γραφής: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="time" class="form-control" id="casenotes" name="time">
+									<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['casenotes'][$i]['timeof']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Υπογράφτηκε: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="supervisor">
+									<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['casenotes'][$i]['Signed']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 								<tr>
 									<th> Σημειώσεις: </th>
+									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
 									<td>
-									<input type="text" class="form-control" id="casenotes" name="notes">
+									<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['casenotes'][$i]['Note']?>>
 									</input></td>
+									<?php } ?>
 								</tr>
 						</div>
 					</div>
