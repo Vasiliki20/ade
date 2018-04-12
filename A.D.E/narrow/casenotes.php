@@ -309,7 +309,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Σημειώσεις προόδου</h1>
+						<h1 class="page-header">Case file</h1>
 					</div>
 				</div>
 				<div>
@@ -334,7 +334,7 @@ var_dump($response);
 										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="#">Αναφορές</a>
+										<a href="approvefiles.php">Αναφορές/Έντυπα</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
