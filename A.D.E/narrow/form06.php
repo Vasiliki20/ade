@@ -102,9 +102,10 @@
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
 			<a href="form02.php"><b>Δήλωση στοιχείων για ενήλικες</b></a>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
-			<a href="form06.php"><b>Αρχική Συνέντευξη</b></a>
+			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
+			<a href="formupload.php"><b>Ανάρτηση αρχείων</b></a>
 			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
