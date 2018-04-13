@@ -216,6 +216,7 @@ $postfields=http_build_query(array(
 											<th>Πελάτης</th>
 											<th>Προτεταιότητα</th>
 											<th>Ανάθεση</th>
+											<th>Option</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -223,19 +224,13 @@ $postfields=http_build_query(array(
 										<tr>
 											<td><?=$response['result1'][$j]['datesubmited']?></td>
 											<td><?=$response['result1'][$j]['firstname']?> <?= $response['result1'][$j]['lastname']?></td>
+											<td>Προτεραιότητα απο βάση</td>
+											<td>Ψυχολόγος απο βάση</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="suicide">Suicide Risk</option>
-												<option value="violence" selected="selected">Violence Potential</option>
-												<option value="billing">Billing Issues</option>
-												<option value="disability">Disability</option>
-											</select></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select name=<?=$response['result1'][$j]['patientID']?>>
-												<option selected="selected"></option>
-												<?php for($i=0;$i<count($response['result']);$i++){ ?>
-												<option value=<?=$response['result'][$i]['psychologistID']?>><?=$response['result'][$i]['firstname'] ?> <?=$response['result'][$i]['lastname'] ?></option>
-												<?php } ?>
+												<option value="approve" selected="selected">Approve</option>
+												<option value="delete">Delete</option>
+												<option value="edit">Edit</option>
 											</select></td>
 										</tr>
 										<?php } ?>
