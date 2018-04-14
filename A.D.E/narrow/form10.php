@@ -104,6 +104,7 @@
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
+			<a href="formupload.php"><b>Ανάρτηση αρχείων</b></a>
 			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
@@ -127,7 +128,7 @@
 							</div>
 							</div>
 						</nav>
-					</div>
+					
 				</header>
 
 				<div class="container">
@@ -221,6 +222,7 @@
 						</button>
 					</form>
 				</div>
+				</div>
 			</div>
 
 			<footer>
@@ -291,13 +293,14 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-			document.cookie='token=<?= $tok ?>';
+						document.cookie='token=<?= $tok ?>
+			';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>
+		$response = request($url, $method, $postfields, $tok);
+		}
+
+		}
+	?>

@@ -151,7 +151,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case file</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
 				</div>
 				<div>
@@ -167,9 +167,6 @@ var_dump($response);
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
@@ -224,97 +221,54 @@ var_dump($response);
 								</ul>
 
 							</div><!-- /.navbar-collapse -->
+
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
+
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Σημειώσεις προόδου
+							Approve Incoming Data
 						</div>
 						<div class="panel-body">
-							<table id="casenotes" style="width:100%">
-								<tr>
-									<th><label>Κλινικές παρατηρήσεις: </label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['casenotes'][$i]['clinicalobservations'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label> Περιεχόμενα session: </label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['casenotes'][$i]['sessioncontent'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Άλλες παρατηρήσεις:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['casenotes'][$i]['otherobservations'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label> Στόχος επόμενου appointment: </label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['casenotes'][$i]['goalsfornextappoinment'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Τύπος:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['casenotes'][$i]['typeof'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Ημερομηνία γραφής:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['casenotes'][$i]['dateof'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Ώρα γραφής:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['casenotes'][$i]['timeof'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Υπογράφτηκε:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['casenotes'][$i]['Signed'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Σημειώσεις:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['casenotes'][$i]['Note'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
+							<div id="pdf">
+								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+									<a href="acrobatpdf.pdf">Έγγραφο 1 </a>
+								</object>
+								<button type="submit" name="submit" value="accept">
+									Accept
+								</button>
+								<button type="submit" name="sumbit" value="remove">
+									Remove
+								</button>
+							</div>
+							<br>
+							<div id="pdf">
+								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+									<a href="acrobatpdf.pdf">Έγγραφο 2 </a>
+								</object>
+								<button type="submit" name="submit" value="accept">
+									Accept
+								</button>
+								<button type="submit" name="sumbit" value="remove">
+									Remove
+								</button>
+							</div>
 						</div>
 					</div>
-
-					<!-- /#page-wrapper -->
 				</div>
 			</div>
 		</div>
+		<div>
+			<br>
+			<br>
+		</div>
+		<!-- /#page-wrapper -->
+
 		</div>
 		<!-- /#wrapper -->
+		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -345,22 +299,18 @@ var_dump($response);
 	</body>
 
 </html>
+
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenote.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'appointmentID'=>$_GET['pID'],
-'clinical'=>$_POST['observations'],
-'content'=>$_POST['sessions'],
-'observations'=>$_POST['other'],
-'goalsnext'=>$_POST['goals'],
-'type'=>$_POST['type'],
-'date'=>$_POST['date'],
-'time'=>$_POST['time'],
-'signed'=>$_POST['signed'],
-'note'=>$_POST['notes'],
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);

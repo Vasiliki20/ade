@@ -33,11 +33,7 @@
 			$('myTable').DataTable();
 		});
 	</script>
-	<style>
-		label {
-			font-size: smaller;
-		}
-	</style>
+
 	<body>
 
 		<div id="wrapper">
@@ -56,164 +52,6 @@
 				<!-- /.navbar-header -->
 
 				<ul class="nav navbar-top-links navbar-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-messages">
-							<li>
-								<a href="#">
-								<div>
-									John Smith
-									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
-								</div>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									John Smith
-									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
-								</div>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									John Smith
-									<span class="pull-right text-muted"> <em>Yesterday</em> </span>
-								</div>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a class="text-center" href="#"> Read All Messages <i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-						<!-- /.dropdown-messages -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-tasks">
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										Task 1
-										<span class="pull-right text-muted">40% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-											<span class="sr-only">40% Complete (success)</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 2</strong>
-										<span class="pull-right text-muted">20% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-											<span class="sr-only">20% Complete</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 3</strong>
-										<span class="pull-right text-muted">60% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-											<span class="sr-only">60% Complete (warning)</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<p>
-										<strong>Task 4</strong>
-										<span class="pull-right text-muted">80% Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-											<span class="sr-only">80% Complete (danger)</span>
-										</div>
-									</div>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-						<!-- /.dropdown-tasks -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
-						<ul class="dropdown-menu dropdown-alerts">
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-comment fa-fw"></i> New Comment <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-twitter fa-fw"></i> 3 New Followers <span class="pull-right text-muted small">12 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-envelope fa-fw"></i> Message Sent <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-tasks fa-fw"></i> New Task <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">
-								<div>
-									<i class="fa fa-upload fa-fw"></i> Server Rebooted <span class="pull-right text-muted small">4 minutes ago</span>
-								</div> </a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a class="text-center" href="#"> <strong>See All Alerts</strong> <i class="fa fa-angle-right"></i> </a>
-							</li>
-						</ul>
-						<!-- /.dropdown-alerts -->
-					</li>
-					<!-- /.dropdown -->
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
@@ -295,43 +133,43 @@
 						<div class="panel-body">
 							<form action="" method="post">
 								<div class="form-group">
-									<label for="date"><strong>1. Ημερ. Έναρξης Υπηρεσιών: </strong></label>
+									<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
 									<input type="date" class="form-control" id="date" placeholder="" name="date">
 								</div>
 								<div class="form-group">
-									<label for="number"><strong>2. Αρ. Συνεδριών</strong></label>
+									<label for="number"><label>2. Αρ. Συνεδριών</label></label>
 									<input type="number" class="form-control" id="number" placeholder="" name="number">
 								</div>
 								<div class="form-group">
-									<label for="time"><strong>3. Υπό επισκόπηση χρονική περίοδος :</strong> </label>
+									<label for="time"><label>3. Υπό επισκόπηση χρονική περίοδος :</label> </label>
 									<input type="text" class="form-control" id="time" placeholder="" name="time">
 								</div>
 								<div class="form-group">
-									<label for="eidos"><strong>4. Είδος θεραπείας/υπηρεσιών: </strong></label>
+									<label for="eidos"><label>4. Είδος θεραπείας/υπηρεσιών: </label></label>
 									<input type="text" class="form-control" id="eidos" placeholder="" name="eidos">
 								</div>
 								<div class="form-group">
-									<label for="issues"><strong>5. Παρουσιαζόμενα ζητήματα : </strong></label>
+									<label for="issues"><label>5. Παρουσιαζόμενα ζητήματα : </label></label>
 									<input type="text" class="form-control" id="issues" placeholder="" name="issues">
 								</div>
 
 								<div class="form-group">
-									<label for="firstissues"><strong>6. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </strong></label>
+									<label for="firstissues"><label>6. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
 									<input type="text" class="form-control" id="firstissues" placeholder="" name="firstissues">
 								</div>
 								<div class="form-group">
-									<label for="firstdate"><strong>7. Ημερ. Αρχικής Έκθεσης Αξιολόγησης:</strong></label>
+									<label for="firstdate"><label>7. Ημερ. Αρχικής Έκθεσης Αξιολόγησης:</label></label>
 									<input type="date" class="form-control" id="firstdate" placeholder="" name="firstdate">
 								</div>
 								<div class="form-group">
-									<label for="brief"><strong>8. Σύνοψη Αρχικής Αξιολόγησης:</strong></label>
+									<label for="brief"><label>8. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
 									<br>
 									<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
 									<br>
 									<input type="text" class="form-control" id="brief" placeholder="" name="brief">
 								</div>
 								<div class="form-group">
-									<label for="changes"><strong>9. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</strong></label>
+									<label for="changes"><label>9. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
 									<br>
 									<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
 									<br>
@@ -339,21 +177,21 @@
 								</div>
 								</table>
 								<div class="form-group">
-									<label for="progress"><strong>10. Εξέλιξη θεραπείας : </strong></label>
+									<label for="progress"><label>10. Εξέλιξη θεραπείας : </label></label>
 									<br>
 									<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
 									<br>
 									<input type="text" class="form-control" id="progress" placeholder="" name="progress">
 								</div>
 								<div class="form-group">
-									<label for="xeirismos"><strong>11. Αλλαγές ως αποτέλεσμα της θεραπείας </strong></label>
+									<label for="xeirismos"><label>11. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
 									<br>
 									<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
 									<br>
 									<input type="text" class="form-control" id="xeirismos" placeholder="" name="xeirismos">
 								</div>
 								<div class="form-group">
-									<label for="future"><strong>12. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</strong></label>
+									<label for="future"><label>12. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
 									<br>
 									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
 									<br>
@@ -431,7 +269,7 @@
 									</table>
 								</div>
 								<div class="form-group">
-									<label for="more"><strong>14. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</strong></label>
+									<label for="more"><label>14. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
 									<input type="text" class="form-control" id="more" placeholder="" name="more">
 								</div>
 								<button type="submit" class="btn btn-default" name="submit">

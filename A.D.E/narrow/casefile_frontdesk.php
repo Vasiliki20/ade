@@ -1,8 +1,6 @@
-<?php ob_start(); session_start();?>
-<!DOCTYPE html>
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
 $method='GET';
 //if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
@@ -24,9 +22,10 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response=request($url,$method,$postfields,$tok);
 	}
-	
+	var_dump($response);
 //}
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 	<head>
@@ -56,79 +55,10 @@ $postfields=http_build_query(array(
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<style>
-		.dropbtn {
-			background-color: white;
-			color: black;
-			padding: 16px;
-			font-size: 16px;
-			border: none;
-			cursor: pointer;
-		}
-
-		.dropbtn:hover, .dropbtn:focus {
-			background-color: white;
-		}
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: white;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-
-		.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-		}
-
-		.dropdown a:hover {
-			background-color: #ddd
-		}
-
-		.show {
-			display: block;
-		}
-		.down {
-			transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
-		}
-	</style>
 	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
-	</script>
-	<script>
-		/* When the user clicks on the button,
-		 toggle between hiding and showing the dropdown content */
-		function myFunction() {
-			document.getElementById("myDropdown").classList.toggle("show");
-		}
-
-		// Close the dropdown if the user clicks outside of it
-		window.onclick = function(event) {
-			if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for ( i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-		}
 	</script>
 	<body>
 
@@ -171,34 +101,22 @@ $postfields=http_build_query(array(
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="myclients_frontdesk.php">Clients</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="waitinglist_frontdesk.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
-									</li>
-									<li>
-										<a href="waitinglist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search.php">Search</a>
+										<a href="search_frontdesk.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
@@ -210,61 +128,38 @@ $postfields=http_build_query(array(
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Waiting List</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
-					<!-- /.col-lg-12 -->
 				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="panel panel-default">
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<form method="post" action="" >
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Ημερομηνία</th>
-											<th>Πελάτης</th>
-											<th>Προτεταιότητα</th>
-											<th>Ανάθεση</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php for($j=0;$j<count($response['result1']);$j++){?>
-										<tr>
-											<td><?=$response['result1'][$j]['datesubmited']?></td>
-											<td><?=$response['result1'][$j]['firstname']?> <?= $response['result1'][$j]['lastname']?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="suicide">Suicide Risk</option>
-												<option value="violence" selected="selected">Violence Potential</option>
-												<option value="billing">Billing Issues</option>
-												<option value="disability">Disability</option>
-											</select></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select name=<?=$response['result1'][$j]['patientID']?>>
-												<option selected="selected"></option>
-												<?php for($i=0;$i<count($response['result']);$i++){ ?>
-												<option value=<?=$response['result'][$i]['psychologistID']?>><?=$response['result'][$i]['firstname'] ?> <?=$response['result'][$i]['lastname'] ?></option>
-												<?php } ?>
-											</select></td>
-										</tr>
-										<?php } ?>
-									</tbody>
-								</table>
-								<br>
-								<div class="form-group" align="left">
-									<input type="submit" class="form-group" name="submit" id="submit">
-								</div>
-								</form>
+				<div>
+					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
 							</div>
-							<!-- /.panel-body -->
-						</div>
-						<!-- /.panel -->
-					</div>
-					<!-- /.col-lg-12 -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="approvefiles_frontdesk.php">Αναφορές/Έντυπα</a>
+									</li>
+									<li>
+										<a href="billing_frontdesk.php">Πληρωμές</a>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+							
+						</div><!-- /.container-fluid -->
+					</nav>
 				</div>
+
 			</div>
 			<!-- /#page-wrapper -->
 
@@ -300,23 +195,26 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-<?php 
+
+
+<?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/waitlist.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
-for($i=0;$i<count($response['result1']);$i++){	
-	if($_POST[$response['result1'][$i]['patientID']]!=NULL){
 $postfields=http_build_query(array(
-	'patientID'=>$response['result1'][$i]['patientID'],
-	'psychID'=>$_POST[$response['result1'][$i]['patientID']]
+		'id' => $_POST['id'],
+		'email' => $_POST['email'],
+		'name' => $_POST['name'],
+		'lastname' => $_POST['surname'],
+		'password' => $_POST['password']
 	));
 	if(isset($_COOKIE['token'])){
-		$response1=request($url,$method,$postfields,$_COOKIE['token']);
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{
-		$response1=0;
+		$response=0;
 	}
-	while($response1['status']!=1){
+	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
 		?>
@@ -326,10 +224,8 @@ $postfields=http_build_query(array(
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response1=request($url,$method,$postfields,$tok);
+		$response=request($url,$method,$postfields,$tok);
 	}
-	}
-	}
-header("Refresh:0");
+	
 }
 ?>

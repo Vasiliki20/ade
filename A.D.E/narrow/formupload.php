@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,7 +10,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -24,14 +22,11 @@
 			input {
 				font-size: 13px;
 			}
-
-			table, th, td {
-				border: 1px solid black;
-				border-collapse: collapse;
+			.form-group {
+				font-size: 13px;
 			}
-			th, td {
-				padding: 5px;
-				text-align: left;
+			.form-control {
+				font-size: 13px;
 			}
 			.sidenav {
 				height: 100%;
@@ -44,7 +39,6 @@
 				overflow-x: hidden;
 				padding-top: 20px;
 			}
-
 			.sidenav a {
 				padding: 6px 6px 6px 6px;
 				text-decoration: none;
@@ -52,7 +46,6 @@
 				color: #818181;
 				display: block;
 			}
-
 			.sidenav a:hover {
 				color: #f1f1f1;
 			}
@@ -63,7 +56,6 @@
 				width: 90%;
 				background-size: contain;
 			}
-
 			@media screen and (max-height: 450px) {
 				.sidenav {
 					padding-top: 15px;
@@ -71,13 +63,6 @@
 				.sidenav a {
 					font-size: 18px;
 				}
-			}
-
-			.form-group {
-				font-size: 13px;
-			}
-			.form-control {
-				font-size: 13px;
 			}
 			div {
 				padding: 5px;
@@ -133,81 +118,109 @@
 
 				<div class="container">
 					<div align="center">
-						<h4>ΕΝΤΥΠΟ ΠΑΡΑΠΟΝΩΝ Η ΕΠΙΣΗΜΑΝΣΕΩΝ ΓΙΑ ΤΟ ΚΕΝΤΡΟ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ</h4>
+						<h4>ΦΟΡΜΑ ΓΙΑ ΑΝΑΡΤΗΣΗ ΔΕΔΟΜΕΝΩΝ</h4>
 					</div>
-					<div align="left">
-						<h5>Αν επιθυμείτε να υποβάλλετε κάποιο παράπονο ή επισήμανση σχετικά με το ΚΕΨΥ και τις παρεχόμενες υπηρεσίες του, παρακαλούμε συμπληρώστε το ακόλουθο έντυπο και υποβάλετέ το στη Διεύθυνση του ΚΕ.Ψ.Υ. <a href="mailto:mentalhealth@ucy.ac.cy">mentalhealth@ucy.ac.cy</a>
-					</div>
-
 					<form action="" method="post">
-						<div class="row">
-							<div class="column">
-								<label for="q2">1. Ημερομηνία που συνέβη το/α περιστατικό/α (αν αφορά συγκεκριμένα περιστατικά)</label>
-								<input for ="q2" class="form-control" type="date" name="date" id="q2">
-								<br>
-								<label for="q3">2. Άτομα τα οποία εμπλέκονται (όπου ισχύει) :</label>
-								<input type="text" class="form-control" name="people" id="q3">
-								<br>
-								<label for="q4">3. Περιγραφή του παραπόνου/των παραπόνων και σχετικά συμβάντα:</label>
-								<input type="text" class="form-control" name="description" id="q4">
-								<br>
-								<label for="q5">4. Υπεύθυνη δήλωση </label>
-								<input type="text" class="form-control" name="affirmation" id="q5">
-								<br>
-								<button type="submit" class="btn btn-default" name="submit">
-									Submit
-								</button>
-
-							</div>
-							<footer>
-								<div id="footer" class="fh5co-border-line">
-									<div class="container">
-										<div class="row">
-											<div class="col-md-6 col-md-offset-3 text-center">
-												<p class="fh5co-social-icons">
-													<a href="https://twitter.com/MentalHealthUCY"><i class="icon-twitter-with-circle"></i></a>
-													<a href="https://www.facebook.com/ucykepsy/"><i class="icon-facebook-with-circle"></i></a>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</footer>
+						<div class="form-group">
+							Επέλεξε αρχείο που θέλεις να αναρτήσεις:
+    						<input type="file" name="fileToUpload" id="fileToUpload"> <!--edo prepei na mpei kai size tou file-->
 						</div>
-						<!-- END: box-wrap -->
+						
+						<!--vrika ton pio kato kodika gia na elegxoume to type of file = pdf. den eimai sigouri omos oti ta theloun mono se pdf morfi
+	<?php
 
-						<!-- jQuery -->
-						<script src="js/jquery.min.js"></script>
-						<!-- jQuery Easing -->
-						<script src="js/jquery.easing.1.3.js"></script>
-						<!-- Bootstrap -->
-						<script src="js/bootstrap.min.js"></script>
-						<!-- Owl carousel -->
-						<script src="js/owl.carousel.min.js"></script>
-						<!-- Waypoints -->
-						<script src="js/jquery.waypoints.min.js"></script>
-						<!-- Parallax Stellar -->
-						<script src="js/jquery.stellar.min.js"></script>
+ $targetfolder = "testupload/";
 
-						<!-- Main JS (Do not remove) -->
-						<script src="js/main.js"></script>
+ $targetfolder = $targetfolder . basename( $_FILES['file']['name']) ;
+
+ $ok=1;
+
+$file_type=$_FILES['file']['type'];
+
+if ($file_type=="application/pdf") {
+
+ if(move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder))
+
+ {
+
+ echo "The file ". basename( $_FILES['file']['name']). " is uploaded";
+
+ }
+
+ else {
+
+ echo "Problem uploading file";
+
+ }
+
+}
+
+else {
+
+ echo "You may only upload PDFs<br>";
+
+}
+
+?>-->
+					</div>
+				<button type="submit" onclick="init();" class="btn btn-default" name="submit">
+					Submit
+				</button>
+
+			</div>
+			<footer>
+				<div id="footer" class="fh5co-border-line">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 text-center">
+								<p class="fh5co-social-icons">
+									<a href="https://twitter.com/MentalHealthUCY"><i class="icon-twitter-with-circle"></i></a>
+									<a href="https://www.facebook.com/ucykepsy/"><i class="icon-facebook-with-circle"></i></a>
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
+			</footer>
+		</div>
+		<!-- END: box-wrap -->
 
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Owl carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<!-- Parallax Stellar -->
+		<script src="js/jquery.stellar.min.js"></script>
+
+		<!-- Main JS (Do not remove) -->
+		<script src="js/main.js"></script>
 	</body>
+
 </html>
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form17.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/formupload.php";
 $method='POST';
 if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-'id' => $_SESSION['id'],
-'dateof' => $_POST['date'],
-'people' => $_POST['people'],
-'description' => $_POST['description'],
-'affirmation' => $_POST['affirmation']
-));
+	$days=base64_encode(serialize($_POST["myInputs"]));
+	$hours=base64_encode(serialize($_POST["myInputs1"]));
+	$postfields=http_build_query(array(
+  		'id' => $_SESSION['id'],
+  		'phone' => $_POST['phone'],
+  		'period' => $_POST['needfordate'],
+ 		'mainissue' => $_POST['available'],
+  		'sentby' => $_POST['info'],
+  		'type' => $_POST['belong'],
+  		'days' => $days,
+  		'hours' => $hours 
+	));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
 }else{
@@ -218,12 +231,11 @@ $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>
 <script>
-			document.cookie='token=<?= $tok ?>';</script>
+						document.cookie='token=<?= $tok ?>';</script>
 <?php
 //$GLOBALS['curtoken']=giveToken();
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-
 }
 ?>

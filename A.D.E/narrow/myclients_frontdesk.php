@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,32 +34,8 @@
 			$('myTable').DataTable();
 		});
 	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
-
 	<body>
-
+		<h5> <?= $_SESSION['id'] ?> </h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -109,115 +86,62 @@
 							<!-- /input-group -->
 							<!--</li>-->
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="myclients_frontdesk.php">Clients</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="waitinglist_frontdesk.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
-									</li>
-									<li>
-										<a href="waitinglist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search.php">Search</a>
+										<a href="search_frontdesk.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
-							</li>
+							
 						</ul>
 					</div>
 					<!-- /.sidebar-collapse -->
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
+
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Report 1</h1>
+						<h1 class="page-header">Clients</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Appointment Statistics
-						<br>
-					</div>
-					<div>
-						<br>
-					</div>
-
-					<div class="form-group">
-						<label for="yearstart"><b> &nbsp;Start Date:</b></label>
-						<input type="date" class="form-control" id="yearstart" placeholder="" name="yearstart">
-					</div>
-					<div class="form-group">
-						<label for="yearend"><b> &nbsp;End Date:</b></label>
-						<input type="date" class="form-control" id="yearend" placeholder="" name="yearend">
-					</div>
-					<button type="submit" class="btn btn-default" name="submit">
-						 &nbsp;OK
-					</button>
-				</div>
-
-				<!-- /#wrapper -->
-
-				<!-- jQuery -->
-				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
-
-				<!-- Bootstrap Core JavaScript -->
-				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-				<!-- Metis Menu Plugin JavaScript -->
-				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-				<!-- DataTables JavaScript -->
-				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-				<!-- Custom Theme JavaScript -->
-				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
-						});
-					});
-				</script>
-
-	</body>
-
-</html>
-
-
-<?php
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+									
+									<thead>
+										<tr>
+											<th>Όνομα</th>
+											<th>Επίθετο</th>
+											<th>Ταυτότητα</th>
+											<th>Case File</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
-$method='POST';
-if(isset($_POST['submit'])){
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
+		'psychID' => $_SESSION['id']
 	));
 	if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
@@ -237,5 +161,61 @@ $postfields=http_build_query(array(
 		$response=request($url,$method,$postfields,$tok);
 	}
 	
-}
+	
+//}
 ?>
+										<?php 
+											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+										<tr>
+											<td><?= $response['result'][$i]['firstname'] ?></td>
+											<td><?= $response['result'][$i]['lastname'] ?></td>
+											<td><?= $response['result'][$i]['patientID'] ?></td>
+											<td><a  href="casefile_frontdesk.php">link</a></td>
+										</tr>
+											<?php }} ?>
+									</tbody>
+								</table>
+
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+					<!-- /.col-lg-12 -->
+				</div>
+			</div>
+			<!-- /#page-wrapper -->
+
+		</div>
+		<!-- /#wrapper -->
+
+		<!-- jQuery -->
+		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+		<!-- DataTables JavaScript -->
+		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+		<!-- Custom Theme JavaScript -->
+		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+		<script>
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
+				});
+			});
+		</script>
+	</body>
+
+</html>
+
+

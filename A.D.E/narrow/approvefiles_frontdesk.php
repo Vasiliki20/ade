@@ -112,34 +112,22 @@ var_dump($response);
 							<!-- /input-group -->
 							<!--</li>-->
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="myclients_frontdesk.php">Clients</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="waitinglist_frontdesk.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
-									</li>
-									<li>
-										<a href="waitinglist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search.php">Search</a>
+										<a href="search_frontdesk.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
@@ -151,7 +139,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case file</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
 				</div>
 				<div>
@@ -167,154 +155,65 @@ var_dump($response);
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
+										<a href="approvefiles_frontdesk.php">Αναφορές/Έντυπα</a>
 									</li>
 									<li>
-										<a href="approvefiles.php">Αναφορές/Έντυπα</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
-											</li>
-											<li>
-												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
-											</li>
-										</ul>
-
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
-											</li>
-											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
-											</li>
-											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
-											</li>
-											<li>
-												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
-									</li>
-									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
+										<a href="billing_frontdesk.php">Πληρωμές</a>
 									</li>
 								</ul>
 
 							</div><!-- /.navbar-collapse -->
+
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
+
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Σημειώσεις προόδου
+							Approve Incoming Data
 						</div>
 						<div class="panel-body">
-							<table id="casenotes" style="width:100%">
-								<tr>
-									<th><label>Κλινικές παρατηρήσεις: </label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['casenotes'][$i]['clinicalobservations'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label> Περιεχόμενα session: </label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['casenotes'][$i]['sessioncontent'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Άλλες παρατηρήσεις:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['casenotes'][$i]['otherobservations'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label> Στόχος επόμενου appointment: </label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['casenotes'][$i]['goalsfornextappoinment'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Τύπος:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['casenotes'][$i]['typeof'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Ημερομηνία γραφής:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['casenotes'][$i]['dateof'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Ώρα γραφής:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['casenotes'][$i]['timeof'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Υπογράφτηκε:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['casenotes'][$i]['Signed'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
-								<tr>
-									<th><label>Σημειώσεις:</label></th>
-									<?php for($i=0;$i<count($response['casenotes']);$i++){ ?>
-<td>
-<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['casenotes'][$i]['Note'] ?>>
-</input></td>
-<?php } ?>
-								</tr>
+							<div id="pdf">
+								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+									<a href="acrobatpdf.pdf">Έγγραφο 1 </a>
+								</object>
+								<button type="submit" name="submit" value="accept">
+									Accept
+								</button>
+								<button type="submit" name="sumbit" value="remove">
+									Remove
+								</button>
+							</div>
+							<br>
+							<div id="pdf">
+								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+									<a href="acrobatpdf.pdf">Έγγραφο 2 </a>
+								</object>
+								<button type="submit" name="submit" value="accept">
+									Accept
+								</button>
+								<button type="submit" name="sumbit" value="remove">
+									Remove
+								</button>
+							</div>
 						</div>
 					</div>
-
-					<!-- /#page-wrapper -->
 				</div>
 			</div>
 		</div>
+		<div>
+			<br>
+			<br>
+		</div>
+		<!-- /#page-wrapper -->
+
 		</div>
 		<!-- /#wrapper -->
+		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -345,22 +244,18 @@ var_dump($response);
 	</body>
 
 </html>
+
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenote.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'appointmentID'=>$_GET['pID'],
-'clinical'=>$_POST['observations'],
-'content'=>$_POST['sessions'],
-'observations'=>$_POST['other'],
-'goalsnext'=>$_POST['goals'],
-'type'=>$_POST['type'],
-'date'=>$_POST['date'],
-'time'=>$_POST['time'],
-'signed'=>$_POST['signed'],
-'note'=>$_POST['notes'],
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
