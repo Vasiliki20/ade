@@ -1,7 +1,8 @@
 <?php
  include('post.php');
- if(isset($_POST['patientID']) && isset($_POST['mainproblem']) && isset($_POST['historyofproblem']) && isset($_POST['anxietyfactors']) && isset($_POST['specialrequests']) && isset($_POST['behaviour']) && isset($_POST['gnosticfunction']) && isset($_POST['mood']) && isset($_POST['psychometricresult']) && isset($_POST['clinicalimpression']) && isset($_POST['psychologicalfunc']) && isset($_POST['professionacademicfunc']) && isset($_POST['socialfunc']) && isset($_POST['autofix']) && isset($_POST['therapyfactors']) && isset($_POST['therapysuggestions']) && isset($_POST['additionalevaluation']) && isset($_POST['initialtherapyprogram']) && isset($_POST['signed']) && isset($_POST['datecompleted'])){ 
+ if(isset($_POST['patientID']) && isset($_POST['mainproblem']) && isset($_POST['historyofproblem']) && isset($_POST['anxietyfactors']) && isset($_POST['specialrequests']) && isset($_POST['behaviour']) && isset($_POST['gnosticfunction']) && isset($_POST['mood']) && isset($_POST['psychometricresult']) && isset($_POST['clinicalimpression']) && isset($_POST['psychologicalfunc']) && isset($_POST['professionacademicfunc']) && isset($_POST['socialfunc']) && isset($_POST['autofix']) && isset($_POST['therapyfactors']) && isset($_POST['therapysuggestions']) && isset($_POST['additionalevaluation']) && isset($_POST['initialtherapyprogram'])){ 
  makenull();
+ $Y="YES";
  $stmt = $db->prepare('UPDATE Medlog SET mainproblem=:mainproblem,historyofproblem=:historyofproblem,anxietyfactors=:anxietyfactors,specialrequests=:specialrequests,behaviour=:behaviour,gnosticfunction=:gnosticfunction,mood=:mood,psychometricresult=:psychometricresult,clinicalimpression=:clinicalimpression,psychologicalfunc=:psychologicalfunc,professionacademicfunc=:professionacademicfunc,socialfunc=:socialfunc,autofix=:autofix,therapyfactors=:therapyfactors,therapysuggestions=:therapysuggestions,additionalevaluation=:additionalevaluation,initialtherapyprogram=:initialtherapyprogram,signed=:signed,datecompleted=:datecompleted  WHERE patientID=:patientID');
  $stmt->bindParam(':patientID',$_POST['patientID']); 
  $stmt->bindParam(':mainproblem',$_POST['mainproblem']); 
@@ -21,8 +22,8 @@
  $stmt->bindParam(':therapysuggestions',$_POST['therapysuggestions']);
  $stmt->bindParam(':additionalevaluation',$_POST['additionalevaluation']);
  $stmt->bindParam(':initialtherapyprogram',$_POST['initialtherapyprogram']);
- $stmt->bindParam(':signed',$_POST['signed']);
- $stmt->bindParam(':datecompleted',$_POST['datecompleted']);
+ $stmt->bindParam(':signed',$Y);
+ $stmt->bindParam(':datecompleted',date("d/m/Y"));
  $stmt->execute();
 
  $response['success']=1; echo json_encode($response);
