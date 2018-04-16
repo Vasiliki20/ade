@@ -140,6 +140,9 @@ $response = request($url, $method, $postfields, $tok);
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
+							<li>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Approve Incoming Data</a>
+							</li>
 						</ul>
 					</div>
 					<!-- /.sidebar-collapse -->
