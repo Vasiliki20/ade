@@ -170,7 +170,7 @@ var_dump($response);
 												<a href="personalinformation_admin.php">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php_admin.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule_admin.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 

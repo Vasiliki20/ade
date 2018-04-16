@@ -170,7 +170,7 @@ $postfields=http_build_query(array(
 												<a href="personalinformation_admin.php">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php_admin.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule_admin.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 
