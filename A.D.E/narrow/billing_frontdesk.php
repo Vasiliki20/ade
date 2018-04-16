@@ -148,9 +148,6 @@ $postfields=http_build_query(array(
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="approvefiles_frontdesk.php">Αναφορές/Έντυπα</a>
-									</li>
-									<li>
 										<a href="billing_frontdesk.php">Πληρωμές</a>
 									</li>
 								</ul>
