@@ -142,6 +142,7 @@
 											<th>Όνομα</th>
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
+											<th>Flag</th>
 											<th>Case File</th>
 										</tr>
 									</thead>
@@ -181,77 +182,17 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
+											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<select>
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence" selected="selected">Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability">Disability</option>
+											</select></td>
 											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
-										<!--<tr>
-											<td>Μαρία</td>
-											<td>Γιαννακού</td>
-											<td>224335</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Χριστίνα</td>
-											<td>Κωνσταντίνου</td>
-											<td>432533</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Σωτηρία</td>
-											<td>Κυριάκου</td>
-											<td>432432</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Κυριάκος</td>
-											<td>Αθανασίου</td>
-											<td>949323</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Γιώργος</td>
-											<td>Ματθαίου</td>
-											<td>234325</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td><a href="casefile.php">link</a></td>
-										</tr>
-										<tr>
-											<td>Βασιλική</td>
-											<td>Παντελή</td>
-											<td>123456</td>
-											<td><a href="casefile.php">link</a>
-											</td>
-										</tr> -->
-									</tbody>
+										</tbody>
 								</table>
 
 							</div>
