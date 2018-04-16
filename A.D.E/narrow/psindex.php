@@ -14,17 +14,16 @@ $postfields=http_build_query(array(
 	while($response['status']!=1){
 		$tok=giveToken();
 		//print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-	
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 //}
 ?>
 <!DOCTYPE html>
@@ -43,7 +42,7 @@ $postfields=http_build_query(array(
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 
 		<!-- daypilot libraries -->
-        <script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
+		<script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -60,15 +59,26 @@ $postfields=http_build_query(array(
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link type="text/css" rel="stylesheet" href="media/layout.css" />
 
-        <link type="text/css" rel="stylesheet" href="themes/calendar_g.css" />
-        <link type="text/css" rel="stylesheet" href="themes/calendar_green.css" />
-        <link type="text/css" rel="stylesheet" href="themes/calendar_traditional.css" />
-        <link type="text/css" rel="stylesheet" href="themes/calendar_transparent.css" />
-        <link type="text/css" rel="stylesheet" href="themes/calendar_white.css" />
-		
-			<!-- helper libraries -->
+		<link type="text/css" rel="stylesheet" href="themes/calendar_g.css" />
+		<link type="text/css" rel="stylesheet" href="themes/calendar_green.css" />
+		<link type="text/css" rel="stylesheet" href="themes/calendar_traditional.css" />
+		<link type="text/css" rel="stylesheet" href="themes/calendar_transparent.css" />
+		<link type="text/css" rel="stylesheet" href="themes/calendar_white.css" />
+
+		<!-- helper libraries -->
 
 	</head>
+
+	<style>
+		body {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.42857143;
+		}
+		body {
+			background-color: #f8f8f8;
+		}
+	</style>
 
 	<body>
 
@@ -161,153 +171,151 @@ $postfields=http_build_query(array(
 
 			<div id="page-wrapper">
 				<div id="page-header">
-			<div class="bg-help">
-				<div class="inBox">
-					<h1 id="logo"><a href='https://code.daypilot.org/17910/html5-event-calendar-open-source'>HTML5/JavaScript Event Calendar</a></h1>
-					<p id="claim"><a href="https://javascript.daypilot.org/">DayPilot for JavaScript</a> - AJAX Calendar/Scheduling Widgets for JavaScript/HTML5/jQuery</p>
-					<hr class="hidden" />
+					<div class="bg-help">
+						<div class="inBox">
+							<h1 id="logo"><a href='https://code.daypilot.org/17910/html5-event-calendar-open-source'>HTML5/JavaScript Event Calendar</a></h1>
+							<p id="claim">
+								<a href="https://javascript.daypilot.org/">DayPilot for JavaScript</a> - AJAX Calendar/Scheduling Widgets for JavaScript/HTML5/jQuery
+							</p>
+							<hr class="hidden" />
+						</div>
+					</div>
 				</div>
-			</div>
-        </div>
-        <div class="shadow"></div>
-        <div class="hideSkipLink">
-        </div>
-        <div class="main">
+				<div class="shadow"></div>
+				<div class="hideSkipLink"></div>
+				<div class="main">
 
-            <div style="float:left; width: 160px;">
-                <div id="nav"></div>
-            </div>
-            <div style="margin-left: 160px;">
+					<div style="float:left; width: 160px;">
+						<div id="nav"></div>
+					</div>
+					<div style="margin-left: 160px;">
 
-                <div class="space">
-                    Theme: <select id="theme">
-                        <option value="calendar_default">Default</option>
-                        <option value="calendar_white">White</option>
-                        <option value="calendar_g">Google-Like</option>
-                        <option value="calendar_green">Green</option>
-                        <option value="calendar_traditional">Traditional</option>
-                        <option value="calendar_transparent">Transparent</option>
-                    </select>
-                </div>
+						<div class="space">
+							Theme:
+							<select id="theme">
+								<option value="calendar_default">Default</option>
+								<option value="calendar_white">White</option>
+								<option value="calendar_g">Google-Like</option>
+								<option value="calendar_green">Green</option>
+								<option value="calendar_traditional">Traditional</option>
+								<option value="calendar_transparent">Transparent</option>
+							</select>
+						</div>
 
-                <div id="dp"></div>
-            </div>
+						<div id="dp"></div>
+					</div>
 
-            <script type="text/javascript">
+					<script type="text/javascript">
 
-                var nav = new DayPilot.Navigator("nav");
-                nav.showMonths = 3;
-                nav.skipMonths = 3;
-                nav.selectMode = "week";
-                nav.onTimeRangeSelected = function(args) {
-                    dp.startDate = args.day;
-                    dp.update();
-                    loadEvents();
-                };
-                nav.init();
+						var nav = new DayPilot.Navigator("nav");
+nav.showMonths = 3;
+nav.skipMonths = 3;
+nav.selectMode = "week";
+nav.onTimeRangeSelected = function(args) {
+dp.startDate = args.day;
+dp.update();
+loadEvents();
+};
+nav.init();
 
-                var dp = new DayPilot.Calendar("dp");
-                dp.viewType = "Week";
-				dp.init();
-				 
-				
-                dp.onEventMoved = function (args) {
-					$.post("moveappo.php",
-                            {
-                                id: args.e.id(),
-                                newStart: args.newStart.toString(),
-                                newEnd: args.newEnd.toString()
-                            },
-                            function() {
-                                console.log("Moved.");
-                            });
-                };
+var dp = new DayPilot.Calendar("dp");
+dp.viewType = "Week";
+dp.init();
 
-                dp.onEventResized = function (args) {
-					$.post("moveappo.php",
-                            {
-                                id: args.e.id(),
-                                newStart: args.newStart.toString(),
-                                newEnd: args.newEnd.toString()
-                            },
-                            function() {
-                                console.log("Moved.");
-                            });
-                };
+dp.onEventMoved = function (args) {
+$.post("moveappo.php",
+{
+id: args.e.id(),
+newStart: args.newStart.toString(),
+newEnd: args.newEnd.toString()
+},
+function() {
+console.log("Moved.");
+});
+};
 
-                // event creating
-                dp.onTimeRangeSelected = function (args) {
-                    var name = prompt("New event name:", "Event");
-                    dp.clearSelection();
-                    if (!name) return;
-                    var start=args.start;
-					var end=args.end;
-					var id=DayPilot.guid();
-					var modal = new DayPilot.Modal({
-                    onClosed: function(args) {
-                        if (args.result) { loadEvents(); }
-                    }
-					});
+dp.onEventResized = function (args) {
+$.post("moveappo.php",
+{
+id: args.e.id(),
+newStart: args.newStart.toString(),
+newEnd: args.newEnd.toString()
+},
+function() {
+console.log("Moved.");
+});
+};
 
-					modal.showUrl("psappointment.php?start=" + args.start +"&end="+ args.end+"&name="+ name +"&id="+id);
-                };
-				
-				dp.eventDeleteHandling = "Update";
-					dp.onEventDelete = function(args) {
-					if (!confirm("Do you really want to delete this event?")) {
-						args.preventDefault();
-					}
-					$.post("appodelete.php",
-								{
-                                id:args.e.id()
-								},
-								function() {
-									console.log("Deleted.");
-								});
-					};
-				
-                dp.onEventClick = function(args) {
-                    alert("clicked: " + args.e.id());
-                };
-				loadEvents();
+// event creating
+dp.onTimeRangeSelected = function (args) {
+var name = prompt("New event name:", "Event");
+dp.clearSelection();
+if (!name) return;
+var start=args.start;
+var end=args.end;
+var id=DayPilot.guid();
+var modal = new DayPilot.Modal({
+onClosed: function(args) {
+if (args.result) { loadEvents(); }
+}
+});
 
-                function loadEvents() {
-                    var start = nav.visibleStart();
-                    var end = nav.visibleEnd();
-					$.post("getevents.php",
-                    {	
-                        start: start.toString(),
-                        end: end.toString(),
-						psychID:<?=json_encode($_SESSION['id']) ?>
-                    },
-                    function(data) {
-                        console.log(data);
-                        dp.events.list = data;
-                        dp.update();
-                    });
-                }
-				
-            </script>
+modal.showUrl("psappointment.php?start=" + args.start +"&end="+ args.end+"&name="+ name +"&id="+id);
+};
 
-            <script type="text/javascript">
-            $(document).ready(function() {
-                $("#theme").change(function(e) {
-                    dp.theme = this.value;
-                    dp.update();
-                });
-            });
-            </script>
+dp.eventDeleteHandling = "Update";
+dp.onEventDelete = function(args) {
+if (!confirm("Do you really want to delete this event?")) {
+args.preventDefault();
+}
+$.post("appodelete.php",
+{
+id:args.e.id()
+},
+function() {
+console.log("Deleted.");
+});
+};
 
-        </div>
-        <div class="clear">
-        </div>
+dp.onEventClick = function(args) {
+alert("clicked: " + args.e.id());
+};
+loadEvents();
+
+function loadEvents() {
+var start = nav.visibleStart();
+var end = nav.visibleEnd();
+$.post("getevents.php",
+{
+start: start.toString(),
+end: end.toString(),
+psychID:<?=json_encode($_SESSION['id']) ?>
+	},
+	function(data) {
+		console.log(data);
+		dp.events.list = data;
+		dp.update();
+	});
+	}
+
+					</script>
+
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$("#theme").change(function(e) {
+								dp.theme = this.value;
+								dp.update();
+							});
+						});
+					</script>
+
 				</div>
-				<!-- /#page-wrapper -->
-
+				<div class="clear"></div>
 			</div>
-			<!-- /#wrapper -->
+			<!-- /#page-wrapper -->
 
-			
+		</div>
+		<!-- /#wrapper -->
 
 	</body>
 </html>
