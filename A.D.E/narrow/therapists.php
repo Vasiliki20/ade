@@ -28,8 +28,9 @@
 
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<script>
@@ -38,13 +39,12 @@
 		});
 	</script>
 	<style>
-		body{
-			background-color:#f8f8f8;
+		body {
+			background-color: #f8f8f8;
 		}
 	</style>
 	<body>
-		<h5> <?= $_SESSION['id'] ?>
-		</h5>
+		<h5> <?= $_SESSION['id'] ?> </h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -79,6 +79,7 @@
 					</li>
 					<!-- /.dropdown -->
 				</ul>
+
 				<!-- /.navbar-top-links -->
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
@@ -122,14 +123,69 @@
 							<button type="button" class="close" data-dismiss="modal">
 								&times;
 							</button>
-							<h4 class="modal-title">Modal Header</h4>
+							<h4 class="modal-title">Add Therapist</h4>
 						</div>
 						<div class="modal-body">
 							<p>
-								Some text in the modal.
+								<form role="form" action="" method="post">
+									<div class="form-group">
+										<label class="sr-only" for="name">Όνομα</label>
+										<input type="text" name="name" placeholder="Όνομα" class="form-control" id="name">
+									</div>
+									<div class="form-group">
+										<label class="sr-only" for="surname">Επίθετο</label>
+										<input type="text" name="surname" placeholder="Επίθετο" class="form-control" id="surname">
+									</div>
+									<div class="form-group">
+										<label class="sr-only" for="id">Αριθμός Ταυτότητας</label>
+										<input type="text" name="id" placeholder="Αριθμός Ταυτότητας" class="form-control" id="id">
+									</div>
+									<div class="form-group">
+										<input class="w3-radio" type="radio" name="gender" value="male" checked>
+										<label>Άρρεν</label>
+										<input class="w3-radio" type="radio" name="gender" value="female">
+										<label>Θήλυ</label>
+									</div>
+									<div class="form-group">
+									<label class="sr-only" for="age">Ηλικία</label>
+									<input type="text" name="age" placeholder="Ηλικία" class="form-control" id="age">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="address">Διεύθυνση Διαμονής</label>
+									<input type="text" name="address" placeholder="Διεύθυνση Διαμονής" class="form-control" id="address">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="phone">Τηλέφωνο</label>
+									<input type="number" name="phone" placeholder="Τηλέφωνο" class="form-control" id="phone">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="fax">Fax</label>
+									<input type="number" name="fax" placeholder="Fax" class="form-control" id="fax">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="position">Θέση Εργασίας</label>
+									<input type="text" name="position" placeholder="Θέση Εργασίας" class="form-control" id="position">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="specialty">Ειδικότητα</label>
+									<input type="text" name="speciality" placeholder="Ειδικότητα" class="form-control" id="specialty">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="building">Κτήριο</label>
+									<input type="text" name="building" placeholder="Κτήριο" class="form-control" id="building">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="officenum">Αριθμός Γραφείου</label>
+									<input type="number" name="officenum" placeholder="Αριθμός Γραφείου" class="form-control" id="officenum">
+								</div>
+								</form>
+
 							</p>
 						</div>
 						<div class="modal-footer">
+							<button type="sumbit" class="btn btn-default" data-dismiss="modal">
+								Save
+							</button>
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Close
 							</button>
