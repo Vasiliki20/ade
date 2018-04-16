@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,14 +28,23 @@
 
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
 	</script>
+	<style>
+		body{
+			background-color:#f8f8f8;
+		}
+	</style>
 	<body>
-		<h5> <?= $_SESSION['id'] ?> </h5>
+		<h5> <?= $_SESSION['id'] ?>
+		</h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -104,7 +113,31 @@
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
 
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Modal Header</h4>
+						</div>
+						<div class="modal-body">
+							<p>
+								Some text in the modal.
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
@@ -118,8 +151,11 @@
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
+								<div>
+									<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
+										Add Therapist
+								</div>
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									
 									<thead>
 										<tr>
 											<th>Όνομα</th>
@@ -135,42 +171,46 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_
 $method='GET';
 //if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'psychID' => $_SESSION['id']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-//}
-?>
-										<?php 
-											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
-										<tr>
-											<td><?= $response['result'][$i]['firstname'] ?></td>
-											<td><?= $response['result'][$i]['lastname'] ?></td>
-											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="active" selected="selected">Active</option>
-												<option value="supervisor">Supervisor</option>
-												<option value="deactive">Deactive</option>
-												<option value="delete">Delete</option>
-											</select></td>
+'psychID' => $_SESSION['id']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+										?>
+										<script>
+																						document.cookie='token=<?= $tok ?>
+												';
+										</script>
+										<?php
+										//$GLOBALS['curtoken']=giveToken();
+										//print "<h5>".$GLOBALS['curtoken']."</h5>";
+										$response = request($url, $method, $postfields, $tok);
+										}
+										//}
+										?>
+										<?php
+if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+<tr>
+<td><?= $response['result'][$i]['firstname'] ?><
+										/td>
+										<td><?= $response['result'][$i]['lastname'] ?><
+										/td>
+										<td><?= $response['result'][$i]['patientID'] ?><
+										/td>
+										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<select>
+										<option value="active" selected="selected">Active</option>
+										<option value="supervisor">Supervisor</option>
+										<option value="deactive">Deactive</option>
+										<option value="delete">Delete</option>
+										</select></td>
 										</tr>
-											<?php }} ?>
+										<?php }} ?>
 								</table>
 							</div>
 							<!-- /.panel-body -->
@@ -213,5 +253,4 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-
 
