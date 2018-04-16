@@ -107,7 +107,7 @@
 										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
-										<a href="therapists.php">Therapist</a>
+										<a href="therapists.php">Therapists</a>
 									</li>
 									<li>
 										<a href="myappointments_admin.php">My Appointments</a>
