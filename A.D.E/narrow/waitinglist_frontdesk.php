@@ -171,22 +171,34 @@ $postfields=http_build_query(array(
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_frontdesk.php">Clients</a>
+										<a href="tasklist.php">Task List</a>
 									</li>
 									<li>
-										<a href="waitinglist_frontdesk.php">Waiting List</a>
+										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-										<a href="search_frontdesk.php">Search</a>
+										<a href="myappointments.php">My appointments</a>
+									</li>
+									<li>
+										<a href="waitinglist.php">Waiting List</a>
+									</li>
+									<li>
+										<a href="search.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
+							</li>
+							<li>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+							</li>
+							<li>
+								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
@@ -216,7 +228,6 @@ $postfields=http_build_query(array(
 											<th>Πελάτης</th>
 											<th>Προτεταιότητα</th>
 											<th>Ανάθεση</th>
-											<th>Option</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -224,13 +235,19 @@ $postfields=http_build_query(array(
 										<tr>
 											<td><?=$response['result1'][$j]['datesubmited']?></td>
 											<td><?=$response['result1'][$j]['firstname']?> <?= $response['result1'][$j]['lastname']?></td>
-											<td>Προτεραιότητα απο βάση</td>
-											<td>Ψυχολόγος απο βάση</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="approve" selected="selected">Approve</option>
-												<option value="delete">Delete</option>
-												<option value="edit">Edit</option>
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence" selected="selected">Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability">Disability</option>
+											</select></td>
+											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<select name=<?=$response['result1'][$j]['patientID']?>>
+												<option selected="selected"></option>
+												<?php for($i=0;$i<count($response['result']);$i++){ ?>
+												<option value=<?=$response['result'][$i]['psychologistID']?>><?=$response['result'][$i]['firstname'] ?> <?=$response['result'][$i]['lastname'] ?></option>
+												<?php } ?>
 											</select></td>
 										</tr>
 										<?php } ?>

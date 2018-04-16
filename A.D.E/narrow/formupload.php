@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -80,7 +80,7 @@
 
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/modernizr-2.6.2.min.js"></script>
-
+						
 	</head>
 	<body>
 		<div class="sidenav">
@@ -117,56 +117,37 @@
 				</header>
 
 				<div class="container">
-					<div align="center">
-						<h4>ΦΟΡΜΑ ΓΙΑ ΑΝΑΡΤΗΣΗ ΔΕΔΟΜΕΝΩΝ</h4>
-					</div>
-					<form action="" method="post">
-						<div class="form-group">
-							Επέλεξε αρχείο που θέλεις να αναρτήσεις:
-    						<input type="file" name="fileToUpload" id="fileToUpload"> <!--edo prepei na mpei kai size tou file-->
-						</div>
+			 
+        </div>
+          <div class="row">
+            <div class="col-lg-12">
+               <form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="id" value=<?=$_SESSION['id']?> >
+                  <div class="form-group">
+                    <label for="file">Select a file to upload</label>
+                    <input id="file" type="file" name="file">
+                    <p class="help-block">Only pdf,jpg,jpeg,png and gif file with maximum size of 10 MB is allowed.</p>
+                  </div>
+                  <input type="submit" class="btn btn-lg btn-primary" id="sub" value="Upload">
+                </form>
+            </div>
+          </div>
+			<div class="warning" id="hiresponse"></div>
+		 <div class="row">
+			<div class="col-lg-12">
+				<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php" method="post" >
+					<input type="hidden" name="id" value=<?=$_SESSION['id']?> >
+					<input class="btn  btn-primary" type="submit" name="submit" value="Show files" >
+				</form>
+			</div>
+		</div>
+		<div id="contactResponse"></div>
+		
+    </div> <!-- /container -->
 						
-						<!--vrika ton pio kato kodika gia na elegxoume to type of file = pdf. den eimai sigouri omos oti ta theloun mono se pdf morfi
-	<?php
-
- $targetfolder = "testupload/";
-
- $targetfolder = $targetfolder . basename( $_FILES['file']['name']) ;
-
- $ok=1;
-
-$file_type=$_FILES['file']['type'];
-
-if ($file_type=="application/pdf") {
-
- if(move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder))
-
- {
-
- echo "The file ". basename( $_FILES['file']['name']). " is uploaded";
-
- }
-
- else {
-
- echo "Problem uploading file";
-
- }
-
-}
-
-else {
-
- echo "You may only upload PDFs<br>";
-
-}
-
-?>-->
-					</div>
-				<button type="submit" onclick="init();" class="btn btn-default" name="submit">
-					Submit
-				</button>
-
+						
+	
+					
 			</div>
 			<footer>
 				<div id="footer" class="fh5co-border-line">
@@ -200,42 +181,84 @@ else {
 
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
+		<script>
+		
+     $("#contactForm").submit(function(event) 
+     {
+         /* stop form from submitting normally */
+         event.preventDefault();
+
+         /* get some values from elements on the page: */
+         var $form = $( this ),
+             $submit = $form.find( 'button[type="submit"]' ),
+             id_value = $form.find( 'input[name="id"]' ).val(),
+             url = $form.attr('action');
+
+         /* Send the data using post */
+         var posting = $.post( url, { 
+                           id: id_value 
+                       });
+
+         posting.done(function( data )
+         {
+             /* Put the results in a div */
+             $( "#contactResponse" ).html(data);
+
+             /* Change the button text. */
+             $submit.text('Sent, Thank you');
+
+             /* Disable the button. */
+             $submit.attr("disabled", true);
+         });
+    });
+	$(document).ready(function () {
+
+    $("#sub").click(function (event) {
+
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+        // Get form
+        var form = $('#hi')[0];
+
+		// Create an FormData object 
+        var data = new FormData(form);
+
+		
+
+		// disabled the submit button
+        $("sub").prop("disabled", true);
+
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "http://thesis.in.cs.ucy.ac.cy/mhc/upload.php",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                $("#hiresponse").text(data);
+                console.log("SUCCESS : ", data);
+                $("#sub").prop("disabled", false);
+
+            },
+            error: function (e) {
+
+                $("#hiresponse").text(e.responseText);
+                console.log("ERROR : ", e);
+                $("#sub").prop("disabled", false);
+
+            }
+        });
+
+    });
+
+});
+</script>
 	</body>
 
 </html>
 
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/formupload.php";
-$method='POST';
-if(isset($_POST['submit'])){
-	$days=base64_encode(serialize($_POST["myInputs"]));
-	$hours=base64_encode(serialize($_POST["myInputs1"]));
-	$postfields=http_build_query(array(
-  		'id' => $_SESSION['id'],
-  		'phone' => $_POST['phone'],
-  		'period' => $_POST['needfordate'],
- 		'mainissue' => $_POST['available'],
-  		'sentby' => $_POST['info'],
-  		'type' => $_POST['belong'],
-  		'days' => $days,
-  		'hours' => $hours 
-	));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
-}
-while($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-						document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
-}
-}
-?>
