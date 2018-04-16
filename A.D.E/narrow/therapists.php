@@ -87,6 +87,9 @@
 										<a href="therapists.php">Therapists</a>
 									</li>
 									<li>
+										<a href="appointment_admin.php">My Appointment</a>
+									</li>
+									<li>
 										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
 									<li>
