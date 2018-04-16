@@ -128,13 +128,13 @@ $response = request($url, $method, $postfields, $tok);
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">My clients</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
 										<a href="therapists.php">Therapist</a>
 									</li>
 									<li>
-										<a href="myappointments_admin.php">My appointments</a>
+										<a href="myappointments_admin.php">My Appointments</a>
 									</li>
 									<li>
 										<a href="waitinglist.php">Waiting List</a>
