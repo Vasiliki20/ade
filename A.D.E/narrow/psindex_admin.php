@@ -128,16 +128,10 @@ $response = request($url, $method, $postfields, $tok);
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
-									</li>
-									<li>
 										<a href="myclients_admin.php">My clients</a>
 									</li>
 									<li>
 										<a href="therapists.php">Therapist</a>
-									</li>
-									<li>
-										<a href="myappointments.php">My appointments</a>
 									</li>
 									<li>
 										<a href="waitinglist.php">Waiting List</a>
@@ -147,12 +141,6 @@ $response = request($url, $method, $postfields, $tok);
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
