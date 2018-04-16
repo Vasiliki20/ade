@@ -307,7 +307,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">My clients</h1>
+						<h1 class="page-header">Clients</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -377,7 +377,7 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 										<option value="deactive">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
-										<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID'] ?>">link</a></td>
+										<td><a  href="casefile_admin.php">link</a></td>
 										</tr>
 										<?php }} ?>
 									</tbody>
