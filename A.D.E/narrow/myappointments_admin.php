@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +35,8 @@
 		});
 	</script>
 	<body>
-		<h5> <?= $_SESSION['id'] ?> </h5>
+		<h5> <?= $_SESSION['id'] ?>
+		</h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -74,6 +75,17 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
+							<!--
+							<li class="sidebar-search">
+							<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+							<i class="fa fa-search"></i>
+							</button> </span>
+							</div>
+							<!-- /input-group -->
+							<!--</li>-->
 							<li>
 								<a href="psindex_admin.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
@@ -81,13 +93,13 @@
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">My clients</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
 										<a href="therapists.php">Therapists</a>
 									</li>
 									<li>
-										<a href="myappointment_admin.php">My Appointments</a>
+										<a href="myappointments_admin.php">My Appointments</a>
 									</li>
 									<li>
 										<a href="waitinglist_admin.php">Waiting List</a>
@@ -108,7 +120,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Therapists</h1>
+						<h1 class="page-header">My appointments</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -119,19 +131,17 @@
 							<!-- /.panel-heading -->
 							<div class="panel-body">
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									
+
 									<thead>
 										<tr>
-											<th>Όνομα</th>
-											<th>Επίθετο</th>
-											<th>Ταυτότητα</th>
-											<th>Options</th>
+											<th>Ημερομηνία</th>
+											<th>Περιγραφή</th>	
 										</tr>
 									</thead>
 									<tbody>
-										<?php
+																			<?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_SESSION['id'];
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myappointments.php?psychID=".$_SESSION['id'];
 $method='GET';
 //if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
@@ -154,24 +164,19 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response=request($url,$method,$postfields,$tok);
 	}
+	
+	
 //}
 ?>
-										<?php 
-											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+									<?php for($j=0;$j<count($response['result']);$j++){ ?>
 										<tr>
-											<td><?= $response['result'][$i]['firstname'] ?></td>
-											<td><?= $response['result'][$i]['lastname'] ?></td>
-											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="active" selected="selected">Active</option>
-												<option value="supervisor">Supervisor</option>
-												<option value="deactive">Deactive</option>
-												<option value="delete">Delete</option>
-											</select></td>
+											<td><?=$response['result'][$j]['start']?></td>
+											<td>Description 1</td>
 										</tr>
-											<?php }} ?>
+									<?php  } ?>
+									</tbody>
 								</table>
+
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -213,5 +218,4 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-
 
