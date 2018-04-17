@@ -182,13 +182,7 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="suicide">Suicide Risk</option>
-												<option value="violence" selected="selected">Violence Potential</option>
-												<option value="billing">Billing Issues</option>
-												<option value="disability">Disability</option>
-											</select></td>
+											<td><input type="checkbox" name="redflag"></td>
 											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
