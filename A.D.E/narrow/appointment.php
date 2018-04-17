@@ -52,42 +52,83 @@
 			</header>
 
 			<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
-				<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/intro.jpg);">
+				<div class="fh5co-intro-cover" data-stellar-background-ratio="0.1">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-8 col-md-offset-2 float-overlay">
-								<h2>Κεντρο Ψυχικης Υγειας</h2>
-								<h4 style="color:white;"> Τα χρόνια στο Πανεπιστήμιο μπορούν να είναι συναρπαστικά, δημιουργικά, αλλά
-								συνάμα αγχώδη. Κατά τη διάρκεια της φοιτητικής τους ζωής, οι προπτυχιακοί
-								και μεταπτυχιακοί φοιτητές έχουν να αντιμετωπίσουν αρκετές προκλήσεις,
-								όπως να διαχειριστούν την πίεση και το άγχος των σπουδών, να πάρουν αποφάσεις,
-								και να αναλάβουν νέους ρόλους. Είναι μια περίοδος της ζωής σημαντική για την
-								ανακάλυψη της ταυτότητας, τη δημιουργία και διατήρηση σχέσεων με άλλους
-								ανθρώπους, ενώ συχνά οι φοιτητές καλούνται να αντιμετωπίσουν απώλειες στη ζωή
-								τους, να χειριστούν νέες ακαδημαϊκές απαιτήσεις, και να διαχειριστούν τον
-								τρόπο που οι ίδιοι βιώνουν και οι άλλοι αντιμετωπίζουν τη διαφορετικότητά τους.
-								Ως εκ τούτου, κατά τη διάρκεια των σπουδών τους οι φοιτητές μπορεί να
-								χρειαστούν υποστήριξη για την αντιμετώπιση τέτοιων προκλήσεων. </h4>
+							<div class="col-md-12 col-md-offset-0 float-overlay">
+								<h2 align="center">Διευθετηστε Συναντηση</h2>
+								<h4 style="color:white;"> Για λήψη υπηρεσιών από το Κέντρο Ψυχικής Υγείας (ΚΕΨΥ) του Πανεπιστημίου Κύπρου είναι απαραίτητο να κλείσετε πρώτα ραντεβού. Εντός δύο εργάσιμων ημερών θα επικοινωνήσει μαζί σας μέσω ηλεκτρονικού ταχυδρομείου το προσωπικό του Κέντρου για να σας ενημερώσει για τις διαθέσιμες επιλογές για συνάντηση. Παρακαλούμε να βεβαιωθείτε ότι οι πληροφορίες σας είναι καταχωρημένες ορθά. Το ωράριο λειτουργίας του ΚΕΨΥ είναι Δευτέρα-Παρασκευή, 09:00-18:00.
+								<br>
+								<br>
+								<u>Για περιπτώσεις έκτακτης ανάγκης, παρακαλούμε καλέστε:</u>
+								<br>
+								<br>
+								α) την Άμεση Βοήθεια στο 112, ή
+								<br>
+								β) τις Πρώτες Βοήθειες στο Γενικό Νοσοκομείο Λευκωσίας στο 22604011.
+								<br>
+								Αν χρειάζεται να μιλήσετε με κάποιον άμεσα καλέστε:
+								<br>
+								α) την τηλεφωνική Γραμμή Βοήθειας 1410 - υπηρεσία συμβουλευτικής και στήριξης του Οργανισμού Νεολαίας (Δευτέρα – Παρασκευή 10:00 – 23:00, Σαββατοκυρίακο 15:00 – 23:00), ή
+								<br>
+								β) την Συμβουλευτική Μέσω Διαδικτύου του Οργανισμού Νεολαίας εδώ, ή
+								<br>
+								γ) τη γραμμή συναισθηματικής υποστήριξης των Samaritans Cyprus στο 80007773 (καθημερινά 16:00 – 24:00, στα Ελληνικά και Αγγλικά).
+								 
+								<br>
+								<br>
+								<u>Υπάρχουν δυο τρόποι για να κλείσετε ραντεβού:</u>
+								<br>
+								<br>
+								1. Χρησιμοποιείστε το ηλεκτρονικό σύστημα δημιουργόντας προσωπικό λογαριασμό για να:
+								<br>
+								- αιτηθείτε να κλείσετε ένα ραντεβού, ή
+								<br>
+								- κλείσετε ραντεβού με το προσωπικό του ΚΕΨΥ που ήδη σας παρακολουθεί ή που σας έχει
+								παρακολουθήσει στο παρελθόν
+								<br>
+								Σημείωση: Όλα τα άτομα που λαμβάνουν υπηρεσίες από το ΚΕΨΥ θα πρέπει να εγγραφούν μέσω του ηλεκτρονικού συστήματος. Συνεπώς, συστήνεται όπως προτιμήσετε αυτό τον τρόπο για να κλείσετε ραντεβού.
+								<br>
+								<br>
+								2. Στείλτε ηλεκτρονικό μήνυμα στο : <a href="mailto:mentalhealth@ucy.ac.cy" style="color:white;"> mentalhealth@ucy.ac.cy </a>και θα επικοινωνήσει άτομο του προσωπικού μαζί σας. Στο ηλεκτρονικό μήνυμα σας βεβαιωθείτε ότι περιλαμβάνετε τα ακόλουθα:
+								<br>
+								- Όνομα και επώνυμο
+								<br>
+								- Αριθμός δελτίου ταυτότητας
+								<br>
+								- Αριθμός φοιτητικής ταυτότητας (αν ισχύει)
+								<br>
+								- Ημερομηνία γεννήσεως
+								<br>
+								- Ιδιώτητα (π.χ., φοιτητής, προσωπικό, άλλο – διευκρινείστε)
+								<br>
+								- Ηλεκτρονική διεύθυνση (email)
+								<br>
+								- Τηλέφωνο επικοινωνίας
+								<br>
+								- Ημέρα και ώρα που θα μπορούσαμε να επικοινωνήσουμε μαζί σας
+								<br>
+								(σημείωση: παρακαλούμε
+								όπως αφήσετε ένα παράθυρο δυο ωρών κατά τη διάρκεια των ωρών εργασίας ώστε να
+								μπορέσει να επικοινωνήσει μαζί σας το προσωπικό μας). </h4>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-<script language=JavaScript>
+			<script language=JavaScript>
+				function checkCheckBox(f) {
+					if (f.agree.checked == false) {
+						alert('Please agree on terms and conditions to continue');
+						return false;
+					} else
+						return true;
+				}
 
-function checkCheckBox(f){
-if (f.agree.checked == false )
-{
-alert('Please agree on terms and conditions to continue');
-return false;
-}else
-return true;
-}
-
-</script>
+			</script>
 			<div class="container">
 				<div align="center">
-					<h4>Διευθετήστε συνάντηση με Ψυχολόγο</h4>
+					<h3>Διευθετήστε συνάντηση με Ψυχολόγο</h3>
 				</div>
 				<form method="post" action="" onsubmit="return checkCheckBox(this)">
 					<div class="form-group">
@@ -112,7 +153,7 @@ return true;
 					</div>
 					<div class="form-group">
 						<input name="agree" type="checkbox" value="0" />
-						I agree to <a href="termsandcond.html">terms and conditins</a> 
+						I agree to <a href="termsandcond.html">terms and conditins</a>
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
 						Submit
@@ -161,29 +202,28 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
