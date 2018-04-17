@@ -74,7 +74,6 @@ $response = request($url, $method, $postfields, $tok);
 			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-size: 14px;
 			line-height: 1.42857143;
-			color: #333;
 		}
 		body {
 			background-color: #f8f8f8;
@@ -123,25 +122,28 @@ $response = request($url, $method, $postfields, $tok);
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_admin.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_frontdesk.php">Clients</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
-										<a href="waitinglist_frontdesk.php">Waiting List</a>
+										<a href="therapists.php">Therapists</a>
 									</li>
 									<li>
-										<a href="search_frontdesk.php">Search</a>
+										<a href="myappointments_admin.php">My Appointments</a>
+									</li>
+									<li>
+										<a href="waitinglist.php">Waiting List</a>
+									</li>
+									<li>
+										<a href="search_admin.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Approve Incoming Data</a>
 							</li>
 						</ul>
 					</div>

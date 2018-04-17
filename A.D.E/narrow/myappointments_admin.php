@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,32 +34,9 @@
 			$('myTable').DataTable();
 		});
 	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
-
 	<body>
-
+		<h5> <?= $_SESSION['id'] ?>
+		</h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -97,35 +75,40 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
+							<!--
+							<li class="sidebar-search">
+							<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+							<i class="fa fa-search"></i>
+							</button> </span>
+							</div>
+							<!-- /input-group -->
+							<!--</li>-->
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_admin.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="therapists.php">Therapists</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
+										<a href="myappointments_admin.php">My Appointments</a>
 									</li>
 									<li>
-										<a href="waitinglist.php">Waiting List</a>
+										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="search.php">Search</a>
+										<a href="search_admin.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
@@ -137,45 +120,73 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Search</h1>
+						<h1 class="page-header">My appointments</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Αναζήτηση Πελάτη
-						<br>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+
+									<thead>
+										<tr>
+											<th>Ημερομηνία</th>
+											<th>Περιγραφή</th>	
+										</tr>
+									</thead>
+									<tbody>
+																			<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myappointments.php?psychID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
+									<?php for($j=0;$j<count($response['result']);$j++){ ?>
+										<tr>
+											<td><?=$response['result'][$j]['start']?></td>
+											<td>Description 1</td>
+										</tr>
+									<?php  } ?>
+									</tbody>
+								</table>
+
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
 					</div>
-					<div>
-						<br>
-					</div>
-					<form action="#">
-						<label>&nbsp; &nbsp;Ταυτότητα Πελάτη:</label>
-						<input type="search" name="studentid">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Όνομα:</label>
-						<input type="search" name="studentname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Επίθετο:</label>
-						<input type="search" name="studentsurname">
-						<br>
-						<br>
-						<label>&nbsp; &nbsp;Ψυχολόγος:</label>
-						<input type="search" name="studentps">
-						<br>
-						<br>
-					</form>
-				</div>
-				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
-						Submit
-					</button>
+					<!-- /.col-lg-12 -->
 				</div>
 			</div>
 			<!-- /#page-wrapper -->
+
 		</div>
 		<!-- /#wrapper -->
 
@@ -204,41 +215,7 @@
 				});
 			});
 		</script>
-
 	</body>
 
 </html>
 
-
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>

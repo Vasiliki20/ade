@@ -165,9 +165,6 @@ $postfields=http_build_query(array(
 									<li>
 										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
 									</li>
-									<li>
-										<a href="approvefiles.php">Αναφορές/Έντυπα</a>
-									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">

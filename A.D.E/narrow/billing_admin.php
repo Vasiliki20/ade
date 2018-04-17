@@ -13,16 +13,16 @@ $postfields=http_build_query(array(
 	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
 //}
 ?>
 <!DOCTYPE html>
@@ -100,46 +100,29 @@ $postfields=http_build_query(array(
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_admin.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="therapists.php">Therapists</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
+										<a href="myappointments_admin.php">My Appointments</a>
 									</li>
 									<li>
-										<a href="waitinglist.php">Waiting List</a>
+										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="search.php">Search</a>
+										<a href="search_admin.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
@@ -167,17 +150,16 @@ $postfields=http_build_query(array(
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes_admin.php">Σημειώσεις Προόδου</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
+												<a href="contactlog_admin.php">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
@@ -185,10 +167,10 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation_admin.php">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule_admin.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 
@@ -197,31 +179,28 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships_admin.php">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication_admin.php">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
+												<a href="medhistory_admin.php">Medlog</a>
 											</li>
 											<li>
-												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
+												<a href="form07_admin.php">Έκθεση αρχικής αξιολόγησης</a>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation_admin.php">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
+										<a href="billing_admin.php">Πληρωμές</a>
 									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<!-- /.container-fluid -->
+						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
 
