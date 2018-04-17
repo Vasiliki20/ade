@@ -1,5 +1,32 @@
-<?php session_start();?>
+<?php session_start(); ob_start();?>
 <!DOCTYPE html>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+//}
+?>
 <html lang="en">
 
 	<head>
@@ -129,6 +156,7 @@
 							<!-- /.panel-heading -->
 							<div class="panel-body">
 								<form method="post" action="" >
+
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
@@ -208,36 +236,4 @@
 	</body>
 
 </html>
-<?php 
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/waitlist.php";
-$method='POST';
-if(isset($_POST['submit'])){
-for($i=0;$i<count($response['result1']);$i++){	
-	if($_POST[$response['result1'][$i]['patientID']]!=NULL){
-$postfields=http_build_query(array(
-	'patientID'=>$response['result1'][$i]['patientID'],
-	'psychID'=>$_POST[$response['result1'][$i]['patientID']]
-	));
-	if(isset($_COOKIE['token'])){
-		$response1=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response1=0;
-	}
-	while($response1['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response1=request($url,$method,$postfields,$tok);
-	}
-	}
-	}
-header("Refresh:0");
-}
-?>
+

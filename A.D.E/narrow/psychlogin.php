@@ -123,7 +123,19 @@ if(strnatcmp($response['login'],true)==0){
 	session_start();
 	$_SESSION['id']=$_POST['id'];
 	echo $_SESSION['id'];
+	if(strnatcmp($response['role'],"therapist")==0){
 	header('Location: psindex.php');
+	}
+	if(strnatcmp($response['role'],"supervisor")==0){
+	header('Location: psindex.php');
+	}
+	if(strnatcmp($response['role'],"frontdesk")==0){
+	header('Location: psindex_frontdesk.php');
+	}
+	if(strnatcmp($response['role'],"admin")==0){
+	header('Location: psindex_admin.php');
+	}
+	
 
 }
 }

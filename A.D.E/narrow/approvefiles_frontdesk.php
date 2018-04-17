@@ -1,30 +1,4 @@
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
-$method='GET';
-//if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
-}
-var_dump($response);
-//}
-?>
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,11 +29,11 @@ var_dump($response);
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<script>
+	<!--<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
-	</script>
+	</script>-->
 	<body>
 
 		<div id="wrapper">
@@ -169,28 +143,7 @@ var_dump($response);
 							Approve Incoming Data
 						</div>
 						<div class="panel-body">
-							<div id="pdf">
-								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
-									<a href="acrobatpdf.pdf">Έγγραφο 1 </a>
-								</object>
-								<button type="submit" name="submit" value="accept">
-									Accept
-								</button>
-								<!--<button type="submit" name="sumbit" value="remove">
-									Remove
-								</button>-->
-							</div>
-							<br>
-							<div id="pdf">
-								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
-									<a href="acrobatpdf.pdf">Έγγραφο 2 </a>
-								</object>
-								<button type="submit" name="submit" value="accept">
-									Accept
-								</button>
-							<!--	<button type="submit" name="sumbit" value="remove">
-									Remove
-							</button>-->
+							<div id="contactResponse"></div>
 							</div>
 						</div>
 					</div>
@@ -223,16 +176,22 @@ var_dump($response);
 
 		<!-- Custom Theme JavaScript -->
 		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
+		
 		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 		<script>
 			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
+            
+			var t="all";
+			$.post("http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php",
+			{
+				id:<?=$_SESSION['id']?>,
+				type:t
+			},
+			function(data){
+				$( "#contactResponse" ).html(data);
 			});
-		</script>
-
+			});
+	</script>
 	</body>
 
 </html>

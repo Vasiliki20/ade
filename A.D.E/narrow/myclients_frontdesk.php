@@ -139,7 +139,7 @@
 									<tbody>
 										<?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_SESSION['id'];
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/allclients.php";
 $method='GET';
 //if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
@@ -172,7 +172,7 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><a  href="casefile_frontdesk.php">link</a></td>
+											<td><a  href="casefile_frontdesk.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
 									</tbody>

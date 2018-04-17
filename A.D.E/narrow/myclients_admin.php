@@ -365,19 +365,16 @@ print "<h5>".$tok."</h5>";
 										<?php
 if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 <tr>
-<td><?= $response['result'][$i]['firstname'] ?><
-										/td>
-										<td><?= $response['result'][$i]['lastname'] ?><
-										/td>
-										<td><?= $response['result'][$i]['patientID'] ?><
-										/td>
+<td><?= $response['result'][$i]['firstname'] ?></td>
+										<td><?= $response['result'][$i]['lastname'] ?></td>
+										<td><?= $response['result'][$i]['patientID'] ?></td>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<select>
 										<option value="active" selected="selected">Active</option>
 										<option value="deactive">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
-										<td><a  href="casefile_admin.php">link</a></td>
+										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 										<?php }} ?>
 									</tbody>
