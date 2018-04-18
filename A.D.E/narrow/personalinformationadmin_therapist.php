@@ -157,12 +157,10 @@ $postfields=http_build_query(array(
 								</button>
 							</div>
 
-
-<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes_therapist.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes_therapist.php=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
@@ -172,6 +170,7 @@ $postfields=http_build_query(array(
 											</li>
 										</ul>
 									</li>
+
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
@@ -204,13 +203,12 @@ $postfields=http_build_query(array(
 										<a href="externalinformation_therapist.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing_therapist.php=<?= $_GET['patientID']?>">Πληρωμές</a>
+										<a href="billing_therapist.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
 									</li>
 								</ul>
 								
 								
 							</div><!-- /.navbar-collapse -->
-							
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
@@ -367,12 +365,12 @@ $postfields=http_build_query(array(
 							</div>
 							
 							<div class="form-group">
-								<label for="department">Τμήμα:</label>
-								<input type="text" class="form-control" id="department" placeholder="" name="department">
+								<label for="position">Θέση στην ιεραρχία:</label>
+								<input type="text" class="form-control" id="position" placeholder="" name="position">
 							</div>
 							<div class="form-group">
-								<label for="level">Επίπεδο ακαδημαικού:</label>
-								<input type="text" class="form-control" id="level" placeholder="" name="level">
+								<label for="specialty">Ειδικότητα:</label>
+								<input type="text" class="form-control" id="specialty" placeholder="" name="specialty">
 							</div>
 							<div class="form-group">
 								<label for="building">Κτήριο:</label>
