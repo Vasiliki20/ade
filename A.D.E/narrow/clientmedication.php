@@ -100,17 +100,6 @@ var_dump($response);
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
 							<li>
 								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
@@ -136,10 +125,10 @@ var_dump($response);
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -167,16 +156,16 @@ var_dump($response);
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
@@ -184,10 +173,10 @@ var_dump($response);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 
@@ -196,13 +185,13 @@ var_dump($response);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
 											<li>
 												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
@@ -210,15 +199,15 @@ var_dump($response);
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
+										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
 								</ul>
 
 							</div><!-- /.navbar-collapse -->
-							
+
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
@@ -229,7 +218,7 @@ var_dump($response);
 							Φαρμακευτική αγωγή πελάτη
 						</div>
 						<div class="panel-body">
-							
+
 							<table id="meds" style="width:100%">
 								<tr>
 									<th>
@@ -254,26 +243,26 @@ var_dump($response);
 									</center></th>
 								</tr>
 								<?php for($i=0;$i<count($response['medication']);$i++){ ?>
-								<tr>
-									<td>
-									
-									<input type="text" class="form-control" id="meds" name="name" value=<?=$response['medication'][$i]['nameof']?>>
-									</input></td>
-									<td>
-									<input type="date" class="form-control" id="meds" name="date" value=<?=$response['medication'][$i]['dateof']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="meds" name="duration" value=<?=$response['medication'][$i]['duration']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="meds" name="doc" value=<?=$response['medication'][$i]['doctor']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="meds" name="comments" value=<?=$response['medication'][$i]['comments']?>>
-									</input></td>
-									
-								</tr>
-								<?php } ?>
+<tr>
+<td>
+
+<input type="text" class="form-control" id="meds" name="name" value=<?=$response['medication'][$i]['nameof'] ?>>
+</input></td>
+<td>
+<input type="date" class="form-control" id="meds" name="date" value=<?=$response['medication'][$i]['dateof'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="meds" name="duration" value=<?=$response['medication'][$i]['duration'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="meds" name="doc" value=<?=$response['medication'][$i]['doctor'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="meds" name="comments" value=<?=$response['medication'][$i]['comments'] ?>>
+</input></td>
+
+</tr>
+<?php } ?>
 						</div>
 					</div>
 				</div>

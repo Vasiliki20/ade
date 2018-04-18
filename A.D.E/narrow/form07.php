@@ -125,10 +125,10 @@ var_dump($response);
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>

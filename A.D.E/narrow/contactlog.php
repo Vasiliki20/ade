@@ -13,16 +13,16 @@ $postfields=http_build_query(array(
 	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
 //}
 ?>
 <!DOCTYPE html>
@@ -136,10 +136,10 @@ $postfields=http_build_query(array(
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -172,13 +172,13 @@ $postfields=http_build_query(array(
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
@@ -186,10 +186,10 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 
@@ -198,13 +198,13 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
 											<li>
 												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
@@ -212,10 +212,10 @@ $postfields=http_build_query(array(
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
+										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
 								</ul>
 
@@ -269,39 +269,39 @@ $postfields=http_build_query(array(
 										<label>Χρόνος μέχρι να λήξει η εξουσιοδότηση:</label>
 									</center></th>
 								</tr>
-									<?php for($i=0;$i<count($response['communications']);$i++){ 
-											if(strnatcmp($response['communications'][$i]['typeof'],"Transport infos")==0){ ?>
-										
-								<tr>	
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="name" value=<?= $response['communications'][$i]['nameofprof']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="surname" value=<?= $response['communications'][$i]['lastnameofprof']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="address" value=<?= $response['communications'][$i]['addressofprof']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="city" value=<?= $response['communications'][$i]['cityofprof']?>>
-									</input></td>
-									<td>
-									<input type="number" class="form-control" id="contactlog" name="phone" value=<?= $response['communications'][$i]['telofprof']?>>
-									</input></td>
-									<td>
-									<input type="email" class="form-control" id="contactlog" name="email" value=<?= $response['communications'][$i]['emailofprof']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="reason" value=<?= $response['communications'][$i]['purposeofinfo']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="details" value=<?= $response['communications'][$i]['infototransfer']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="contactlog" name="time" value=<?= $response['communications'][$i]['timeofexpire']?>>
-									</input></td>
-								</tr>
-									<?php }} ?>
+								<?php for($i=0;$i<count($response['communications']);$i++){
+if(strnatcmp($response['communications'][$i]['typeof'],"Transport infos")==0){ ?>
+
+<tr>
+<td>
+<input type="text" class="form-control" id="contactlog" name="name" value=<?= $response['communications'][$i]['nameofprof'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="contactlog" name="surname" value=<?= $response['communications'][$i]['lastnameofprof'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="contactlog" name="address" value=<?= $response['communications'][$i]['addressofprof'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="contactlog" name="city" value=<?= $response['communications'][$i]['cityofprof'] ?>>
+</input></td>
+<td>
+<input type="number" class="form-control" id="contactlog" name="phone" value=<?= $response['communications'][$i]['telofprof'] ?>>
+</input></td>
+<td>
+<input type="email" class="form-control" id="contactlog" name="email" value=<?= $response['communications'][$i]['emailofprof'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="contactlog" name="reason" value=<?= $response['communications'][$i]['purposeofinfo'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="contactlog" name="details" value=<?= $response['communications'][$i]['infototransfer'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="contactlog" name="time" value=<?= $response['communications'][$i]['timeofexpire'] ?>>
+</input></td>
+</tr>
+<?php }} ?>
 						</div>
 					</div>
 				</div>
