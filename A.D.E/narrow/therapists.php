@@ -91,7 +91,7 @@
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">My clients</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
 										<a href="therapists.php">Therapists</a>
