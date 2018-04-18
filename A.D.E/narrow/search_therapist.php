@@ -122,7 +122,7 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
+								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
 								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Reports</a>

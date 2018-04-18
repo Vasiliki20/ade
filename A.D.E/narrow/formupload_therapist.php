@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +35,7 @@
 		});
 	</script>
 	<body>
-		<h5> <?= $_SESSION['id'] ?> </h5>
+		<h5><?= $_SESSION['id'] ?></h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -114,80 +114,42 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">My clients</h1>
+						<h1 class="page-header">Upload file</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="panel panel-default">
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									
-									<thead>
-										<tr>
-											<th>Όνομα</th>
-											<th>Επίθετο</th>
-											<th>Ταυτότητα</th>
-											<th>Red Flag</th>
-											<th>Case File</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_SESSION['id'];
-$method='GET';
-//if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-		'psychID' => $_SESSION['id']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-	
-//}
-?>
-										<?php 
-											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
-										<tr>
-											<td><?= $response['result'][$i]['firstname'] ?></td>
-											<td><?= $response['result'][$i]['lastname'] ?></td>
-											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><input type="checkbox" name="redflag"></td>
-											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
-										</tr>
-											<?php }} ?>
-										</tbody>
-								</table>
-								<button type="submit" name="save" class="btn btn-default">
-									Save Changes
-								</button>
-							</div>
-							<!-- /.panel-body -->
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
+								<div class="form-group">
+									<label for="file">Select a file to upload</label>
+									<input id="file" type="file" name="file">
+									<p class="help-block">
+										<h6>Only pdf,jpg,jpeg,png and gif file with maximum size of 10 MB is allowed.</h6>
+									</p>
+									<input type="submit" class="btn  btn-default" id="sub" value="Upload">
+								</div>
+							</form>
 						</div>
-						<!-- /.panel -->
 					</div>
-					<!-- /.col-lg-12 -->
+					<div class="warning" id="hiresponse"></div>
+					<div class="row">
+						<div class="col-lg-12">
+							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php" method="post" >
+								<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
+								<input class="btn  btn-default" type="submit" name="submit" value="Show files" >
+							</form>
+						</div>
+					</div>
+					<div id="contactResponse"></div>
+
 				</div>
+				<!-- /.panel-body -->
 			</div>
+
 			<!-- /#page-wrapper -->
 
 		</div>
@@ -212,14 +174,78 @@ $postfields=http_build_query(array(
 
 		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
+			$("#contactForm").submit(function(event) {
+				/* stop form from submitting normally */
+				event.preventDefault();
+
+				/* get some values from elements on the page: */
+				var $form = $(this),
+				    $submit = $form.find('button[type="submit"]'),
+				    id_value = $form.find('input[name="id"]').val(),
+				    url = $form.attr('action');
+
+				/* Send the data using post */
+				var posting = $.post(url, {
+					id : id_value
+				});
+
+				posting.done(function(data) {
+					/* Put the results in a div */
+					$("#contactResponse").html(data);
+
+					/* Change the button text. */
+					$submit.text('Sent, Thank you');
+
+					/* Disable the button. */
+					$submit.attr("disabled", true);
 				});
 			});
-		</script>
+			$(document).ready(function() {
+
+				$("#sub").click(function(event) {
+
+					//stop submit the form, we will post it manually.
+					event.preventDefault();
+
+					// Get form
+					var form = $('#hi')[0];
+
+					// Create an FormData object
+					var data = new FormData(form);
+
+					// disabled the submit button
+					$("sub").prop("disabled", true);
+
+					$.ajax({
+						type : "POST",
+						enctype : 'multipart/form-data',
+						url : "http://thesis.in.cs.ucy.ac.cy/mhc/upload.php",
+						data : data,
+						processData : false,
+						contentType : false,
+						cache : false,
+						timeout : 600000,
+						success : function(data) {
+
+							$("#hiresponse").text(data);
+							console.log("SUCCESS : ", data);
+							$("#sub").prop("disabled", false);
+
+						},
+						error : function(e) {
+
+							$("#hiresponse").text(e.responseText);
+							console.log("ERROR : ", e);
+							$("#sub").prop("disabled", false);
+
+						}
+					});
+
+				});
+
+			}); 
+</script>
 	</body>
 
 </html>
-
 
