@@ -122,34 +122,34 @@ $response = request($url, $method, $postfields, $tok);
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="tasklist_therapist.php">Task List</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="myclients_therapist.php">My clients</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
+										<a href="myappointments_therapist.php">My appointments</a>
 									</li>
 									<li>
-										<a href="waitinglist.php">Waiting List</a>
+										<a href="waitinglist_therapist.php">Waiting List</a>
 									</li>
 									<li>
-										<a href="search.php">Search</a>
+										<a href="search_therapist.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
+								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
