@@ -142,7 +142,7 @@
 											<th>Όνομα</th>
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
-											<th>Flag</th>
+											<th>Red Flag</th>
 											<th>Case File</th>
 										</tr>
 									</thead>
@@ -188,7 +188,9 @@ $postfields=http_build_query(array(
 											<?php }} ?>
 										</tbody>
 								</table>
-
+								<button type="submit" name="save" class="btn btn-default">
+									Save Changes
+								</button>
 							</div>
 							<!-- /.panel-body -->
 						</div>
