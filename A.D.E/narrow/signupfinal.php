@@ -102,6 +102,8 @@
 									<label>Άρρεν</label>
 									<input class="w3-radio" type="radio" name="gender" value="female">
 									<label>Θήλυ</label>
+									<input class="w3-radio" type="radio" name="gender" value="other">
+									<label>Άλλο</label>
 								</div>
 								<div class="f1-buttons">
 									<button type="button" class="btn btn-next">
