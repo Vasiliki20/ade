@@ -319,6 +319,9 @@
 									<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
 										Add Client
 								</div>
+								<div>
+									<br>
+								</div>
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
