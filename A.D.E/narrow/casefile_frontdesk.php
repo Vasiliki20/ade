@@ -13,16 +13,16 @@ $postfields=http_build_query(array(
 	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
 //}
 ?>
 <!DOCTYPE html>
@@ -117,6 +117,9 @@ $postfields=http_build_query(array(
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
+							<li>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Approve Incoming Data</a>
+							</li>
 							</li>
 						</ul>
 					</div>
@@ -146,16 +149,14 @@ $postfields=http_build_query(array(
 							</div>
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
+
 									<li>
-										<a href="approvefiles_frontdesk.php?patientID=<?=$_GET['patientID']?>">Αναφορές/Έντυπα</a>
-									</li>
-									<li>
-										<a href="billing_frontdesk.php?patientID=<?=$_GET['patientID']?>">Πληρωμές</a>
+										<a href="billing_frontdesk.php?patientID=<?=$_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
 								</ul>
 
 							</div><!-- /.navbar-collapse -->
-							
+
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
@@ -196,36 +197,34 @@ $postfields=http_build_query(array(
 
 </html>
 
-
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
