@@ -133,6 +133,7 @@
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
 											<th>Ημερομηνία</th>
+											<th>Παρευρέθηκε</th>
 											<th>Write case note </th>
 										</tr>
 									</thead>
@@ -172,6 +173,7 @@ $postfields=http_build_query(array(
 											<td><?=$response['result1'][$j]['lastname']?></td>
 											<td><?=$response['result'][$j]['patientID']?></td>
 											<td><?=$response['result'][$j]['start']?></td>
+											<td><input type="checkbox" name="attended"/></td>
 											<td><a href="casenote.php?pID=<?=$response['result'][$j]['appointmentID']?>">link</a></td>
 										</tr>
 									<?php  } ?>
