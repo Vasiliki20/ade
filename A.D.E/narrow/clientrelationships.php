@@ -13,16 +13,16 @@ $postfields=http_build_query(array(
 	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
 //}
 ?>
 <!DOCTYPE html>
@@ -100,17 +100,6 @@ $postfields=http_build_query(array(
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
 							<li>
 								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
@@ -136,10 +125,10 @@ $postfields=http_build_query(array(
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -171,13 +160,13 @@ $postfields=http_build_query(array(
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes.php?patientID=<?=$_GET['patientID']?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID']?>">Contact Logs</a>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 									</li>
@@ -185,10 +174,10 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID']?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule.php?patientID=<?= $_GET['patientID']?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 
@@ -197,13 +186,13 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships.php?patientID=<?= $_GET['patientID']?>">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication.php?patientID=<?= $_GET['patientID']?>">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory.php?patientID=<?= $_GET['patientID']?>">Medlog</a>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
 											<li>
 												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
@@ -211,10 +200,10 @@ $postfields=http_build_query(array(
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation.php?patientID=<?= $_GET['patientID']?>">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing.php?patientID=<?= $_GET['patientID']?>">Πληρωμές</a>
+										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
 								</ul>
 
@@ -229,7 +218,7 @@ $postfields=http_build_query(array(
 							Οικογενειακές σχέσεις πελάτη
 						</div>
 						<div class="panel-body">
-							
+
 							<table id="familytable" style="width:100%">
 								<tr>
 									<th>
@@ -242,37 +231,35 @@ $postfields=http_build_query(array(
 									</center></th>
 									<th>
 									<center>
-									<label>	Ηλικία:</label>
+										<label> Ηλικία:</label>
 									</center></th>
 									<th>
 									<center>
 										<label>Ποιότητα:</label>
 									</center></th>
-									<th>
-								<!--	<center>
-										Πρόβλημα:
+									<th><!--	<center>
+									Πρόβλημα:
 									</center></th> -->
 								</tr>
 								<?php for($i=0;$i<count($response['relations']);$i++){ ?>
-								<tr>
-									<td>
-									<input type="text" class="form-control" id="familyrelation" name="name" value=<?=$response['relations'][$i]['relation']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="familyrelation" name="relationship" value=<?=$response['relations'][$i]['name']?>>
-									</input></td>
-									<td>
-									<input type="number" class="form-control" id="familyrelation" name="age" value=<?=$response['relations'][$i]['age']?>>
-									</input></td>
-									<td>
-									<input type="text" class="form-control" id="familyrelation" name="quality" value=<?=$response['relations'][$i]['quality']?>>
-									</input></td>
-									<!--<td>
-									<input type="text" class="form-control" id="familyrelation" name="problem" value=<?=$response['relations'][$i]['psychoproblem']?>>
-									</input></td> -->
-								</tr>
-								<?php } ?>
-								
+<tr>
+<td>
+<input type="text" class="form-control" id="familyrelation" name="name" value=<?=$response['relations'][$i]['relation'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="familyrelation" name="relationship" value=<?=$response['relations'][$i]['name'] ?>>
+</input></td>
+<td>
+<input type="number" class="form-control" id="familyrelation" name="age" value=<?=$response['relations'][$i]['age'] ?>>
+</input></td>
+<td>
+<input type="text" class="form-control" id="familyrelation" name="quality" value=<?=$response['relations'][$i]['quality'] ?>>
+</input></td>
+<!--<td>
+<input type="text" class="form-control" id="familyrelation" name="problem" value=<?=$response['relations'][$i]['psychoproblem']?>>
+</input></td> -->
+</tr>
+<?php } ?>
 							</table>
 						</div>
 					</div>

@@ -133,690 +133,689 @@
 								<div style="width: 50%; float:left">
 									<label for="q1">1. Ακαδημαικές δυσκολίες:</label>
 									<input type="hidden" name="q1">
-									<input type="radio" name="q1" value="0">
-									0
 									<input type="radio" name="q1" value="1">
 									1
 									<input type="radio" name="q1" value="2">
 									2
 									<input type="radio" name="q1" value="3">
 									3
+									<input type="radio" name="q1" value="4">
+									4
 									<br>
 									<label for="q2">2. Εργασιακά προβλήματα:</label>
 									<input type="hidden" name="q2">
-									<input type="radio" name="q2" value="0">
-									0
 									<input type="radio" name="q2" value="1">
 									1
 									<input type="radio" name="q2" value="2">
 									2
 									<input type="radio" name="q2" value="3">
 									3
+									<input type="radio" name="q2" value="4">
+									4
 									<br>
 									<label for="q3">3. Ερωτική σχέση:</label>
 									<input type="hidden" name="q3">
-									<input type="radio" name="q3" value="0">
-									0
-									<input type="radio"   name="q3" value="1">
+									<input type="radio" name="q3" value="1">
 									1
 									<input type="radio"   name="q3" value="2">
 									2
 									<input type="radio"   name="q3" value="3">
 									3
+									<input type="radio"   name="q3" value="4">
+									4
 									<br>
 									<label for="q4">4. Σχέση με γονείς/οικογένεια:</label>
 									<input type="hidden" name="q4">
-									<input type="radio"   name="q4" value="0">
-									0
 									<input type="radio"   name="q4" value="1">
 									1
 									<input type="radio"   name="q4" value="2">
 									2
-									<input type="radio"  name="q4" value="3">
+									<input type="radio"   name="q4" value="3">
 									3
+									<input type="radio"  name="q4" value="4">
+									4
 									<br>
 									<label for="q5">5. Γνωριμίες:</label>
 									<input type="hidden" name="q5">
-									<input type="radio"  name="q5" value="0">
-									0
 									<input type="radio"  name="q5" value="1">
 									1
 									<input type="radio"  name="q5" value="2">
 									2
 									<input type="radio"  name="q5" value="3">
 									3
+									<input type="radio"  name="q5" value="4">
+									4
 									<br>
 									<label for="q6">6. Κοινωνικές επαφές:</label>
 									<input type="hidden" name="q6">
-									<input type="radio"  name="q6" value="0">
-									0
 									<input type="radio"  name="q6" value="1">
 									1
 									<input type="radio"  name="q6" value="2">
 									2
 									<input type="radio"  name="q6" value="3">
 									3
+									<input type="radio"  name="q6" value="4">
+									4
 									<br>
 									<label for="q7">7. Κοινωνική απομόνωση:</label>
 									<input type="hidden" name="q7">
-									<input type="radio"  name="q7" value="0">
-									0
 									<input type="radio"  name="q7" value="1">
 									1
 									<input type="radio"  name="q7" value="2">
 									2
 									<input type="radio"  name="q7" value="3">
 									3
+									<input type="radio"  name="q7" value="4">
+									4
 									<br>
 									<label for="q8">8. Αίσθημα μοναξιάς:</label>
 									<input type="hidden" name="q8">
-									<input type="radio"  name="q8" value="0">
-									0
 									<input type="radio"  name="q8" value="1">
 									1
 									<input type="radio"  name="q8" value="2">
 									2
 									<input type="radio"  name="q8" value="3">
 									3
+									<input type="radio"  name="q8" value="4">
+									4
 									<br>
 									<label for="q9">9. Φόβος για στενές σχέσεις:</label>
 									<input type="hidden" name="q9">
-									<input type="radio"  name="q9" value="0">
-									0
 									<input type="radio"  name="q9" value="1">
 									1
 									<input type="radio"  name="q9" value="2">
 									2
 									<input type="radio"  name="q9" value="3">
 									3
+									<input type="radio"  name="q9" value="4">
+									4
 									<br>
 									<label for="q10">10. Δυσκολίες έκφρασης συναισθημάτων:</label>
 									<input type="hidden" name="q10">
-									<input type="radio"  name="q10" value="0">
-									0
 									<input type="radio"  name="q10" value="1">
 									1
 									<input type="radio"  name="q10" value="2">
 									2
 									<input type="radio"  name="q10" value="3">
 									3
+									<input type="radio"  name="q10" value="4">
+									4
 									<br>
 									<label for="q11">11. Δυσκολίες διεκδίκησης άποψης:</label>
 									<input type="hidden" name="q11">
-									<input type="radio"  name="q11" value="0">
-									0
 									<input type="radio"  name="q11" value="1">
 									1
 									<input type="radio"  name="q11" value="2">
 									2
 									<input type="radio"  name="q11" value="3">
 									3
+									<input type="radio"  name="q11" value="4">
+									4
 									<br>
 									<label for="q12">12. Συναισθήματα-ξεσπάσματα θυμού:</label>
 									<input type="hidden" name="q12">
-									<input type="radio"  name="q12" value="0">
-									0
 									<input type="radio"  name="q12" value="1">
 									1
 									<input type="radio"  name="q12" value="2">
 									2
 									<input type="radio"  name="q12" value="3">
 									3
+									<input type="radio"  name="q12" value="4">
+									4
 									<br>
 									<label for="q13">13. Ζήλια:</label>
 									<input type="hidden" name="q13">
-									<input type="radio"  name="q13" value="0">
-									0
 									<input type="radio"  name="q13" value="1">
 									1
 									<input type="radio"  name="q13" value="2">
 									2
 									<input type="radio"  name="q13" value="3">
 									3
+									<input type="radio"  name="q13" value="4">
+									4
 									<br>
 									<label for="q14">14. Πρόσφατος χωρισμός:</label>
 									<input type="hidden" name="q14">
-									<input type="radio"  name="q14" value="0">
-									0
 									<input type="radio"  name="q14" value="1">
 									1
 									<input type="radio"  name="q14" value="2">
 									2
 									<input type="radio"  name="q14" value="3">
 									3
+									<input type="radio"  name="q14" value="4">
+									4
 									<br>
 									<label for="q15">15. Θλίψη για πρόσφατο χωρισμό:</label>
 									<input type="hidden" name="q15">
-									<input type="radio"  name="q15" value="0">
-									0
 									<input type="radio"  name="q15" value="1">
 									1
 									<input type="radio"  name="q15" value="2">
 									2
 									<input type="radio"  name="q15" value="3">
 									3
+									<input type="radio"  name="q15" value="4">
+									4
 									<br>
 									<label for="q16">16. Σεξ και σεξουαλικότητα:</label>
 									<input type="hidden" name="q16">
-									<input type="radio"  name="q16" value="0">
-									0
 									<input type="radio"  name="q16" value="1">
 									1
 									<input type="radio"  name="q16" value="2">
 									2
 									<input type="radio"  name="q16" value="3">
 									3
+									<input type="radio"  name="q16" value="4">
+									4
 									<br>
 									<label for="q17">17. Σεξουαλικός προσανατολισμός:</label>
 									<input type="hidden" name="q17">
-									<input type="radio"  name="q17" value="0">
-									0
 									<input type="radio"  name="q17" value="1">
 									1
 									<input type="radio"  name="q17" value="2">
 									2
 									<input type="radio"  name="q17" value="3">
 									3
+									<input type="radio"  name="q17" value="4">
+									4
 									<br>
 									<label for="q18">18. Εγκυμοσύνη:</label>
 									<input type="hidden" name="q18">
-									<input type="radio"  name="q18" value="0">
-									0
 									<input type="radio"  name="q18" value="1">
 									1
 									<input type="radio"  name="q18" value="2">
 									2
 									<input type="radio"  name="q18" value="3">
 									3
+									<input type="radio"  name="q18" value="4">
+									4
 									<br>
 									<label for="q19">19. Σύγχιση για πιστεύω/αξίες:</label>
 									<input type="hidden" name="q19">
-									<input type="radio"  name="q19" value="0">
-									0
 									<input type="radio"  name="q19" value="1">
 									1
 									<input type="radio"  name="q19" value="2">
 									2
 									<input type="radio"  name="q19" value="3">
 									3
+									<input type="radio"  name="q19" value="4">
+									4
 									<br>
 									<label for="q20">20. Δεν μου αρέσει ο εαυτός μου:</label>
 									<input type="hidden" name="q20">
-									<input type="radio"  name="q20" value="0">
-									0
 									<input type="radio"  name="q20" value="1">
 									1
 									<input type="radio"  name="q20" value="2">
 									2
 									<input type="radio"  name="q20" value="3">
 									3
+									<input type="radio"  name="q20" value="4">
+									
 									<br>
 									<label for="q21">21. Αισθήματα κατωτερότητας:</label>
 									<input type="hidden" name="q21">
-									
-									<input type="radio"  name="q21" value="0">
-									0
 									<input type="radio"  name="q21" value="1">
 									1
 									<input type="radio"  name="q21" value="2">
 									2
 									<input type="radio"  name="q21" value="3">
 									3
+									<input type="radio"  name="q21" value="4">
+									4
 									<br>
 									<label for="q22">22. Αισθήματα τύψεων:</label>
 									<input type="hidden" name="q22">
-									<input type="radio"  name="q22" value="0">
-									0
 									<input type="radio"  name="q22" value="1">
 									1
 									<input type="radio"  name="q22" value="2">
 									2
 									<input type="radio"  name="q22" value="3">
 									3
+									<input type="radio"  name="q22" value="4">
+									4
 									<br>
 									<label for="q23">23. Δυστυχία:</label>
 									<input type="hidden" name="q23">
-									<input type="radio"  name="q23" value="0">
-									0
 									<input type="radio"  name="q23" value="1">
 									1
 									<input type="radio"  name="q23" value="2">
 									2
 									<input type="radio"  name="q23" value="3">
 									3
+									<input type="radio"  name="q23" value="4">
+									4
 									<br>
 									<label for="q24">24. Καταθλιπτική διάθεση:</label>
 									<input type="hidden" name="q24">
-									<input type="radio"  name="q24" value="0">
-									0
 									<input type="radio"  name="q24" value="1">
 									1
 									<input type="radio"  name="q24" value="2">
 									2
 									<input type="radio"  name="q24" value="3">
 									3
+									<input type="radio"  name="q24" value="4">
+									4
 									<br>
 									<label for="q25">25. Αισθήματα κενού/απουσία συναισθημάτων:</label>
 									<input type="hidden" name="q25">
-									<input type="radio"  name="q25" value="0">
-									0
 									<input type="radio"  name="q25" value="1">
 									1
 									<input type="radio"  name="q25" value="2">
 									2
 									<input type="radio"  name="q25" value="3">
 									3
+									<input type="radio"  name="q25" value="4">
+									4
 									<br>
 									<label for="q26">26. Κόπωση-μειωμένη ενέργεια:</label>
 									<input type="hidden" name="q26">
-									<input type="radio"  name="q26" value="0">
-									0
 									<input type="radio"  name="q26" value="1">
 									1
 									<input type="radio"  name="q26" value="2">
 									2
 									<input type="radio"  name="q26" value="3">
 									3
+									<input type="radio"  name="q26" value="4">
+									4
 									<br>
 									<label for="q27">27. Μειωμένη διάθεση για δραστηριότητες:</label>
 									<input type="hidden" name="q27">
-									<input type="radio"  name="q27" value="0">
-									0
 									<input type="radio"  name="q27" value="1">
 									1
 									<input type="radio"  name="q27" value="2">
 									2
 									<input type="radio"  name="q27" value="3">
 									3
+									<input type="radio"  name="q27" value="4">
+									4
 									<br>
 									<label for="q28">28. Δυσκολίες συγκέντρωσης/προσοχής:</label>
 									<input type="hidden" name="q28">
-									<input type="radio"  name="q28" value="0">
-									0
 									<input type="radio"  name="q28" value="1">
 									1
 									<input type="radio"  name="q28" value="2">
 									2
 									<input type="radio"  name="q28" value="3">
 									3
+									<input type="radio"  name="q28" value="4">
+									4
 									<br>
 									<label for="q29">29. Δυσκολίες μνήμης:</label>
 									<input type="hidden" name="q29">
-									<input type="radio"  name="q29" value="0">
-									0
 									<input type="radio"  name="q29" value="1">
 									1
 									<input type="radio"  name="q29" value="2">
 									2
 									<input type="radio"  name="q29" value="3">
 									3
+									<input type="radio"  name="q29" value="4">
+									4
 									<br>
 									<label for="q30">30. Αναποφασιστικότητα:</label>
 									<input type="hidden" name="q30">
-									<input type="radio"  name="q30" value="0">
-									0
 									<input type="radio"  name="q30" value="1">
 									1
 									<input type="radio"  name="q30" value="2">
 									2
 									<input type="radio"  name="q30" value="3">
 									3
+									<input type="radio"  name="q30" value="4">
+									4
 									<br>
 
 									<label for="q31">31. Επιβράδυνση στη σκέψη:</label>
 									<input type="hidden" name="q31">
-									<input type="radio"  name="q31" value="0">
-									0
 									<input type="radio"  name="q31" value="1">
 									1
 									<input type="radio"  name="q31" value="2">
 									2
 									<input type="radio"  name="q31" value="3">
 									3
+									<input type="radio"  name="q31" value="4">
+									4
 									<br>
 									<label for="q32">32. Δυσκολίες ύπνου:</label>
 									<input type="hidden" name="q32">
-									<input type="radio"  name="q32" value="0">
-									0
 									<input type="radio"  name="q32" value="1">
 									1
 									<input type="radio"  name="q32" value="2">
 									2
 									<input type="radio"  name="q32" value="3">
 									3
+									<input type="radio"  name="q32" value="4">
+									4
 									<br>
 									<label for="q33">33. Άγχος/ανησυχία:</label>
 									<input type="hidden" name="q33">
-									<input type="radio"  name="q33" value="0">
-									0
 									<input type="radio"  name="q33" value="1">
 									1
 									<input type="radio"  name="q33" value="2">
 									2
 									<input type="radio"  name="q33" value="3">
 									3
+									<input type="radio"  name="q33" value="4">
+									4
 								</div>
 								<div style="width: 50%; float:right">
 									<label for="q34">34. Ένταση/πίεση:</label>
 									<input type="hidden" name="q34">
-									<input type="radio"  name="q34" value="0">
-									0
 									<input type="radio"  name="q34" value="1">
 									1
 									<input type="radio"  name="q34" value="2">
 									2
 									<input type="radio"  name="q34" value="3">
 									3
+									<input type="radio"  name="q34" value="4">
+									4
 									<br>
 									<label for="q35">35. Φοβίες για συγκεκριμένα μέρη ή πράγματα:</label>
 									<input type="hidden" name="q35">
-									<input type="radio"  name="q35" value="0">
-									0
 									<input type="radio"  name="q35" value="1">
 									1
 									<input type="radio"  name="q35" value="2">
 									2
 									<input type="radio"  name="q35" value="3">
 									3
+									<input type="radio"  name="q35" value="4">
+									4
 									<br>
 									<label for="q36">36. Έμμονες σκέψεις:</label>
 									<input type="hidden" name="q36">
-									<input type="radio"  name="q36" value="0">
-									0
 									<input type="radio"  name="q36" value="1">
 									1
 									<input type="radio"  name="q36" value="2">
 									2
 									<input type="radio"  name="q36" value="3">
 									3
+									<input type="radio"  name="q36" value="4">
+									4
 									<br>
 									<label for="q37">37. Επίμονες επαναλαμβανόμενες συμπεριφορές:</label>
 									<input type="hidden" name="q37">
-									<input type="radio"  name="q37" value="0">
-									0
 									<input type="radio"  name="q37" value="1">
 									1
 									<input type="radio"  name="q37" value="2">
 									2
 									<input type="radio"  name="q37" value="3">
 									3
+									<input type="radio"  name="q37" value="4">
+									4
 									<br>
 									<label for="q38">38. Προβήματα διατροφής:</label>
 									<input type="hidden" name="q38">
-									<input type="radio"  name="q38" value="0">
-									0
 									<input type="radio"  name="q38" value="1">
 									1
 									<input type="radio"  name="q38" value="2">
 									2
 									<input type="radio"  name="q38" value="3">
 									3
+									<input type="radio"  name="q38" value="4">
+									4
 									<br>
 									<label for="q39">39. Προβλήματα με βάρος:</label>
 									<input type="hidden" name="q39">
-									<input type="radio"  name="q39" value="0">
-									0
 									<input type="radio"  name="q39" value="1">
 									1
 									<input type="radio"  name="q39" value="2">
 									2
 									<input type="radio"  name="q39" value="3">
 									3
+									<input type="radio"  name="q39" value="4">
+									4
 									<br>
 									<label for="q40">40. Αλλαγές στην όρεξη για φαγητό:</label>
 									<input type="hidden" name="q40">
-									<input type="radio"  name="q40" value="0">
-									0
 									<input type="radio"  name="q40" value="1">
 									1
 									<input type="radio"  name="q40" value="2">
 									2
 									<input type="radio"  name="q40" value="3">
 									3
+									<input type="radio"  name="q40" value="4">
+									4
 									<br>
 									<label for="q41">41. Προβλήματα υγείας:</label>
 									<input type="hidden" name="q41">
-									<input type="radio"  name="q41" value="0">
-									0
 									<input type="radio"  name="q41" value="1">
 									1
 									<input type="radio"  name="q41" value="2">
 									2
 									<input type="radio"  name="q41" value="3">
 									3
+									<input type="radio"  name="q41" value="4">
+									4
 									<br>
 									<label for="q42">42. Σωματική Αναπηρίας:</label>
 									<input type="hidden" name="q42">
-									<input type="radio"  name="q42" value="0">
-									0
 									<input type="radio"  name="q42" value="1">
 									1
 									<input type="radio"  name="q42" value="2">
 									2
 									<input type="radio"  name="q42" value="3">
 									3
+									<input type="radio"  name="q42" value="4">
+									4
 									<br>
 									<label for="q43">43. Εγκεφαλικό τραύμα:</label>
 									<input type="hidden" name="q43">
-									<input type="radio"  name="q43" value="0">
-									0
 									<input type="radio"  name="q43" value="1">
 									1
 									<input type="radio"  name="q43" value="2">
 									2
 									<input type="radio"  name="q43" value="3">
 									3
+									<input type="radio"  name="q43" value="4">
+									4
 									<br>
 									<label for="q44">44. Τραυματικό γεγονός:</label>
 									<input type="hidden" name="q44">
-									<input type="radio"  name="q44" value="0">
-									0
 									<input type="radio"  name="q44" value="1">
 									1
 									<input type="radio"  name="q44" value="2">
 									2
 									<input type="radio"  name="q44" value="3">
 									3
+									<input type="radio"  name="q44" value="4">
+									4
 									<br>
 									<label for="q45">45. Υπερκινητικότητα:</label>
 									<input type="hidden" name="q45">
-									<input type="radio"  name="q45" value="0">
-									0
 									<input type="radio"  name="q45" value="1">
 									1
 									<input type="radio"  name="q45" value="2">
 									2
 									<input type="radio"  name="q45" value="3">
 									3
+									<input type="radio"  name="q45" value="4">
+									4
 									<br>
 									<label for="q46">46. Παρορμητική συμπεριφορά:</label>
 									<input type="hidden" name="q46">
-									<input type="radio"  name="q46" value="0">
-									0
 									<input type="radio"  name="q46" value="1">
 									1
 									<input type="radio"  name="q46" value="2">
 									2
 									<input type="radio"  name="q46" value="3">
 									3
+									<input type="radio"  name="q46" value="4">
+									4
 									<br>
 									<label for="q47">47. Προβλήματα με αλκοόλ:</label>
 									<input type="hidden" name="q47">
-									<input type="radio"  name="q47" value="0">
-									0
 									<input type="radio"  name="q47" value="1">
 									1
 									<input type="radio"  name="q47" value="2">
 									2
 									<input type="radio"  name="q47" value="3">
 									3
+									<input type="radio"  name="q47" value="4">
+									4
 									<br>
 									<label for="q48">48. Προβλήματα με άλλες ουσίες:</label>
 									<input type="hidden" name="q48">
-									<input type="radio"  name="q48" value="0">
-									0
 									<input type="radio"  name="q48" value="1">
 									1
 									<input type="radio"  name="q48" value="2">
 									2
 									<input type="radio"  name="q48" value="3">
 									3
+									<input type="radio"  name="q48" value="4">
+									4
 									<br>
 									<label for="q49">49. Προβλήματα με τζόγο:</label>
 									<input type="hidden" name="q49">
-									<input type="radio"  name="q49" value="0">
-									0
 									<input type="radio"  name="q49" value="1">
 									1
 									<input type="radio"  name="q49" value="2">
 									2
 									<input type="radio"  name="q49" value="3">
 									3
+									<input type="radio"  name="q49" value="4">
+									4
 									<br>
 									<label for="q50">50. Ενασχόληση διαδικτυακά παιγνίδια:</label>
 									<input type="hidden" name="q50">
-									<input type="radio"  name="q50" value="0">
-									0
 									<input type="radio"  name="q50" value="1">
 									1
 									<input type="radio"  name="q50" value="2">
 									2
 									<input type="radio"  name="q50" value="3">
 									3
+									<input type="radio"  name="q50" value="4">
+									4
 									<br>
 									<label for="q51">51. Διαχείριση χρόνου:</label>
 									<input type="hidden" name="q51">
-									<input type="radio"  name="q51" value="0">
-									0
 									<input type="radio"  name="q51" value="1">
 									1
 									<input type="radio"  name="q51" value="2">
 									2
 									<input type="radio"  name="q51" value="3">
 									3
+									<input type="radio"  name="q51" value="4">
+									4
 									<br>
 									<label for="q52">52. Κακοποίηση(σωματική, σεξουαλική, λεκτική, παραμέληση):</label>
 									<input type="hidden" name="q52">
-									<input type="radio"  name="q52" value="0">
-									0
 									<input type="radio"  name="q52" value="1">
 									1
 									<input type="radio"  name="q52" value="2">
 									2
 									<input type="radio"  name="q52" value="3">
 									3
+									<input type="radio"  name="q52" value="4">
+									4
 									<br>
 									<label for="q53">53. Ακούω φωνές:</label>
 									<input type="hidden" name="q53">
-									<input type="radio"  name="q53" value="0">
-									0
 									<input type="radio"  name="q53" value="1">
 									1
 									<input type="radio"  name="q53" value="2">
 									2
 									<input type="radio"  name="q53" value="3">
 									3
+									<input type="radio"  name="q53" value="4">
+									4
 									<br>
 									<label for="q54">54. Πιστεύω ότι με παρακολουθούν:</label>
 									<input type="hidden" name="q54">
-									<input type="radio"  name="q54" value="0">
-									0
 									<input type="radio"  name="q54" value="1">
 									1
 									<input type="radio"  name="q54" value="2">
 									2
 									<input type="radio"  name="q54" value="3">
 									3
+									<input type="radio"  name="q54" value="4">
+									4
 									<br>
 									<label for="q55">55. Πιστεύω ότι με ελέγχουν/χειραγωγούν:</label>
 									<input type="hidden" name="q55">
-									<input type="radio"  name="q55" value="0">
-									0
 									<input type="radio"  name="q55" value="1">
 									1
 									<input type="radio"  name="q55" value="2">
 									2
 									<input type="radio"  name="q55" value="3">
 									3
+									<input type="radio"  name="q55" value="4">
+									4
 									<br>
 									<label for="q56">56. Αλλόκοτη συμπεριφορά:</label>
 									<input type="hidden" name="q56">
-									<input type="radio"  name="q56" value="0">
-									0
 									<input type="radio"  name="q56" value="1">
 									1
 									<input type="radio"  name="q56" value="2">
 									2
 									<input type="radio"  name="q56" value="3">
 									3
+									<input type="radio"  name="q56" value="4">
+									4
 									<br>
 									<label for="q57">57. Οικονομικά προβλήματα:</label>
 									<input type="hidden" name="q57">
-									<input type="radio"  name="q57" value="0">
-									0
 									<input type="radio"  name="q57" value="1">
 									1
 									<input type="radio"  name="q57" value="2">
 									2
 									<input type="radio"  name="q57" value="3">
 									3
+									<input type="radio"  name="q57" value="4">
+									4
 									<br>
 									<label for="q58">58. Νομικά προβλήματα:</label>
 									<input type="hidden" name="q58">
-									<input type="radio"  name="q58" value="0">
-									0
 									<input type="radio"  name="q58" value="1">
 									1
 									<input type="radio"  name="q58" value="2">
 									2
 									<input type="radio"  name="q58" value="3">
 									3
+									<input type="radio"  name="q58" value="4">
+									4
 									<br>
 									<label for="q59">59. Σκέψεις αυτοκτονίας:</label>
 									<input type="hidden" name="q59">
-									<input type="radio" name="q59" value="0">
-									0
 									<input type="radio" name="q59" value="1">
 									1
 									<input type="radio" name="q59" value="2">
 									2
 									<input type="radio" name="q59" value="3">
 									3
+									<input type="radio" name="q59" value="4">
+									4
 									<br>
 									<label for="q60">60. Σκέψεις ανθρωποκτονίας:</label>
 									<input type="hidden" name="q60">
-									<input type="radio"  name="q60" value="0">
-									0
 									<input type="radio"  name="q60" value="1">
 									1
 									<input type="radio"  name="q60" value="2">
 									2
 									<input type="radio"  name="q60" value="3">
 									3
+									<input type="radio"  name="q60" value="4">
+									4
 									<br>
 									<label for="q61">61. Άλλο</label>
 									<input type="text" class="form-control" id="q61" name="q61">
 									<input type="hidden" name="q62">
-									<input type="radio"  name="q62" value="0">
-									0
 									<input type="radio"  name="q62" value="1">
 									1
 									<input type="radio"  name="q62" value="2">
 									2
 									<input type="radio"  name="q62" value="3">
 									3
+									<input type="radio"  name="q62" value="4">
+									4
 									<br>
 									<label for="q63">62. Άλλο</label>
 									<input type="text" class="form-control" id="q63" name="q63">
 									<input type="hidden" name="q64">
-									<input type="radio" name="q64" value="0">
-									0
 									<input type="radio" name="q64" value="1">
 									1
 									<input type="radio" name="q64" value="2">
 									2
 									<input type="radio" name="q64" value="3">
 									3
+									<input type="radio" name="q64" value="4">
+									4
 								</div>
 							</div>
 						</div>

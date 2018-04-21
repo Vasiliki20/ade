@@ -153,6 +153,8 @@
 										<label>Άρρεν</label>
 										<input class="w3-radio" type="radio" name="gender" value="female">
 										<label>Θήλυ</label>
+										<input class="w3-radio" type="radio" name="gender" value="other">
+										<label>Άλλο</label>
 									</div>
 									<div class="form-group">
 										<label class="sr-only" for="dof">Ημερομηνία Γέννησης</label>

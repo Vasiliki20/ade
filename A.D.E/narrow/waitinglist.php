@@ -195,10 +195,10 @@ $postfields=http_build_query(array(
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -255,7 +255,7 @@ $postfields=http_build_query(array(
 								</table>
 								<br>
 								<div class="form-group" align="left">
-									<input type="submit" class="form-group" name="submit" id="submit">
+									<input type="submit" class="btn btn-default" name="submit" id="submit">
 								</div>
 								</form>
 							</div>

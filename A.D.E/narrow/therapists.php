@@ -119,7 +119,7 @@ $postfields=http_build_query(array(
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">My clients</a>
+										<a href="myclients_admin.php">Clients</a>
 									</li>
 									<li>
 										<a href="therapists.php">Therapists</a>
@@ -173,6 +173,8 @@ $postfields=http_build_query(array(
 										<label>Άρρεν</label>
 										<input class="w3-radio" type="radio" name="gender" value="female">
 										<label>Θήλυ</label>
+										<input class="w3-radio" type="radio" name="gender" value="other">
+										<label>Άλλο</label>
 									</div>
 									<div class="form-group">
 									<label class="sr-only" for="age">Ηλικία</label>

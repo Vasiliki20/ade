@@ -353,16 +353,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #fh5co-media-section, #fh5co-intro-section, #fh5co-contact-section, #fh5co-product-section, .about-section {
-	padding-bottom: 8em;
+	padding-bottom: 2em;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: auto) {
 	#fh5co-media-section, #fh5co-intro-section, #fh5co-contact-section, #fh5co-product-section, .about-section {
-		padding-bottom: 3em;
+		padding-bottom: 2em;
 	}
 }
 
 #fh5co-intro-section h2 {
-	font-size: 40px;
+	font-size: 30px;
 	text-transform: uppercase;
 	color: #fff;
 	letter-spacing: 1px;
@@ -468,7 +468,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .fh5co-intro-cover {
 	width: 100%;
-	padding: 8.5em 0;
+	padding: 3em 0;
 	position: relative;
 }
 ba
@@ -485,7 +485,7 @@ ba
 .fh5co-intro-cover a.btn {
 	position: relative;
 	border: 4px solid #fff;
-	padding: 30px 50px;
+	padding: 10px 10px;
 	font-size: 24px;
 	font-weight: bold;
 	letter-spacing: 1px;
@@ -502,7 +502,7 @@ ba
 }
 @media screen and (max-width: 768px) {
 	.fh5co-intro-cover a.btn {
-		padding: 15px 25px;
+		padding: 10px 10px;
 		font-size: 16px;
 	}
 }

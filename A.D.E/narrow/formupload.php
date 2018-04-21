@@ -1,4 +1,6 @@
-<?php session_start(); ob_start(); ?>
+<?php session_start();
+ob_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -116,40 +118,33 @@
 					</div>
 				</header>
 
-				<div class="container">
-			 
-        </div>
-          <div class="row">
-            <div class="col-lg-12">
-               <form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
-					<input type="hidden" name="id" value=<?=$_SESSION['id']?> >
-                  <div class="form-group">
-                    <label for="file">Select a file to upload</label>
-                    <input id="file" type="file" name="file">
-                    <p class="help-block">Only pdf,jpg,jpeg,png and gif file with maximum size of 10 MB is allowed.</p>
-                  </div>
-                  <input type="submit" class="btn btn-lg btn-primary" id="sub" value="Upload">
-                </form>
-            </div>
-          </div>
+		<div class="container">
+			<div class="row">
+            	<div class="col-lg-12">
+               		<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
+                  		<div class="form-group">
+                    		<label for="file">Select a file to upload</label>
+                    		<input id="file" type="file" name="file">
+                    		<p class="help-block"><h6>Only pdf,jpg,jpeg,png and gif file with maximum size of 10 MB is allowed.</h6></p>
+                  			<input type="submit" class="btn  btn-default" id="sub" value="Upload">
+                  		</div>
+                 	</form>
+            	</div>
+          	</div>
 			<div class="warning" id="hiresponse"></div>
-		 <div class="row">
-			<div class="col-lg-12">
-				<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php" method="post" >
-					<input type="hidden" name="id" value=<?=$_SESSION['id']?> >
-					<input class="btn  btn-primary" type="submit" name="submit" value="Show files" >
-				</form>
+		 	<div class="row">
+				<div class="col-lg-12">
+					<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php" method="post" >
+						<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
+						<input class="btn  btn-default" type="submit" name="submit" value="Show files" >
+					</form>
+				</div>
 			</div>
-		</div>
-		<div id="contactResponse"></div>
+			<div id="contactResponse"></div>
 		
-    </div> <!-- /container -->
-						
-						
-	
-					
-			</div>
-			<footer>
+    	
+		<footer>
 				<div id="footer" class="fh5co-border-line">
 					<div class="container">
 						<div class="row">
@@ -163,6 +158,8 @@
 					</div>
 				</div>
 			</footer>
+			</div> <!-- /container -->
+		</div>
 		</div>
 		<!-- END: box-wrap -->
 
@@ -182,81 +179,76 @@
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
 		<script>
-		
-     $("#contactForm").submit(function(event) 
-     {
-         /* stop form from submitting normally */
-         event.preventDefault();
+			$("#contactForm").submit(function(event) {
+				/* stop form from submitting normally */
+				event.preventDefault();
 
-         /* get some values from elements on the page: */
-         var $form = $( this ),
-             $submit = $form.find( 'button[type="submit"]' ),
-             id_value = $form.find( 'input[name="id"]' ).val(),
-             url = $form.attr('action');
+				/* get some values from elements on the page: */
+				var $form = $(this),
+				    $submit = $form.find('button[type="submit"]'),
+				    id_value = $form.find('input[name="id"]').val(),
+				    url = $form.attr('action');
 
-         /* Send the data using post */
-         var posting = $.post( url, { 
-                           id: id_value 
-                       });
+				/* Send the data using post */
+				var posting = $.post(url, {
+					id : id_value
+				});
 
-         posting.done(function( data )
-         {
-             /* Put the results in a div */
-             $( "#contactResponse" ).html(data);
+				posting.done(function(data) {
+					/* Put the results in a div */
+					$("#contactResponse").html(data);
 
-             /* Change the button text. */
-             $submit.text('Sent, Thank you');
+					/* Change the button text. */
+					$submit.text('Sent, Thank you');
 
-             /* Disable the button. */
-             $submit.attr("disabled", true);
-         });
-    });
-	$(document).ready(function () {
+					/* Disable the button. */
+					$submit.attr("disabled", true);
+				});
+			});
+			$(document).ready(function() {
 
-    $("#sub").click(function (event) {
+				$("#sub").click(function(event) {
 
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
+					//stop submit the form, we will post it manually.
+					event.preventDefault();
 
-        // Get form
-        var form = $('#hi')[0];
+					// Get form
+					var form = $('#hi')[0];
 
-		// Create an FormData object 
-        var data = new FormData(form);
+					// Create an FormData object
+					var data = new FormData(form);
 
-		
+					// disabled the submit button
+					$("sub").prop("disabled", true);
 
-		// disabled the submit button
-        $("sub").prop("disabled", true);
+					$.ajax({
+						type : "POST",
+						enctype : 'multipart/form-data',
+						url : "http://thesis.in.cs.ucy.ac.cy/mhc/upload.php",
+						data : data,
+						processData : false,
+						contentType : false,
+						cache : false,
+						timeout : 600000,
+						success : function(data) {
 
-        $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: "http://thesis.in.cs.ucy.ac.cy/mhc/upload.php",
-            data: data,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
-            success: function (data) {
+							$("#hiresponse").text(data);
+							console.log("SUCCESS : ", data);
+							$("#sub").prop("disabled", false);
 
-                $("#hiresponse").text(data);
-                console.log("SUCCESS : ", data);
-                $("#sub").prop("disabled", false);
+						},
+						error : function(e) {
 
-            },
-            error: function (e) {
+							$("#hiresponse").text(e.responseText);
+							console.log("ERROR : ", e);
+							$("#sub").prop("disabled", false);
 
-                $("#hiresponse").text(e.responseText);
-                console.log("ERROR : ", e);
-                $("#sub").prop("disabled", false);
+						}
+					});
 
-            }
-        });
+				});
 
-    });
-
-});
+			}); 
 </script>
 	</body>
 

@@ -97,17 +97,6 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
 							<li>
 								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
@@ -133,10 +122,10 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -162,87 +151,26 @@
 					</div>
 					<ul>
 						<li>
-							<a href="report1.php">Schedules</a>
+							<a href="results.php">Αριθμός πελατών ανά μήνα</a>
 						</li>
 						<li>
-							<a href="report1.php">Appointment Search</a>
+							<a href="results.php">Αριθμός νέων πελάτων ανά μήνα</a>
 						</li>
 						<li>
-							<a href="report1.php">Counselor Notification Worksheet</a>
+							<a href="results.php">Αριθμός συνεδριών ανά μήνα</a>
 						</li>
 						<li>
-							<a href="report1.php">Appointments Missing Attendance</a>
+							<a href="results.php">Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</a>
 						</li>
 						<li>
-							<a href="report1.php">Appointment Statistics</a>
+							<a href="results.php">Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</a>
 						</li>
 						<li>
-							<a href="report1.php">Monthly Statistics</a>
+							<a href="results.php">Παρουσιαζόμενα ζητήματα για νέα περιστατικά </a>
 						</li>
 						<li>
-							<a href="report1.php">Group Attendance By Appointment Code</a>
+							<a href="results.php">Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες </a>
 						</li>
-						<li>
-							<a href="report1.php">Group Attendance By Counselor</a>
-						</li>
-						<li>
-							<a href="report1.php">Group Sign Up Sheets</a>
-						</li>
-						<li>
-							<a href="report1.php">Client Profile</a>
-						</li>
-						<li>
-							<a href="report1.php">Client Address List</a>
-						</li>
-						<li>
-							<a href="report1.php">Client File Labels</a>
-						</li>
-						<li>
-							<a href="report1.php">Client Flags</a>
-						</li>
-						<li>
-							<a href="report1.php">Note Statistics</a>
-						</li>
-						<li>
-							<a href="report1.php">Data Form Statistics</a>
-						</li>
-						<li>
-							<a href="report1.php">Data Form Statistics By Appointment</a>
-						</li>
-						<li>
-							<a href="report1.php">Diagnosis Prevalence</a>
-						</li>
-						<li>
-							<a href="report1.php">DSM-IV Score Comparison</a>
-						</li>
-						<li>
-							<a href="report1.php">Waitlist Statistics</a>
-						</li>
-						<li>
-							<a href="report1.php">Intake Wait Time</a>
-						</li>
-						<li>
-							<a href="report1.php">Counselor Activity</a>
-						</li>
-						<li>
-							<a href="report1.php">Counselor Case Load</a>
-						</li>
-						<li>
-							<a href="report1.php">Client Contacts By Counselor</a>
-						</li>
-						<li>
-							<a href="report1.php">Outstanding Tasks</a>
-						</li>
-						<li>
-							<a href="report1.php">Revenue Summary</a>
-						</li>
-						<li>
-							<a href="report1.php">Revenue By Billing Code</a>
-						</li>
-						<li>
-							<a href="report1.php">Export Data</a>
-						</li>
-						
 					</ul>
 				</div>
 

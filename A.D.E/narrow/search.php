@@ -122,10 +122,10 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -170,7 +170,7 @@
 					</form>
 				</div>
 				<div class="form-group" align="center">
-					<button type="button" class="form-group" name="submit" id="submit">
+					<button type="button" class="btn btn-default" name="submit" id="submit">
 						Submit
 					</button>
 				</div>

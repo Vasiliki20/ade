@@ -75,17 +75,6 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
 							<li>
 								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
@@ -111,10 +100,10 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -144,6 +133,7 @@
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
 											<th>Ημερομηνία</th>
+											<th>Παρευρέθηκε</th>
 											<th>Write case note </th>
 										</tr>
 									</thead>
@@ -183,6 +173,7 @@ $postfields=http_build_query(array(
 											<td><?=$response['result1'][$j]['lastname']?></td>
 											<td><?=$response['result'][$j]['patientID']?></td>
 											<td><?=$response['result'][$j]['start']?></td>
+											<td><input type="checkbox" name="attended"/></td>
 											<td><a href="casenote.php?pID=<?=$response['result'][$j]['appointmentID']?>">link</a></td>
 										</tr>
 									<?php  } ?>

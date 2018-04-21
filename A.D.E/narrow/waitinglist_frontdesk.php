@@ -191,7 +191,7 @@ $postfields=http_build_query(array(
 								</table>
 								<br>
 								<div class="form-group" align="left">
-									<input type="submit" class="form-group" name="submit" id="submit">
+									<input type="submit" class="btn btn-default" name="submit" id="submit">
 								</div>
 								</form>
 							</div>
