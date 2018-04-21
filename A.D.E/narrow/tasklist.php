@@ -216,7 +216,7 @@
 									<tbody>
 										<tr>
 											<td>12/01/2018</td>
-											<td>Case Note</td>
+											<td><a href="casenotes_sign.php">Case Note</a></td>
 											<td>Βασιλική Παντελή</td>
 											<td>Περιγραφή</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -232,7 +232,7 @@
 										</tr>
 										<tr>
 											<td>02/03/2018</td>
-											<td>Case Note</td>
+											<td><a href="casenotes_sign.php">Case Note</a></td>
 											<td>Γιώργος Νικολάου</td>
 											<td>Περιγραφή</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -248,7 +248,7 @@
 										</tr>
 										<tr>
 											<td>02/02/2018</td>
-											<td>Case Note</td>
+											<td><a href="casenotes_sign.php">Case Note</a></td>
 											<td>Μαρία Έλληνα</td>
 											<td>Περιγραφή</td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

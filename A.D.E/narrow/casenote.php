@@ -194,9 +194,9 @@
 									</input></td>
 								</tr>
 								<tr>
-									<th> Σημειώσεις: </th>
+									<th> Καταχώρηση: </th>
 									<td>
-									<input type="submit" name="submit"></input></td>
+									<input type="submit" name="submit" class="btn btn-default"></input></td>
 								</tr>
 						</div>
 						</form>
