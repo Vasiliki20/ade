@@ -142,6 +142,9 @@
 							<br>
 							<input type="radio" name="sex" value="female">
 							Θύλη
+							<br>
+							<input type="radio" name="sex" value="other">
+							Άλλο
 						</div>
 						<div class="form-group">
 							<label for="citizenship"><b>4. Υπηκοότητα:</b></label>
