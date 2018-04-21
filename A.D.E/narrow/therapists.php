@@ -1,5 +1,33 @@
-<?php session_start(); ?>
+<?php session_start(); ob_start(); ?>
 <!DOCTYPE html>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response);
+	
+//}
+?>
 <html lang="en">
 
 	<head>
@@ -127,7 +155,7 @@
 						</div>
 						<div class="modal-body">
 							<p>
-								<form role="form" action="" method="post">
+								<form role="form" action="therapists.php" method="post">
 									<div class="form-group">
 										<label class="sr-only" for="name">Όνομα</label>
 										<input type="text" name="name" placeholder="Όνομα" class="form-control" id="name">
@@ -178,14 +206,14 @@
 									<label class="sr-only" for="officenum">Αριθμός Γραφείου</label>
 									<input type="number" name="officenum" placeholder="Αριθμός Γραφείου" class="form-control" id="officenum">
 								</div>
-								</form>
+								
 
 							</p>
 						</div>
 						<div class="modal-footer">
-							<button type="sumbit" class="btn btn-default" data-dismiss="modal">
-								Save
-							</button>
+							<input type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+								
+							</form>
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Close
 							</button>
@@ -217,51 +245,54 @@
 											<th>Όνομα</th>
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
-											<th>Options</th>
+											<th>Τύπος</th>
+											<th>Κατάσταση</th>
 										</tr>
 									</thead>
 									<tbody>
-										<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_SESSION['id'];
-$method='GET';
-//if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-'psychID' => $_SESSION['id']
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
-}
-while($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-										?>
 										<script>
 																						document.cookie='token=<?= $tok ?>
 												';
 										</script>
-										<?php
-										//$GLOBALS['curtoken']=giveToken();
-										//print "<h5>".$GLOBALS['curtoken']."</h5>";
-										$response = request($url, $method, $postfields, $tok);
-										}
-										//}
-										?>
+										
 										<?php
 										if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 										<tr>
 										<td><?= $response['result'][$i]['firstname'] ?></td>
 										<td><?= $response['result'][$i]['lastname'] ?></td>
-										<td><?= $response['result'][$i]['patientID'] ?></td>
+										<td><?= $response['result'][$i]['psychologistID'] ?></td>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){ ?>
+										<label>Front desk</label>
+										</td>
+										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"admin")==0){ ?>
+										<label>Administrator</label>
+										</td>
+										<?php}else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
+										<select>
+										<option value="therapist" selected="selected">Therapist</option>
+										<option value="supervisor">Supervisor</option>
+										</select></td>
+										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"supervisor")==0){ ?>
+										<select>
+										<option value="therapist" >Therapist</option>
+										<option value="supervisor" selected="selected">Supervisor</option>
+										</select></td>
+										<?php } ?>
+										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<?php if($response['result'][$i]['active']==0){ ?>
+										<select>
+										<option value="active">Active</option>
+										<option value="deactive" selected="selected">Deactive</option>
+										<option value="delete">Delete</option>
+										</select></td>
+										<?php }else{ ?>
 										<select>
 										<option value="active" selected="selected">Active</option>
-										<option value="supervisor">Supervisor</option>
 										<option value="deactive">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
+										<?php } ?>
 										</tr>
 										<?php }} ?>
 								</table>
@@ -306,4 +337,72 @@ print "<h5>".$tok."</h5>";
 	</body>
 
 </html>
-
+<?php
+/*require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$method='GET';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response);
+	
+}*/
+?>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psyregister.php";
+$method='POST';
+if(isset($_POST['submit1'])){
+$postfields=http_build_query(array(
+	'id'=> $_POST['id'],		
+	'name'=> $_POST['name'],		
+	'lastname'=> $_POST['surname'],		
+	'sex' => $_POST['gender'],		
+	'age' => $_POST['age'],		
+	'address' => $_POST['address'],		
+	'telephone' => $_POST['phone'],		
+	'fax' => $_POST['fax'],
+	'position' => $_POST['position'],		
+	'speciality' => $_POST['speciality'],		
+	'building' => $_POST['building'],		
+	'office_num' => $_POST['officenum'],		
+	'email' => $_POST['email'],		
+	'password' => "123456"	
+		));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response);
+}
+?>
