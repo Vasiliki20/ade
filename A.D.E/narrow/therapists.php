@@ -241,6 +241,7 @@ $postfields=http_build_query(array(
 									<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
 										Add Therapist
 								</div>
+								<form method="post" action="">
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
@@ -262,42 +263,45 @@ $postfields=http_build_query(array(
 										<tr>
 										<td><?= $response['result'][$i]['firstname'] ?></td>
 										<td><?= $response['result'][$i]['lastname'] ?></td>
-										<td><?= $response['result'][$i]['psychologistID'] ?></td>
+										<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['psychologistID'] ?></label></td>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){ ?>
-										<label>Front desk</label>
+										<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
 										</td>
 										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"admin")==0){ ?>
-										<label>Administrator</label>
+										<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
 										</td>
-										<?php}else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
-										<select>
+										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
+										<select name="type[]">
 										<option value="therapist" selected="selected">Therapist</option>
-										<option value="supervisor">Supervisor</option>
+										<option value="supervisor" >Supervisor</option>
 										</select></td>
 										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"supervisor")==0){ ?>
-										<select>
+										<select name="type[]">
 										<option value="therapist" >Therapist</option>
 										<option value="supervisor" selected="selected">Supervisor</option>
 										</select></td>
 										<?php } ?>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<?php if($response['result'][$i]['active']==0){ ?>
-										<select>
-										<option value="active">Active</option>
-										<option value="deactive" selected="selected">Deactive</option>
+										<select name="status[]">
+										<option value="1">Active</option>
+										<option value="0" selected="selected">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
 										<?php }else{ ?>
-										<select>
-										<option value="active" selected="selected">Active</option>
-										<option value="deactive">Deactive</option>
+										<select name="status[]">
+										<option value="1" selected="selected">Active</option>
+										<option value="0">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
 										<?php } ?>
 										</tr>
 										<?php }} ?>
+										
 								</table>
+								<input type="submit" name="submit1" value="Save Changes"/>
+										</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -339,61 +343,30 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-<?php
-/*require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
-$method='GET';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
-	
-}*/
-?>
+
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psyregister.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/therapistflags.php";
 $method='POST';
+$i=0;
 if(isset($_POST['submit1'])){
+	 var_dump($_POST['id']);
+	 var_dump($_POST['type']);
+	 var_dump($_POST['status']);
+	foreach($_POST['id'] as $j){
+	
 $postfields=http_build_query(array(
-	'id'=> $_POST['id'],		
-	'name'=> $_POST['name'],		
-	'lastname'=> $_POST['surname'],		
-	'sex' => $_POST['gender'],		
-	'age' => $_POST['age'],		
-	'address' => $_POST['address'],		
-	'telephone' => $_POST['phone'],		
-	'fax' => $_POST['fax'],
-	'position' => $_POST['position'],		
-	'speciality' => $_POST['speciality'],		
-	'building' => $_POST['building'],		
-	'office_num' => $_POST['officenum'],		
-	'email' => $_POST['email'],		
-	'password' => "123456"	
+	'id'=> $_POST['id'][$i],		
+	'type'=> $_POST['type'][$i],
+	'status'=> $_POST['status'][$i]
 		));
+		$i++;
 	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
+		$response1=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{
-		$response=0;
+		$response1=0;
 	}
-	while($response['status']!=1){
+	if($response1['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
 		?>
@@ -403,8 +376,10 @@ $postfields=http_build_query(array(
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
+		$response1=request($url,$method,$postfields,$tok);
 	}
-	var_dump($response);
+	var_dump($response1);
+}
+header("Refresh:0");
 }
 ?>
