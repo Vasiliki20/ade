@@ -182,12 +182,6 @@
 									</input></td>
 								</tr>
 								<tr>
-									<th> Υπογράφτηκε: </th>
-									<td>
-									<input type="text" class="form-control" id="casenotes" name="signed">
-									</input></td>
-								</tr>
-								<tr>
 									<th> Σημειώσεις: </th>
 									<td>
 									<input type="text" class="form-control" id="casenotes" name="notes">
@@ -254,7 +248,7 @@ $postfields=http_build_query(array(
 'type'=>$_POST['type'],
 'date'=>$_POST['date'],
 'time'=>$_POST['time'],
-'signed'=>$_POST['signed'],
+'signed'=>"Όχι",
 'note'=>$_POST['notes'],
 ));
 if(isset($_COOKIE['token'])){
