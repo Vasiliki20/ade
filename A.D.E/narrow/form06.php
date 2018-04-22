@@ -452,68 +452,65 @@
 						<div class="form-group">
 							<label for="healthproblem"><strong>11. Έχεις ή πιστεύεις ότι έχεις οποιοδήποτε σοβαρό ή χρόνιο ιατρικό πρόβλημα; </strong></label>
 							<br>
-							<label for="healthproblemmore">(π.χ. ‘Άσθμα, διαβήτη, κλπ.):</label>
 							<input type="text" class="form-control" id="healthproblem" name="healthproblem">
-							<label for="healthproblem"><em>Σημειώστε αν αναφέρονται οποιαδήποτε από τα πιο κάτω:</em></label>
+							<label for="healthproblem"><em>Σημειώστε αν αναφέρονται οποιαδήποτε από τα πιο κάτω: (Σε περίπτωση που ισχύουν περισσότερα από ενα συμπληρώστε στο πεδίο άλλο)</em></label>
+							<input type="hidden" name="healthproblem">
 							<br>
-							<input type="checkbox" name="healthproblem" value="allergies">
+							<input type="radio" name="healthproblem" value="allergies">
 							Αλλεργίες
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="dizziness">
 							Ζαλάδες
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="sexuallydisease">
 							Σεξουαλική μεταδιδόμενη ασθένεια
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="operation">
 							Εγχείρηση
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="diabetes">
 							Διαβήτης
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="epilepsy">
 							Επιληψία
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="headache">
 							Πονοκέφαλοι
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="sleepingproblems">
 							Διαταραχή/δυσκολίες ύπνου
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="stomachpain">
 							Πόνοι στο στομάχι
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="trauma">
 							Τραύμα στο κεφάλι
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="chronicpain">
 							Χρόνιος πόνος
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="fevers">
 							Ψηλοί πυρετοί
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="asthma">
 							Άσθμα
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="meningitis">
 							Μηνιγγίτιδα
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="abortion">
 							Έκτρωση
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="elimination">
 							Αποβολή (εμβρύου)
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="seriousaccident">
 							Σοβαρό ατύχημα
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="hearingproblems">
 							Προβλήματα ακοής
 							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
-							Προβλήματα ακοής
-							<br>
-							<input type="checkbox" name="healthproblem" value="zalades">
+							<input type="radio" name="healthproblem" value="other">
 							Άλλο
 							<input type="text" class="form-control" id="healthproblemmore" name="healthproblem">
 						</div>
