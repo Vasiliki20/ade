@@ -1,3 +1,39 @@
+<?php
+require_once("requests.php"); 
+session_start(); 
+ob_start();
+function isincomplete($input){
+	foreach($input as $i){
+		if(empty($i)){
+			return true;
+		}
+	}
+	return false;
+}
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/tasklist_supervisor.php?psychID=".$_SESSION['id'];
+$method='GET';
+$postfields=http_build_query(array(
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	if($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -208,68 +244,62 @@
 										<tr>
 											<th>Ημερομηνία</th>
 											<th>Κατηγορία</th>
-											<th>Πελάτης</th>
+											<th>Αρ. Ταυτότητας Πελάτη</th>
 											<th>Περιγραφή</th>
 											<th>Δράση</th>
 										</tr>
 									</thead>
 									<tbody>
+										<?php if(isset($response)){for($i=0;$i<count($response['appointments']);$i++){ ?>
+											<?php if((strnatcmp($response['appointments'][$i]['attendance'],"Attended")!=0) && (strnatcmp($response['appointments'][$i]['attendance'],"Not attended")!=0) && $response['appointments'][$i]['patientID']!=NULL){
+											?>
 										<tr>
-											<td>12/01/2018</td>
-											<td><a href="casenotes_sign.php">Case Note</a></td>
-											<td>Βασιλική Παντελή</td>
-											<td>Περιγραφή</td>
+											<td><?=$response['appointments'][$i]['start']?></td>
+											<td><a href="myappointments.php">Appointment</a></td>
+											<td><?=$response['appointments'][$i]['patientID']?></td>
+											<td><?=$response['appointments'][$i]['subject']?></td>
+											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<select>
+											<option value="1" >Signature required</option>
+												<option value="2">Note Incomplete</option>
+												<option value="3" selected="selected">Mark attendance</option>
+											</select></td>
+										</tr>
+										<?php }}} ?>
+										<?php if(isset($response)){for($i=0;$i<count($response['casenotes']);$i++){ ?>
+											<?php if($response['casenotes'][$i]==false){
+											}elseif(strnatcmp($response['casenotes'][$i]['Signed'],"Ναί")!=0){
+											?>
+										<tr>
+											<td><?=$response['casenotes'][$i]['dateof']?></td>
+											<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID']?>">Case Note</a></td>
+											<td></td>
+											<td><?=$response['casenotes'][$i]['sessioncontent']?></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
 											<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note is blank</option>
-												<option value="3">Note not signed</option>
-												<option value="4">Deactivate client</option>
-												<option value="5">Mark attendance</option>
-												<option value="6">Terminate client</option>
-												<option value="7">Delete client</option>	
+												<option value="2">Note Incomplete</option>
+												<option value="3" >Mark attendance</option>
 											</select></td>
 										</tr>
+											<?php }elseif(isincomplete($response['casenotes'][$i])){?>
 										<tr>
-											<td>02/03/2018</td>
-											<td><a href="casenotes_sign.php">Case Note</a></td>
-											<td>Γιώργος Νικολάου</td>
-											<td>Περιγραφή</td>
+											<td><?=$response['casenotes'][$i]['dateof']?></td>
+											<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID']?>">Case Note</a></td>
+											<td></td>
+											<td><?=$response['casenotes'][$i]['sessioncontent']?></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select>
-												<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note is blank</option>
-												<option value="3">Note not signed</option>
-												<option value="4">Deactivate client</option>
-												<option value="5">Mark attendance</option>
-												<option value="6">Terminate client</option>
-												<option value="7">Delete client</option>
+											<option value="1" >Signature required</option>
+												<option value="2"selected="selected" >Note Incomplete</option>
+												<option value="3" >Mark attendance</option>
 											</select></td>
 										</tr>
-										<tr>
-											<td>02/02/2018</td>
-											<td><a href="casenotes_sign.php">Case Note</a></td>
-											<td>Μαρία Έλληνα</td>
-											<td>Περιγραφή</td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-												<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note is blank</option>
-												<option value="3">Note not signed</option>
-												<option value="4">Deactivate client</option>
-												<option value="5">Mark attendance</option>
-												<option value="6">Terminate client</option>
-												<option value="7">Delete client</option>
-											</select></td>
-										</tr>
+										<?php }}} ?>
 									</tbody>
 								</table>
 								<br>
-								<div class="form-group" align="left">
-									<button type="button" class="btn btn-default" name="submit" id="submit">
-										Submit
-									</button>
-								</div>
+								
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -312,37 +342,3 @@
 	</body>
 
 </html>
-
-
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>

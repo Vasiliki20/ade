@@ -1,5 +1,31 @@
 <?php session_start(); ?>
-
+<?php
+ob_start();
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response1=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response1=0;
+	}
+	while($response1['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response1=request($url,$method,$postfields,$tok);
+	}
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,7 +37,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -24,13 +49,11 @@
 			input {
 				font-size: 13px;
 			}
-			table, th, td {
-				border: 1px solid black;
-				border-collapse: collapse;
+			.form-group {
+				font-size: 13px;
 			}
-			th, td {
-				padding: 5px;
-				text-align: left;
+			.form-control {
+				font-size: 13px;
 			}
 			.sidenav {
 				height: 100%;
@@ -68,12 +91,6 @@
 					font-size: 18px;
 				}
 			}
-			.form-group {
-				font-size: 13px;
-			}
-			.form-control {
-				font-size: 13px;
-			}
 			div {
 				padding: 5px;
 			}
@@ -95,13 +112,29 @@
 	<body>
 		<div class="sidenav">
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
-			<a href="form02.php"><b>Δήλωση στοιχείων για ενήλικες</b></a>
+			
+			<?php if(strnatcmp($response1['patient']['type'],"φοιτητής")==0){?>
+			<a href="form02.php"><b>Δήλωση στοιχείων</b></a>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"ακαδημαικό")==0){?>
+			<a href="form02b.php"><b>Δήλωση στοιχείων</b></a>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"διοικητικό")==0){?>
+			<a href="form02c.php"><b>Δήλωση στοιχείων</b></a>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"άλλο")==0){?>
+			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
+			<?php }else{?>
+			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
+			<?php } ?>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
+			<?php if($response1['patient']['age']==null){?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
+			<?php }elseif($response1['patient']['age']>=18){?>
+			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
+			<?php }elseif($response1['patient']['age']<18){?>
+			<a href="historyforchildren.php"><b>Αρχική συνέντευξη</b></a>
+			<?php } ?>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
 			<a href="formupload.php"><b>Ανάρτηση αρχείων</b></a>
-			<a href="form14.php"><b>Τερματισμός</b></a>
 			<a href="form15.php"><b>Αξιολόγηση</b></a>
 			<a href="form17.php"><b>Φόρμα παραπόνων</b></a>
 		</div>

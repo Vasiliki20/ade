@@ -4663,12 +4663,13 @@ $response = request($url, $method, $postfields, $tok);
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-body">
+						<form method="post" action="">
 							<table id="casenotes" style="width:100%">
 								<tr>
 									<th><label>Κλινικές παρατηρήσεις: </label></th>
 									
 <td>
-<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['result']['clinicalobservations'] ?>>
+<input type="text" class="form-control" id="casenotes" name="observations" value=<?= $response['result']['clinicalobservations'] ?>>
 </input></td>
 
 								</tr>
@@ -4684,7 +4685,7 @@ $response = request($url, $method, $postfields, $tok);
 									<th><label>Άλλες παρατηρήσεις:</label></th>
 									
 <td>
-<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['result']['otherobservations'] ?>>
+<input type="text" class="form-control" id="casenotes" name="other" value=<?= $response['result']['otherobservations'] ?>>
 </input></td>
 
 								</tr>
@@ -4692,7 +4693,7 @@ $response = request($url, $method, $postfields, $tok);
 									<th><label> Στόχος επόμενου appointment: </label></th>
 									
 <td>
-<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['result']['goalsfornextappoinment'] ?>>
+<input type="text" class="form-control" id="casenotes" name="goals" value=<?= $response['result']['goalsfornextappoinment'] ?>>
 </input></td>
 
 								</tr>
@@ -4724,7 +4725,7 @@ $response = request($url, $method, $postfields, $tok);
 									<th><label>Υπογράφτηκε:</label></th>
 									
 <td>
-<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['result']['Signed'] ?>>
+<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['result']['Signed'] ?> disabled>
 </input></td>
 
 								</tr>
@@ -4747,9 +4748,11 @@ $response = request($url, $method, $postfields, $tok);
 									Clear Signature
 								</button>
 								&nbsp;
-								<form method="post" action="">
+								
 								<button id="saveSig" name="submit"  type="submit">
 									Save Signature
+								</button><button id="saveSig" name="submit1"  type="submit">
+									Save All
 								</button>
 								</form>
 								<?php
@@ -4783,6 +4786,43 @@ $response = request($url, $method, $postfields, $tok);
 header("Refresh:0");
 }
 ?>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenotecomplete.php";
+$method='POST';
+if(isset($_POST['submit1'])){
+$postfields=http_build_query(array(
+'caseID'=>$_GET['c'],
+'clinical'=>$_POST['observations'],
+'content'=>$_POST['sessions'],
+'observations'=>$_POST['other'],
+'goalsnext'=>$_POST['goals'],
+'type'=>$_POST['type'],
+'date'=>$_POST['date'],
+'time'=>$_POST['time'],
+'note'=>$_POST['notes'],
+));
+if(isset($_COOKIE['token'])){
+$response2=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response2=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response2 = request($url, $method, $postfields, $tok);
+}
+var_dump($response2);
+header("Refresh:0");
+}
+?>
+
 								<div><?php if($signed){ echo "<p> You just signed this Case Note! <p>"; } ?> </div>
 								<div id="imgData"></div>
 								<div id="imgData"></div>

@@ -1,38 +1,30 @@
 <?php
-require_once("requests.php"); 
-session_start(); 
 ob_start();
-function isincomplete($input){
-	foreach($input as $i){
-		if(empty($i)){
-			return true;
-		}
-	}
-	return false;
-}
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/tasklist.php?psychID=".$_SESSION['id'];
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/showcasenote.php?caseID=".$_GET['c'];
 $method='GET';
+//if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'psychID' => $_SESSION['id']
 	));
 	if(isset($_COOKIE['token'])){
 		$response=request($url,$method,$postfields,$_COOKIE['token']);
 	}else{
 		$response=0;
 	}
-	if($response['status']!=1){
+	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+//var_dump($response);
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +38,10 @@ $postfields=http_build_query(array(
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+
+
+		<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+		
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,79 +60,10 @@ $postfields=http_build_query(array(
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<style>
-		.dropbtn {
-			background-color: white;
-			color: black;
-			padding: 16px;
-			font-size: 16px;
-			border: none;
-			cursor: pointer;
-		}
-
-		.dropbtn:hover, .dropbtn:focus {
-			background-color: white;
-		}
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: white;
-			min-width: 160px;
-			overflow: auto;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-
-		.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-		}
-
-		.dropdown a:hover {
-			background-color: #ddd
-		}
-
-		.show {
-			display: block;
-		}
-		.down {
-			transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
-		}
-	</style>
 	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
-	</script>
-	<script>
-		/* When the user clicks on the button,
-		 toggle between hiding and showing the dropdown content */
-		function myFunction() {
-			document.getElementById("myDropdown").classList.toggle("show");
-		}
-
-		// Close the dropdown if the user clicks outside of it
-		window.onclick = function(event) {
-			if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for ( i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-		}
 	</script>
 	<body>
 
@@ -218,73 +145,158 @@ $postfields=http_build_query(array(
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Task List</h1>
+						<h1 class="page-header">Σημειώσεις προόδου</h1>
 					</div>
-					<!-- /.col-lg-12 -->
 				</div>
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="panel panel-default">
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Ημερομηνία</th>
-											<th>Κατηγορία</th>
-											<th>Αρ. Ταυτότητας Πελάτη</th>
-											<th>Περιγραφή</th>
-											<th>Δράση</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php if(isset($response)){for($i=0;$i<count($response['appointments']);$i++){ ?>
-											<?php if((strnatcmp($response['appointments'][$i]['attendance'],"Attended")!=0) && (strnatcmp($response['appointments'][$i]['attendance'],"Not attended")!=0) && $response['appointments'][$i]['patientID']!=NULL){
-											?>
-										<tr>
-											<td><?=$response['appointments'][$i]['start']?></td>
-											<td><a href="myappointments.php">Appointment</a></td>
-											<td><?=$response['appointments'][$i]['patientID']?></td>
-											<td><?=$response['appointments'][$i]['subject']?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-											<option value="1" >Signature required</option>
-												<option value="2">Note Incomplete</option>
-												<option value="3" selected="selected">Mark attendance</option>
-											</select></td>
-										</tr>
-										<?php }}} ?>
-										<?php if(isset($response)){for($i=0;$i<count($response['casenotes']);$i++){ ?>
-											<?php if($response['casenotes'][$i]==false){ ?>
-											<?php }elseif(isincomplete($response['casenotes'][$i])){ ?>
-										<tr>
-											<td><?=$response['casenotes'][$i]['dateof']?></td>
-											<td><a href="casenotes_edit.php?c=<?=$response['casenotes'][$i]['caseID']?>">Case Note</a></td>
-											<td></td>
-											<td><?=$response['casenotes'][$i]['sessioncontent']?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-											<option value="1" >Signature required</option>
-												<option value="2"selected="selected" >Note Incomplete</option>
-												<option value="3" >Mark attendance</option>
-											</select></td>
-										</tr>
-										<?php }}} ?>
-									</tbody>
-								</table>
-								<br>
-								
-							</div>
-							<!-- /.panel-body -->
-						</div>
-						<!-- /.panel -->
-					</div>
+				<div>
 					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+
+							
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+						<form method="post" action="">
+							<table id="casenotes" style="width:100%">
+								<tr>
+									<th><label>Κλινικές παρατηρήσεις: </label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="observations" value=<?= $response['result']['clinicalobservations'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label> Περιεχόμενα session: </label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['result']['sessioncontent'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label>Άλλες παρατηρήσεις:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="other" value=<?= $response['result']['otherobservations'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label> Στόχος επόμενου appointment: </label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="goals" value=<?= $response['result']['goalsfornextappoinment'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label>Τύπος:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['result']['typeof'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label>Ημερομηνία γραφής:</label></th>
+									
+<td>
+<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['result']['dateof'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label>Ώρα γραφής:</label></th>
+									
+<td>
+<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['result']['timeof'] ?>>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label>Υπογράφτηκε:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['result']['Signed'] ?> disabled>
+</input></td>
+
+								</tr>
+								<tr>
+									<th><label>Σημειώσεις:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['result']['Note'] ?>>
+</input></td>
+
+								</tr>
+							</div>
+						</table>
+					</div>
+						
+								
+								<button id="saveSig" name="submit1"  type="submit">
+									Save All
+								</button>
+								</form>
+								<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenotecomplete.php";
+$method='POST';
+if(isset($_POST['submit1'])){
+$postfields=http_build_query(array(
+'caseID'=>$_GET['c'],
+'clinical'=>$_POST['observations'],
+'content'=>$_POST['sessions'],
+'observations'=>$_POST['other'],
+'goalsnext'=>$_POST['goals'],
+'type'=>$_POST['type'],
+'date'=>$_POST['date'],
+'time'=>$_POST['time'],
+'note'=>$_POST['notes'],
+));
+if(isset($_COOKIE['token'])){
+$response2=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response2=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response2 = request($url, $method, $postfields, $tok);
+}
+var_dump($response2);
+header("Refresh:0");
+}
+?>
+
+								
+								<br/>
+								<br/>
+						</fieldset>
+					<!-- /#page-wrapper -->
 				</div>
 			</div>
-			<!-- /#page-wrapper -->
-
+		</div>
 		</div>
 		<!-- /#wrapper -->
 
