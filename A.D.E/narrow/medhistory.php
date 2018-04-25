@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
 $method='GET';
@@ -222,22 +223,6 @@ var_dump($response);
 						<div class="panel-body">
 							<input type="hidden" name="patientID" value=<?=$_GET['patientID']?>>
 							<div class="form-group">
-								<label for="mainproblem">Κύριο πρόβλημα:</label>
-								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainproblem" value=<?=$response['medlog']['mainproblem'] ?>>
-							</div>
-							<div class="form-group">
-								<label for="request">Ειδικά αιτήματα πελάτη:</label>
-								<input type="number" class="form-control" id="request" placeholder="" name="specialrequests" value=<?=$response['medlog']['specialrequests'] ?>>
-							</div>
-							<div class="form-group">
-								<label for="historyproblem">Ιστορικό προβλήματος:</label>
-								<input type="text" class="form-control" id="historyproblem" placeholder="" name="historyofproblem" value=<?=$response['medlog']['historyofproblem'] ?>>
-							</div>
-							<div class="form-group">
-								<label for="anxietycause">Παράγοντες άγχους:</label>
-								<input type="text" class="form-control" id="anxietycause" placeholder="" name="anxietyfactors" value=<?=$response['medlog']['anxietyfactors'] ?>>
-							</div>
-							<div class="form-group">
 								<label for="emotionsforuni">Συναισθήματα για πανεπιστήμιο:</label>
 								<input type="text" class="form-control" id="emotionsforuni" placeholder="" name="feelaboutstudies" value=<?=$response['medlog']['feelaboutstudies'] ?>>
 							</div>
@@ -418,23 +403,48 @@ var_dump($response);
 								<input type="text" class="form-control" id="reasons" placeholder="" name="reasonsfortherapy" value=<?=$response['medlog']['reasonsfortherapy'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="cognitivefunctionality">Γνωστική λειτουργικότητα:</label>
-								<input type="text" class="form-control" id="cognitivefunctionality" placeholder="" name="gnosticfunction" value=<?=$response['medlog']['gnosticfunction'] ?>>
+								<label for="signed">Υπογεγραμμένο απο Supervisor:</label>
+								<input type="text" class="form-control" id="signed" placeholder="" name="signed" value=<?=$response['medlog']['signed'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="mood">Συμπεριφορά:</label>
+								<label for="completed">Ημερομηνία που έχει συμπληρωθεί εντελώς:</label>
+								<input type="date" class="form-control" id="completed" placeholder="" name="datecompleted" value=<?=$response['medlog']['datecompleted'] ?>>
+							</div>
+							<div><h3>Έκθεση Αρχικής Αξιολόγησης<b></h3><p>(Να συμπληρωθεί απο Ψυχολόγο)</p></div>
+							<div class="form-group">
+								<label for="mainproblem"> Παρουσιαζόμενο πρόβλημα (διάρκεια, συχνότητα, σχέση με παράγοντες της κατάστασης, παράγοντες που συντείνουν στη διατήρηση, δευτερεύοντα οφέλη). Σχετικές δημογραφικές πληροφορίες:</label>
+								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainproblem" value=<?=$response['medlog']['mainproblem'] ?>>
+							</div>
+							<div class="form-group">
+								<label for="historyproblem">Ιστορικό προβλήματος και προηγούμενη θεραπεία:</label>
+								<input type="text" class="form-control" id="historyproblem" placeholder="" name="historyofproblem" value=<?=$response['medlog']['historyofproblem'] ?>>
+							</div>
+							<div class="form-group">
+								<label for="anxietycause">Τρέχοντες παράγοντες άγχους ή/και έντασης:</label>
+								<input type="text" class="form-control" id="anxietycause" placeholder="" name="anxietyfactors" value=<?=$response['medlog']['anxietyfactors'] ?>>
+							</div>
+							<div class="form-group">
+								<label for="request">Ειδικά Αιτήματα/Διευκολύνσεις: </label>
+								<input type="number" class="form-control" id="request" placeholder="" name="specialrequests" value=<?=$response['medlog']['specialrequests'] ?>>
+							</div>
+							<div class="form-group">
+								<label for="mood">Παρουσία, Στάση, Συμπεριφορά:</label>
 								<input type="text" class="form-control" id="mood" placeholder="" name="behaviour" value=<?=$response['medlog']['behaviour'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="mood">Διάθεση:</label>
+								<label for="cognitivefunctionality"> Γνωστικές Λειτουργίες(προσανατολισμός και μνήμη, γνωστική/νοητική αξιολόγηση, διαδικασία σκέψης, συλλογισμός και κρίση):</label>
+								<input type="text" class="form-control" id="cognitivefunctionality" placeholder="" name="gnosticfunction" value=<?=$response['medlog']['gnosticfunction'] ?>>
+							</div>
+							<div class="form-group">
+								<label for="mood">Διάθεση, συναίσθημα(συμπ. αξιολόγηση για αυτοκτονικό/ανθρωποκτονικό ιδεασμό):</label>
 								<input type="text" class="form-control" id="mood" placeholder="" name="mood" value=<?=$response['medlog']['mood'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="psychometricresults">Ψυχομετρικά αποτελέσματα:</label>
+								<label for="psychometricresults">Αποτελέσματα Ψυχομετρικής Αξιολόγησης:</label>
 								<input type="text" class="form-control" id="psychometricresults" placeholder="" name="psychometricresult" value=<?=$response['medlog']['psychometricresult'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="clinicalimpression">Κλινική εντύπωση:</label>
+								<label for="clinicalimpression">Διαγνωστική / Κλινική Εντύπωση:</label>
 								<input type="text" class="form-control" id="clinicalimpression" placeholder="" name="clinicalimpression" value=<?=$response['medlog']['clinicalimpression'] ?>>
 							</div>
 							<div class="form-group">
@@ -451,38 +461,44 @@ var_dump($response);
 							</div>
 
 							<div class="form-group">
-								<label for="selfimprovement">Αυτοβελτίωση:</label>
+								<label for="selfimprovement">Αυτοφροντίδα:</label>
 								<input type="text" class="form-control" id="selfimprovement" placeholder="" name="autofix" value=<?=$response['medlog']['autofix'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="treatmentfactors">Παράγοντες θεραπείας:</label>
+								<label for="treatmentfactors">Παράγοντες θεραπείας(προηγούμενες προσπάθειες θεραπείας, κινητοποίηση/επίγνωση πρόγνωση, καταλληλότητα για θεραπεία):</label>
 								<input type="text" class="form-control" id="treatmentfactors" placeholder="" name="therapyfactors" value=<?=$response['medlog']['therapyfactors'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="recommtherapy">Εισηγήσεις θεραπείας:</label>
+								<label for="recommtherapy">Εισηγήσεις θεραπείας(ψυχολογικές δυνάμεις, προτεινόμενοι στόχοι, δεξιότητες που μπορούν να αξιοποιηθούν ή να στοχευθούν):</label>
 								<input type="text" class="form-control" id="recommtherapy" placeholder="" name="therapysuggestions" value=<?=$response['medlog']['therapysuggestions'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="additionalev">Επιπλέον αξιολόγηση:</label>
+								<label for="additionalev">Ζητήματα που χρήζουν επιπρόσθετη αξιολόγηση:</label>
 								<input type="text" class="form-control" id="additionalev" placeholder="" name="additionalevaluation" value=<?=$response['medlog']['additionalevaluation'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="firstprogram">Αρχικό πρόγραμμα θεραπείας:</label>
+								<label for="q14">Πιθανή Πολυαξονική Εκτίμηση με βάση το DSM </label>
+								<br>
+								<label for="q14more">Άξονας Ι: Κλινικές διαταραχές, άλλες καταστάσεις που μπορούν να αποτελέσουν εστία κλινικής προσοχής</label>
+								<input type="text" class="form-control" id="q14a" placeholder="" name="dsmaxis1" value=<?=$response['medlog']['dsmaxis1'] ?>>
+								<label for="q14more">Άξονας ΙΙ:Διαταραχές της προσωπικότητας. Νοητική καθυστέρηση</label>
+								<input type="text" class="form-control" id="q14b" placeholder="" name="dsmaxis2" value=<?=$response['medlog']['dsmaxis2'] ?>>
+								<label for="q14more">Άξονας ΙΙΙ:Σωματικές Νόσοι</label>
+								<input type="text" class="form-control" id="q14c" placeholder="" name="dsmaxis3" value=<?=$response['medlog']['dsmaxis3'] ?>>
+								<label for="q14more">Άξονας ΙV:Ψυχοκοινωνικά και περιβαλλοντικά προβλήματα</label>
+								<input type="text" class="form-control" id="q14d" placeholder="" name="dsmaxis4" value=<?=$response['medlog']['dsmaxis4'] ?>>
+								<label for="q14more">Άξονας V:Σφαιρική εκτίμηση λειτουργικότητας (GAF):</label>
+								<input type="text" class="form-control" id="q14e" placeholder="" name="dsmaxis5" value=<?=$response['medlog']['dsmaxis5'] ?>>
+							</div>
+							<div class="form-group">
+								<label for="firstprogram">Αρχικό πρόγραμμα θεραπείας(συμπεριλαμβάνονται στόχοι θεραπείας, τρόποι και υπολογιζόμενος χρόνος θεραπείας):</label>
 								<input type="text" class="form-control" id="firstprogram" placeholder="" name="initialtherapyprogram" value=<?=$response['medlog']['initialtherapyprogram'] ?>>
 							</div>
 							<div class="form-group">
-								<label for="signed">Υπογεγραμμένο απο Supervisor:</label>
-								<input type="text" class="form-control" id="signed" placeholder="" name="signed" value=<?=$response['medlog']['signed'] ?>>
-							</div>
-							<div class="form-group">
-								<label for="completed">Ημερομηνία που έχει συμπληρωθεί εντελώς:</label>
-								<input type="date" class="form-control" id="completed" placeholder="" name="datecompleted" value=<?=$response['medlog']['datecompleted'] ?>>
-							</div>
-							<div class="form-group">
 								<label for="addmore">Προσθήκη ανασκόπησης</label>
-								<button id="addmore" class="btn btn-default" onclick="window.location='form11.php'">
-									ADD
-								</button>
+								<input type="submit" id="addmore" name="addmore" value="ADD" class="btn btn-default">
+									
+								
 							</div>
 							<div class="form-group">
 								<label for="addmore">Save Changes</label>
@@ -557,5 +573,9 @@ print "<h5>".$tok."</h5>";
 $response1 = request($url, $method, $postfields, $tok);
 }
 	var_dump($response1);
+	header("Refresh:0");
+}
+if(isset($_POST['addmore'])){
+	header("Location:form11.php");
 }
 ?>

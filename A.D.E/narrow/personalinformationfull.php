@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
 $method='GET';
@@ -515,5 +516,6 @@ print "<h5>".$tok."</h5>";
 $response1 = request($url, $method, $postfields, $tok);
 }
 	var_dump($response1);
+	header("Refresh:0");
 }
 ?>
