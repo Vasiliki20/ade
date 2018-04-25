@@ -209,16 +209,16 @@
 							<label for="belong"><b>Είμαι:</b></label>
 							<br>
 							<input type="hidden" name="belong">
-							<input type="radio" name="belong" value="foititis">
+							<input type="radio" name="belong" value="φοιτητής">
 							Φοιτητής
 							<br>
-							<input type="radio" name="belong" value="akadimaiko">
+							<input type="radio" name="belong" value="ακαδημαικό">
 							Μέλος του ακαδημαικού
 							<br>
-							<input type="radio" name="belong" value="dioikitiko">
+							<input type="radio" name="belong" value="διοικητικό">
 							Μέλος του διοικητικού
 							<br>
-							<input type="radio" name="belong" value="politis">
+							<input type="radio" name="belong" value="άλλο">
 							Άλλο
 						</div>
 				</div>

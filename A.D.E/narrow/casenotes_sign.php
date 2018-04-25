@@ -1,3 +1,31 @@
+<?php
+ob_start();
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/showcasenote.php?caseID=".$_GET['c'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+//var_dump($response);
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -4637,58 +4665,76 @@
 						<div class="panel-body">
 							<table id="casenotes" style="width:100%">
 								<tr>
-									<th> Κλινικές παρατηρήσεις: </th>
-									<td>
-										<label id="clinicalcomments"></label>
-									</td>
+									<th><label>Κλινικές παρατηρήσεις: </label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['result']['clinicalobservations'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Περιεχόμενα session: </th>
-									<td>
-										<label id="session"></label>
-									</td>
+									<th><label> Περιεχόμενα session: </label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['result']['sessioncontent'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Άλλες παρατηρήσεις: </th>
-									<td>
-										<label id="othercomments"></label>
-									</td>
+									<th><label>Άλλες παρατηρήσεις:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['result']['otherobservations'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Στόχος επόμενου appointment: </th>
-									<td>
-										<label id="goals"></label>
-									</td>
+									<th><label> Στόχος επόμενου appointment: </label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['result']['goalsfornextappoinment'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Τύπος: </th>
-									<td>
-										<label id="type"></label>
-									</td>
+									<th><label>Τύπος:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['result']['typeof'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Ημερομηνία γραφής: </th>
-									<td>
-										<label id="date"></label>
-									</td>
+									<th><label>Ημερομηνία γραφής:</label></th>
+									
+<td>
+<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['result']['dateof'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Ώρα γραφής: </th>
-									<td>
-									<label id="hour"></label>
-									</td>
+									<th><label>Ώρα γραφής:</label></th>
+									
+<td>
+<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['result']['timeof'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Υπογράφτηκε: </th>
-									<td>
-									<label id="signed"></label>
-									</td>
+									<th><label>Υπογράφτηκε:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['result']['Signed'] ?>>
+</input></td>
+
 								</tr>
 								<tr>
-									<th> Σημειώσεις: </th>
-									<td>
-									<label id="notes"></label>
-									</td>
+									<th><label>Σημειώσεις:</label></th>
+									
+<td>
+<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['result']['Note'] ?>>
+</input></td>
+
 								</tr>
 							</div>
 						</table>
@@ -4701,9 +4747,43 @@
 									Clear Signature
 								</button>
 								&nbsp;
-								<button id="saveSig" type="button">
+								<form method="post" action="">
+								<button id="saveSig" name="submit"  type="submit">
 									Save Signature
 								</button>
+								</form>
+								<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenotesign.php";
+$method='POST';
+$signed=false;
+if(isset($_POST['submit'])){
+	$signed=true;
+$postfields=http_build_query(array(
+'id'=>$_GET['c'],
+'signed'=>"Ναί",
+
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+header("Refresh:0");
+}
+?>
+								<div><?php if($signed){ echo "<p> You just signed this Case Note! <p>"; } ?> </div>
 								<div id="imgData"></div>
 								<div id="imgData"></div>
 								<br/>
@@ -4745,39 +4825,3 @@
 	</body>
 
 </html>
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/casenote.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-'appointmentID'=>$_GET['pID'],
-'clinical'=>$_POST['observations'],
-'content'=>$_POST['sessions'],
-'observations'=>$_POST['other'],
-'goalsnext'=>$_POST['goals'],
-'type'=>$_POST['type'],
-'date'=>$_POST['date'],
-'time'=>$_POST['time'],
-'signed'=>$_POST['signed'],
-'note'=>$_POST['notes'],
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
-}
-while($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
-}
-
-}
-?>

@@ -131,6 +131,51 @@
 					</div>
 				</header>
 
+				<script>
+							function show1() {
+								document.getElementById('div1').style.display = 'none';
+							}
+							function show2() {
+								document.getElementById('div1').style.display = 'block';
+							}
+							function show3() {
+								document.getElementById('div2').style.display = 'none';
+							}
+							function show4() {
+								document.getElementById('div2').style.display = 'block';
+							}
+							function show5() {
+								document.getElementById('div3').style.display = 'none';
+							}
+							function show6() {
+								document.getElementById('div3').style.display = 'block';
+							}
+							function show7() {
+								document.getElementById('div4').style.display = 'none';
+							}
+							function show8() {
+								document.getElementById('div4').style.display = 'block';
+							}
+							function show9() {
+								document.getElementById('div5').style.display = 'none';
+							}
+							function show10() {
+								document.getElementById('div5').style.display = 'block';
+							}
+							function show11() {
+								document.getElementById('div6').style.display = 'none';
+							}
+							function show12() {
+								document.getElementById('div6').style.display = 'block';
+							}
+							function show13() {
+								document.getElementById('div7').style.display = 'none';
+							}
+							function show14() {
+								document.getElementById('div7').style.display = 'block';
+							}
+						</script>
+						
 				<div class="container">
 					<div align="center">
 						<h4>ΙΣΤΟΡΙΚΟ ΓΙΑ ΠΑΙΔΙΑ</h4>
@@ -156,12 +201,14 @@
 							<input type="hidden" name="retakeclass" />
 							<label for="retakeclass"><strong>4. Έχει επαναλάβει κάμια τάξη;</strong></label>
 							<br>
-							<input type="radio" name="retakeclass" value="no">
+							<input type="radio" name="retakeclass" value="no" onclick="show1()">
 							Όχι
 							<br>
-							<input type="radio" name="retakeclass" value="yes">
+							<input type="radio" name="retakeclass" value="yes" onclick="show2()">
 							Ναι
 							<br>
+						</div>
+						<div class="form-group" id="div1">
 							<label for="retakeclass"><em>Αν ναι, ποιά και γιατί; </em></label>
 							<input type="text" class="form-control" id="retakeclasswhy" name="retakeclasswhy">
 						</div>
@@ -169,12 +216,14 @@
 							<input type="hidden" name="troubleinschool" />
 							<label for="troubleinschool"><strong>5. Προβλήματα στο σχολείο;</strong></label>
 							<br>
-							<input type="radio" name="troubleinschool" value="no">
+							<input type="radio" name="troubleinschool" value="no" onclick="show3()">
 							Όχι
 							<br>
-							<input type="radio" name="troubleinschool" value="yes">
+							<input type="radio" name="troubleinschool" value="yes" onclick="show4()">
 							Ναι
 							<br>
+						</div>
+						<div class="form-group" id="div2">
 							<label for="troubleinschooldesc"><em>Αν ναι, παρακαλώ περιγράψτε</em></label>
 							<input type="text" class="form-control" id="troubleinschooldesc" name="troubleinschooldesc">
 						</div>
@@ -182,12 +231,14 @@
 							<input type="hidden" name="specialtreatment" />
 							<label for="specialtreatment"><strong>6. Ειδική αγωγή;</strong></label>
 							<br>
-							<input type="radio" name="specialtreatment" value="no">
+							<input type="radio" name="specialtreatment" value="no" onclick="show5()">
 							Όχι
 							<br>
-							<input type="radio" name="specialtreatment" value="yes">
+							<input type="radio" name="specialtreatment" value="yes" onclick="show6()">
 							Ναι
 							<br>
+						</div>
+						<div class="form-group" id="div3">
 							<label for="specialtreatmentwhy"><em>Αν ναι, για ποιο λόγο; Πόσο καιρό;</em></label>
 							<input type="text" class="form-control" id="specialtreatmentwhy" name="specialtreatmentwhy">
 						</div>
@@ -270,12 +321,14 @@
 							<input type="hidden" name="bornproblems" />
 							<label for="bornproblems"><strong>20. Προβλήματα στη γέννα;</strong></label>
 							<br>
-							<input type="radio" name="bornproblems" value="no">
+							<input type="radio" name="bornproblems" value="no" onclick="show7()">
 							Όχι
 							<br>
-							<input type="radio" name="bornproblems" value="yes">
+							<input type="radio" name="bornproblems" value="yes" onclick="show8()">
 							Ναι
 							<br>
+						</div>
+						<div class="form-group" id="div4">
 							<label>Aν ναι, τι;</label>
 							<input type="text" class="form-control" id="bornproblems" name="bornproblems">
 						</div>
@@ -319,12 +372,14 @@
 							<input type="hidden" name="generalproblems" />
 							<label for="generalproblems"><strong>27. Είχατε ποτέ κάποιο ατύχημα, αναιμία, αλλεργίες, επιληψία, εγχειρίσεις, τραύματα, ή άλλα προβλήματα υγείας κατά την παιδική ηλικία;</strong></label>
 							<br>
-							<input type="radio" name="generalproblems" value="no">
+							<input type="radio" name="generalproblems" value="no" onclick="show9()">
 							Όχι
 							<br>
-							<input type="radio" name="generalproblems" value="yes">
+							<input type="radio" name="generalproblems" value="yes" onclick="show10()">
 							Ναι
 							<br>
+						</div>
+						<div class="form-group" id="div5">
 							<label>Aν ναι, διευκρινείστε;</label>
 							<input type="text" class="form-control" id="generalproblems" name="generalproblems">
 						</div>
@@ -422,12 +477,14 @@
 							<input type="hidden" name="disability" />
 							<label for="disability"><strong>29. Έχετε κάποιο είδος αναπηρίας; </strong></label>
 							<br>
-							<input type="radio" name="disability" value="no">
+							<input type="radio" name="disability" value="no" onclick="show11()">
 							Όχι
 							<br>
-							<input type="radio" name="disability" value="yes">
+							<input type="radio" name="disability" value="yes" onclick="show12()">
 							Ναι
 							<br>
+						</div>
+						<div class-"form-group" id="div6">
 							<label>Aν ναι, διευκρινείστε;</label>
 							<input type="text" class="form-control" id="disability" name="disability">
 						</div>
@@ -456,14 +513,18 @@
 							<input type="hidden" name="creed" />
 							<label for="creed"><strong>33. Ακολουθείτε κάποιο θρήσκευμα ή πνευματική πρακτική; </strong></label>
 							<br>
-							<input type="radio" name="creed" value="no">
+							<input type="radio" name="creed" value="no" onclick="show13()">
 							Όχι
 							<br>
-							<input type="radio" name="creed" value="yes">
+							<input type="radio" name="creed" value="yes" onclick="show14()">
 							Ναι
 							<br>
+						</div>
+						<div class="form-group" id="div7">
 							<label>Αν ναι, ποιο;</label>
 							<input type="text" class="form-control" id="disability" name="creed">
+						</div>
+						<div class="form-group">
 							<label for="creed"><strong>Πόσο συχνά </strong></label>
 							<br>
 							<input type="radio" name="creed" value="often">
