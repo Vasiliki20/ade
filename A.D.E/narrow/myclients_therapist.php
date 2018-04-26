@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ob_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,6 +124,7 @@
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
+								<form method="post" action="">
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 									
 									<thead>
@@ -170,16 +171,30 @@ $postfields=http_build_query(array(
 										<tr>
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
-											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td><input type="checkbox" name="redflag"></td>
+											<td><input type="hidden" value="<?= $response['result'][$i]['patientID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['patientID'] ?></label></td>
+											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<?php if($response['result'][$i]['redflag']==0){ ?>
+										<select name="flag[]">
+										<option value="1">Yes</option>
+										<option value="0" selected="selected">No</option>
+										
+										</select></td>
+										<?php }else{ ?>
+										<select name="flag[]">
+										<option value="1" selected="selected">Yes</option>
+										<option value="0">No</option>
+										<?php } ?>
+										</select></td>
+										
 											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
 										</tbody>
-								</table>
-								<button type="submit" name="save" class="btn btn-default">
-									Save Changes
-								</button>
+									</table>
+									<button type="submit" name="submit1" class="btn btn-default">
+											Save Changes
+										</button>
+								</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -221,5 +236,40 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
-
-
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/clientflag.php";
+$method='POST';
+$i=0;
+if(isset($_POST['submit1'])){
+	 var_dump($_POST['id']);
+	 var_dump($_POST['flag']);
+	foreach($_POST['id'] as $j){
+	
+$postfields=http_build_query(array(
+	'id'=> $_POST['id'][$i],		
+	'flag'=> $_POST['flag'][$i]
+		));
+		$i++;
+	if(isset($_COOKIE['token'])){
+		$response1=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response1=0;
+	}
+	if($response1['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response1=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response1);
+}
+header("Refresh:0");
+}
+?>

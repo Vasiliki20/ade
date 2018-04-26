@@ -138,9 +138,9 @@
 					<div class="warning" id="hiresponse"></div>
 					<div class="row">
 						<div class="col-lg-12">
-							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php" method="post" >
+							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieveapproved.php" method="post" >
 								<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
-								<input class="btn  btn-default" type="submit" name="submit" value="Show files" >
+								<input class="btn  btn-default" type="submit" name="submit" value="Show approved files" >
 							</form>
 						</div>
 					</div>

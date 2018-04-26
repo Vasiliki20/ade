@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); ob_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +125,7 @@
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
+								<form method="post" action="">
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 
 									<thead>
@@ -134,6 +135,7 @@
 											<th>Ταυτότητα</th>
 											<th>Ημερομηνία</th>
 											<th>Παρευρέθηκε</th>
+											<th>Χρέωση(€)</th>
 											<th>Write case note </th>
 										</tr>
 									</thead>
@@ -164,22 +166,55 @@ $postfields=http_build_query(array(
 		$response=request($url,$method,$postfields,$tok);
 	}
 	
-	
+	//var_dump($response);
 //}
 ?>
+									
 									<?php for($j=0;$j<count($response['result']);$j++){ ?>
+										
 										<tr>
 											<td><?=$response['result1'][$j]['firstname']?></td>
 											<td><?=$response['result1'][$j]['lastname']?></td>
 											<td><?=$response['result'][$j]['patientID']?></td>
 											<td><?=$response['result'][$j]['start']?></td>
-											<td><input type="checkbox" name="attended"/></td>
+											<?php if($response['result'][$j]['patientID']!=null){?>
+											<td><input type="hidden" value=<?=$response['result'][$j]['appointmentID']?> name="aid[]" ><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<select name="status[]">
+											<?php if(strnatcmp($response['result'][$j]['attendance'],"Scheduled")==0){ ?>
+											
+											<option value="Attended">Attended</option>
+											<option value="not Attended" >Not Attended</option>
+											<option value="Scheduled" selected="selected">Scheduled</option>
+											
+											<?php }elseif(strnatcmp($response['result'][$j]['attendance'],"Attended")==0){ ?>
+											
+											<option value="Attended" selected="selected">Attended</option>
+											<option value="not Attended" >Not Attended</option>
+											<option value="Scheduled" >Scheduled</option>
+											
+											<?php }elseif(strnatcmp($response['result'][$j]['attendance'],"not Attended")==0){ ?>
+											
+											<option value="Attended">Attended</option>
+											<option value="not Attended" selected="selected">Not Attended</option>
+											<option value="Scheduled" >Scheduled</option>
+											
+											<?php } ?>
+											</select></td>
+											<?php }else{ ?>
+											<td><label>Scheduled</label></td>
+											<?php } ?>
+											<?php if($response['result'][$j]['patientID']!=null){?>
+											<td><input value="<?=$response['result'][$j]['payment']?>" type="number" name="payment[]"></td>
+											<?php }else{ ?>
+											<td></td>
+											<?php } ?>
 											<td><a href="casenote.php?pID=<?=$response['result'][$j]['appointmentID']?>">link</a></td>
 										</tr>
 									<?php  } ?>
 									</tbody>
 								</table>
-
+								<input type="submit" name="submit" value="Save Attendance">
+								</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -221,4 +256,40 @@ $postfields=http_build_query(array(
 	</body>
 
 </html>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/markattendance.php";
+$method='POST';
+$i=0;
 
+if(isset($_POST['submit'])){
+	foreach($_POST['status'] as $j){
+	var_dump($_POST['status']);
+$postfields=http_build_query(array(
+	'id'=> $_POST['aid'][$i],
+	'payment'=> $_POST['payment'][$i],		
+	'status'=> $_POST['status'][$i]
+		));
+		$i++;
+	if(isset($_COOKIE['token'])){
+		$response1=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response1=0;
+	}
+	if($response1['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response1=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response1);
+}
+header("Refresh:0");
+}
+?>

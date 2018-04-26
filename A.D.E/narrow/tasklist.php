@@ -32,7 +32,7 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response=request($url,$method,$postfields,$tok);
 	}
-	var_dump($response);
+//	var_dump($response);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -251,7 +251,7 @@ $postfields=http_build_query(array(
 									</thead>
 									<tbody>
 										<?php if(isset($response)){for($i=0;$i<count($response['appointments']);$i++){ ?>
-											<?php if((strnatcmp($response['appointments'][$i]['attendance'],"Attended")!=0) && (strnatcmp($response['appointments'][$i]['attendance'],"Not attended")!=0) && $response['appointments'][$i]['patientID']!=NULL){
+											<?php if((strnatcmp($response['appointments'][$i]['attendance'],"Attended")!=0) && (strnatcmp($response['appointments'][$i]['attendance'],"not Attended")!=0) && $response['appointments'][$i]['patientID']!=NULL){
 											?>
 										<tr>
 											<td><?=$response['appointments'][$i]['start']?></td>

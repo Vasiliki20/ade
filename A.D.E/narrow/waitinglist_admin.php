@@ -171,15 +171,47 @@ $postfields=http_build_query(array(
 									<tbody>
 										<?php for($j=0;$j<count($response['result1']);$j++){?>
 										<tr>
+											<input type="hidden" name="id[]" value=<?=$response['result1'][$j]['patientID']?>>
 											<td><?=$response['result1'][$j]['datesubmited']?></td>
 											<td><?=$response['result1'][$j]['firstname']?> <?= $response['result1'][$j]['lastname']?></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
+											<?php if(strnatcmp($response['result1'][$j]['priority'],"suicide")==0){?>
+											<select name="prio[]">
+												<option value="suicide" selected="selected">Suicide Risk</option>
+												<option value="violence" >Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability">Disability</option>
+											</select></td>
+											<?php }elseif(strnatcmp($response['result1'][$j]['priority'],"violence")==0){?>
+											<select name="prio[]">
 												<option value="suicide">Suicide Risk</option>
 												<option value="violence" selected="selected">Violence Potential</option>
 												<option value="billing">Billing Issues</option>
 												<option value="disability">Disability</option>
+											</select ></td>
+											<?php }elseif(strnatcmp($response['result1'][$j]['priority'],"billing")==0){?>
+											<select name="prio[]">
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence" >Violence Potential</option>
+												<option value="billing" selected="selected">Billing Issues</option>
+												<option value="disability">Disability</option>
 											</select></td>
+											<?php }elseif(strnatcmp($response['result1'][$j]['priority'],"disability")==0){?>
+											<select name="prio[]">
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence" >Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability" selected="selected">Disability</option>
+											</select></td>
+											<?php }else{?>
+											<select name="prio[]">
+												<option selected="selected"></option>
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence">Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability">Disability</option>
+											</select></td>
+											<?php } ?>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select name=<?=$response['result1'][$j]['patientID']?>>
 												<option selected="selected"></option>
@@ -194,6 +226,9 @@ $postfields=http_build_query(array(
 								<br>
 								<div class="form-group" align="left">
 									<input type="submit" class="btn btn-default" name="submit" id="submit">
+								</div>
+								<div class="form-group" align="left">
+									<input type="submit" value="Save priority" class="btn btn-default" name="submit1" id="submit">
 								</div>
 								</form>
 							</div>
@@ -268,6 +303,41 @@ $postfields=http_build_query(array(
 	}
 	}
 	}
+header("Refresh:0");
+}
+?>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/clientpriority.php";
+$method='POST';
+$i=0;
+if(isset($_POST['submit1'])){
+	foreach($_POST['id'] as $j){
+	
+$postfields=http_build_query(array(
+	'id'=> $_POST['id'][$i],		
+	'priority'=> $_POST['prio'][$i]
+		));
+		$i++;
+	if(isset($_COOKIE['token'])){
+		$response2=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response2=0;
+	}
+	if($response2['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response2=request($url,$method,$postfields,$tok);
+	}
+	var_dump($response2);
+}
 header("Refresh:0");
 }
 ?>
