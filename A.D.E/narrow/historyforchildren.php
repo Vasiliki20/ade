@@ -383,7 +383,7 @@
 							<label>Aν ναι, διευκρινείστε;</label>
 							<input type="text" class="form-control" id="generalproblems" name="generalproblems">
 						</div>
-						<script>
+						<!--<script>
 							var counter = 1;
 							var limit = 10;
 							function addInput(divName) {
@@ -406,12 +406,13 @@
 									counter++;
 								}
 							}
-						</script>
+						</script>-->
 
 						<div class="form-group">
-							<label for="familyhistory"><strong>28. Οικογενειακό ιστορικό για ιατρικά προβλήματα:</strong></label>
-							<br>
-							<script>
+							<label for="familyhistory"><strong>28. Ιατρικά προβλήματα στην οικογένεια:</strong></label>
+							<input type="text" class="form-control" id="familyhistory" placeholder="" name="familyhistory">
+						
+						<!--	<script>
 								function addField(argument) {
 									var myTable = document.getElementById("myTable");
 									var currentIndex = myTable.rows.length;
@@ -471,7 +472,7 @@
 									<input type="text" name="results[]">
 									</td>
 								</tr>
-							</table>
+							</table>-->
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="disability" />
