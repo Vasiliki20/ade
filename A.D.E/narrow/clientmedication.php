@@ -118,9 +118,6 @@ var_dump($response);
 									<li>
 										<a href="waitinglist.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
