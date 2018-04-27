@@ -118,9 +118,6 @@ $postfields=http_build_query(array(
 									<li>
 										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_admin.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
