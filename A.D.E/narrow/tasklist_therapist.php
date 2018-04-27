@@ -193,9 +193,6 @@ $postfields=http_build_query(array(
 									<li>
 										<a href="myappointments_therapist.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist_therapist.php">Waiting List</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>

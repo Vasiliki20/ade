@@ -136,10 +136,7 @@ $response = request($url, $method, $postfields, $tok);
 									<li>
 										<a href="myappointments_therapist.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist_therapist.php">Waiting List</a>
-									</li>
-										</ul>
+								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
