@@ -206,7 +206,7 @@ $postfields=http_build_query(array(
 												<a href="formcomplaints_therapist.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formresons_therapist.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons_therapist.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>

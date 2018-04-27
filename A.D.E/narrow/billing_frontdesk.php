@@ -74,7 +74,7 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-								<li>
+							<li>
 								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
@@ -133,7 +133,7 @@
 												<a href="formcomplaints_frontdesk.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formresons_frontdesk.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons_frontdesk.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>

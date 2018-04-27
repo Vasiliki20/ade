@@ -203,7 +203,7 @@ $postfields=http_build_query(array(
 												<a href="formcomplaints.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formresons.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>

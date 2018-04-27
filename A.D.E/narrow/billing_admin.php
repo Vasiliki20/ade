@@ -173,7 +173,7 @@
 												<a href="formcomplaints_admin.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formresons_admin.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons_admin.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>

@@ -132,7 +132,7 @@
 												<a href="formcomplaints_frontdesk.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formresons_frontdesk.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons_frontdesk.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>

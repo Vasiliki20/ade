@@ -196,7 +196,7 @@ var_dump($response);
 												<a href="formcomplaints.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formresons.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>
