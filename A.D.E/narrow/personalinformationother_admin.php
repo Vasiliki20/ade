@@ -150,24 +150,22 @@ $postfields=http_build_query(array(
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes_admin.php">Σημειώσεις Προόδου</a>
+										<a href="casenotes_admin.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog_admin.php">Contact Logs</a>
-											</li>
-										</ul>
+									<li>
+										<a href="filesofpatient_admin.php">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation_admin.php">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation_admin.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule_admin.php">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule_admin.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog_admin.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 
@@ -176,24 +174,32 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships_admin.php">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships_admin.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication_admin.php">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication_admin.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory_admin.php">Medlog</a>
-											</li>
-											<li>
-												<a href="form07_admin.php">Έκθεση αρχικής αξιολόγησης</a>
+												<a href="medhistory_admin.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation_admin.php">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation_admin.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing_admin.php">Πληρωμές</a>
+										<a href="billing_admin.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints_admin.php">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formresons_admin.php">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
 									</li>
 								</ul>
 							</div><!-- /.navbar-collapse -->
