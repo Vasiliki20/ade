@@ -95,10 +95,10 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -132,15 +132,7 @@
 										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="approvefiles.php">Αναφορές/Έντυπα</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
-											</li>
-										</ul>
+										<a href="filesofpatient.php">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
@@ -150,6 +142,9 @@
 											</li>
 											<li>
 												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 
@@ -166,9 +161,6 @@
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
-											<li>
-												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
-											</li>
 										</ul>
 									</li>
 									<li>
@@ -177,8 +169,18 @@
 									<li>
 										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints.php">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formresons.php">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
 
 						</div><!-- /.container-fluid -->
