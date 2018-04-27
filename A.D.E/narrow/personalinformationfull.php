@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
 $method='GET';
@@ -117,9 +118,6 @@ $postfields=http_build_query(array(
 									</li>
 									<li>
 										<a href="waitinglist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
@@ -515,5 +513,6 @@ print "<h5>".$tok."</h5>";
 $response1 = request($url, $method, $postfields, $tok);
 }
 	var_dump($response1);
+	header("Refresh:0");
 }
 ?>
