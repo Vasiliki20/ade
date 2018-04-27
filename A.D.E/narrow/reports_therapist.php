@@ -115,9 +115,6 @@
 									<li>
 										<a href="waitinglist_therapist.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_therapist.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>

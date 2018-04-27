@@ -94,9 +94,6 @@
 									<li>
 										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_admin.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
@@ -336,35 +333,34 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclients.php?psychID=".$_SESSION['id'];
+										<?php require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/allclients.php";
 $method='GET';
 //if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'psychID' => $_SESSION['id']
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
-}
-while($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-										?>
-										<script>
-																						document.cookie='token=<?= $tok ?>
-												';
-										</script>
-										<?php
-										//$GLOBALS['curtoken']=giveToken();
-										//print "<h5>".$GLOBALS['curtoken']."</h5>";
-										$response = request($url, $method, $postfields, $tok);
-										}
-
-										//}
-										?>
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
 										<?php
 if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 <tr>
@@ -378,6 +374,7 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 										<option value="0" selected="selected">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
+										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										<?php }else{ ?>
 										<select name="status[]">
 										<option value="1" selected="selected">Active</option>
