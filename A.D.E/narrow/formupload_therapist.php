@@ -92,9 +92,6 @@
 									<li>
 										<a href="waitinglist_therapist.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_therapist.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
@@ -138,9 +135,9 @@
 					<div class="warning" id="hiresponse"></div>
 					<div class="row">
 						<div class="col-lg-12">
-							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieve.php" method="post" >
+							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieveapproved.php" method="post" >
 								<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
-								<input class="btn  btn-default" type="submit" name="submit" value="Show files" >
+								<input class="btn  btn-default" type="submit" name="submit" value="Show Approved files" >
 							</form>
 						</div>
 					</div>
