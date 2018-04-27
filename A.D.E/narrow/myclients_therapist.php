@@ -185,7 +185,7 @@ $postfields=http_build_query(array(
 										<?php } ?>
 										</select></td>
 										
-											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+											<td><a  href="casefile_therapist.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
 										</tbody>
