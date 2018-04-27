@@ -1,4 +1,3 @@
-<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +73,7 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-								<li>
+							<li>
 								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
@@ -99,14 +98,14 @@
 				<!-- /.navbar-static-side -->
 			</nav>
 
-				<div id="page-wrapper">
+			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Kατάσταση Πληρωμών</h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
-					<!-- /.col-lg-12 -->
 				</div>
 				<div>
+					<!-- /.col-lg-12 -->
 					<nav class="navbar navbar-default">
 						<div class="container-fluid">
 							<!-- Brand and toggle get grouped for better mobile display -->
@@ -138,105 +137,45 @@
 										</ul>
 									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
 
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
-				
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="panel panel-default">
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-								<form method="post" action="">
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 
-									<thead>
-										<tr>
-											<th>Όνομα</th>
-											<th>Επίθετο</th>
-											<th>Ταυτότητα</th>
-											<th>Όνομα συνάντησης</th>
-											<th>Ημερομηνία</th>
-											<th>Χρέωση(€)</th>
-											<th>Πληρώθηκε</th>
-										</tr>
-									</thead>
-									<tbody>
-																			<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/bill.php?patientID=".$_GET['patientID'];
-$method='GET';
-//if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-	
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-	//var_dump($response);
-//}
-?>
-									
-									<?php for($j=0;$j<count($response['result']);$j++){ ?>
-										
-										<tr>
-											<td><?=$response['result1'][$j]['firstname']?></td>
-											<td><?=$response['result1'][$j]['lastname']?></td>
-											<td><?=$response['result'][$j]['patientID']?></td>
-											<td><?=$response['result'][$j]['start']?></td>
-											<td><?=$response['result'][$j]['nameofappointment']?></td>
-											<?php if($response['result'][$j]['patientID']!=null){?>
-											<td><input type="hidden" name="aid[]" value=<?=$response['result'][$j]['appointmentID']?>><label><?=$response['result'][$j]['payment']?></label></td>
-											<?php }else{ ?>
-											<td></td>
-											<?php } ?>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<?php if($response['result'][$j]['payed']==0){ ?>
-											<select name="payed[]">
-											<option value="1">Yes</option>
-											<option value="0" selected="selected">No</option>	
-											</select></td>
-											<?php }else{ ?>
-											<select name="payed[]">
-											<option value="1" selected="selected">Yes</option>
-											<option value="0">No</option>
-											<?php } ?>
-											</select></td>
-											</tr>
-									<?php  } ?>
-									</tbody>
-								</table>
-								<div align="center"><h3>Σύνολο Xρωστούμενων: €<?=$response['sum']['total']?></h3></div>
-								<input type="submit" name="submit" value="Save Payments">
-								</form>
-								
-							</div>
-							<!-- /.panel-body -->
+				<div>
+					<div class="panel panel-default">
+						<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="id" value=<?=$_GET['patientID'] ?> >
+								<div class="form-group">
+									<label for="file">Upload files for this patient</label>
+									<input id="file" type="file" name="file">
+									<p class="help-block">
+										<h6>Only pdf,jpg,jpeg,png and gif file with maximum size of 10 MB is allowed.</h6>
+									</p>
+									<input type="submit" class="btn  btn-default" id="sub" value="Upload">
+								</div>
+							</form>
 						</div>
-						<!-- /.panel -->
 					</div>
-					<!-- /.col-lg-12 -->
+					<div class="warning" id="hiresponse"></div>
+					<div class="row">
+						<div class="col-lg-12">
+							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieveapproved.php" method="post" >
+								<input type="hidden" name="id" value=<?=$_GET['patientID'] ?> >
+								<input class="btn  btn-default" type="submit" name="submit" value="Show Approved files of this patient" >
+							</form>
+						</div>
+					</div>
+					<div id="contactResponse"></div>
+
 				</div>
+				<!-- /.panel-body -->
 			</div>
+
 			<!-- /#page-wrapper -->
 
 		</div>
@@ -261,48 +200,77 @@ $postfields=http_build_query(array(
 
 		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
+			$("#contactForm").submit(function(event) {
+				/* stop form from submitting normally */
+				event.preventDefault();
+
+				/* get some values from elements on the page: */
+				var $form = $(this),
+				    $submit = $form.find('button[type="submit"]'),
+				    id_value = $form.find('input[name="id"]').val(),
+				    url = $form.attr('action');
+
+				/* Send the data using post */
+				var posting = $.post(url, {
+					id : id_value
+				});
+
+				posting.done(function(data) {
+					/* Put the results in a div */
+					$("#contactResponse").html(data);
+
+					/* Change the button text. */
+					$submit.text('Sent, Thank you');
+
+					/* Disable the button. */
+					$submit.attr("disabled", true);
 				});
 			});
-		</script>
-	</body>
+			$(document).ready(function() {
+
+				$("#sub").click(function(event) {
+
+					//stop submit the form, we will post it manually.
+					event.preventDefault();
+
+					// Get form
+					var form = $('#hi')[0];
+
+					// Create an FormData object
+					var data = new FormData(form);
+
+					// disabled the submit button
+					$("sub").prop("disabled", true);
+
+					$.ajax({
+						type : "POST",
+						enctype : 'multipart/form-data',
+						url : "http://thesis.in.cs.ucy.ac.cy/mhc/upload.php",
+						data : data,
+						processData : false,
+						contentType : false,
+						cache : false,
+						timeout : 600000,
+						success : function(data) {
+
+							$("#hiresponse").text(data);
+							console.log("SUCCESS : ", data);
+							$("#sub").prop("disabled", false);
+
+						},
+						error : function(e) {
+
+							$("#hiresponse").text(e.responseText);
+							console.log("ERROR : ", e);
+							$("#sub").prop("disabled", false);
+
+						}
+					});
+
+				});
+
+			}); 
+</script>
+</body>
 
 </html>
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/pay.php";
-$method='POST';
-$i=0;
-
-if(isset($_POST['submit'])){
-	foreach($_POST['aid'] as $j){
-	
-$postfields=http_build_query(array(
-	'id'=> $_POST['aid'][$i],
-	'payed'=> $_POST['payed'][$i],		
-		));
-		$i++;
-	if(isset($_COOKIE['token'])){
-		$response1=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response1=0;
-	}
-	if($response1['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response1=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response1);
-}
-header("Refresh:0");
-}
-?>
