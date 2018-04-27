@@ -88,9 +88,6 @@
 									<li>
 										<a href="myappointments.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist.php">Waiting List</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
