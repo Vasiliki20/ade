@@ -105,12 +105,14 @@
 				<!-- /.navbar-static-side -->
 			</nav>
 
-			<div id="page-wrapper">
+				<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">Kατάσταση Πληρωμών</h1>
 					</div>
 					<!-- /.col-lg-12 -->
+<<<<<<< HEAD
+=======
 				</div>
 				<div>
 					<nav class="navbar navbar-default">
@@ -175,6 +177,7 @@
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>
+>>>>>>> 5e95706d00abadeff30fc0d626190bc51096a104
 				</div>
 				<!-- /.row -->
 				<div class="row">
