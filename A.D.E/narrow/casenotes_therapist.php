@@ -115,12 +115,6 @@ var_dump($response);
 									<li>
 										<a href="myappointments_therapist.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist_therapist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search_therapist.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
@@ -156,21 +150,14 @@ var_dump($response);
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
 										<a href="casenotes_therapist.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog_therapist.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
-											</li>
-										</ul>
+									<li>
+										<a href="filesofpatient_therapist.php">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
@@ -180,6 +167,9 @@ var_dump($response);
 											</li>
 											<li>
 												<a href="schedule_therapist.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog_therapist.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 
@@ -196,9 +186,6 @@ var_dump($response);
 											<li>
 												<a href="medhistory_therapist.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
-											<li>
-												<a href="form07_therapist.php">Έκθεση αρχικής αξιολόγησης</a>
-											</li>
 										</ul>
 									</li>
 									<li>
@@ -207,8 +194,18 @@ var_dump($response);
 									<li>
 										<a href="billing_therapist.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints_therapist.php">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons_therapist.php">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>

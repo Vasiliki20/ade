@@ -115,12 +115,6 @@ var_dump($response);
 									<li>
 										<a href="myappointments_therapist.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist_therapist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search_therapist.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
@@ -162,13 +156,8 @@ var_dump($response);
 									<li>
 										<a href="casenotes_therapist.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog_therapist.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
-											</li>
-										</ul>
+									<li>
+										<a href="filesofpatient_therapist.php">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
@@ -178,6 +167,9 @@ var_dump($response);
 											</li>
 											<li>
 												<a href="schedule_therapist.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog_therapist.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 
@@ -194,9 +186,6 @@ var_dump($response);
 											<li>
 												<a href="medhistory_therapist.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
-											<li>
-												<a href="form07_therapist.php">Έκθεση αρχικής αξιολόγησης</a>
-											</li>
 										</ul>
 									</li>
 									<li>
@@ -205,8 +194,18 @@ var_dump($response);
 									<li>
 										<a href="billing_therapist.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints_therapist.php">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons_therapist.php">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
 
 						</div><!-- /.container-fluid -->
@@ -453,11 +452,298 @@ var_dump($response);
 								<label for="completed">Ημερομηνία που έχει συμπληρωθεί εντελώς:</label>
 								<input type="date" class="form-control" id="completed" placeholder="" name="completed" value=<?=$response['medlog']['datecompleted'] ?>>
 							</div>
+							<div align="center">
+								<h4><strong>ΙΣΤΟΡΙΚΟ ΓΙΑ ΠΑΙΔΙΑ</strong></h4>
+							</div>
+
+							<div align="left">
+								<h5>Α. ΕΚΠΑΙΔΕΥΤΙΚΟ ΙΣΤΟΡΙΚΟ</h5>
+							</div>
+							<div class="form-group">
+								<input type="hidden" value="951652" name="patientID">
+							</div>
+							<div class="form-group">
+								<label for="school"><strong>1. Σχολείο στο οποίο φοιτά</strong></label>
+								<input type="text" class="form-control" id="school" placeholder="" name="school">
+							</div>
+							<div class="form-group">
+								<label for="class"><strong>2. Τάξη</strong></label>
+								<input type="text" class="form-control" id="class" placeholder="" name="taksi">
+							</div>
+							<div class="form-group">
+								<label for="previousschools"><strong>3. Προηγούμενα σχολεία</strong></label>
+								<input type="text" class="form-control" id="previousschools" placeholder="" name="previousschools">
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="repeatclass" />
+								<label for="retakeclass"><strong>4. Έχει επαναλάβει κάμια τάξη;</strong></label>
+								<br>
+								<input type="radio" name="repeatclass" value="no" onclick="show1()">
+								Όχι
+								<br>
+								<input type="radio" name="repeatclass" value="yes" onclick="show2()">
+								Ναι
+								<br>
+							</div>
+							<div class="form-group" id="div1">
+								<label for="repeatclass"><em>Αν ναι, ποιά και γιατί; </em></label>
+								<input type="text" class="form-control" id="retakeclasswhy" name="retakeclasswhy">
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="schoolproblems" />
+								<label for="troubleinschool"><strong>5. Προβλήματα στο σχολείο;</strong></label>
+								<br>
+								<input type="radio" name="schoolproblems" value="no" onclick="show3()">
+								Όχι
+								<br>
+								<input type="radio" name="schoolproblems" value="yes" onclick="show4()">
+								Ναι
+								<br>
+							</div>
+							<div class="form-group" id="div2">
+								<label for="troubleinschooldesc"><em>Αν ναι, παρακαλώ περιγράψτε</em></label>
+								<input type="text" class="form-control" id="schoolproblems" name="schoolproblems">
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="specialmedicines" />
+								<label for="specialtreatment"><strong>6. Ειδική αγωγή;</strong></label>
+								<br>
+								<input type="radio" name="specialmedicines" value="no" onclick="show5()">
+								Όχι
+								<br>
+								<input type="radio" name="specialmedicines" value="yes" onclick="show6()">
+								Ναι
+								<br>
+							</div>
+							<div class="form-group" id="div3">
+								<label for="specialtreatmentwhy"><em>Αν ναι, για ποιο λόγο; Πόσο καιρό;</em></label>
+								<input type="text" class="form-control" id="specialtreatmentwhy" name="specialmedicines">
+							</div>
+
+							<div align="left">
+								<h5>Β. ΟΙΚΟΓΕΝΕΙΑΚΟ ΙΣΤΟΡΙΚΟ</h5>
+							</div>
+							<div class="form-group">
+								<label for="mothername"><strong>7. Όνομα μητέρας</strong></label>
+								<input type="text" class="form-control" id="mothername" placeholder="" name="mothername">
+							</div>
+							<div class="form-group">
+								<label for="motherage"><strong>8. Ηλικία μητέρας</strong></label>
+								<input type="number" class="form-control" id="motherage" placeholder="" name="motherage">
+							</div>
+							<div class="form-group">
+								<label for="motherjob"><strong>9. Επάγγελμα μητέρας</strong></label>
+								<input type="text" class="form-control" id="motherjob" placeholder="" name="motherjob">
+							</div>
+							<div class="form-group">
+								<label for="mothernationality"><strong>10. Εθνικότητα μητέρας</strong></label>
+								<input type="text" class="form-control" id="mothernationality" placeholder="" name="mothernationality">
+							</div>
+
+							<div class="form-group">
+								<label for="fathername"><strong>11. Όνομα πατέρα</strong></label>
+								<input type="text" class="form-control" id="fathername" placeholder="" name="fathername">
+							</div>
+							<div class="form-group">
+								<label for="fatherage"><strong>12. Ηλικία πατέρα</strong></label>
+								<input type="number" class="form-control" id="fatherage" placeholder="" name="fatherage">
+							</div>
+							<div class="form-group">
+								<label for="fatherjob"><strong>13. Επάγγελμα πατέρα</strong></label>
+								<input type="text" class="form-control" id="fatherjob" placeholder="" name="fatherjob">
+							</div>
+							<div class="form-group">
+								<label for="fathernationality"><strong>14. Εθνικότητα πατέρα</strong></label>
+								<input type="text" class="form-control" id="fathernationality" placeholder="" name="fathernationality">
+							</div>
+
+							<div class="form-group">
+								<input type="hidden" name="familystatus" />
+								<label for="familystatus"><strong>15. Οικογενειακή κατάσταση:</strong></label>
+								<br>
+								<input type="radio" name="familystatus" value="married">
+								Παντρεμένοι
+								<br>
+								<input type="radio" name="familystatus" value="devorced">
+								Διαζευγμένοι
+								<br>
+								<input type="radio" name="familystatus" value="apart">
+								Σε διάσταση
+								<br>
+								<input type="radio" name="familystatus" value="other">
+								Άλλο
+								<br>
+								<input type="text" class="form-control" id="family" name="familystatus">
+							</div>
+							<div class="form-group">
+								<label for="brotherssisters"><strong>16. Αδέλφια (αριθμός, ηλικίες, φύλο)</strong></label>
+								<input type="text" class="form-control" id="brotherssisters" placeholder="" name="siblings">
+							</div>
+							<div class="form-group">
+								<label for="adopted"><strong>17. Αν είστε υιοθετημένος, ποιες οι συνθήκες υιοθέτησης;</strong></label>
+								<input type="text" class="form-control" id="adopted" placeholder="" name="adopted">
+							</div>
+							<div class="form-group">
+								<label for="born"><strong>18. Τόπος γέννησης</strong></label>
+								<input type="text" class="form-control" id="born" placeholder="" name="placeofbirth">
+							</div>
+							<div class="form-group">
+								<label for="problems"><strong>19. Προβλήματα με την κύηση;</strong></label>
+								<br>
+								<label><em> (φαρμακευτική αγωγή, χρήση ουσιών – νόμιμων ή παράνομων - από τη μητέρα, γέννα – πρόωρη, στην ώρα της, καθυστερημένη)</em></label>
+								<input type="text" class="form-control" id="problems" placeholder="" name="pregnantproblems">
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="birthproblems" />
+								<label for="birthproblems"><strong>20. Προβλήματα στη γέννα;</strong></label>
+								<br>
+								<input type="radio" name="birthproblems" value="no" onclick="show7()">
+								Όχι
+								<br>
+								<input type="radio" name="birthproblems" value="yes" onclick="show8()">
+								Ναι
+								<br>
+							</div>
+							<div class="form-group" id="div4">
+								<label>Aν ναι, τι;</label>
+								<input type="text" class="form-control" id="birthproblems" name="bornproblems">
+							</div>
+
+							<div align="left">
+								<h5>Γ. ΑΝΑΠΤΥΞΙΑΚΟ ΙΣΤΟΡΙΚΟ</h5>
+							</div>
+							<div class="form-group">
+								<label for="nutrition"><strong>21. Προβλήματα διατροφής στην παιδική ηλικία;</strong></label>
+								<input type="text" class="form-control" id="nutrition" placeholder="" name="dietproblems">
+							</div>
+							<div class="form-group">
+								<label for="sleepproblems"><strong>22. Προβλήματα ύπνου στην παιδική ηλικία;</strong></label>
+								<input type="text" class="form-control" id="sleepproblems" placeholder="" name="sleepproblems">
+							</div>
+							<div class="form-group">
+								<label for="disease"><strong>23. Προβλήματα με ασθένειες; Αν ναι, σε ποια ηλικία;</strong></label>
+								<input type="text" class="form-control" id="disease" placeholder="" name="diseaseproblems">
+							</div>
+							<div class="form-group">
+								<label for="important"><strong>24. Σημαντικά γεγονότα κατά την παιδική ηλικία;</strong></label>
+								<br>
+								<label><em>(π.χ., πολλαπλές μετακομίσεις, κακοποίηση, γονεϊκά προβλήματα, απώλεια γονιού ή αδελφιού, άλλα)</em></label>
+								<input type="text" class="form-control" id="important" placeholder="" name="importants">
+							</div>
+
+							<div align="left">
+								<h5>Δ. ΙΑΤΡΙΚΟ ΙΣΤΟΡΙΚΟ</h5>
+							</div>
+							<div class="form-group">
+								<label for="lastexam"><strong>25. Πότε ήταν η τελευταία εξέταση;</strong></label>
+								<input type="date" class="form-control" id="lastexam" placeholder="" name="lastexamination">
+							</div>
+							<div class="form-group">
+								<label for="results"><strong>26. Ποιά ήταν τα αποτελέσματα;</strong></label>
+								<input type="text" class="form-control" id="results" placeholder="" name="lastresults">
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="healthproblems" />
+								<label for="healthproblems"><strong>27. Είχατε ποτέ κάποιο ατύχημα, αναιμία, αλλεργίες, επιληψία, εγχειρίσεις, τραύματα, ή άλλα προβλήματα υγείας κατά την παιδική ηλικία;</strong></label>
+								<br>
+								<input type="radio" name="healthproblems" value="no" onclick="show9()">
+								Όχι
+								<br>
+								<input type="radio" name="healthproblems" value="yes" onclick="show10()">
+								Ναι
+								<br>
+							</div>
+							<div class="form-group" id="div5">
+								<label>Aν ναι, διευκρινείστε;</label>
+								<input type="text" class="form-control" id="generalproblems" name="healthproblems">
+							</div>
+							<div class="form-group">
+								<label for="familyhistory"><strong>28. Ιατρικά προβλήματα στην οικογένεια:</strong></label>
+								<input type="text" class="form-control" id="familyhistory" placeholder="" name="familyhealthproblems">
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="cdisability" />
+								<label for="disability"><strong>29. Έχετε κάποιο είδος αναπηρίας; </strong></label>
+								<br>
+								<input type="radio" name="cdisability" value="no" onclick="show11()">
+								Όχι
+								<br>
+								<input type="radio" name="cdisability" value="yes" onclick="show12()">
+								Ναι
+								<br>
+							</div>
+							<div class-"form-group" id="div6">
+								<label>Aν ναι, διευκρινείστε;</label>
+								<input type="text" class="form-control" id="disability" name="cdisability">
+							</div>
+
+							<div align="left">
+								<h5>Ε. ΚΟΙΝΩΝΙΚΟ ΙΣΤΟΡΙΚΟ</h5>
+							</div>
+							<div class="form-group">
+								<label for="friends"><strong>30. Έχετε φίλους κατά την παιδική ηλικία;</strong></label>
+								<input type="text" class="form-control" id="friends" placeholder="" name="friends">
+							</div>
+							<div class="form-group">
+								<label for="puberty"><strong>31. Προβλήματα με την εφηβεία;</strong></label>
+								<input type="text" class="form-control" id="puberty" placeholder="" name="teenageproblems">
+							</div>
+							<div class="form-group">
+								<label for="activities"><strong>32. Δραστηριότητες που σας αρέσουν;</strong></label>
+								<input type="text" class="form-control" id="activities" placeholder="" name="thingsyoulike">
+							</div>
+
+							<div align="left">
+								<h5>ΓΕΝΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ</h5>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="religious" />
+								<label for="creed"><strong>33. Ακολουθείτε κάποιο θρήσκευμα ή πνευματική πρακτική; </strong></label>
+								<br>
+								<input type="radio" name="religious" value="no" onclick="show13()">
+								Όχι
+								<br>
+								<input type="radio" name="religious" value="yes" onclick="show14()">
+								Ναι
+								<br>
+							</div>
+							<div class="form-group" id="div7">
+								<label>Αν ναι, ποιο;</label>
+								<input type="text" class="form-control" id="disability" name="religious">
+							</div>
+							<div class="form-group">
+								<label for="creed"><strong>Πόσο συχνά </strong></label>
+								<br>
+								<input type="radio" name="religiousfrequency" value="often">
+								Πολύ
+								<br>
+								<input type="radio" name="religiousfrequency" value="usualy">
+								Λίγο
+								<br>
+								<input type="radio" name="religiousfrequency" value="never">
+								Καθόλου
+								<br>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="religioussupport" />
+								<label for="creed"><strong>34. Θα λέγατε ότι αποτελεί στοιχείο στήριξης η πνευματικότητα σας; </strong></label>
+								<br>
+								<input type="radio" name="religioussupport" value="no">
+								Όχι
+								<br>
+								<input type="radio" name="religioussupport" value="yes">
+								Ναι
+								<br>
+							</div>
 							<div class="form-group">
 								<label for="addmore">Προσθήκη ανασκόπησης</label>
 								<button id="addmore" class="btn btn-default" onclick="window.location='form11.php'">
 									ADD
 								</button>
+							</div>
+							<div class="form-group">
+								<label for="addmore">Save Changes</label>
+								<input type="submit" name="submit">
 							</div>
 						</div>
 					</div>

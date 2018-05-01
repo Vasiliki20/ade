@@ -89,12 +89,6 @@
 									<li>
 										<a href="myappointments_therapist.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist_therapist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search_therapist.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
@@ -132,6 +126,7 @@
 											<th>Όνομα</th>
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
+											<th>Ψυχολόγος</th>
 											<th>Red Flag</th>
 											<th>Case File</th>
 										</tr>
@@ -172,6 +167,10 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><input type="hidden" value="<?= $response['result'][$i]['patientID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['patientID'] ?></label></td>
+<<<<<<< HEAD
+=======
+											<td>Ψυχολόγος</td>
+>>>>>>> 5e95706d00abadeff30fc0d626190bc51096a104
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<?php if($response['result'][$i]['redflag']==0){ ?>
 										<select name="flag[]">
@@ -186,7 +185,11 @@ $postfields=http_build_query(array(
 										<?php } ?>
 										</select></td>
 										
+<<<<<<< HEAD
 											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+=======
+											<td><a  href="casefile_therapist.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+>>>>>>> 5e95706d00abadeff30fc0d626190bc51096a104
 										</tr>
 											<?php }} ?>
 										</tbody>

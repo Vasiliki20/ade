@@ -134,9 +134,6 @@ $response = request($url, $method, $postfields, $tok);
 									<li>
 										<a href="waitinglist_frontdesk.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_frontdesk.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>

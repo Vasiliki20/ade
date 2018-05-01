@@ -130,9 +130,6 @@ $postfields=http_build_query(array(
 									<li>
 										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_admin.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
@@ -202,6 +199,7 @@ $postfields=http_build_query(array(
 												<option value="violence" >Violence Potential</option>
 												<option value="billing">Billing Issues</option>
 												<option value="disability" selected="selected">Disability</option>
+<<<<<<< HEAD
 											</select></td>
 											<?php }else{?>
 											<select name="prio[]">
@@ -211,6 +209,17 @@ $postfields=http_build_query(array(
 												<option value="billing">Billing Issues</option>
 												<option value="disability">Disability</option>
 											</select></td>
+=======
+											</select></td>
+											<?php }else{?>
+											<select name="prio[]">
+												<option selected="selected"></option>
+												<option value="suicide">Suicide Risk</option>
+												<option value="violence">Violence Potential</option>
+												<option value="billing">Billing Issues</option>
+												<option value="disability">Disability</option>
+											</select></td>
+>>>>>>> 5e95706d00abadeff30fc0d626190bc51096a104
 											<?php } ?>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select name=<?=$response['result1'][$j]['patientID']?>>

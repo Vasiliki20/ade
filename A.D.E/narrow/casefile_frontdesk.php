@@ -112,9 +112,6 @@ var_dump($response);
 									<li>
 										<a href="waitinglist_frontdesk.php">Waiting List</a>
 									</li>
-									<li>
-										<a href="search_frontdesk.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							<li>
@@ -149,9 +146,22 @@ var_dump($response);
 							</div>
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
-
+									<li>
+										<a href="filesofpatient_frontdesk.php">Εκθέσεις/Αναφορές</a>
+									</li>
 									<li>
 										<a href="billing_frontdesk.php?patientID=<?=$_GET['patientID'] ?>">Πληρωμές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints_frontdesk.php">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons_frontdesk.php">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
 									</li>
 								</ul>
 
