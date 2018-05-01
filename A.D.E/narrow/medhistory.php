@@ -503,6 +503,7 @@ var_dump($response);
 								
 							</div>
 							<div class="form-group">
+<<<<<<< HEAD
 									<label for="addmore">Δείτε προηγούμενες ανασκοπήσεις</label>
 									<ul>
 									
@@ -521,6 +522,32 @@ var_dump($response);
 						<form method="post" action="">
 							<div align="center">
 									<h4><strong>ΙΣΤΟΡΙΚΟ ΓΙΑ ΠΑΙΔΙΑ</strong></h4>
+=======
+								<label for="addmore">Save Changes</label>
+								<input type="submit" name="submit">
+
+							<div class="panel-body">
+								<input type="hidden" name="patientID" value=<?=$_GET['patientID'] ?>>
+								<div class="form-group">
+									<label for="emotionsforuni">Συναισθήματα για πανεπιστήμιο:</label>
+									<input type="text" class="form-control" id="emotionsforuni" placeholder="" name="feelaboutstudies" value=<?=$response['medlog']['feelaboutstudies'] ?>>
+								</div>
+								<div class="form-group">
+									<label for="timeofwork">Eργασία:</label>
+									<input type="text" class="form-control" id="timeofwork" placeholder="" name="job" value=<?=$response['medlog']['job'] ?>>
+								</div>
+								<div class="form-group">
+									<label for="timeofwork">Ώρα εργασίας:</label>
+									<input type="text" class="form-control" id="timeofwork" placeholder="" name="jobtime" value=<?=$response['medlog']['jobtime'] ?>>
+								</div>
+								<div class="form-group">
+									<label for="workduties">Καθήκοντα εργασίας:</label>
+									<input type="text" class="form-control" id="workduties" placeholder="" name="jobdutys" value=<?=$response['medlog']['jobdutys'] ?>>
+								</div>
+								<div class="form-group">
+									<label for="anexietywork">Άγχος εργασίας:</label>
+									<input type="text" class="form-control" id="anexietywork" placeholder="" name="jobstress" value=<?=$response['medlog']['jobstress'] ?>>
+>>>>>>> 66cee7c54c83e0992bb03a8469f89de54f61dfe3
 								</div>
 
 								<div align="left">
@@ -892,6 +919,7 @@ header("Refresh:0");
 if(isset($_POST['addmore'])){
 header("Location:form11.php");
 
+<<<<<<< HEAD
 }
 ?>
 <?php
@@ -922,6 +950,8 @@ $response1 = request($url, $method, $postfields, $tok);
 }
 if(isset($_POST['addmore'])){
 header("Location:form11.php");
+=======
+>>>>>>> 66cee7c54c83e0992bb03a8469f89de54f61dfe3
 }
 ?>
 

@@ -49,9 +49,9 @@
 							<br>
 							<br>
 							<br>
-							<h3><strong>Συνδεση</strong></h3>
+							<h3><strong>Ξεχασατε τον κωδικο σας;</strong></h3>
 							<p>
-								Συμπληρώστε τα στοιχεία σας για να συνδεθείτε στον λογαριασμό σας
+								Συμπληρώστε τα στοιχεία σας και ελέγξετε στην ηλεκτρονική σας διεύθυνση για επιβεβέωση
 							</p>
 
 							<fieldset>
@@ -60,15 +60,17 @@
 									<input type="number" name="id" placeholder="Ταυτότητα" class="form-control" id="id">
 								</div>
 								<div class="form-group">
-									<label class="sr-only" for="password">Κωδικός</label>
-									<input type="password" name="password" placeholder="Κωδικός" class="form-control" id="password">
+									<label class="sr-only" for="email">Ηλεκτρονική διεύθυνση</label>
+									<input type="email" name="email" placeholder="Ηλεκτρονική Διεύθυνση" class="form-control" id="email">
 								</div>
-								<a href="forgotpassword.php">Ξεχάσατε τον κωδικό σας;</a>
-								<p>
-									<strong>Αν δεν έχεις λογαριασμό, δημιούργησε εδώ</strong>
-									<br>
-									<a href="signupfinal.php" id="flip-btn" class="signup signup_link">Εγγραφή</a>
-								</p>
+								<div class="form-group">
+									<label class="sr-only" for="password">Νέος κωδικός</label>
+									<input type="text" name="password" placeholder="Νέος κωδικός" class="form-control" id="password">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="confirmpassword">Επιβεβέωση νέου κωδικού</label>
+									<input type="text" name="confirmpassword" placeholder="Επιβεβέωση νέου κωδικού" class="form-control" id="confirmpassword">
+								</div>
 								<div class="f1-buttons">
 									<button type="submit" name="submit" class="btn btn-submit">
 										Submit
