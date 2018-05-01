@@ -220,24 +220,22 @@ var_dump($response);
 							<form action="" method="post">
 								<div class="form-group">
 									<label for="q2">1. Ημερομηνία που συνέβη το/α περιστατικό/α (αν αφορά συγκεκριμένα περιστατικά)</label>
-									<input for ="q2" class="form-control" type="date" name="date" id="q2">
+									<input for ="q2" class="form-control" type="date" name="date" id="q2" value=<?=$response['complain']['dateof']?>>
 								</div>
 								<div class="form-group">
 									<label for="q3">2. Άτομα τα οποία εμπλέκονται (όπου ισχύει) :</label>
-									<input type="text" class="form-control" name="people" id="q3">
+									<input type="text" class="form-control" name="people" id="q3" value=<?=$response['complain']['people']?>>
 								</div>
 								<div class="form-group">
 									<label for="q4">3. Περιγραφή του παραπόνου/των παραπόνων και σχετικά συμβάντα:</label>
-									<input type="text" class="form-control" name="description" id="q4">
+									<input type="text" class="form-control" name="description" id="q4" value=<?=$response['complain']['description']?>>
 								</div>
 								<div class="form-group">
 									<label for="q5">4. Υπεύθυνη δήλωση </label>
-									<input type="text" class="form-control" name="affirmation" id="q5">
+									<input type="text" class="form-control" name="affirmation" id="q5" value=<?=$response['complain']['affirmation']?>>
 								</div>
 
-								<button type="submit" class="btn btn-default" name="submit">
-									Submit
-								</button>
+								
 							</form>
 						</div>
 					</div>
@@ -284,35 +282,3 @@ var_dump($response);
 	</body>
 
 </html>
-
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
-}
-while($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
-}
-
-}
-?>

@@ -161,35 +161,35 @@ var_dump($response);
 						<div class="panel-body">
 							<form action="" method="post">
 								<div class="form-group">
-									<input type="hidden" name="patientID" value=<?=$_GET['patientID']?>
+								
 									<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
-									<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['patient']['datesubmited']?>>
+									<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['anaskopisi'][$_GET['an']]['datesubmited']?>>
 								</div>
 								<div class="form-group">
 									<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
-									<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['patient']['kindoftherapy']?>>
+									<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['anaskopisi'][$_GET['an']]['kind']?>>
 								</div>
 								<div class="form-group">
 									<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
-									<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['patient']['mainissue']?>>
+									<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['anaskopisi'][$_GET['an']]['initialproblem']?>>
 								</div>
 								<div class="form-group">
 									<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
-									<input type="text" class="form-control" id="issues" placeholder="" name="problems">
+									<input type="text" class="form-control" id="issues" placeholder="" name="problems" value=<?=$response['anaskopisi'][$_GET['an']]['problems']?>>
 								</div>
 								<div class="form-group">
 									<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
 									<br>
 									<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
 									<br>
-									<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis">
+									<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis" value=<?=$response['anaskopisi'][$_GET['an']]['sinopsis']?>>
 								</div>
 								<div class="form-group">
 									<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
 									<br>
 									<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
 									<br>
-									<input type="text" class="form-control" id="changes" placeholder="" name="changesenv">
+									<input type="text" class="form-control" id="changes" placeholder="" name="changesenv" value=<?=$response['anaskopisi'][$_GET['an']]['changesenv']?>>
 								</div>
 								</table>
 								<div class="form-group">
@@ -197,104 +197,61 @@ var_dump($response);
 									<br>
 									<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
 									<br>
-									<input type="text" class="form-control" id="progress" placeholder="" name="evolution">
+									<input type="text" class="form-control" id="progress" placeholder="" name="evolution" value=<?=$response['anaskopisi'][$_GET['an']]['evolution']?>>
 								</div>
 								<div class="form-group">
 									<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
 									<br>
 									<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
 									<br>
-									<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes">
+									<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes" value=<?=$response['anaskopisi'][$_GET['an']]['changes']?>>
 								</div>
 								<div class="form-group">
 									<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
 									<br>
 									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
 									<br>
-									<input type="text" class="form-control" id="future" placeholder="" name="mellon">
+									<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['mellon']?>>
 								</div>
 								<div class="form-group">
 									<table style="width:100%">
 										<tr>
 											<th></th>
-											<th>Απούσα</th>
-											<th>Ήπια</th>
-											<th>Μέτρια</th>
-											<th>Σοβαρή</th>
+											<th>Βαθμός</th>
+											
 										</tr>
 										<tr>
 											<td>α. ψυχολογική</td>
 											<td>
-											<input type="hidden" name="psychologicalfunc" >
-											<input type="radio" class="form-group" id="a1" name="psychologicalfunc">
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['psychologicalfunc']?>>
 											</td>
-											<td>
-											<input type="radio" class="form-group" id="a2" name="psychologicalfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="a3" name="psychologicalfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="a4" name="psychologicalfunc">
-											</td>
+											
 										</tr>
 										<tr>
 											<td>β. επαγγελματική/ακαδημαϊκή</td>
 											<td>
-											<input type="hidden" name="professionacademicfunc" >
-											<input type="radio" class="form-group" id="b1" name="professionacademicfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="b2" name="professionacademicfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="b3" name="professionacademicfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="b4" name="professionacademicfunc">
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['professionacademicfunc']?>>
 											</td>
 										</tr>
 										<tr>
 											<td>γ. κοινωνική</td>
 											<td>
-											<input type="hidden" name="socialfunc" >
-											<input type="radio" class="form-group" id="g1" name="socialfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="g2" name="socialfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="g3" name="socialfunc">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="g4" name="socialfunc">
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['socialfunc']?>>
 											</td>
 										</tr>
 										<tr>
 											<td>δ. αυτοφροντίδα</td>
 											<td>
-											<input type="hidden" name="autofix" >
-											<input type="radio" class="form-group" id="d1" name="autofix">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="d2" name="autofix">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="d3" name="autofix">
-											</td>
-											<td>
-											<input type="radio" class="form-group" id="d4" name="autofix">
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['autofix']?>>
 											</td>
 										</tr>
 									</table>
 								</div>
 								<div class="form-group">
 									<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
-									<input type="text" class="form-control" id="more" placeholder="" name="infos">
+									<input type="text" class="form-control" id="more" placeholder="" name="infos" value=<?=$response['anaskopisi'][$_GET['an']]['infos']?>>
 								</div>
-								<button type="submit" class="btn btn-default" name="submit">
-									Submit
-								</button>
+								
 							</form>
 						</div>
 					</div>
@@ -330,28 +287,3 @@ var_dump($response);
 
 </html>
 
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form11.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query($_POST);
-if(isset($_COOKIE['token'])){
-$response1=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response1=0;
-}
-while($response1['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response1 = request($url, $method, $postfields, $tok);
-}
-var_dump($response1);
-}
-?>
