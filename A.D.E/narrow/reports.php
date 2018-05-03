@@ -33,30 +33,23 @@
 			$('myTable').DataTable();
 		});
 	</script>
+	<script>
+		function check() {
+			var x,
+			    text;
 
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
+			// Get the value of the input field with id="numb"
+			x = document.getElementById("semester").value;
 
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
+			// If x is Not a Number or less than one or greater than 10
+			if (isNaN(x) || x != "A" || x != "B") {
+				text = "Input not valid";
+			} else {
+				text = "Input OK";
+			}
+			document.getElementById("demo").innerHTML = text;
 		}
-	</style>
-
+	</script>
 	<body>
 
 		<div id="wrapper">
@@ -127,6 +120,307 @@
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
+			<!-- clients per month -->
+			<div class="modal fade" id="clientspermonth" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Αριθμός πελατών ανά μήνα</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<form action="">
+								<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+									Save
+								</button>
+							</form>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- new clients per month -->
+			<div class="modal fade" id="newclientspermonth" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Αριθμός νέων πελατών ανά μήνα</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<form action="">
+								<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+									Save
+								</button>
+							</form>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- number of sessions per month -->
+			<div class="modal fade" id="sessionspermonth" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Αριθμός συνεδριών ανά μήνα</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<form action="">
+								<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+									Save
+								</button>
+							</form>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- compare clients with previous years -->
+			<div class="modal fade" id="compareclients" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<form action="">
+								<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+									Save
+								</button>
+							</form>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- distribution per school -->
+			<div class="modal fade" id="distributionperschool" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<form action="">
+								<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+									Save
+								</button>
+							</form>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- issues for new cases -->
+			<div class="modal fade" id="issuesfornewcases" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Παρουσιαζόμενα ζητήματα για νέα περιστατικά </h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+								Save
+							</button>
+
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- sources of students for the services of the center -->
+			<div class="modal fade" id="sources" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								&times;
+							</button>
+							<h4 class="modal-title">Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" action="" method="post">
+								<table>
+									<tr>
+										<td align="left"><label for="year">Χρόνος:</label></td>
+										<td align="left">
+										<input type="text" name="year" class="form-group" id="year">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><label for="semester">Εξάμηνο:</label></td>
+										<td align="left">
+										<input type="text" name="semester" class="form-group" id="semester">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
+								Save
+							</button>
+
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
@@ -143,29 +437,41 @@
 					<div>
 						<br>
 					</div>
-					<ul>
-						<li>
-							<a href="results.php">Αριθμός πελατών ανά μήνα</a>
-						</li>
-						<li>
-							<a href="results.php">Αριθμός νέων πελάτων ανά μήνα</a>
-						</li>
-						<li>
-							<a href="results.php">Αριθμός συνεδριών ανά μήνα</a>
-						</li>
-						<li>
-							<a href="results.php">Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</a>
-						</li>
-						<li>
-							<a href="results.php">Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</a>
-						</li>
-						<li>
-							<a href="results.php">Παρουσιαζόμενα ζητήματα για νέα περιστατικά </a>
-						</li>
-						<li>
-							<a href="results.php">Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες </a>
-						</li>
-					</ul>
+					<div class="panel-body">
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#clientspermonth">
+							Αριθμός πελατών ανά μήνα
+						</button>
+						<br>
+						<br>
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#newclientspermonth">
+							Αριθμός νέων πελάτων ανά μήνα
+						</button>
+						<br>
+						<br>
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#sessionspermonth">
+							Αριθμός συνεδριών ανά μήνα
+						</button>
+						<br>
+						<br>
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#compareclients">
+							Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη
+						</button>
+						<br>
+						<br>
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#distributionperschool">
+							Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή
+						</button>
+						<br>
+						<br>
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#issuesfornewcases">
+							Παρουσιαζόμενα ζητήματα για νέα περιστατικά
+						</button>
+						<br>
+						<br>
+						<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#sources">
+							Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες
+						</button>
+					</div>
 				</div>
 
 				<!-- /#wrapper -->
@@ -200,36 +506,34 @@
 
 </html>
 
-
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
