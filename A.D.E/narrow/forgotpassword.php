@@ -83,7 +83,7 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psylogin.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/mailjet-apiv3-php-simple-master/src/Mailjet/forgotpass.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
@@ -95,7 +95,7 @@ $response=request($url,$method,$postfields,$_COOKIE['token']);
 }else{
 $response=0;
 }
-while($response['status']!=1){
+if($response['status']!=1){
 $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>
@@ -104,24 +104,6 @@ print "<h5>".$tok."</h5>";
 <?php
 $response = request($url, $method, $postfields, $tok);
 }
-if(strnatcmp($response['login'],true)==0){
-	session_start();
-	$_SESSION['id']=$_POST['id'];
-	echo $_SESSION['id'];
-	if(strnatcmp($response['role'],"therapist")==0){
-	header('Location: psindex.php');
-	}
-	if(strnatcmp($response['role'],"supervisor")==0){
-	header('Location: psindex.php');
-	}
-	if(strnatcmp($response['role'],"frontdesk")==0){
-	header('Location: psindex_frontdesk.php');
-	}
-	if(strnatcmp($response['role'],"admin")==0){
-	header('Location: psindex_admin.php');
-	}
-	
-
-}
+var_dump($response);
 }
 ?>

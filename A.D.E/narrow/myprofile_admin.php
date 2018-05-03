@@ -4,7 +4,7 @@ ob_start();
 <!DOCTYPE html>
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myprof.php?psychID=".$_SESSION['id'];
 $method='GET';
 //if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
@@ -26,7 +26,7 @@ $postfields=http_build_query(array(
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-var_dump($response);
+//var_dump($response);
 
 //}
 ?>
@@ -207,88 +207,85 @@ var_dump($response);
 										<tr>
 											<td align="left"><label for="name">Όνομα:</label></td>
 											<td align="left">
-											<input type="text" name="name" class="form-group" id="name">
+											<input type="text" name="name" class="form-group" id="name" value=<?=$response['result']['firstname']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="surname">Επίθετο:</label></td>
 											<td align="left">
-											<input type="text" name="surname" class="form-group" id="surname">
+											<input type="text" name="surname" class="form-group" id="surname" value=<?=$response['result']['lastname']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="id">Αριθμός Ταυτότητας:</label></td>
 											<td align="left">
-											<input type="text" name="id" class="form-group" id="id">
+											<input type="text" name="id" class="form-group" id="id" value=<?=$response['result']['psychologistID']?> disabled>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="sex">Φύλο:</label></td>
 											<td align="left">
-											<input type="text" name="sex" class="form-group" id="sex">
+											<input type="text" name="sex" class="form-group" id="sex" value=<?=$response['result']['sex']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="age">Ηλικία:</label></td>
 											<td align="left">
-											<input type="number" name="age" class="form-group" id="age">
+											<input type="number" name="age" class="form-group" id="age" value=<?=$response['result']['age']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="address">Διεύθυνση Διαμονής:</label></td>
 											<td align="left">
-											<input type="text" name="address" class="form-group" id="address">
+											<input type="text" name="address" class="form-group" id="address" value=<?=$response['result']['address']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="phone">Τηλέφωνο:</label></td>
 											<td align="left">
-											<input type="number" name="phone" class="form-group" id="phone">
+											<input type="number" name="phone" class="form-group" id="phone" value=<?=$response['result']['telephone']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="fax">Fax:</label></td>
 											<td align="left">
-											<input type="number" name="fax" class="form-group" id="fax">
+											<input type="number" name="fax" class="form-group" id="fax" value=<?=$response['result']['fax']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="position">Θέση Εργασίας:</label></td>
 											<td align="left">
-											<input type="text" name="position" class="form-group" id="position">
+											<input type="text" name="position" class="form-group" id="position" value=<?=$response['result']['position']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="specialty">Ειδικότητα:</label></td>
 											<td align="left">
-											<input type="text" name="specialty" class="form-group" id="specialty">
+											<input type="text" name="specialty" class="form-group" id="specialty" value=<?=$response['result']['speciality']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="building">Κτήριο:</label></td>
 											<td align="left">
-											<input type="text" name="building" class="form-group" id="building">
+											<input type="text" name="building" class="form-group" id="building" value=<?=$response['result']['building']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="officenum">Αριθμός Γραφείου:</label></td>
 											<td align="left">
-											<input type="number" name="officenum" class="form-group" id="officenum">
+											<input type="number" name="officenum" class="form-group" id="officenum" value=<?=$response['result']['office_num']?>>
 											</td>
 										</tr>
 										<tr>
 											<td align="left"><label for="email">Ηλεκτρονική Διεύθυνση:</label></td>
 											<td align="left">
-											<input type="email" name="email" class="form-group" id="email">
+											<input type="email" name="email" class="form-group" id="email" value=<?=$response['result']['email']?>>
 											</td>
 										</tr>
 									</table>
-									<div>
-										<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
-											Αλλαγή κωδικού πρόσβασης
-									</div>
+									
 									<br>
-									<input type="submit" name="submit1" value="Save Changes"/>
+									<input type="submit" name="submit" value="Save Changes"/>
 
 								</form>
 							</div>
@@ -337,39 +334,42 @@ var_dump($response);
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/therapistflags.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/myprofedit.php";
 $method='POST';
-$i=0;
-if(isset($_POST['submit1'])){
-var_dump($_POST['id']);
-var_dump($_POST['type']);
-var_dump($_POST['status']);
-foreach($_POST['id'] as $j){
-
+if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-'id'=> $_POST['id'][$i],
-'type'=> $_POST['type'][$i],
-'status'=> $_POST['status'][$i]
-));
-$i++;
-if(isset($_COOKIE['token'])){
-$response1=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response1=0;
-}
-if($response1['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response1 = request($url, $method, $postfields, $tok);
-}
-var_dump($response1);
-}
-header("Refresh:0");
+	'id'=> $_SESSION['id'],		
+	'name'=> $_POST['name'],		
+	'lastname'=> $_POST['surname'],		
+	'sex' => $_POST['sex'],		
+	'age' => $_POST['age'],		
+	'address' => $_POST['address'],		
+	'telephone' => $_POST['phone'],		
+	'fax' => $_POST['fax'],
+	'position' => $_POST['position'],		
+	'speciality' => $_POST['specialty'],		
+	'building' => $_POST['building'],		
+	'office_num' => $_POST['officenum'],		
+	'email' => $_POST['email'],			
+		));
+	if(isset($_COOKIE['token'])){
+		$response1=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response1=0;
+	}
+	if($response1['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response1=request($url,$method,$postfields,$tok);
+	}
+	//var_dump($response1);
+	header('Refresh:0');
 }
 ?>
