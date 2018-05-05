@@ -233,20 +233,43 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<label for="issue"><b>Ποιο είναι το κυριότερο θέμα/θέματα που σας αποσχολεί/ουν;(προαιρετικά)</b></label>
-							<input type="text" class="form-control" id="issue" placeholder="(Σημειώστε τουλάχιστο 2-3 επιλογές)" name="available">
-						</div>
+							<input type="hidden" name="issue">
+							<input type="radio" name="issue" value="Άγχος/Πίεση">
+							Άγχος/Πίεση
+							<br>
+							<input type="radio" name="issue" value="Διαπροσωπικές Σχέσεις">
+							Διαπροσωπικές Σχέσεις
+							<br>
+							<input type="radio" name="issue" value="Διάθεση/Προσαρμογή">
+							Διάθεση/Προσαρμογή
+							<br>
+							<input type="radio" name="issue" value="Ακαδημαικές Δυσκολίες">
+							Ακαδημαικές Δυσκολίες
+							<br>
+							<input type="radio" name="issue" value="Άλλο">
+							Άλλο
+							</div>
 						<div class="form-group">
 							<label for="info"><b>Πώς ενημερωθήκατε για το ΚΕΨΥ(σημειώστε ό,τι ισχύει):</b></label>
 							<br>
 							<input type="hidden" name="info">
-							<input type="radio" name="info" value="webpage">
+							<input type="radio" name="info" value="Ιστοσελίδα">
 							Ιστοσελίδα
 							<br>
-							<input type="radio" name="info" value="friends">
+							<input type="radio" name="info" value="Φίλοι">
 							Φίλοι/συμφοιτητές
 							<br>
-							<input type="radio" name="info" value="family">
+							<input type="radio" name="info" value="Οικογένεια">
 							Οικογένεια
+							<br>
+							<input type="radio" name="info" value="Λειτουργοί ΠΚ">
+							Λειτουργοί ΠΚ
+							<br>
+							<input type="radio" name="info" value="Ακαδημαικοί">
+							Ακαδημαικοί
+							<br>
+							<input type="radio" name="info" value="Αλλο">
+							Αλλο
 						</div>
 						<div class="form-group">
 							<label for="belong"><b>Είμαι:</b></label>

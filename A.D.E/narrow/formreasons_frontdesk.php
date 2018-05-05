@@ -147,7 +147,7 @@ var_dump($response);
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="filesofpatient_frontdesk.php">Εκθέσεις/Αναφορές</a>
+										<a href="filesofpatient_frontdesk.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li>
 										<a href="billing_frontdesk.php?patientID=<?=$_GET['patientID'] ?>">Πληρωμές</a>
@@ -156,10 +156,10 @@ var_dump($response);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="formcomplaints_frontdesk.php">Παράπονα πελάτη</a>
+												<a href="formcomplaints_frontdesk.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formreasons_frontdesk.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons_frontdesk.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>

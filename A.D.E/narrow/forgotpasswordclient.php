@@ -135,19 +135,19 @@
 
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/login.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/mailjet-apiv3-php-simple-master/src/Mailjet/forgotpassclient.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
 'id' => $_POST['id'],
-'password' => $_POST['pwd']
+'password' => $_POST['password']
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
 }else{
 $response=0;
 }
-while($response['status']!=1){
+if($response['status']!=1){
 $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>
@@ -156,12 +156,6 @@ print "<h5>".$tok."</h5>";
 <?php
 $response = request($url, $method, $postfields, $tok);
 }
-if(strnatcmp($response['login'],true)==0){
-session_start();
-$_SESSION['id']=$_POST['id'];
-echo $_SESSION['id'];
-header('Location: form01.php');
-
-}
+var_dump($response);
 }
 ?>

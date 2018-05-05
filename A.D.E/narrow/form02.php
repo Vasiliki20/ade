@@ -227,12 +227,37 @@ $postfields=http_build_query(array(
 							<input type="text" class="form-control" id="department" placeholder="" name="department">
 						</div>
 						<div class="form-group">
-							<label for="year"><b>11. Έτος Σπουδών:</b></label>
+							<input type="hidden" name="schoolofstudies" />
+							<label for="schoolofstudies"><b>11. Σχολή Σπουδών:</b></label>
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΣΑΕ">
+							Σχολή Ανθρωπιστικών Επιστημών
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΣΘΕΕ">
+							Σχολή Θετικών και Εφαρμοσμένων Επιστημών
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΣΚΕΕΑ">
+							Σχολή Κοινωνικών Επιστημών και Επιστημών Αγωγής
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΣΟΕΔ">
+							Σχολή Οικονομικών Επιστημών και Διοίκησης
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΠΣ">
+							Πολυτεχνική Σχολή
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΦΣ">
+							Φιλοσοφική Σχολή
+							<br>
+							<input type="radio" name="schoolofstudies" value="ΙΣ">
+							Ιατρική Σχολή
+						</div>
+						<div class="form-group">
+							<label for="year"><b>12. Έτος Σπουδών:</b></label>
 							<input type="number" class="form-control" id="year" placeholder="" name="year">
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="level" />
-							<label for="level"><b>12. Επίπεδο Σπουδών:</b></label>
+							<label for="level"><b>13. Επίπεδο Σπουδών:</b></label>
 							<br>
 							<input type="radio" name="level" value="proptixiako">
 							Προπτυχιακό
@@ -245,7 +270,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="erasmus" />
-							<label for="erasmus"><b>13. Φοιτητής Erasmus:</b></label>
+							<label for="erasmus"><b>14. Φοιτητής Erasmus:</b></label>
 							<br>
 							<input type="radio" name="erasmus" value="yes">
 							Ναι
@@ -255,7 +280,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="status" />
-							<label for="status"><b>14. Κατάσταση Φοίτησης:</b></label>
+							<label for="status"><b>15. Κατάσταση Φοίτησης:</b></label>
 							<br>
 							<input type="radio" name="status" value="active">
 							Ενεργή
@@ -269,15 +294,15 @@ $postfields=http_build_query(array(
 							<h5><b>Γ. ΕΠΑΦΗ ΕΚΤΑΚΤΗΣ ΑΝΑΓΚΗΣ</b></h5>
 						</div>
 						<div class="form-group">
-							<label for="emname"><b>15. Ονοματεπώνυμο:</b></label>
+							<label for="emname"><b>16. Ονοματεπώνυμο:</b></label>
 							<input type="text" class="form-control" id="emname" placeholder="" name="emname">
 						</div>
 						<div class="form-group">
-							<label for="emrelationship"><b>16. Σχέση:</b></label>
+							<label for="emrelationship"><b>17. Σχέση:</b></label>
 							<input type="text" class="form-control" id="emrelationship" placeholder="" name="emrelationship">
 						</div>
 						<div class="form-group">
-							<label for="emphone"><b>17. Τηλ. Επικοινωνίας:</b></label>
+							<label for="emphone"><b>18. Τηλ. Επικοινωνίας:</b></label>
 							<input type="number" class="form-control" id="emphone" placeholder="" name="emphone">
 						</div>
 
@@ -286,7 +311,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="family" />
-							<label for="family"><b>18. Οικογενειακή Κατάσταση:</b></label>
+							<label for="family"><b>19. Οικογενειακή Κατάσταση:</b></label>
 							<br>
 							<input type="radio" name="family" value="anipantros">
 							Ανύπαντρος/η
@@ -312,7 +337,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="previous" />
-							<label for="previous"><b>19. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
+							<label for="previous"><b>20. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="previous" value="oxi">
 							Όχι
@@ -328,7 +353,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="currentlystaying" />
-							<label for="currentlystaying"><b>20. Αυτή τη στιγμή διαμένεται:</b></label>
+							<label for="currentlystaying"><b>21. Αυτή τη στιγμή διαμένεται:</b></label>
 							<br>
 							<input type="radio" name="currentlystaying" value="stayingalone">
 							Μόνος/η
@@ -346,7 +371,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="referred" />
-							<label for="referred"><b>21. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
+							<label for="referred"><b>22. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
 							<br>
 							<input type="radio" name="referred" value="no">
 							Όχι
@@ -358,7 +383,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="otherservices" />
-							<label for="otherservices"><b>21. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
+							<label for="otherservices"><b>23. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
 							<input type="radio" name="otherservices" value="no">
 							Όχι
@@ -434,6 +459,7 @@ $postfields=http_build_query(array(
 'postalcode' => $_POST['tk'],
 'communicatevia' => $_POST['contact'],
 'departmentofstudies' => $_POST['department'],
+'schoolofstudies' => $_POST['schoolofstudies'],
 'yearofstudies' => $_POST['year'],
 'levelofstudies' => $_POST['level'],
 'erasmusstudent' => $_POST['erasmus'],

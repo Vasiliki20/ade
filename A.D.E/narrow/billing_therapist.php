@@ -124,13 +124,13 @@
 										<a href="casenotes_therapist.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="filesofpatient_therapist.php">Εκθέσεις/Αναφορές</a>
+										<a href="filesofpatient_therapist.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation_therapist.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformationfull_therapist.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
 												<a href="schedule_therapist.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
@@ -165,14 +165,15 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="formcomplaints_therapist.php">Παράπονα πελάτη</a>
+												<a href="formcomplaints_therapist.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formreasons_therapist.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons_therapist.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>
 								</ul>
+
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>

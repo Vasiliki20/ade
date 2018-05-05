@@ -129,24 +129,19 @@
 										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="approvefiles.php">Αναφορές/Έντυπα</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
-											</li>
-										</ul>
+										<a href="filesofpatient.php?patientID=<?= $_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformationfull.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
 												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
 											</li>
 										</ul>
 
@@ -163,9 +158,6 @@
 											<li>
 												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
 											</li>
-											<li>
-												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
-											</li>
 										</ul>
 									</li>
 									<li>
@@ -174,8 +166,18 @@
 									<li>
 										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints.php?patientID=<?= $_GET['patientID'] ?>">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons.php?patientID=<?= $_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
 
 						</div><!-- /.container-fluid -->

@@ -158,13 +158,13 @@ var_dump($response);
 										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="filesofpatient.php">Εκθέσεις/Αναφορές</a>
+										<a href="filesofpatient.php?patientID=<?= $_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformationfull.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
 												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
@@ -199,10 +199,10 @@ var_dump($response);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="formcomplaints.php">Παράπονα πελάτη</a>
+												<a href="formcomplaints.php?patientID=<?= $_GET['patientID'] ?>">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formreasons.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons.php?patientID=<?= $_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>
@@ -503,7 +503,7 @@ var_dump($response);
 								
 							</div>
 							<div class="form-group">
-<<<<<<< HEAD
+
 									<label for="addmore">Δείτε προηγούμενες ανασκοπήσεις</label>
 									<ul>
 									
@@ -522,7 +522,7 @@ var_dump($response);
 						<form method="post" action="">
 							<div align="center">
 									<h4><strong>ΙΣΤΟΡΙΚΟ ΓΙΑ ΠΑΙΔΙΑ</strong></h4>
-=======
+
 								<label for="addmore">Save Changes</label>
 								<input type="submit" name="submit">
 
@@ -547,7 +547,7 @@ var_dump($response);
 								<div class="form-group">
 									<label for="anexietywork">Άγχος εργασίας:</label>
 									<input type="text" class="form-control" id="anexietywork" placeholder="" name="jobstress" value=<?=$response['medlog']['jobstress'] ?>>
->>>>>>> 66cee7c54c83e0992bb03a8469f89de54f61dfe3
+
 								</div>
 
 								<div align="left">
@@ -919,7 +919,6 @@ header("Refresh:0");
 if(isset($_POST['addmore'])){
 header("Location:form11.php");
 
-<<<<<<< HEAD
 }
 ?>
 <?php
@@ -950,8 +949,7 @@ $response1 = request($url, $method, $postfields, $tok);
 }
 if(isset($_POST['addmore'])){
 header("Location:form11.php");
-=======
->>>>>>> 66cee7c54c83e0992bb03a8469f89de54f61dfe3
+
 }
 ?>
 

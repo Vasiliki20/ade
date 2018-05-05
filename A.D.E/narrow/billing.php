@@ -111,8 +111,6 @@
 						<h1 class="page-header">Kατάσταση Πληρωμών</h1>
 					</div>
 					<!-- /.col-lg-12 -->
-<<<<<<< HEAD
-=======
 				</div>
 				<div>
 					<nav class="navbar navbar-default">
@@ -125,13 +123,13 @@
 										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="filesofpatient.php">Εκθέσεις/Αναφορές</a>
+										<a href="filesofpatient.php?patientID=<?= $_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformationfull.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
 												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
@@ -166,10 +164,10 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="formcomplaints.php">Παράπονα πελάτη</a>
+												<a href="formcomplaints.php?patientID=<?= $_GET['patientID'] ?>">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formreasons.php">Λόγοι Τερματισμού</a>
+												<a href="formreasons.php?patientID=<?= $_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>
@@ -177,7 +175,6 @@
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>
->>>>>>> 5e95706d00abadeff30fc0d626190bc51096a104
 				</div>
 				<!-- /.row -->
 				<div class="row">
