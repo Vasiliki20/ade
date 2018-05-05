@@ -520,11 +520,9 @@ var_dump($response);
 						</form>
 						<?php }else{ ?>
 						<form method="post" action="">
-							<div align="center">
+							
 									<h4><strong>ΙΣΤΟΡΙΚΟ ΓΙΑ ΠΑΙΔΙΑ</strong></h4>
 
-								<label for="addmore">Save Changes</label>
-								<input type="submit" name="submit">
 
 							<div class="panel-body">
 								<input type="hidden" name="patientID" value=<?=$_GET['patientID'] ?>>

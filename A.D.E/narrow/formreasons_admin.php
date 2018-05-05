@@ -216,36 +216,19 @@ var_dump($response);
 						</div>
 						<div class="panel panel-body">
 							<form action="" method="post">
-								<div class="form-group">
-									<label for="date"><strong>1. Ημερ. Έναρξης Υπηρεσιών: </strong></label>
-									<input type="date" class="form-control" id="date" placeholder="" name="date">
-								</div>
-								<div class="form-group">
-									<label for="number"><strong>2. Αρ. Συνεδριών</strong></label>
-									<input type="number" class="form-control" id="number" placeholder="" name="number">
-								</div>
-								<div class="form-group">
-									<label for="dateend"><strong>3. Ημερ. Αποδέσμευσης:</strong> </label>
-									<input type="date" class="form-control" id="dateend" placeholder="" name="dateend">
-								</div>
-								<div class="form-group">
-									<label for="eidos"><strong>4. Είδος θεραπείας/υπηρεσιών: </strong></label>
-									<input type="text" class="form-control" id="eidos" placeholder="" name="eidos">
-								</div>
-								<div class="form-group">
-									<label for="firstissues"><strong>5. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </strong></label>
-									<input type="text" class="form-control" id="firstissues" placeholder="" name="firstissues">
+									<label for="dateend"><strong>1. Ημερ. Αποδέσμευσης:</strong> </label>
+									<input type="date" class="form-control" id="dateend" placeholder="" name="dateend" value=<?=$response['termination']['dateended']?>>
 								</div>
 								<div class="form-group">
 									<label for="reasons"><strong>6. Λόγος/Λόγοι Αποδέσμευσης: </strong></label>
-									<input type="text" class="form-control" id="reasons" placeholder="" name="reasons">
+									<input type="text" class="form-control" id="reasons" placeholder="" name="reasons" value=<?=$response['termination']['whyterminate']?>>
 								</div>
 								<div class="form-group">
 									<label for="brief"><strong>7. Έκβαση Θεραπείας: </strong></label>
 									<br>
 									<label><em>(Σύνοψη παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκόλυναν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ., αποτελέσματα) </em></label>
 									<br>
-									<input type="text" class="form-control" id="brief" placeholder="" name="brief">
+									<input type="text" class="form-control" id="brief" placeholder="" name="brief" value=<?=$response['termination']['therapyend']?>>
 								</div>
 								</table>
 								<div class="form-group">
@@ -331,7 +314,7 @@ var_dump($response);
 								</div>
 								<div class="form-group">
 									<label for="more"><strong>9. Οποιεσδήποτε άλλες σημαντικές πληροφορίες  ή παρατηρήσεις</strong></label>
-									<input type="text" class="form-control" id="more" placeholder="" name="more">
+									<input type="text" class="form-control" id="more" placeholder="" name="more" value=<?=$response['termination']['infoterminate']?>>
 								</div>
 								<button type="submit" class="btn btn-default" name="submit">
 									Submit
@@ -381,35 +364,39 @@ var_dump($response);
 	</body>
 
 </html>
-
 <?php
 require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form14.php";
 $method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query(array(
-'id' => $_POST['id'],
-'email' => $_POST['email'],
-'name' => $_POST['name'],
-'lastname' => $_POST['surname'],
-'password' => $_POST['password']
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
-}
-while($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
-}
+	if(isset($_POST['submit'])){
+		$postfields=http_build_query(array(
+		'id' => $_GET['patientID'],
+		'dateended' => $_POST['dateend'],
+		'whyterminate' => $_POST['reasons'],
+		'infoterminate' => $_POST['brief'],
+		'therapyend' => $_POST['more'],
+		'epsychologicalfunc' => $_POST['epsychologicalfunc'],
+		'eprofessionacademicfunc' => $_POST['eprofessionacademicfunc'],
+		'esocialfunc' => $_POST['esocialfunc'],
+		'eautofix' => $_POST['eautofix']
+		));
+		if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+		}else{
+		$response=0;
+		}
+		while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response = request($url, $method, $postfields, $tok);
+		}
+	
+	}
+	?>
 
-}
-?>

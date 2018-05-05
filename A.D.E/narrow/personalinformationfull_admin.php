@@ -208,7 +208,7 @@ $postfields=http_build_query(array(
 					</nav>
 				</div>
 
-				<div>
+			<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Προσωπικά Στοιχεία Πελάτη
