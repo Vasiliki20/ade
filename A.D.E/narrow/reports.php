@@ -437,62 +437,63 @@
 					<div>
 						<br>
 					</div>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+					<script>
+							$('#submit').click(function() {
+								if ($('#clientspermonth2').val() == '') {
+									alert('Input can not be left blank');
+								}
+							});
+						</script>
 					<div class="panel-body">
 						<label>Αριθμός πελατών ανά μήνα:</label>
 						<br>
 						<input type="text" class="form-group" id="clientspermonth1" placeholder="Χρονιά" name="clientspermonth1">
 						<input type="text" class="form-group" id="clientspermonth2" placeholder="Εξάμηνο" name="clientspermonth2">
-						<button type="button" onclick="" class="btn btn-default" name="clientspermonth"">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="submit" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
-						<label>Αριθμός νέων πελάτων ανά μήνα</label><br>
+						<label>Αριθμός νέων πελάτων ανά μήνα</label>
+						<br>
 						<input type="text" class="form-group" id="newclientspermonth1" placeholder="Χρονιά" name="newclientspermonth1">
 						<input type="text" class="form-group" id="newclientspermonth2" placeholder="Εξάμηνο" name="newclientspermonth2">
-						<button type="button" onclick="" class="btn btn-default" name="newclientspermonth">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="newclientspermonth" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
-						<label>Αριθμός συνεδριών ανά μήνα</label><br>
+						<label>Αριθμός συνεδριών ανά μήνα</label>
+						<br>
 						<input type="text" class="form-group" id="sessionspermonth1" placeholder="Χρονιά" name="sessionspermonth1">
 						<input type="text" class="form-group" id="sessionspermonth2" placeholder="Εξάμηνο" name="sessionspermonth2">
-						<button type="button" onclick="" class="btn btn-default" name="sessionspermonth">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="sessionspermonth" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
-						<label>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</label><br>
+						<label>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</label>
+						<br>
 						<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="compareclients1">
 						<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="compareclients2">
-						<button type="button" onclick="" class="btn btn-default" name="compareclients">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="compareclients" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
-						<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label><br>
+						<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label>
+						<br>
 						<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="distributionperschool1">
 						<input type="text" class="form-group" id="distributionperschool2" placeholder="Εξάμηνο" name="distributionperschool2">
-						<button type="button" onclick="" class="btn btn-default" name="distributionperschool">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="distributionperschool" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
-						<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label><br>
+						<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label>
+						<br>
 						<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="issuesfornewcases1">
 						<input type="text" class="form-group" id="issuesfornewcases2" placeholder="Εξάμηνο" name="issuesfornewcases2">
-						<button type="button" onclick="" class="btn btn-default" name="issuesfornewcases">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
-						<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label><br>
+						<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label>
+						<br>
 						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="sources1">
 						<input type="text" class="form-group" id="sources2" placeholder="Εξάμηνο" name="sources2">
-						<button type="button" onclick="" class="btn btn-default" name="sources">
-							Αναζήτηση
-						</button>
+						<input id="submit" type="button" name="sources" class="btn btn-default" value="Αναζήτηση">
+						
 					</div>
 				</div>
 
