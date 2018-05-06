@@ -28,34 +28,6 @@
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<script>
-		$(document).ready(function() {
-			$('myTable').DataTable();
-		});
-	</script>
-
-	<style>
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 5px;
-			text-align: left;
-		}
-		label {
-			display: inline-block;
-			width: 140px;
-			text-align: left;
-			float: left;
-		}​
-
-		input {
-			display: inline-block;
-			float: right;
-			text-align: right;
-		}
-	</style>
 
 	<body>
 
@@ -143,29 +115,56 @@
 					<div>
 						<br>
 					</div>
-					<ul>
-						<li>
-							<a href="results.php">Αριθμός πελατών ανά μήνα</a>
-						</li>
-						<li>
-							<a href="results.php">Αριθμός νέων πελάτων ανά μήνα</a>
-						</li>
-						<li>
-							<a href="results.php">Αριθμός συνεδριών ανά μήνα</a>
-						</li>
-						<li>
-							<a href="results.php">Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</a>
-						</li>
-						<li>
-							<a href="results.php">Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</a>
-						</li>
-						<li>
-							<a href="results.php">Παρουσιαζόμενα ζητήματα για νέα περιστατικά </a>
-						</li>
-						<li>
-							<a href="results.php">Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες </a>
-						</li>
-					</ul>
+					<div class="panel-body">
+						<label>Αριθμός πελατών ανά μήνα:</label>
+						<br>
+						<input type="text" class="form-group" id="clientspermonth1" placeholder="Χρονιά" name="clientspermonth1">
+						<input type="text" class="form-group" id="clientspermonth2" placeholder="Εξάμηνο" name="clientspermonth2">
+						<input id="submit" type="button" name="submit" class="btn btn-default" value="Αναζήτηση">
+						<br>
+						<br>
+						<label>Αριθμός νέων πελάτων ανά μήνα</label>
+						<br>
+						<input type="text" class="form-group" id="newclientspermonth1" placeholder="Χρονιά" name="newclientspermonth1">
+						<input type="text" class="form-group" id="newclientspermonth2" placeholder="Εξάμηνο" name="newclientspermonth2">
+						<input id="submit" type="button" name="newclientspermonth" class="btn btn-default" value="Αναζήτηση">
+						<br>
+						<br>
+						<label>Αριθμός συνεδριών ανά μήνα</label>
+						<br>
+						<input type="text" class="form-group" id="sessionspermonth1" placeholder="Χρονιά" name="sessionspermonth1">
+						<input type="text" class="form-group" id="sessionspermonth2" placeholder="Εξάμηνο" name="sessionspermonth2">
+						<input id="submit" type="button" name="sessionspermonth" class="btn btn-default" value="Αναζήτηση">
+						<br>
+						<br>
+						<label>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</label>
+						<br>
+						<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="compareclients1">
+						<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="compareclients2">
+						<input id="submit" type="button" name="compareclients" class="btn btn-default" value="Αναζήτηση">
+						<br>
+						<br>
+						<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label>
+						<br>
+						<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="distributionperschool1">
+						<input type="text" class="form-group" id="distributionperschool2" placeholder="Εξάμηνο" name="distributionperschool2">
+						<input id="submit" type="button" name="distributionperschool" class="btn btn-default" value="Αναζήτηση">
+						<br>
+						<br>
+						<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label>
+						<br>
+						<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="issuesfornewcases1">
+						<input type="text" class="form-group" id="issuesfornewcases2" placeholder="Εξάμηνο" name="issuesfornewcases2">
+						<input id="submit" type="button" name="" class="btn btn-default" value="Αναζήτηση">
+						<br>
+						<br>
+						<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label>
+						<br>
+						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="sources1">
+						<input type="text" class="form-group" id="sources2" placeholder="Εξάμηνο" name="sources2">
+						<input id="submit" type="button" name="sources" class="btn btn-default" value="Αναζήτηση">
+
+					</div>
 				</div>
 
 				<!-- /#wrapper -->
@@ -200,36 +199,34 @@
 
 </html>
 
-
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
