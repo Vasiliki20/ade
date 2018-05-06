@@ -47,11 +47,11 @@
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="password">Νέος κωδικός</label>
-									<input type="text" name="password" placeholder="Νέος κωδικός" class="form-control" id="password">
+									<input type="password" name="password" placeholder="Νέος κωδικός" class="form-control" id="password">
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="confirmpassword">Επιβεβέωση νέου κωδικού</label>
-									<input type="text" name="confirmpassword" placeholder="Επιβεβέωση νέου κωδικού" class="form-control" id="confirmpassword">
+									<input type="password" name="confirmpassword" placeholder="Επιβεβέωση νέου κωδικού" class="form-control" id="confirmpassword">
 								</div>
 								<div class="f1-buttons">
 									<button type="submit" name="submit" class="btn btn-submit">

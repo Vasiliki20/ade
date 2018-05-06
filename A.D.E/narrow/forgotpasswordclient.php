@@ -86,11 +86,11 @@
 					</div>
 					<div class="form-group">
 						<label for="password">Νέος κωδικός:</label>
-						<input type="text" name="password" placeholder="Νέος κωδικός" class="form-control" id="password">
+						<input type="password" name="password" placeholder="Νέος κωδικός" class="form-control" id="password">
 					</div>
 					<div class="form-group">
 						<label for="confirmpassword">Επιβεβέωση νέου κωδικού:</label>
-						<input type="text" name="confirmpassword" placeholder="Επιβεβέωση νέου κωδικού" class="form-control" id="confirmpassword">
+						<input type="password" name="confirmpassword" placeholder="Επιβεβέωση νέου κωδικού" class="form-control" id="confirmpassword">
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
 						Καταχώρηση
