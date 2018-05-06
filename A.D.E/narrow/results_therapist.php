@@ -141,11 +141,100 @@
 						<br>
 					</div>
 					<div>
-						
+						<br>
 					</div>
-					
-				</div>
+					<div>
+						<table>
+							<tr>
+								<th rowspan="2" bgcolor="#E3EFF7">Μήνας</th>
+								<th colspan="2" bgcolor="#E3EFF7">ΣΥΝΕΔΡΙΕΣ</th>
+								<th colspan="2" bgcolor="#E3EFF7">ΠΕΛΑΤΕΣ</th>
+								<th colspan="2" bgcolor="#E3EFF7">ΝΕΟΙ ΠΕΛΑΤΕΣ</th>
+							</tr>
+							<tr>
+								<td bgcolor="#E7EAEC">ΓΨΣ Μ.Ο. 2012-2015</td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. 2012-2015</td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. 2012-2015</td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+							</tr>
+							<tr>
+								<td>Ιανουάριος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Φεβρουάριος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Μάρτιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Απρίλιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Μάιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Ιούνιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Μέσος όρος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Σύνολο</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+						</table>
+					</div>
 
+				</div>
 				<!-- /#wrapper -->
 
 				<!-- jQuery -->

@@ -49,7 +49,6 @@
 			text-align: center;
 			float: left;
 		}​
-
 		input {
 			display: inline-block;
 			float: right;
