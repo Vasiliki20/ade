@@ -41,20 +41,27 @@
 		}
 		th, td {
 			padding: 5px;
-			text-align: left;
+			text-align: center;
 		}
 		label {
 			display: inline-block;
 			width: 140px;
-			text-align: left;
+			text-align: center;
 			float: left;
 		}​
 
 		input {
 			display: inline-block;
 			float: right;
-			text-align: right;
+			text-align: center;
 		}
+		tr:nth-child(10) {
+			font-weight: bold;
+		}
+		tr:nth-child(9){
+			font-weight: bold;
+		}
+		
 	</style>
 
 	<body>
@@ -141,9 +148,99 @@
 						<br>
 					</div>
 					<div>
-						
+						<br>
 					</div>
-					
+					<div>
+						<table>
+							<tr>
+								<th rowspan="2" bgcolor="#E3EFF7">Μήνας</th>
+								<th colspan="2" bgcolor="#E3EFF7">ΣΥΝΕΔΡΙΕΣ</th>
+								<th colspan="2" bgcolor="#E3EFF7">ΠΕΛΑΤΕΣ</th>
+								<th colspan="2" bgcolor="#E3EFF7">ΝΕΟΙ ΠΕΛΑΤΕΣ</th>
+							</tr>
+							<tr>
+								<td bgcolor="#E7EAEC">ΓΨΣ Μ.Ο. 2012-2015</td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. 2012-2015</td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. 2012-2015</td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+							</tr>
+							<tr>
+								<td>Ιανουάριος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Φεβρουάριος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Μάρτιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Απρίλιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Μάιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Ιούνιος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Μέσος όρος</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Σύνολο</td>
+								<td>65</td>
+								<td>76</td>
+								<td>26</td>
+								<td>33</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+						</table>
+					</div>
+
 				</div>
 
 				<!-- /#wrapper -->
@@ -178,36 +275,34 @@
 
 </html>
 
-
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-		'id' => $_POST['id'],
-		'email' => $_POST['email'],
-		'name' => $_POST['name'],
-		'lastname' => $_POST['surname'],
-		'password' => $_POST['password']
-	));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	while($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
 }
 ?>
