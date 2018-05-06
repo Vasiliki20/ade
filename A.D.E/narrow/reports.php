@@ -439,12 +439,12 @@
 					</div>
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 					<script>
-							$('#submit').click(function() {
-								if ($('#clientspermonth2').val() == '') {
-									alert('Input can not be left blank');
-								}
-							});
-						</script>
+						$('#submit').click(function() {
+							if ($('#clientspermonth2').val() == '') {
+								alert('Input can not be left blank');
+							}
+						});
+					</script>
 					<div class="panel-body">
 						<label>Αριθμός πελατών ανά μήνα:</label>
 						<br>
@@ -477,23 +477,20 @@
 						<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label>
 						<br>
 						<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="distributionperschool1">
-						<input type="text" class="form-group" id="distributionperschool2" placeholder="Εξάμηνο" name="distributionperschool2">
 						<input id="submit" type="button" name="distributionperschool" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label>
 						<br>
 						<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="issuesfornewcases1">
-						<input type="text" class="form-group" id="issuesfornewcases2" placeholder="Εξάμηνο" name="issuesfornewcases2">
 						<input id="submit" type="button" name="" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label>
 						<br>
 						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="sources1">
-						<input type="text" class="form-group" id="sources2" placeholder="Εξάμηνο" name="sources2">
 						<input id="submit" type="button" name="sources" class="btn btn-default" value="Αναζήτηση">
-						
+
 					</div>
 				</div>
 
