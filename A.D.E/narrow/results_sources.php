@@ -146,27 +146,27 @@
 					<div>
 						<table>
 							<tr>
-								<th colspan="2" bgcolor="#E3EFF7">Παρουσιαζόμενα ζητήματα για νέα περιστατικά</th>
+								<th colspan="2" bgcolor="#E3EFF7">Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</th>
 							</tr>
 							<tr>
-								<td><font color="#28B463">Άγχος - Πίεση</font></td>
-								<td><font color="#28B463">16</font></td>
+								<td><font color="#28B463">Διαδίκτυο - Ιστοσελίδες</font></td>
+								<td><font color="#28B463">21</font></td>
 							</tr>
 							<tr>
-								<td><font color="#F48436">Διαπροσωπικές σχέσεις</font></td>
-								<td><font color="#F48436">13</font></td>
+								<td><font color="#F48436">Φίλοι - Συμφοιτητές</font></td>
+								<td><font color="#F48436">7</font></td>
 							</tr>
 							<tr>
-								<td><font color="#E8D700">Διάθεση - Προσαρμογή</font></td>
-								<td><font color="#E8D700">12</font></td>
+								<td><font color="#E8D700">Λειτουργοί Π.Κ.</font></td>
+								<td><font color="#E8D700">2</font></td>
 							</tr>
 							<tr>
-								<td><font color="#3498DB">Άλλα</font></td>
-								<td><font color="#3498DB">8</font></td>
+								<td><font color="#3498DB">Ακαδημαϊκοί</font></td>
+								<td><font color="#3498DB">4</font></td>
 							</tr>
 							<tr>
-								<td><font color="#9B59B6">Ακαδημαϊκές δυσκολίες</font></td>
-								<td><font color="#9B59B6">6</font></td>
+								<td><font color="#9B59B6">Άλλη</font></td>
+								<td><font color="#9B59B6">2</font></td>
 							</tr>
 						</table>
 					</div>
