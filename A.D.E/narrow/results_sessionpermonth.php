@@ -1,3 +1,29 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics3.php?year=".$_GET['y']."&monthclass=".$_GET['e'];
+$method='GET';
+
+$postfields=http_build_query(array(
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+var_dump($response);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,7 +168,7 @@
 				<!-- /.row -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Αριθμός συνεδριών ανά μήνα
+						Αριθμός συνεδριών ανά μήνα για το έτος <?=$_GET['y']?>-<?=$_GET['e']?>o εξάμηνο
 						<br>
 					</div>
 					<div>
@@ -156,44 +182,68 @@
 								<th bgcolor="#F5CEB7">ΣΥΝΟΛΟ</th>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Ιανουάριος</td>
-								<td>17</td>
-								<td>33</td>
+								<?php }else{ ?>
+								<td>Ιούλιος</td>	
+								<?php } ?>
+								<td><?=$response['result'][1]?></td>
+								<td><?=$response['result'][1]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Φεβρουάριος</td>
-								<td>65</td>
-								<td>76</td>
+								<?php }else{ ?>
+								<td>Άυγουστος</td>	
+								<?php } ?>
+								<td><?=$response['result'][2]?></td>
+								<td><?=$response['result'][2]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Μάρτιος</td>
-								<td>65</td>
-								<td>76</td>
+								<?php }else{ ?>
+								<td>Σεμπτέμβριος</td>	
+								<?php } ?>
+								<td><?=$response['result'][3]?></td>
+								<td><?=$response['result'][3]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Απρίλιος</td>
-								<td>65</td>
-								<td>76</td>
+								<?php }else{ ?>
+								<td>Οκτώβριος</td>	
+								<?php } ?>
+								<td><?=$response['result'][4]?></td>
+								<td><?=$response['result'][4]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Μάιος</td>
-								<td>65</td>
-								<td>76</td>
+								<?php }else{ ?>
+								<td>Νοέμβριος</td>	
+								<?php } ?>
+								<td><?=$response['result'][5]?></td>
+								<td><?=$response['result'][5]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Ιούνιος</td>
-								<td>65</td>
-								<td>76</td>
+								<?php }else{ ?>
+								<td>Δεκέμβριος</td>	
+								<?php } ?>
+								<td><?=$response['result'][6]?></td>
+								<td><?=$response['result'][6]?></td>
 							</tr>
 							<tr>
 								<td>Σύνολο</td>
-								<td>65</td>
-								<td>76</td>
+								<td><?=round($response['result']['sum'],2)?></td>
+								<td><?=round($response['result']['sum'],2)?></td>
 							</tr>
 							<tr>
-								<td>Μέσος Όρος</td>
-								<td>65</td>
-								<td>76</td>
+								<td>Μέσος όρος</td>
+								<td><?=round($response['result']['average'],2)?></td>
+								<td><?=round($response['result']['average'],2)?></td>
 							</tr>
 						</table>
 					</div>

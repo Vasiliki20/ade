@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -446,51 +447,53 @@
 						});
 					</script>
 					<div class="panel-body">
+						<form method="post" action="">
 						<label>Αριθμός πελατών ανά μήνα:</label>
 						<br>
-						<input type="text" class="form-group" id="clientspermonth1" placeholder="Χρονιά" name="clientspermonth1">
-						<input type="text" class="form-group" id="clientspermonth2" placeholder="Εξάμηνο" name="clientspermonth2">
-						<input id="submit" type="button" name="submit" class="btn btn-default" value="Αναζήτηση">
+						<input type="text" class="form-group" id="clientspermonth1" placeholder="Χρονιά" name="st1y">
+						<input type="text" class="form-group" id="clientspermonth2" placeholder="Εξάμηνο" name="st1e">
+						<input id="submit" type="submit" name="submit" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Αριθμός νέων πελάτων ανά μήνα</label>
 						<br>
-						<input type="text" class="form-group" id="newclientspermonth1" placeholder="Χρονιά" name="newclientspermonth1">
-						<input type="text" class="form-group" id="newclientspermonth2" placeholder="Εξάμηνο" name="newclientspermonth2">
-						<input id="submit" type="button" name="newclientspermonth" class="btn btn-default" value="Αναζήτηση">
+						<input type="text" class="form-group" id="newclientspermonth1" placeholder="Χρονιά" name="st2y">
+						<input type="text" class="form-group" id="newclientspermonth2" placeholder="Εξάμηνο" name="st2e">
+						<input id="submit" type="submit" name="submit1" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Αριθμός συνεδριών ανά μήνα</label>
 						<br>
-						<input type="text" class="form-group" id="sessionspermonth1" placeholder="Χρονιά" name="sessionspermonth1">
-						<input type="text" class="form-group" id="sessionspermonth2" placeholder="Εξάμηνο" name="sessionspermonth2">
-						<input id="submit" type="button" name="sessionspermonth" class="btn btn-default" value="Αναζήτηση">
+						<input type="text" class="form-group" id="sessionspermonth1" placeholder="Χρονιά" name="st3y">
+						<input type="text" class="form-group" id="sessionspermonth2" placeholder="Εξάμηνο" name="st3e">
+						<input id="submit" type="submit" name="submit2" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</label>
 						<br>
-						<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="compareclients1">
-						<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="compareclients2">
-						<input id="submit" type="button" name="compareclients" class="btn btn-default" value="Αναζήτηση">
+						<input type="text" class="form-group" id="compareclients1" placeholder="Αρχικό έτος σύγκρισης" name="st4ye">
+						<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="st4y">
+						<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="st4e">
+						<input id="submit" type="submit" name="submit3" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label>
 						<br>
-						<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="distributionperschool1">
-						<input id="submit" type="button" name="distributionperschool" class="btn btn-default" value="Αναζήτηση">
+						<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="st5y">
+						<input id="submit" type="submit" name="submit4" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label>
 						<br>
-						<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="issuesfornewcases1">
-						<input id="submit" type="button" name="" class="btn btn-default" value="Αναζήτηση">
+						<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="st6y">
+						<input id="submit" type="submit" name="submit5" class="btn btn-default" value="Αναζήτηση">
 						<br>
 						<br>
 						<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label>
 						<br>
-						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="sources1">
-						<input id="submit" type="button" name="sources" class="btn btn-default" value="Αναζήτηση">
-
+						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="st7y">
+						<input id="submit" type="submit" name="submit6" class="btn btn-default" value="Αναζήτηση">
+						</form>
 					</div>
 				</div>
 
@@ -524,56 +527,27 @@
 	</body>
 
 </html>
-
 <?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics4.php?year=2018&monthclass=B";
-$method='POST';
 
-$postfields=http_build_query(array(
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
+if(isset($_POST['submit'])){
+	header('Location: results_clientspermonth.php?y='.$_POST['st1y'].'&e='.$_POST['st1e']);
 }
-if($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
+if(isset($_POST['submit1'])){
+	header('Location: results_newclientspermonth.php?y='.$_POST['st2y'].'&e='.$_POST['st2e']);
 }
-
-var_dump($response);
-?>
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics5.php";
-$method='POST';
-
-$postfields=http_build_query(array(
-));
-if(isset($_COOKIE['token'])){
-$response1=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response1=0;
+if(isset($_POST['submit2'])){
+	header('Location: results_sessionpermonth.php?y='.$_POST['st3y'].'&e='.$_POST['st3e']);
 }
-if($response1['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response1 = request($url, $method, $postfields, $tok);
+if(isset($_POST['submit3'])){
+	header('Location: results_compareclients.php?ye='.$_POST['st4ye'].'&y='.$_POST['st4y'].'&e='.$_POST['st4e']);
 }
-
-var_dump($response1);
+if(isset($_POST['submit4'])){
+	header('Location: results_distributionperschool.php?y='.$_POST['st5y']);
+}
+if(isset($_POST['submit5'])){
+	header('Location: results_issuesfornewcases?y='.$_POST['st6y']);
+}
+if(isset($_POST['submit6'])){
+	header('Location: results_sources.php?y='.$_POST['st7y']);
+}
 ?>
