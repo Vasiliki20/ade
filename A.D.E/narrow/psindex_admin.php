@@ -102,7 +102,7 @@ $response = request($url, $method, $postfields, $tok);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -137,7 +137,7 @@ $response = request($url, $method, $postfields, $tok);
 										<a href="myappointments_admin.php">My Appointments</a>
 									</li>
 									<li>
-										<a href="waitinglist.php">Waiting List</a>
+										<a href="waitinglist_admin.php">Waiting List</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
