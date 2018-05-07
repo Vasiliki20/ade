@@ -199,7 +199,7 @@
 					<div>
 						<br>
 					</div>
-<<<<<<< HEAD
+
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 					<script>
 						$('#submit').click(function() {
@@ -208,7 +208,7 @@
 							}
 						});
 					</script>
-					<div class="panel-body">
+				<!--	<div class="panel-body">
 						<form method="post" action="">
 						<label>Αριθμός πελατών ανά μήνα:</label>
 						<br>
@@ -255,8 +255,7 @@
 						<br>
 						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="st7y">
 						<input id="submit" type="submit" name="submit6" class="btn btn-default" value="Αναζήτηση">
-=======
-
+-->
 					<div class="panel-body">
 						<form name="myForm1" method="post" action="" onsubmit="return validateForm1()">
 							<label>Αριθμός πελατών ανά μήνα:</label>
@@ -316,7 +315,7 @@
 							<br>
 							<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="st7y">
 							<input id="submit" type="submit" name="submit6" class="btn btn-default" value="Αναζήτηση">
->>>>>>> 6e1cc9ae9bca20c7b3f2bb6bd4846cad6b19c38d
+
 						</form>
 					</div>
 				</div>
@@ -353,7 +352,6 @@
 </html>
 <?php
 
-<<<<<<< HEAD
 if(isset($_POST['submit'])){
 	header('Location: results_clientspermonth.php?y='.$_POST['st1y'].'&e='.$_POST['st1e']);
 }
@@ -374,7 +372,7 @@ if(isset($_POST['submit5'])){
 }
 if(isset($_POST['submit6'])){
 	header('Location: results_sources.php?y='.$_POST['st7y']);
-=======
+}
 if (isset($_POST['submit'])) {
 	header('Location: results_clientspermonth.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
 }
@@ -395,6 +393,6 @@ if (isset($_POST['submit5'])) {
 }
 if (isset($_POST['submit6'])) {
 	header('Location: results_sources.php?y=' . $_POST['st7y']);
->>>>>>> 6e1cc9ae9bca20c7b3f2bb6bd4846cad6b19c38d
+
 }
 ?>
