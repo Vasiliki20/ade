@@ -61,7 +61,6 @@ var_dump($response);
 			$('myTable').DataTable();
 		});
 	</script>
-
 	<body>
 
 		<div id="wrapper">
@@ -84,7 +83,7 @@ var_dump($response);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -102,17 +101,6 @@ var_dump($response);
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
 							<li>
 								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
@@ -128,20 +116,14 @@ var_dump($response);
 									<li>
 										<a href="myappointments.php">My appointments</a>
 									</li>
-									<li>
-										<a href="waitinglist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search.php">Search</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
 							</li>
 							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 						</ul>
 					</div>
@@ -153,9 +135,84 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
+						<h1 class="page-header">Case File</h1>
 					</div>
 				</div>
+				<div>
+					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
+									</li>
+									<li>
+										<a href="filesofpatient.php?patientID=<?= $_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformationfull.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
+											</li>
+										</ul>
+
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+											<li>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
+									</li>
+									<li>
+										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints.php?patientID=<?= $_GET['patientID'] ?>">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons.php?patientID=<?= $_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-body">

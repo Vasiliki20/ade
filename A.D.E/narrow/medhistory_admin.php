@@ -502,7 +502,7 @@ var_dump($response);
 									<ul>
 									
 									<?php for($m=0;$m<count($response['anaskopisi']);$m++){ ?>
-									 <li><a href="form11see.php?an=<?=$m?>&patientID=<?=$_GET['patientID']?>">Ανασκόπηση <?=$m?></a></li>
+									 <li><a href="form11see_admin.php?an=<?=$m?>&patientID=<?=$_GET['patientID']?>">Ανασκόπηση <?=$m?></a></li>
 									<?php     }  ?> 
 									</ul>
 								</div>
@@ -821,7 +821,7 @@ var_dump($response);
 									<ul>
 									
 									<?php for($m=0;$m<count($response['anaskopisi']);$m++){ ?>
-									 <li><a href="form11see.php?an=<?=$m?>&patientID=<?=$_GET['patientID']?>">Ανασκόπηση <?=$m?></a></li>
+									 <li><a href="form11see_admin.php?an=<?=$m?>&patientID=<?=$_GET['patientID']?>">Ανασκόπηση <?=$m?></a></li>
 									<?php     }  ?> 
 									</ul>
 								</div>
