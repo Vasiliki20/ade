@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,25 +30,86 @@
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
 	<script>
-		$(document).ready(function() {
-			$('myTable').DataTable();
-		});
-	</script>
-	<script>
-		function check() {
-			var x,
-			    text;
-
-			// Get the value of the input field with id="numb"
-			x = document.getElementById("semester").value;
-
-			// If x is Not a Number or less than one or greater than 10
-			if (isNaN(x) || x != "A" || x != "B") {
-				text = "Input not valid";
-			} else {
-				text = "Input OK";
+		function validateForm1() {
+			var x = document.forms["myForm1"]["st1e"].value;
+			var y = document.forms["myForm1"]["st1y"].value;
+			if (y < "1999" || y > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+				return false;
 			}
-			document.getElementById("demo").innerHTML = text;
+			if (x != "1" && x != "2") {
+				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
+				return false;
+			}
+		}
+
+		function validateForm2() {
+			var x = document.forms["myForm2"]["st2e"].value;
+			var y = document.forms["myForm2"]["st2y"].value;
+			if (y < "1999" || y > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+				return false;
+			}
+			if (x != "1" && x != "2") {
+				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
+				return false;
+			}
+		}
+
+		function validateForm3() {
+			var x = document.forms["myForm3"]["st3e"].value;
+			var y = document.forms["myForm3"]["st3y"].value;
+			if (y < "1999" || y > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+				return false;
+			}
+			if (x != "1" && x != "2") {
+				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
+				return false;
+			}
+		}
+
+		function validateForm4() {
+			var x = document.forms["myForm4"]["st4e"].value;
+			var y1 = document.forms["myForm4"]["st4ye"].value;
+			var y2 = document.forms["myForm4"]["st4y"].value;
+			if (y1 < "1999" || y1 > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+			}
+			if (y2 < "1999" || y2 > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+			}
+			if (y1 > y2 || y1 == y2) {
+				alert("Το αρχικό έτος σύγκρισης πρέπει να είναι μικρότερο από το τελικό έτος")
+			}
+			if (x != "1" && x != "2") {
+				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
+				return false;
+			}
+		}
+
+		function validateForm5() {
+			var y = document.forms["myForm5"]["st5y"].value;
+			if (y < "1999" || y > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+				return false;
+			}
+		}
+
+		function validateForm6() {
+			var y = document.forms["myForm6"]["st6y"].value;
+			if (y < "1999" || y > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+				return false;
+			}
+		}
+
+		function validateForm7() {
+			var y = document.forms["myForm7"]["st7y"].value;
+			if (y < "1999" || y > "9000") {
+				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
+				return false;
+			}
 		}
 	</script>
 	<body>
@@ -120,307 +182,7 @@
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
-			<!-- clients per month -->
-			<!--			<div class="modal fade" id="clientspermonth" role="dialog">
-			<div class="modal-dialog">
 
-			<!-- Modal content-->
-			<!--					<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Αριθμός πελατών ανά μήνα</h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<form action="">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-			</form>
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-
-			</div>
-			</div>
-			<!-- new clients per month -->
-			<!--			<div class="modal fade" id="newclientspermonth" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--					<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Αριθμός νέων πελατών ανά μήνα</h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<form action="">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-			</form>
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-
-			</div>
-			</div>
-			<!-- number of sessions per month -->
-			<!--		<div class="modal fade" id="sessionspermonth" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--			<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Αριθμός συνεδριών ανά μήνα</h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<form action="">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-			</form>
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-			</div>
-			</div>
-			<!-- compare clients with previous years -->
-			<!--			<div class="modal fade" id="compareclients" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--					<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<form action="">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-			</form>
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-			</div>
-			</div>
-			<!-- distribution per school -->
-			<!--			<div class="modal fade" id="distributionperschool" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--					<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<form action="">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-			</form>
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-			</div>
-			</div>
-			<!-- issues for new cases -->
-			<!--			<div class="modal fade" id="issuesfornewcases" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--					<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Παρουσιαζόμενα ζητήματα για νέα περιστατικά </h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-			</div>
-			</div>
-			<!-- sources of students for the services of the center -->
-			<!--			<div class="modal fade" id="sources" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--				<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</h4>
-			</div>
-			<div class="modal-body">
-			<form role="form" action="" method="post">
-			<table>
-			<tr>
-			<td align="left"><label for="year">Χρόνος:</label></td>
-			<td align="left">
-			<input type="text" name="year" class="form-group" id="year">
-			</td>
-			</tr>
-			<tr>
-			<td align="left"><label for="semester">Εξάμηνο:</label></td>
-			<td align="left">
-			<input type="text" name="semester" class="form-group" id="semester">
-			</td>
-			</tr>
-			</table>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<button onclick="check()" type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-			Save
-			</button>
-
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-			</div>
-			</div>-->
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
@@ -437,60 +199,67 @@
 					<div>
 						<br>
 					</div>
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-					<script>
-						$('#submit').click(function() {
-							if ($('#clientspermonth2').val() == '') {
-								alert('Input can not be left blank');
-							}
-						});
-					</script>
-					<div class="panel-body">
-						<label>Αριθμός πελατών ανά μήνα:</label>
-						<br>
-						<input type="text" class="form-group" id="clientspermonth1" placeholder="Χρονιά" name="clientspermonth1">
-						<input type="text" class="form-group" id="clientspermonth2" placeholder="Εξάμηνο" name="clientspermonth2">
-						<input id="submit" type="button" name="submit" class="btn btn-default" value="Αναζήτηση">
-						<br>
-						<br>
-						<label>Αριθμός νέων πελάτων ανά μήνα</label>
-						<br>
-						<input type="text" class="form-group" id="newclientspermonth1" placeholder="Χρονιά" name="newclientspermonth1">
-						<input type="text" class="form-group" id="newclientspermonth2" placeholder="Εξάμηνο" name="newclientspermonth2">
-						<input id="submit" type="button" name="newclientspermonth" class="btn btn-default" value="Αναζήτηση">
-						<br>
-						<br>
-						<label>Αριθμός συνεδριών ανά μήνα</label>
-						<br>
-						<input type="text" class="form-group" id="sessionspermonth1" placeholder="Χρονιά" name="sessionspermonth1">
-						<input type="text" class="form-group" id="sessionspermonth2" placeholder="Εξάμηνο" name="sessionspermonth2">
-						<input id="submit" type="button" name="sessionspermonth" class="btn btn-default" value="Αναζήτηση">
-						<br>
-						<br>
-						<label>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</label>
-						<br>
-						<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="compareclients1">
-						<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="compareclients2">
-						<input id="submit" type="button" name="compareclients" class="btn btn-default" value="Αναζήτηση">
-						<br>
-						<br>
-						<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label>
-						<br>
-						<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="distributionperschool1">
-						<input id="submit" type="button" name="distributionperschool" class="btn btn-default" value="Αναζήτηση">
-						<br>
-						<br>
-						<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label>
-						<br>
-						<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="issuesfornewcases1">
-						<input id="submit" type="button" name="" class="btn btn-default" value="Αναζήτηση">
-						<br>
-						<br>
-						<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label>
-						<br>
-						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="sources1">
-						<input id="submit" type="button" name="sources" class="btn btn-default" value="Αναζήτηση">
 
+					<div class="panel-body">
+						<form name="myForm1" method="post" action="" onsubmit="return validateForm1()">
+							<label>Αριθμός πελατών ανά μήνα:</label>
+							<br>
+							<input type="text" class="form-group" id="clientspermonth1" placeholder="Χρονιά" name="st1y">
+							<input type="text" class="form-group" id="clientspermonth2" placeholder="Εξάμηνο" name="st1e">
+							<input id="submit" type="submit" name="submit" class="btn btn-default" value="Αναζήτηση">
+							<br>
+							<br>
+						</form>
+						<form name="myForm2" method="post" action="" onsubmit="return validateForm2()">
+							<label>Αριθμός νέων πελάτων ανά μήνα</label>
+							<br>
+							<input type="text" class="form-group" id="newclientspermonth1" placeholder="Χρονιά" name="st2y">
+							<input type="text" class="form-group" id="newclientspermonth2" placeholder="Εξάμηνο" name="st2e">
+							<input id="submit" type="submit" name="submit1" class="btn btn-default" value="Αναζήτηση">
+							<br>
+							<br>
+						</form>
+						<form name="myForm3" method="post" action="" onsubmit="return validateForm3()">
+							<label>Αριθμός συνεδριών ανά μήνα</label>
+							<br>
+							<input type="text" class="form-group" id="sessionspermonth1" placeholder="Χρονιά" name="st3y">
+							<input type="text" class="form-group" id="sessionspermonth2" placeholder="Εξάμηνο" name="st3e">
+							<input id="submit" type="submit" name="submit2" class="btn btn-default" value="Αναζήτηση">
+							<br>
+							<br>
+						</form>
+						<form name="myForm4" method="post" action="" onsubmit="return validateForm4()">
+							<label>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</label>
+							<br>
+							<input type="text" class="form-group" id="compareclients1" placeholder="Αρχικό έτος σύγκρισης" name="st4ye">
+							<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="st4y">
+							<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="st4e">
+							<input id="submit" type="submit" name="submit3" class="btn btn-default" value="Αναζήτηση">
+							<br>
+							<br>
+						</form>
+						<form name="myForm5" method="post" action="" onsubmit="return validateForm5()">
+							<label>Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή</label>
+							<br>
+							<input type="text" class="form-group" id="distributionperschool1" placeholder="Χρονιά" name="st5y">
+							<input id="submit" type="submit" name="submit4" class="btn btn-default" value="Αναζήτηση">
+							<br>
+							<br>
+						</form>
+						<form name="myForm6" method="post" action="" onsubmit="return validateForm6()">
+							<label>Παρουσιαζόμενα ζητήματα για νέα περιστατικά</label>
+							<br>
+							<input type="text" class="form-group" id="issuesfornewcases1" placeholder="Χρονιά" name="st6y">
+							<input id="submit" type="submit" name="submit5" class="btn btn-default" value="Αναζήτηση">
+							<br>
+							<br>
+						</form>
+						<form name="myForm7" method="post" action="" onsubmit="return validateForm7()">
+							<label>Πηγές ενημέρωσης φοιτητών για τις υπηρεσίες</label>
+							<br>
+							<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="st7y">
+							<input id="submit" type="submit" name="submit6" class="btn btn-default" value="Αναζήτηση">
+						</form>
 					</div>
 				</div>
 
@@ -524,56 +293,27 @@
 	</body>
 
 </html>
-
 <?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics4.php?year=2018&monthclass=B";
-$method='POST';
 
-$postfields=http_build_query(array(
-));
-if(isset($_COOKIE['token'])){
-$response=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response=0;
+if (isset($_POST['submit'])) {
+	header('Location: results_clientspermonth.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
 }
-if($response['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response = request($url, $method, $postfields, $tok);
+if (isset($_POST['submit1'])) {
+	header('Location: results_newclientspermonth.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
 }
-
-var_dump($response);
-?>
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics5.php";
-$method='POST';
-
-$postfields=http_build_query(array(
-));
-if(isset($_COOKIE['token'])){
-$response1=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response1=0;
+if (isset($_POST['submit2'])) {
+	header('Location: results_sessionpermonth.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
 }
-if($response1['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response1 = request($url, $method, $postfields, $tok);
+if (isset($_POST['submit3'])) {
+	header('Location: results_compareclients.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
 }
-
-var_dump($response1);
+if (isset($_POST['submit4'])) {
+	header('Location: results_distributionperschool.php?y=' . $_POST['st5y']);
+}
+if (isset($_POST['submit5'])) {
+	header('Location: results_issuesfornewcases?y=' . $_POST['st6y']);
+}
+if (isset($_POST['submit6'])) {
+	header('Location: results_sources.php?y=' . $_POST['st7y']);
+}
 ?>
