@@ -33,7 +33,7 @@
 		function validateForm1() {
 			var x = document.forms["myForm1"]["st1e"].value;
 			var y = document.forms["myForm1"]["st1y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
