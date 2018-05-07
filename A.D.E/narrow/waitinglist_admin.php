@@ -199,16 +199,6 @@ $postfields=http_build_query(array(
 												<option value="disability">Disability</option>
 											</select></td>
 
-											</select></td>
-											<?php }else{?>
-											<select name="prio[]">
-												<option selected="selected"></option>
-												<option value="suicide">Suicide Risk</option>
-												<option value="violence">Violence Potential</option>
-												<option value="billing">Billing Issues</option>
-												<option value="disability">Disability</option>
-											</select></td>
-
 											<?php } ?>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<select name=<?=$response['result1'][$j]['patientID']?>>
