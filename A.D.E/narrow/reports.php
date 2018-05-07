@@ -33,7 +33,7 @@
 		function validateForm1() {
 			var x = document.forms["myForm1"]["st1e"].value;
 			var y = document.forms["myForm1"]["st1y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -46,7 +46,7 @@
 		function validateForm2() {
 			var x = document.forms["myForm2"]["st2e"].value;
 			var y = document.forms["myForm2"]["st2y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -59,7 +59,7 @@
 		function validateForm3() {
 			var x = document.forms["myForm3"]["st3e"].value;
 			var y = document.forms["myForm3"]["st3y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -73,10 +73,10 @@
 			var x = document.forms["myForm4"]["st4e"].value;
 			var y1 = document.forms["myForm4"]["st4ye"].value;
 			var y2 = document.forms["myForm4"]["st4y"].value;
-			if (y1 < "1999" || y1 > "9000") {
+			if (y1 < 1999 || y1 > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 			}
-			if (y2 < "1999" || y2 > "9000") {
+			if (y2 < 1999 || y2 > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 			}
 			if (y1 > y2 || y1 == y2) {
@@ -90,7 +90,7 @@
 
 		function validateForm5() {
 			var y = document.forms["myForm5"]["st5y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -98,7 +98,7 @@
 
 		function validateForm6() {
 			var y = document.forms["myForm6"]["st6y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -106,7 +106,7 @@
 
 		function validateForm7() {
 			var y = document.forms["myForm7"]["st7y"].value;
-			if (y < "1999" || y > "9000") {
+			if (y < 1999 || y > 9000) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -200,6 +200,15 @@
 						<br>
 					</div>
 
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+					<script>
+						$('#submit').click(function() {
+							if ($('#clientspermonth2').val() == '') {
+								alert('Input can not be left blank');
+							}
+						});
+					</script>
+					
 					<div class="panel-body">
 						<form name="myForm1" method="post" action="" onsubmit="return validateForm1()">
 							<label>Αριθμός πελατών ανά μήνα:</label>
@@ -259,6 +268,7 @@
 							<br>
 							<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="st7y">
 							<input id="submit" type="submit" name="submit6" class="btn btn-default" value="Αναζήτηση">
+
 						</form>
 					</div>
 				</div>
@@ -315,5 +325,27 @@ if (isset($_POST['submit5'])) {
 }
 if (isset($_POST['submit6'])) {
 	header('Location: results_sources.php?y=' . $_POST['st7y']);
+}
+if (isset($_POST['submit'])) {
+	header('Location: results_clientspermonth.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
+}
+if (isset($_POST['submit1'])) {
+	header('Location: results_newclientspermonth.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
+}
+if (isset($_POST['submit2'])) {
+	header('Location: results_sessionpermonth.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
+}
+if (isset($_POST['submit3'])) {
+	header('Location: results_compareclients.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
+}
+if (isset($_POST['submit4'])) {
+	header('Location: results_distributionperschool.php?y=' . $_POST['st5y']);
+}
+if (isset($_POST['submit5'])) {
+	header('Location: results_issuesfornewcases?y=' . $_POST['st6y']);
+}
+if (isset($_POST['submit6'])) {
+	header('Location: results_sources.php?y=' . $_POST['st7y']);
+
 }
 ?>
