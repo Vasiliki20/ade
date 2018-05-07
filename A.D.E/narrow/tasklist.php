@@ -23,15 +23,15 @@ $postfields=http_build_query(array(
 	if($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
 //	var_dump($response);
 ?>
 <!DOCTYPE html>
@@ -65,6 +65,7 @@ $postfields=http_build_query(array(
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
 	<style>
+		
 		.dropbtn {
 			background-color: white;
 			color: black;
@@ -160,7 +161,7 @@ $postfields=http_build_query(array(
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -234,55 +235,55 @@ $postfields=http_build_query(array(
 									</thead>
 									<tbody>
 										<?php if(isset($response)){for($i=0;$i<count($response['appointments']);$i++){ ?>
-											<?php if((strnatcmp($response['appointments'][$i]['attendance'],"Attended")!=0) && (strnatcmp($response['appointments'][$i]['attendance'],"not Attended")!=0) && $response['appointments'][$i]['patientID']!=NULL){
-											?>
+<?php if((strnatcmp($response['appointments'][$i]['attendance'],"Attended")!=0) && (strnatcmp($response['appointments'][$i]['attendance'],"not Attended")!=0) && $response['appointments'][$i]['patientID']!=NULL){
+										?>
 										<tr>
-											<td><?=$response['appointments'][$i]['start']?></td>
-											<td><a href="myappointments.php">Appointment</a></td>
-											<td><?=$response['appointments'][$i]['patientID']?></td>
-											<td><?=$response['appointments'][$i]['subject']?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-											<option value="1" >Signature required</option>
-												<option value="2">Note Incomplete</option>
-												<option value="3" selected="selected">Mark attendance</option>
-											</select></td>
+										<td><?=$response['appointments'][$i]['start'] ?></td>
+										<td><a href="myappointments.php">Appointment</a></td>
+										<td><?=$response['appointments'][$i]['patientID'] ?></td>
+										<td><?=$response['appointments'][$i]['subject'] ?></td>
+										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<select>
+										<option value="1" >Signature required</option>
+										<option value="2">Note Incomplete</option>
+										<option value="3" selected="selected">Mark attendance</option>
+										</select></td>
 										</tr>
 										<?php }}} ?>
 										<?php if(isset($response)){for($i=0;$i<count($response['casenotes']);$i++){ ?>
-											<?php if($response['casenotes'][$i]==false){
-											}elseif(strnatcmp($response['casenotes'][$i]['Signed'],"Ναί")!=0){
-											?>
+<?php if($response['casenotes'][$i]==false){
+}elseif(strnatcmp($response['casenotes'][$i]['Signed'],"Ναί")!=0){
+										?>
 										<tr>
-											<td><?=$response['casenotes'][$i]['dateof']?></td>
-											<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID']?>">Case Note</a></td>
-											<td></td>
-											<td><?=$response['casenotes'][$i]['sessioncontent']?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-											<option value="1" selected="selected">Signature required</option>
-												<option value="2">Note Incomplete</option>
-												<option value="3" >Mark attendance</option>
-											</select></td>
+										<td><?=$response['casenotes'][$i]['dateof'] ?></td>
+										<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID'] ?>">Case Note</a></td>
+										<td></td>
+										<td><?=$response['casenotes'][$i]['sessioncontent'] ?></td>
+										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<select>
+										<option value="1" selected="selected">Signature required</option>
+										<option value="2">Note Incomplete</option>
+										<option value="3" >Mark attendance</option>
+										</select></td>
 										</tr>
-											<?php }elseif(isincomplete($response['casenotes'][$i])){?>
+										<?php }elseif(isincomplete($response['casenotes'][$i])){ ?>
 										<tr>
-											<td><?=$response['casenotes'][$i]['dateof']?></td>
-											<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID']?>">Case Note</a></td>
-											<td></td>
-											<td><?=$response['casenotes'][$i]['sessioncontent']?></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-											<select>
-											<option value="1" >Signature required</option>
-												<option value="2"selected="selected" >Note Incomplete</option>
-												<option value="3" >Mark attendance</option>
-											</select></td>
+										<td><?=$response['casenotes'][$i]['dateof'] ?></td>
+										<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID'] ?>">Case Note</a></td>
+										<td></td>
+										<td><?=$response['casenotes'][$i]['sessioncontent'] ?></td>
+										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<select>
+										<option value="1" >Signature required</option>
+										<option value="2"selected="selected" >Note Incomplete</option>
+										<option value="3" >Mark attendance</option>
+										</select></td>
 										</tr>
 										<?php }}} ?>
 									</tbody>
 								</table>
 								<br>
-								
+
 							</div>
 							<!-- /.panel-body -->
 						</div>

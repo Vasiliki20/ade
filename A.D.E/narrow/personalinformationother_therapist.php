@@ -150,19 +150,20 @@ $postfields=http_build_query(array(
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
 										<a href="casenotes_therapist.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="filesofpatient_therapist.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
+										<a href="filesofpatient_therapist.php">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformationfull_therapist.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation_therapist.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
 												<a href="schedule_therapist.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
@@ -197,17 +198,15 @@ $postfields=http_build_query(array(
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="formcomplaints_therapist.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
+												<a href="formcomplaints_therapist.php">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formreasons_therapist.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
+												<a href="formreasons_therapist.php">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>
 								</ul>
-
 							</div><!-- /.navbar-collapse -->
-							
 						</div><!-- /.container-fluid -->
 					</nav>
 				</div>
@@ -215,31 +214,162 @@ $postfields=http_build_query(array(
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Διαθέσιμο Πρόγραμμα Πελάτη
+							Προσωπικά Στοιχεία Πελάτη
 						</div>
 						<div class="panel-body">
-							<table id="available" style="width:100%">
-								<tr>
-									<th>
-									<center>
-										<label>Μέρες που είναι διαθέσιμος:</label>
-									</center></th>
-									<th>
-									<center>
-										<label>Ώρες που είναι διαθέσιμος:</label>
-									</center></th>
-								</tr>
-								<?php for($i=0;$i<count($response['timeline']);$i++){ ?>
-								<tr>
-									<td>
-									<input type="text" class="form-control" id="available" name="date" value=<?=jddayofweek (  $response['timeline'][$i]['day']-1,1) ?>>
-									</input></td>
-									<td>
-									<input type="time" class="form-control" id="available" name="time" value=<?=$response['timeline'][$i]['hour'] ?>>
-									</input></td>
-								</tr>
-								<?php } ?>
-						</div>
+							<div class="form-group">
+								<label for="type">Τύπος πελάτη:</label>
+								<input type="text" class="form-control" id="type" placeholder="" name="type">
+							</div>
+							<div class="form-group">
+								<label for="id">Αρ.Ταυτότητας:</label>
+								<input type="text" class="form-control" id="id" placeholder="" name="id">
+							</div>
+							<div class="form-group">
+								<label for="assigned">Ανάθεση σε ψυχολόγο:</label>
+								<input type="text" class="form-control" id="assigned" placeholder="" name="assigned">
+							</div>
+							<div class="form-group">
+								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
+								<input type="number" class="form-control" id="idofps" placeholder="" name="idofps">
+							</div>
+							<div class="form-group">
+								<label for="name">Όνομα:</label>
+								<input type="text" class="form-control" id="name" placeholder="" name="name">
+							</div>
+							<div class="form-group">
+								<label for="surname">Επίθετο:</label>
+								<input type="text" class="form-control" id="surname" placeholder="" name="surname">
+							</div>
+							<div class="form-group">
+								<label for="appointment">Περίδος Ραντεβού:</label>
+								<input type="text" class="form-control" id="appointment" placeholder="" name="appointment">
+							</div>
+							<div class="form-group">
+								<label for="age">Ηλικία:</label>
+								<input type="date" class="form-control" id="age" placeholder="" name="age">
+							</div>
+							<div class="form-group">
+								<label for="sex">Φύλο:</label>
+								<input type="text" class="form-control" id="sex" placeholder="" name="sex">
+							</div>
+							<div class="form-group">
+								<label for="dob">Ημ.Γέννησης:</label>
+								<input type="date" class="form-control" id="dob" placeholder="" name="dob">
+							</div>
+							<div class="form-group">
+								<label for="ipikootita">Υπηκοότητα:</label>
+								<input type="text" class="form-control" id="ipikootita" placeholder="" name="ipikootita">
+							</div>
+							<div class="form-group">
+								<label for="phone">Τηλέφωνο:</label>
+								<input type="number" class="form-control" id="phone" placeholder="" name="phone">
+							</div>
+							<div class="form-group">
+								<label for="email">Ηλ.Διεύθυνση:</label>
+								<input type="email" class="form-control" id="email" placeholder="" name="email">
+							</div>
+							<div class="form-group">
+								<label for="address">Διεύθυνση Διαμονής:</label>
+								<input type="text" class="form-control" id="address" placeholder="" name="address">
+							</div>
+							<div class="form-group">
+								<label for="tk">Τ.Κ:</label>
+								<input type="text" class="form-control" id="tk" placeholder="" name="tk">
+							</div>
+							<div class="form-group">
+								<label for="city">Πόλη/Χωριό:</label>
+								<input type="text" class="form-control" id="city" placeholder="" name="city">
+							</div>
+							<div class="form-group">
+								<label for="contact">Πως να επικοινωνεί το κέντρο μαζί του:</label>
+								<input type="text" class="form-control" id="contact" placeholder="" name="contact">
+							</div>
+							<div class="form-group">
+								<label for="recommended">Ποιός του σύστησε το κέντρο:</label>
+								<input type="text" class="form-control" id="recommended" placeholder="" name="recommended">
+							</div>
+							<div class="form-group">
+								<label for="mainproblem">Κύριο πρόβλημα:</label>
+								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainproblem">
+							</div>
+							<div class="form-group">
+								<label for="goal">Σκοπός θεραπείας:</label>
+								<input type="text" class="form-control" id="goal" placeholder="" name="goal">
+							</div>
+							<div class="form-group">
+								<label for="typeoftreatment">Είδος θεραπείας:</label>
+								<input type="text" class="form-control" id="typeoftreatment" placeholder="" name="typeoftreatment">
+							</div>
+							<div class="form-group">
+								<label for="previoustreatment">Προηγούμενες θεραπείες και που:</label>
+								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustreatment">
+							</div>
+							<div class="form-group">
+								<label for="treatmentnow">Θεραπευτής τώρα:</label>
+								<input type="text" class="form-control" id="treatmentnow" placeholder="" name="treatmentnow">
+							</div>
+							<div class="form-group">
+								<label for="phoneofps">Τηλέφωνο θεραπευτή:</label>
+								<input type="number" class="form-control" id="phoneofps" placeholder="" name="phoneofps">
+							</div>
+							<div class="form-group">
+								<label for="numberofsessions">Αριθμός θεραπειών:</label>
+								<input type="number" class="form-control" id="numberofsessions" placeholder="" name="numberofsessions">
+							</div>
+							<div class="form-group">
+								<label for="firstcontact">Ημερομηνία πρώτης επικοινωνίας με ΚΕΨΥ:</label>
+								<input type="date" class="form-control" id="firstcontact" placeholder="" name="firstcontact">
+							</div>
+							<div class="form-group">
+								<label for="firstappointment">Ημερομηνία πρώτου ραντεβού με ΚΕΨΥ:</label>
+								<input type="date" class="form-control" id="firstappointment" placeholder="" name="firstappointment">
+							</div>
+							<div class="form-group">
+								<label for="status">Status:</label>
+								<input type="text" class="form-control" id="status" placeholder="" name="status">
+							</div>
+							<div class="form-group">
+								<label for="marital">Οικογενειακή κατάσταση:</label>
+								<input type="text" class="form-control" id="marital" placeholder="" name="marital">
+							</div>
+							<div class="form-group">
+								<label for="flag">Red flag:</label>
+								<input type="text" class="form-control" id="flag" placeholder="" name="flag">
+							</div>
+							<div class="form-group">
+								<label for="billing">Υπάρχει πληρωμή:</label>
+								<input type="text" class="form-control" id="billing" placeholder="" name="billing">
+							</div>
+							<div class="form-group">
+								<label for="moreinfo">Άλλες πληροφορίες:</label>
+								<input type="text" class="form-control" id="moreinfo" placeholder="" name="moreinfo">
+							</div>
+							<div class="form-group">
+								<label for="complaints">Παράπονα:</label>
+								<input type="text" class="form-control" id="complaints" placeholder="" name="complaints">
+							</div>
+							<div class="form-group">
+								<label for="dateofend">Ημερομηνία Τερματισμού:</label>
+								<input type="date" class="form-control" id="dateofend" placeholder="" name="dateofend">
+							</div>
+							<div class="form-group">
+								<label for="whyend">Λόγος διακοπής:</label>
+								<input type="text" class="form-control" id="whyend" placeholder="" name="whyend">
+							</div>
+							<div class="form-group">
+								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
+								<input type="text" class="form-control" id="review" placeholder="" name="review">
+							</div>
+							
+							<div class="form-group">
+								<label for="job">Εργασία:</label>
+								<input type="text" class="form-control" id="job" placeholder="" name="job">
+							</div>
+							<div class="form-group">
+								<label for="municipality">Δήμος:</label>
+								<input type="text" class="form-control" id="municipality" placeholder="" name="municipality">
+							</div>							
 						</div>
 					</div>
 				</div>
