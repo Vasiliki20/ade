@@ -139,11 +139,11 @@ $postfields=http_build_query(array(
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
-			<div class="modal fade" id="myModal" role="dialog">
+		<!--	<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 
 					<!-- Modal content-->
-					<div class="modal-content">
+				<!--	<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">
 								&times;
@@ -220,7 +220,7 @@ $postfields=http_build_query(array(
 					</div>
 
 				</div>
-			</div>
+		</div>-->
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
@@ -234,10 +234,10 @@ $postfields=http_build_query(array(
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-								<div>
+							<!--	<div>
 									<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
 										Add Therapist
-								</div>
+								</div>-->
 								<form method="post" action="">
 								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 									<thead>
