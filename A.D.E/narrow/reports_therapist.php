@@ -33,11 +33,11 @@
 		function validateForm1() {
 			var x = document.forms["myForm1"]["st1e"].value;
 			var y = document.forms["myForm1"]["st1y"].value;
-			if (y < 1999 || y > 9000) {
+			if (y < 1999 || y > 9000 || isNaN(y)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
-			if (x != "1" && x != "2") {
+			if ((x != "1" && x != "2") || isNaN(x)) {
 				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
 				return false;
 			}
@@ -46,11 +46,11 @@
 		function validateForm2() {
 			var x = document.forms["myForm2"]["st2e"].value;
 			var y = document.forms["myForm2"]["st2y"].value;
-			if (y < 1999 || y > 9000) {
+			if (y < 1999 || y > 9000 || isNaN(y)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
-			if (x != "1" && x != "2") {
+			if ((x != "1" && x != "2") || isNaN(x)) {
 				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
 				return false;
 			}
@@ -59,11 +59,11 @@
 		function validateForm3() {
 			var x = document.forms["myForm3"]["st3e"].value;
 			var y = document.forms["myForm3"]["st3y"].value;
-			if (y < 1999 || y > 9000) {
+			if (y < 1999 || y > 9000 || isNaN(y)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
-			if (x != "1" && x != "2") {
+			if ((x != "1" && x != "2")|| isNaN(x) ){
 				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
 				return false;
 			}
@@ -73,16 +73,16 @@
 			var x = document.forms["myForm4"]["st4e"].value;
 			var y1 = document.forms["myForm4"]["st4ye"].value;
 			var y2 = document.forms["myForm4"]["st4y"].value;
-			if (y1 < 1999 || y1 > 9000) {
+			if (y1 < 1999 || y1 > 9000 || isNaN(y1)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 			}
-			if (y2 < 1999 || y2 > 9000) {
+			if (y2 < 1999 || y2 > 9000 || isNaN(y2)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 			}
 			if (y1 > y2 || y1 == y2) {
 				alert("Το αρχικό έτος σύγκρισης πρέπει να είναι μικρότερο από το τελικό έτος")
 			}
-			if (x != "1" && x != "2") {
+			if ((x != "1" && x != "2") || isNaN(x)) {
 				alert("Το εξάμηνο πρέπει να είναι 1 ή 2");
 				return false;
 			}
@@ -90,7 +90,7 @@
 
 		function validateForm5() {
 			var y = document.forms["myForm5"]["st5y"].value;
-			if (y < 1999 || y > 9000) {
+			if (y < 1999 || y > 9000 || isNaN(y)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -98,7 +98,7 @@
 
 		function validateForm6() {
 			var y = document.forms["myForm6"]["st6y"].value;
-			if (y < 1999 || y > 9000) {
+			if (y < 1999 || y > 9000 || isNaN(y)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
@@ -106,7 +106,7 @@
 
 		function validateForm7() {
 			var y = document.forms["myForm7"]["st7y"].value;
-			if (y < 1999 || y > 9000) {
+			if (y < 1999 || y > 9000 || isNaN(y)) {
 				alert("Η χρονιά πρέπει να είναι 4ψήφιος αριθμός");
 				return false;
 			}
