@@ -1,4 +1,6 @@
-<?php session_start(); ob_start(); ?>
+<?php session_start();
+ob_start();
+ ?>
 <!DOCTYPE html>
 <?php
 require_once("requests.php");
@@ -15,17 +17,17 @@ $postfields=http_build_query(array(
 	while($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response);
-	
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
+
 //}
 ?>
 <html lang="en">
@@ -39,6 +41,13 @@ $postfields=http_build_query(array(
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		<!-- FOR DROPDOWN -->
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="googlebot" content="noindex, nofollow">
+		
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="/css/result-light.css">
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -139,88 +148,87 @@ $postfields=http_build_query(array(
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
-		<!--	<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
+			<!--	<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
 
-					<!-- Modal content-->
-				<!--	<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								&times;
-							</button>
-							<h4 class="modal-title">Add New Therapist</h4>
-						</div>
-						<div class="modal-body">
-							<p>
-								<form role="form" action="therapists.php" method="post">
-									<div class="form-group">
-										<label class="sr-only" for="name">Όνομα</label>
-										<input type="text" name="name" placeholder="Όνομα" class="form-control" id="name">
-									</div>
-									<div class="form-group">
-										<label class="sr-only" for="surname">Επίθετο</label>
-										<input type="text" name="surname" placeholder="Επίθετο" class="form-control" id="surname">
-									</div>
-									<div class="form-group">
-										<label class="sr-only" for="id">Αριθμός Ταυτότητας</label>
-										<input type="text" name="id" placeholder="Αριθμός Ταυτότητας" class="form-control" id="id">
-									</div>
-									<div class="form-group">
-										<input class="w3-radio" type="radio" name="gender" value="male" checked>
-										<label>Άρρεν</label>
-										<input class="w3-radio" type="radio" name="gender" value="female">
-										<label>Θήλυ</label>
-										<input class="w3-radio" type="radio" name="gender" value="other">
-										<label>Άλλο</label>
-									</div>
-									<div class="form-group">
-									<label class="sr-only" for="age">Ηλικία</label>
-									<input type="text" name="age" placeholder="Ηλικία" class="form-control" id="age">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="address">Διεύθυνση Διαμονής</label>
-									<input type="text" name="address" placeholder="Διεύθυνση Διαμονής" class="form-control" id="address">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="phone">Τηλέφωνο</label>
-									<input type="number" name="phone" placeholder="Τηλέφωνο" class="form-control" id="phone">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="fax">Fax</label>
-									<input type="number" name="fax" placeholder="Fax" class="form-control" id="fax">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="position">Θέση Εργασίας</label>
-									<input type="text" name="position" placeholder="Θέση Εργασίας" class="form-control" id="position">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="specialty">Ειδικότητα</label>
-									<input type="text" name="speciality" placeholder="Ειδικότητα" class="form-control" id="specialty">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="building">Κτήριο</label>
-									<input type="text" name="building" placeholder="Κτήριο" class="form-control" id="building">
-								</div>
-								<div class="form-group">
-									<label class="sr-only" for="officenum">Αριθμός Γραφείου</label>
-									<input type="number" name="officenum" placeholder="Αριθμός Γραφείου" class="form-control" id="officenum">
-								</div>
-								
+			<!-- Modal content-->
+			<!--	<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">
+			&times;
+			</button>
+			<h4 class="modal-title">Add New Therapist</h4>
+			</div>
+			<div class="modal-body">
+			<p>
+			<form role="form" action="therapists.php" method="post">
+			<div class="form-group">
+			<label class="sr-only" for="name">Όνομα</label>
+			<input type="text" name="name" placeholder="Όνομα" class="form-control" id="name">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="surname">Επίθετο</label>
+			<input type="text" name="surname" placeholder="Επίθετο" class="form-control" id="surname">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="id">Αριθμός Ταυτότητας</label>
+			<input type="text" name="id" placeholder="Αριθμός Ταυτότητας" class="form-control" id="id">
+			</div>
+			<div class="form-group">
+			<input class="w3-radio" type="radio" name="gender" value="male" checked>
+			<label>Άρρεν</label>
+			<input class="w3-radio" type="radio" name="gender" value="female">
+			<label>Θήλυ</label>
+			<input class="w3-radio" type="radio" name="gender" value="other">
+			<label>Άλλο</label>
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="age">Ηλικία</label>
+			<input type="text" name="age" placeholder="Ηλικία" class="form-control" id="age">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="address">Διεύθυνση Διαμονής</label>
+			<input type="text" name="address" placeholder="Διεύθυνση Διαμονής" class="form-control" id="address">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="phone">Τηλέφωνο</label>
+			<input type="number" name="phone" placeholder="Τηλέφωνο" class="form-control" id="phone">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="fax">Fax</label>
+			<input type="number" name="fax" placeholder="Fax" class="form-control" id="fax">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="position">Θέση Εργασίας</label>
+			<input type="text" name="position" placeholder="Θέση Εργασίας" class="form-control" id="position">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="specialty">Ειδικότητα</label>
+			<input type="text" name="speciality" placeholder="Ειδικότητα" class="form-control" id="specialty">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="building">Κτήριο</label>
+			<input type="text" name="building" placeholder="Κτήριο" class="form-control" id="building">
+			</div>
+			<div class="form-group">
+			<label class="sr-only" for="officenum">Αριθμός Γραφείου</label>
+			<input type="number" name="officenum" placeholder="Αριθμός Γραφείου" class="form-control" id="officenum">
+			</div>
 
-							</p>
-						</div>
-						<div class="modal-footer">
-							<input type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-								
-							</form>
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Close
-							</button>
-						</div>
-					</div>
+			</p>
+			</div>
+			<div class="modal-footer">
+			<input type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
 
-				</div>
-		</div>-->
+			</form>
+			<button type="button" class="btn btn-default" data-dismiss="modal">
+			Close
+			</button>
+			</div>
+			</div>
+
+			</div>
+			</div>-->
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
@@ -234,71 +242,93 @@ $postfields=http_build_query(array(
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-							<!--	<div>
-									<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
-										Add Therapist
+								<!--	<div>
+								<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
+								Add Therapist
 								</div>-->
 								<form method="post" action="">
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Όνομα</th>
-											<th>Επίθετο</th>
-											<th>Ταυτότητα</th>
-											<th>Τύπος</th>
-											<th>Κατάσταση</th>
-										</tr>
-									</thead>
-									<tbody>
-										<script>
-																						document.cookie='token=<?= $tok ?>
+									<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th>Όνομα</th>
+												<th>Επίθετο</th>
+												<th>Ταυτότητα</th>
+												<th>Τύπος</th>
+												<th>Κατάσταση</th>
+												<th>Επιλεγμέμνη κατάσταση</th>
+											</tr>
+										</thead>
+										<tbody>
+											<script type="text/javascript">
+			$(window).load(function() {
+
+				$("select").change(function() {
+					var str = "";
+					$(".item-number option:selected").each(function(i) {
+						if ($(this).attr('label'))
+							str = $(this).attr('label');
+						else
+							str = "Description shows up here ";
+					});
+					$(".item-name").text(str);
+				}).trigger('change');
+
+			});
+
+		</script>
+											<script>
+																							document.cookie='token=<?= $tok ?>
 												';
-										</script>
-										
-										<?php
-										if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
-										<tr>
-										<td><?= $response['result'][$i]['firstname'] ?></td>
-										<td><?= $response['result'][$i]['lastname'] ?></td>
-										<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['psychologistID'] ?></label></td>
-										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-										<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){ ?>
-										<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
-										</td>
-										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"admin")==0){ ?>
-										<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
-										</td>
-										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
-										<select name="type[]">
-										<option value="therapist" selected="selected">Therapist</option>
-										<option value="supervisor" >Supervisor</option>
-										</select></td>
-										<?php }else if(strnatcmp($response['result'][$i]['typeof'],"supervisor")==0){ ?>
-										<select name="type[]">
-										<option value="therapist" >Therapist</option>
-										<option value="supervisor" selected="selected">Supervisor</option>
-										</select></td>
-										<?php } ?>
-										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-										<?php if($response['result'][$i]['active']==0){ ?>
-										<select name="status[]">
-										<option value="1">Active</option>
-										<option value="0" selected="selected">Deactive</option>
-										<option value="delete">Delete</option>
-										</select></td>
-										<?php }else{ ?>
-										<select name="status[]">
-										<option value="1" selected="selected">Active</option>
-										<option value="0">Deactive</option>
-										<option value="delete">Delete</option>
-										</select></td>
-										<?php } ?>
-										</tr>
-										<?php }} ?>
-										
-								</table>
-								<input type="submit" name="submit1" value="Save Changes"/>
-										</form>
+											</script>
+
+											<?php
+if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+<tr>
+<td><?= $response['result'][$i]['firstname'] ?></td>
+											<td><?= $response['result'][$i]['lastname'] ?></td>
+											<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['psychologistID'] ?></label></td>
+											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){
+											?>
+											<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
+											</td>
+											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"admin")==0){ ?>
+											<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
+											</td>
+											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
+											<select name="type[]">
+											<option value="therapist" selected="selected">Therapist</option>
+											<option value="supervisor" >Supervisor</option>
+											</select></td>
+											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"supervisor")==0){ ?>
+											<select name="type[]">
+											<option value="therapist" >Therapist</option>
+											<option value="supervisor" selected="selected">Supervisor</option>
+											</select></td>
+											<?php } ?>
+											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+												<?php if($response['result'][$i]['active']==0){
+												?>
+											<select name="status[]" class="item-number">
+											<option value="1" label="Active">Active</option>
+											<option value="0" label="Deactive" selected="selected">Deactive</option>
+											<option value="delete" label="Delete">Delete</option>
+											</select></td>
+											<?php }else{ ?>
+											<select name="status[]" class="item-number">
+											<option value="1" label="Active" selected="selected">Active</option>
+											<option value="0" label="Deactive">Deactive</option>
+											<option value="delete" label="Delete">Delete</option>
+											</select></td>
+											<td>
+											<span class="item-name">Description shows up here</span>
+											</td>
+											<?php } ?>
+											</tr>
+											<?php }} ?>
+									</table>
+									<input type="submit" name="submit1" value="Save Changes"/>
+								</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
@@ -347,35 +377,34 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/therapistflags.php";
 $method='POST';
 $i=0;
 if(isset($_POST['submit1'])){
-	 var_dump($_POST['id']);
-	 var_dump($_POST['type']);
-	 var_dump($_POST['status']);
-	foreach($_POST['id'] as $j){
-	
+var_dump($_POST['id']);
+var_dump($_POST['type']);
+var_dump($_POST['status']);
+foreach($_POST['id'] as $j){
+
 $postfields=http_build_query(array(
-	'id'=> $_POST['id'][$i],		
-	'type'=> $_POST['type'][$i],
-	'status'=> $_POST['status'][$i]
-		));
-		$i++;
-	if(isset($_COOKIE['token'])){
-		$response1=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response1=0;
-	}
-	if($response1['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response1=request($url,$method,$postfields,$tok);
-	}
-	var_dump($response1);
+'id'=> $_POST['id'][$i],
+'type'=> $_POST['type'][$i],
+'status'=> $_POST['status'][$i]
+));
+$i++;
+if(isset($_COOKIE['token'])){
+$response1=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response1=0;
+}
+if($response1['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response1 = request($url, $method, $postfields, $tok);
+}
+var_dump($response1);
 }
 header("Refresh:0");
 }
