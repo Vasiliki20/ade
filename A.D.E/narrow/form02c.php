@@ -17,15 +17,16 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-			document.cookie='token=<?= $tok ?>';
+						document.cookie='token=<?= $tok ?>
+			';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response1=request($url,$method,$postfields,$tok);
-	}
-//}
-?>
+		$response1 = request($url, $method, $postfields, $tok);
+		}
+		//}
+	?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -115,21 +116,21 @@ $postfields=http_build_query(array(
 			
 			<?php if(strnatcmp($response1['patient']['type'],"φοιτητής")==0){?>
 			<a href="form02.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }elseif(strnatcmp($response1['patient']['type'],"ακαδημαικό")==0){?>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"ακαδημαικό")==0){ ?>
 			<a href="form02b.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }elseif(strnatcmp($response1['patient']['type'],"διοικητικό")==0){?>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"διοικητικό")==0){ ?>
 			<a href="form02c.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }elseif(strnatcmp($response1['patient']['type'],"άλλο")==0){?>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"άλλο")==0){ ?>
 			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }else{?>
+			<?php }else{ ?>
 			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
 			<?php } ?>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
 			<?php if($response1['patient']['age']==null){?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<?php }elseif($response1['patient']['age']>=18){?>
+			<?php }elseif($response1['patient']['age']>=18){ ?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<?php }elseif($response1['patient']['age']<18){?>
+			<?php }elseif($response1['patient']['age']<18){ ?>
 			<a href="historyforchildren.php"><b>Αρχική συνέντευξη</b></a>
 			<?php } ?>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
@@ -157,7 +158,7 @@ $postfields=http_build_query(array(
 							</div>
 							</div>
 						</nav>
-					</div>
+					
 				</header>
 
 				<div class="container">
@@ -356,7 +357,7 @@ $postfields=http_build_query(array(
 						<button type="submit" class="btn btn-default" name="submit">
 							Submit
 						</button>
-
+</div>
 				</div>
 				<footer>
 					<div id="footer" class="fh5co-border-line">
@@ -433,11 +434,22 @@ $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>
 <script>
-			document.cookie='token=<?= $tok ?>';</script>
+				document.cookie='token=<?= $tok ?>';</script>
 <?php
 //$GLOBALS['curtoken']=giveToken();
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
+}
+if($response['success']==1){
+echo "<div class=\"alert alert-success fade in\">
+<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+<strong>Success!</strong> You have successfully submit your form!
+</div>";
+}else{
+echo "<div class=\"alert alert-danger fade in\">
+<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+</div>";
 }
 }
 ?>
