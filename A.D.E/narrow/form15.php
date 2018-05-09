@@ -17,15 +17,16 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-			document.cookie='token=<?= $tok ?>';
+												document.cookie='token=<?= $tok ?>
+										';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response1=request($url,$method,$postfields,$tok);
-	}
-//}
-?>
+		$response1 = request($url, $method, $postfields, $tok);
+		}
+		//}
+	?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -94,6 +95,31 @@ $postfields=http_build_query(array(
 			div {
 				padding: 5px;
 			}
+			* {
+				box-sizing: border-box;
+			}
+
+			/* Create two unequal columns that floats next to each other */
+			.column {
+				float: left;
+				padding: 10px;
+				height: 300px; /* Should be removed. Only for demonstration */
+			}
+
+			.left {
+				width: 75%;
+			}
+
+			.right {
+				width: 25%;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
 		</style>
 		<!-- Animate.css -->
 		<link rel="stylesheet" href="css/animate.css">
@@ -115,21 +141,21 @@ $postfields=http_build_query(array(
 			
 			<?php if(strnatcmp($response1['patient']['type'],"φοιτητής")==0){?>
 			<a href="form02.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }elseif(strnatcmp($response1['patient']['type'],"ακαδημαικό")==0){?>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"ακαδημαικό")==0){ ?>
 			<a href="form02b.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }elseif(strnatcmp($response1['patient']['type'],"διοικητικό")==0){?>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"διοικητικό")==0){ ?>
 			<a href="form02c.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }elseif(strnatcmp($response1['patient']['type'],"άλλο")==0){?>
+			<?php }elseif(strnatcmp($response1['patient']['type'],"άλλο")==0){ ?>
 			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
-			<?php }else{?>
+			<?php }else{ ?>
 			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
 			<?php } ?>
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
 			<?php if($response1['patient']['age']==null){?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<?php }elseif($response1['patient']['age']>=18){?>
+			<?php }elseif($response1['patient']['age']>=18){ ?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
-			<?php }elseif($response1['patient']['age']<18){?>
+			<?php }elseif($response1['patient']['age']<18){ ?>
 			<a href="historyforchildren.php"><b>Αρχική συνέντευξη</b></a>
 			<?php } ?>
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
@@ -175,10 +201,29 @@ $postfields=http_build_query(array(
 					</div>
 					<form action="" method="post">
 						<div class="row">
-							<div class="column">
-								<input type="hidden" name="q1" />
- 								<label for="q1">1. Ήταν εύκολο για μένα να διευθετήσω συνάντηση </label>
-								<input type="radio" name="q1" value="1">
+ 							<div class="column left">
+								<label for="q1">1. Ήταν εύκολο για μένα να διευθετήσω συνάντηση </label>
+ 								<label for="q2">2. Ο χρόνος που χρειάστηκε να περιμένω για τη διευθέτηση συνεδρίας μου φάνηκε πάρα πολύς</label>
+								<label for="q3">3. Ένιωθα άνετα περιμένοντας στην αίθουσα αναμονής&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+								<label for="q4">4. Μου φάνηκε ότι μου ζητήθηκε να συμπληρώσω πάρα πολλά έντυπα</label>
+								<label for="q5">5. Η αρχική αξιολόγηση ήταν χρήσιμη για να με βοηθήσει να εντοπίσω τις ανάγκες μου και να καθορίσω τους στόχους μου</label>
+								<label for="q6">6. Θα σύστηνα σε κάποιο φίλο ή δικό μου άτομο τις υπηρεσίες του  ΚΕΨΥ</label>
+								<label for="q7">7. Τα διάφορα εργαλεία (π.χ. ερωτηματολόγια) που συμπλήρωσα μου φάνηκαν χρήσιμα </label>
+								<label for="q8">8. Οι ανησυχίες που με ώθησαν να αποταθώ στο ΚΕΨΥ επηρέαζαν σημαντικά τις σπουδές μου </label>
+								<label for="q9">9. Οι υπηρεσίες του έλαβα ήταν χρήσιμες για μένα </label>
+							</div>
+							<style>
+									input[type="radio"], input[type="checkbox"] {
+										margin: 4px 0 0;
+										margin-top: 1px \9;
+										line-height: normal;
+										margin-bottom: 10px;
+										margin-top: 5px;
+									}
+								</style>
+ 							<div class="column right">
+ 								<input type="hidden" name="q1" />
+ 								<input type="radio" name="q1" value="1">
 								1
 								<input type="radio" name="q1" value="2">
 								2
@@ -194,7 +239,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q2" />
-								<label for="q2">2. Ο χρόνος που χρειάστηκε να περιμένω για τη διευθέτηση συνεδρίας μου φάνηκε πάρα πολύς</label>
 								<input type="radio" name="q2" value="1">
 								1
 								<input type="radio" name="q2" value="2">
@@ -211,7 +255,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q3" />
-								<label for="q3">3. Ένιωθα άνετα περιμένοντας στην αίθουσα αναμονής </label>
 								<input type="radio" name="q3" value="1">
 								1
 								<input type="radio" name="q3" value="2">
@@ -228,7 +271,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q4" />
-								<label for="q4">4. Μου φάνηκε ότι μου ζητήθηκε να συμπληρώσω πάρα πολλά έντυπα</label>
 								<input type="radio" name="q4" value="1">
 								1
 								<input type="radio" name="q4" value="2">
@@ -245,7 +287,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q5" />
-								<label for="q5">5. Η αρχική αξιολόγηση ήταν χρήσιμη για να με βοηθήσει να εντοπίσω τις ανάγκες μου και να καθορίσω τους στόχους μου :</label>
 								<input type="radio" name="q5" value="1">
 								1
 								<input type="radio" name="q5" value="2">
@@ -262,7 +303,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q6" />
-								<label for="q6">6. Θα σύστηνα σε κάποιο φίλο ή δικό μου άτομο τις υπηρεσίες του  ΚΕΨΥ</label>
 								<input type="radio" name="q6" value="1">
 								1
 								<input type="radio" name="q6" value="2">
@@ -279,7 +319,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q7" />
-								<label for="q7">7. Τα διάφορα εργαλεία (π.χ. ερωτηματολόγια) που συμπλήρωσα μου φάνηκαν χρήσιμα </label>
 								<input type="radio" name="q7" value="1">
 								1
 								<input type="radio" name="q7" value="2">
@@ -296,7 +335,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q8" />
-								<label for="q8">8. Οι ανησυχίες που με ώθησαν να αποταθώ στο ΚΕΨΥ επηρέαζαν σημαντικά τις σπουδές μου </label>
 								<input type="radio" name="q8" value="1">
 								1
 								<input type="radio" name="q8" value="2">
@@ -313,7 +351,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q9" />
-								<label for="q9">9. Οι υπηρεσίες του έλαβα ήταν χρήσιμες για μένα </label>
 								<input type="radio" name="q9" value="1">
 								1
 								<input type="radio" name="q9" value="2">
@@ -329,10 +366,28 @@ $postfields=http_build_query(array(
 								<input type="radio" name="q9" value="7">
 								7
 								<br>
-								<label for="q10">Οι υπηρεσίες του έλαβα με βοήθησαν…</label>
-								<br>
+							</div>
+						</div>	
+						<label for="q10">Οι υπηρεσίες του έλαβα με βοήθησαν…</label>
+						<div class="row">
+							<div class="column left">
+								<label for="q10">10. να νιώθω καλύτερα για τον εαυτό μου&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<label for="q11">11. να κατανοώ καλύτερα τον εαυτό μου&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<label for="q12">12. να παραμείνω στο Πανεπιστήμιο&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+								<label for="q13">13. να βελτιώσω την ακαδημαϊκή μου επίδοση&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<label for="q14">14. να βελτιώσω την  παρουσία μου στις διαλέξεις/μαθήματα&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<label for="q15">15. να βελτιώσω συνολικά την εμπειρία μου στο Πανεπιστήμιο</label>
+								<label for="q16">16. να αναπτύξω δεξιότητες ώστε να μπορώ να διαχειριστώ  θέματα που με
+									απασχολούν</label>
+								<label for="q17">17.  να αναπτύξω δεξιότητες που θα βρω χρήσιμες στη μελλοντική προσωπική και
+									επαγγελματική μου πορεία (π.χ. αυτό-κατανόηση, κατανόηση των άλλων, διαχείριση δύσκολων συναισθημάτων, αυτοπεποίθηση, ασφάλεια)</label>
+								<label for="q18">18. Ο θεραπευτής έδειξε να νοιάζεται πραγματικά για τις ανησυχίες μου</label>
+								<label for="q19">19. Ο θεραπευτής φάνηκε να είναι καλά καταρτισμένος για να με βοηθήσει όσον αφορά το θέμα που με απασχολούσε </label>
+								<label for="q20">20. Ο θεραπευτής μου συμπεριφέρθηκε ευγενικά </label>
+								<label for="q21">21. Αν προκύψει ξανά η ανάγκη να μιλήσω με κάποιον θα αποταθώ ξανά στο ΚΕΨΥ</label>
+							</div>
+							<div class="column right">
 								<input type="hidden" name="q10" />
-								<label for="q10">10. να νιώθω καλύτερα για τον εαυτό μου</label>
 								<input type="radio" name="q10" value="1">
 								1
 								<input type="radio" name="q10" value="2">
@@ -349,7 +404,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q11" />
-								<label for="q11">11. να κατανοώ καλύτερα τον εαυτό μου</label>
 								<input type="radio" name="q11" value="1">
 								1
 								<input type="radio" name="q11" value="2">
@@ -366,7 +420,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q12" />
-								<label for="q12">12. να παραμείνω στο Πανεπιστήμιο </label>
 								<input type="radio" name="q12" value="1">
 								1
 								<input type="radio" name="q12" value="2">
@@ -383,7 +436,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q13" />
-								<label for="q13">13. να βελτιώσω την ακαδημαϊκή μου επίδοση</label>
 								<input type="radio" name="q13" value="1">
 								1
 								<input type="radio" name="q13" value="2">
@@ -400,7 +452,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q14" />
-								<label for="q14">14. να βελτιώσω την  παρουσία μου στις διαλέξεις/μαθήματα</label>
 								<input type="radio" name="q14" value="1">
 								1
 								<input type="radio" name="q14" value="2">
@@ -417,7 +468,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q15" />
-								<label for="q15">15. να βελτιώσω συνολικά την εμπειρία μου στο Πανεπιστήμιο</label>
 								<input type="radio" name="q15" value="1">
 								1
 								<input type="radio" name="q15" value="2">
@@ -434,8 +484,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q16" />
-								<label for="q16">16. να αναπτύξω δεξιότητες ώστε να μπορώ να διαχειριστώ  θέματα που με
-									απασχολούν</label>
 								<input type="radio" name="q16" value="1">
 								1
 								<input type="radio" name="q16" value="2">
@@ -452,8 +500,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q17" />
-								<label for="q17">17.  να αναπτύξω δεξιότητες που θα βρω χρήσιμες στη μελλοντική προσωπική και
-									επαγγελματική μου πορεία (π.χ. αυτό-κατανόηση, κατανόηση των άλλων, διαχείριση δύσκολων συναισθημάτων, αυτοπεποίθηση, ασφάλεια)</label>
 								<input type="radio" name="q17" value="1">
 								1
 								<input type="radio" name="q17" value="2">
@@ -469,8 +515,8 @@ $postfields=http_build_query(array(
 								<input type="radio" name="q17" value="7">
 								7
 								<br>
+								<br>
 								<input type="hidden" name="q18" />
-								<label for="q18">18. Ο θεραπευτής έδειξε να νοιάζεται πραγματικά για τις ανησυχίες μου</label>
 								<input type="radio" name="q18" value="1">
 								1
 								<input type="radio" name="q18" value="2">
@@ -487,7 +533,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q19" />
-								<label for="q19">19. Ο θεραπευτής φάνηκε να είναι καλά καταρτισμένος για να με βοηθήσει όσον αφορά το θέμα που με απασχολούσε </label>
 								<input type="radio" name="q19" value="1">
 								1
 								<input type="radio" name="q19" value="2">
@@ -504,7 +549,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q20" />
-								<label for="q20">20. Ο θεραπευτής μου συμπεριφέρθηκε ευγενικά </label>
 								<input type="radio" name="q20" value="1">
 								1
 								<input type="radio" name="q20" value="2">
@@ -521,7 +565,6 @@ $postfields=http_build_query(array(
 								7
 								<br>
 								<input type="hidden" name="q21" />
-								<label for="q21">21. Αν προκύψει ξανά η ανάγκη να μιλήσω με κάποιον θα αποταθώ ξανά στο ΚΕΨΥ</label>
 								<input type="radio" name="q21" value="1">
 								1
 								<input type="radio" name="q21" value="2">
@@ -538,6 +581,13 @@ $postfields=http_build_query(array(
 								7
 								<br>
 							</div>
+						</div>
+						<div>
+							<br>
+							<br>
+							<br>
+						</div>
+						<div class="row">		
 							<div class="form-group">
 								<label for="q22"><strong>22. Περιγράψτε λίγο πιο αναλυτικά με ποιους τρόπους οι υπηρεσίες που λάβατε ήταν βοηθητικοί για εσάς.</strong> </label>
 								<input type="text" class="form-control" id="q22" placeholder="" name="q22">
@@ -723,13 +773,24 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-			document.cookie='token=<?= $tok ?>';
+									document.cookie='token=<?= $tok ?>
+							';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	
-}
-?>
+		$response = request($url, $method, $postfields, $tok);
+		}
+		if($response['success']==1){
+		echo "<div class=\"alert alert-success fade in\">
+		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+		<strong>Success!</strong> You have successfully submit your form!
+		</div>";
+		}else{
+		echo "<div class=\"alert alert-danger fade in\">
+		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+		<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+		</div>";
+		}
+		}
+	?>
