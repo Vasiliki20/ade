@@ -208,7 +208,7 @@
 							}
 						});
 					</script>
-<<<<<<< HEAD
+
 				<!--	<div class="panel-body">
 						<form method="post" action="">
 						<label>Αριθμός πελατών ανά μήνα:</label>
@@ -257,9 +257,7 @@
 						<input type="text" class="form-group" id="sources1" placeholder="Χρονιά" name="st7y">
 						<input id="submit" type="submit" name="submit6" class="btn btn-default" value="Αναζήτηση">
 -->
-=======
-					
->>>>>>> aba2a72cf1fd7a43ed903425cd6d1aeed922a172
+
 					<div class="panel-body">
 						<form name="myForm1" method="post" action="" onsubmit="return validateForm1()">
 							<label>Αριθμός πελατών ανά μήνα:</label>
