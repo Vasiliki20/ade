@@ -158,6 +158,8 @@ if(strnatcmp($response['login'],true)==0){
 	echo $_SESSION['id'];
 	header('Location: form01.php');
 
+}else{
+	echo "<script> alert(\"Wrong username or password!\");</script>";
 }
 }
 ?>

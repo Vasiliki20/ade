@@ -730,6 +730,16 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response=request($url,$method,$postfields,$tok);
 	}
-	
+	if($response['success']==1){
+		echo "<div class=\"alert alert-success fade in\">
+			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			<strong>Success!</strong> You have successfully submit your form!
+			</div>";
+		}else{
+		echo "<div class=\"alert alert-danger fade in\">
+			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+			  </div>";
+		}
 }
 ?>
