@@ -102,7 +102,7 @@ $response = request($url, $method, $postfields, $tok);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -145,7 +145,7 @@ $response = request($url, $method, $postfields, $tok);
 							<li>
 								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
-							
+
 						</ul>
 					</div>
 					<!-- /.sidebar-collapse -->
@@ -300,7 +300,22 @@ psychID:<?=json_encode($_SESSION['id']) ?>
 
 		</div>
 		<!-- /#wrapper -->
+		<!-- jQuery -->
+		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
+		<!-- Bootstrap Core JavaScript -->
+		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+		<!-- DataTables JavaScript -->
+		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+		<!-- Custom Theme JavaScript -->
+		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 	</body>
 </html>
 
