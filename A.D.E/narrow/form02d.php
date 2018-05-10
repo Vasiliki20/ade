@@ -259,8 +259,7 @@ $postfields=http_build_query(array(
 							Χήρος/α
 							<br>
 							<input type="radio" name="family" value="familyallo">
-							Άλλο (διευκρινίστε)
-							<input type="text" class="form-control" id="family" name="family">
+							
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="previous" />
@@ -269,11 +268,10 @@ $postfields=http_build_query(array(
 							<input type="radio" name="previous" value="oxi">
 							Όχι
 							<br>
-							<input type="radio" name="previous" value="yesuni">
-							Ναι, στο Πανεπιστήμιο Κύπρου
+							<input type="radio" name="previous" value="yes">
+							Ναι
 							<br>
-							<input type="radio" name="previous" value="yesnouni">
-							Ναι, σε άλλη υπηρεσία(διευκρινίστε)
+							Αν ναι(διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="previous" name="previoustherapist">
 						</div>
@@ -308,25 +306,19 @@ $postfields=http_build_query(array(
 							<input type="text" class="form-control" id="referred" name="referred">
 						</div>
 						<div class="form-group">
-							<input type="hidden" name="otherservices" />
+							
 							<label for="otherservices"><b>17. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
-							<input type="radio" name="otherservices" value="no">
+							<input type="radio" name="otherservices" value="oxi">
 							Όχι
 							<br>
 							<input type="radio" name="otherservices" value="yes">
-							Ναι (διευκρινίστε)
-							<br>
-							<input type="text" class="form-control" id="otherservices" name="otherservices">
-							<input type="hidden" name="contactothers" />
-							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
-							<br>
-							<input type="radio" name="contactothers" value="no">
-							Όχι
-							<br>
-							<input type="radio" name="contactothers" value="yes">
 							Ναι
 							<br>
+							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
+							Τηλέφωνο:
+							<br>
+							<input type="text" class="form-control" id="otherservices" name="contactothers">
 						</div>
 						<div class="form-group">
 							<label for="job"><b>18. Εργασία:</b></label>

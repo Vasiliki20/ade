@@ -211,7 +211,7 @@ var_dump($response);
 					</nav>
 				</div>
 
-				<div>
+			<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Φαρμακευτική αγωγή πελάτη
@@ -245,19 +245,19 @@ var_dump($response);
 <tr>
 <td>
 
-<input type="text" class="form-control" id="meds" name="name" value=<?=$response['medication'][$i]['nameof'] ?>>
+<input type="text" class="form-control" id="meds" name="name" value="<?=$response['medication'][$i]['nameof'] ?>">
 </input></td>
 <td>
-<input type="date" class="form-control" id="meds" name="date" value=<?=$response['medication'][$i]['dateof'] ?>>
+<input type="date" class="form-control" id="meds" name="date" value="<?=$response['medication'][$i]['dateof'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="duration" value=<?=$response['medication'][$i]['duration'] ?>>
+<input type="text" class="form-control" id="meds" name="duration" value="<?=$response['medication'][$i]['duration'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="doc" value=<?=$response['medication'][$i]['doctor'] ?>>
+<input type="text" class="form-control" id="meds" name="doc" value="<?=$response['medication'][$i]['doctor'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="comments" value=<?=$response['medication'][$i]['comments'] ?>>
+<input type="text" class="form-control" id="meds" name="comments" value="<?=$response['medication'][$i]['comments'] ?>">
 </input></td>
 
 </tr>

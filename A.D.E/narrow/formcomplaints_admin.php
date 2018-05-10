@@ -218,19 +218,19 @@ var_dump($response);
 							<form action="" method="post">
 								<div class="form-group">
 									<label for="q2">1. Ημερομηνία που συνέβη το/α περιστατικό/α (αν αφορά συγκεκριμένα περιστατικά)</label>
-									<input for ="q2" class="form-control" type="date" name="date" id="q2" value=<?=$response['complain']['dateof']?>>
+									<input for ="q2" class="form-control" type="date" name="date" id="q2" value="<?=$response['complain']['dateof']?>">
 								</div>
 								<div class="form-group">
 									<label for="q3">2. Άτομα τα οποία εμπλέκονται (όπου ισχύει) :</label>
-									<input type="text" class="form-control" name="people" id="q3" value=<?=$response['complain']['people']?>>
+									<input type="text" class="form-control" name="people" id="q3" value="<?=$response['complain']['people']?>">
 								</div>
 								<div class="form-group">
 									<label for="q4">3. Περιγραφή του παραπόνου/των παραπόνων και σχετικά συμβάντα:</label>
-									<input type="text" class="form-control" name="description" id="q4" value=<?=$response['complain']['description']?>>
+									<input type="text" class="form-control" name="description" id="q4" value="<?=$response['complain']['description']?>">
 								</div>
 								<div class="form-group">
 									<label for="q5">4. Υπεύθυνη δήλωση </label>
-									<input type="text" class="form-control" name="affirmation" id="q5" value=<?=$response['complain']['affirmation']?>>
+									<input type="text" class="form-control" name="affirmation" id="q5" value="<?=$response['complain']['affirmation']?>">
 								</div>
 
 								

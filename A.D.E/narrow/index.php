@@ -183,6 +183,6 @@ print "<h5>".$tok."</h5>";
 <?php
 $response1 = request($url, $method, $postfields, $tok);
 }
-var_dump($response1);
+//var_dump($response1);
 
 ?>

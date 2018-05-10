@@ -217,225 +217,212 @@ $postfields=http_build_query(array(
 						<div class="panel-body">
 							<div class="form-group">
 								<label for="type">Τύπος πελάτη:(Αν το αλλάξετε παρακαλώ να βάλετε ένα από τα επόμενα:φοιτητής,ακαδημαικό,διοικητικό,άλλο)</label>
-								<input type="text" class="form-control" id="type" placeholder="" name="type" value=<?=$response['patient']['type']?>>
+								<input type="text" class="form-control" id="type" placeholder="" name="type" value="<?=$response['patient']['type']?>">
 							</div>
-							 <input type="hidden" name="patientID" value=<?=$response['patient']['patientID']?> />
+							 <input type="hidden" name="patientID" value="<?=$response['patient']['patientID']?> />
 							<div class="form-group">
 								<label for="id">Αρ.Ταυτότητας:</label>
-								<input type="text" class="form-control" id="id" placeholder="" name="patientID" value=<?=$response['patient']['patientID']?> disabled>
+								<input type="text" class="form-control" id="id" placeholder="" name="patientID" value="<?=$response['patient']['patientID']?>" disabled>
 							</div>
 							
 							<div class="form-group">
 								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
-								<input type="number" class="form-control" id="idofps" placeholder="" name="psychologistID" value=<?=$response['patient']['psychologistID']?>>
+								<input type="number" class="form-control" id="idofps" placeholder="" name="psychologistID" value="<?=$response['patient']['psychologistID']?>">
 							</div>
 							<div class="form-group">
 								<label for="name">Όνομα:</label>
-								<input type="text" class="form-control" id="name" placeholder="" name="firstname" value=<?=$response['patient']['firstname']?>>
+								<input type="text" class="form-control" id="name" placeholder="" name="firstname" value="<?=$response['patient']['firstname']?>">
 							</div>
 							<div class="form-group">
 								<label for="surname">Επίθετο:</label>
-								<input type="text" class="form-control" id="surname" placeholder="" name="lastname" value=<?=$response['patient']['lastname']?>>
+								<input type="text" class="form-control" id="surname" placeholder="" name="lastname" value="<?=$response['patient']['lastname']?>">
 							</div>
 							<div class="form-group">
 								<label for="appointment">Ημερομηνία Ένταξης:</label>
-								<input type="text" class="form-control" id="appointment" placeholder="" name="datesubmited" value=<?=$response['patient']['datesubmited']?>>
+								<input type="text" class="form-control" id="appointment" placeholder="" name="datesubmited" value="<?=$response['patient']['datesubmited']?>">
 							</div>
 							<div class="form-group">
 								<label for="age">Ηλικία:</label>
-								<input type="date" class="form-control" id="age" placeholder="" name="age" value=<?=$response['patient']['age']?>>
+								<input type="text" class="form-control" id="age" placeholder="" name="age" value="<?=$response['patient']['age']?>">
 							</div>
 							<div class="form-group">
 								<label for="sex">Φύλο:</label>
-								<input type="text" class="form-control" id="sex" placeholder="" name="sex" value=<?=$response['patient']['sex']?>>
+								<input type="text" class="form-control" id="sex" placeholder="" name="sex" value="<?=$response['patient']['sex']?>">
 							</div>
 							<div class="form-group">
 								<label for="dob">Ημ.Γέννησης:</label>
-								<input type="date" class="form-control" id="dob" placeholder="" name="dateofbirth" value=<?=$response['patient']['dateofbirth']?>>
+								<input type="date" class="form-control" id="dob" placeholder="" name="dateofbirth" value="<?=$response['patient']['dateofbirth']?>">
 							</div>
 							<div class="form-group">
 								<label for="ipikootita">Υπηκοότητα:</label>
-								<input type="text" class="form-control" id="ipikootita" placeholder="" name="citizenship" value=<?=$response['patient']['citizenship']?>>
+								<input type="text" class="form-control" id="ipikootita" placeholder="" name="citizenship" value="<?=$response['patient']['citizenship']?>">
 							</div>
 							<div class="form-group">
 								<label for="phone">Τηλέφωνο:</label>
-								<input type="number" class="form-control" id="phone" placeholder="" name="telephone" value=<?=$response['patient']['telephone']?>>
+								<input type="number" class="form-control" id="phone" placeholder="" name="telephone" value="<?=$response['patient']['telephone']?>">
 							</div>
 							<div class="form-group">
 								<label for="email">Ηλ.Διεύθυνση:</label>
-								<input type="email" class="form-control" id="email" placeholder="" name="email" value=<?=$response['patient']['email']?>>
+								<input type="email" class="form-control" id="email" placeholder="" name="email" value="<?=$response['patient']['email']?>">
 							</div>
 							<div class="form-group">
 								<label for="address">Διεύθυνση Διαμονής:</label>
-								<input type="text" class="form-control" id="address" placeholder="" name="address" value=<?=$response['patient']['address']?>>
+								<input type="text" class="form-control" id="address" placeholder="" name="address" value="<?=$response['patient']['address']?>">
 							</div>
 							<div class="form-group">
 								<label for="tk">Τ.Κ:</label>
-								<input type="text" class="form-control" id="tk" placeholder="" name="postalCode" value=<?=$response['patient']['postalCode']?>>
+								<input type="text" class="form-control" id="tk" placeholder="" name="postalCode" value="<?=$response['patient']['postalCode']?>">
 							</div>
 							<div class="form-group">
 								<label for="city">Πόλη/Χωριό:</label>
-								<input type="text" class="form-control" id="city" placeholder="" name="city" value=<?=$response['patient']['city']?>>
+								<input type="text" class="form-control" id="city" placeholder="" name="city" value="<?=$response['patient']['city']?>">
 							</div>
 							<div class="form-group">
 								<label for="contact">Πως να επικοινωνεί το κέντρο μαζί του:</label>
-								<input type="text" class="form-control" id="contact" placeholder="" name="communicatevia" value=<?=$response['patient']['communicatevia']?>>
+								<input type="text" class="form-control" id="contact" placeholder="" name="communicatevia" value="<?=$response['patient']['communicatevia']?>">
 							</div>
 							<div class="form-group">
 								<label for="recommended">Ποιός του σύστησε το κέντρο:</label>
-								<input type="text" class="form-control" id="recommended" placeholder="" name="sentby" value=<?=$response['patient']['sentby']?>>
+								<input type="text" class="form-control" id="recommended" placeholder="" name="sentby" value="<?=$response['patient']['sentby']?>">
 							</div>
+							<h4>Επαφή Έκτακτης Ανάγκης</h4>
+							<input type="hidden" name="emergencyname" value="<?=$response['patient']['emergencyname']?>">
+							<input type="hidden" name="emergencyrelation" value="<?=$response['patient']['emergencyrelation']?>">
+							<input type="hidden" name="emergencynumber" value="<?=$response['patient']['emergencynumber']?>">
+							<div class="form-group">
+								<label for="recommended">Ονοματεπώνυμο:</label>
+								<input type="text" class="form-control" id="recommended" placeholder="" name="emergencyname" value="<?=$response['patient']['emergencyname']?>" disabled>
+							</div>
+							<div class="form-group">
+								<label for="recommended">Σχέση:</label>
+								<input type="text" class="form-control" id="recommended" placeholder="" name="emergencyrelation" value="<?=$response['patient']['emergencyrelation']?>" disabled>
+							</div>
+							<div class="form-group">
+								<label for="recommended">Τηλέφωνο:</label>
+								<input type="text" class="form-control" id="recommended" placeholder="" name="emergencynumber" value="<?=$response['patient']['emergencynumber']?>" disabled>
+							</div>
+							<hr>
 							<div class="form-group">
 								<label for="mainproblem">Κύριο πρόβλημα:</label>
-								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainissue" value=<?=$response['patient']['mainissue']?>>
+								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainissue" value="<?=$response['patient']['mainissue']?>">
 							</div>
-							<div class="form-group">
+							<!--<div class="form-group">
 								<label for="goal">Σκοπός θεραπείας:</label>
-								<input type="text" class="form-control" id="goal" placeholder="" name="purposeoftherapy" value=<?=$response['patient']['purposeoftherapy']?>>
+								<input type="text" class="form-control" id="goal" placeholder="" name="purposeoftherapy" value="<?=$response['patient']['purposeoftherapy']?>">
 							</div>
 							<div class="form-group">
 								<label for="typeoftreatment">Είδος θεραπείας:</label>
-								<input type="text" class="form-control" id="typeoftreatment" placeholder="" name="kindoftherapy" value=<?=$response['patient']['kindoftherapy']?>>
-							</div>
+								<input type="text" class="form-control" id="typeoftreatment" placeholder="" name="kindoftherapy" value="<?=$response['patient']['kindoftherapy']?>">
+							</div>-->
 							<div class="form-group">
 								<label for="previoustreatment">Προηγούμενες θεραπείες και που:</label>
-								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustherapy" value=<?=$response['patient']['previoustherapy']." ".$response['patient']['previoustherapist']?> >
+								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustherapy" value="<?=$response['patient']['previoustherapist']." ".$response['patient']['previoustherapist']?>">
 							</div>
 							<div class="form-group">
 								<label for="treatmentnow">Θεραπευτής τώρα:</label>
-								<input type="text" class="form-control" id="treatmentnow" placeholder="" name="nowtherapist" value=<?=$response['patient']['nowtherapist']?>>
+								<input type="text" class="form-control" id="treatmentnow" placeholder="" name="nowtherapist" value="<?=$response['patient']['nowtherapist']?>">
 							</div>
 							<div class="form-group">
 								<label for="phoneofps">Τηλέφωνο θεραπευτή:</label>
-								<input type="number" class="form-control" id="phoneofps" placeholder="" name="comnowtherapistb" value=<?=$response['patient']['comnowtherapistb']?> >
+								<input type="number" class="form-control" id="phoneofps" placeholder="" name="comnowtherapistb" value="<?=$response['patient']['comnowtherapistb']?>">
 							</div>
-							<div class="form-group">
-								<label for="numberofsessions">Αριθμός θεραπειών:</label>
-								<input type="number" class="form-control" id="numberofsessions" placeholder="" name="numberofsessions" value=<?=$response['patient']['numberofsessions']?>>
-							</div>
+							
 							<div class="form-group">
 								<label for="firstcontact">Ημερομηνία πρώτης επικοινωνίας με ΚΕΨΥ:</label>
-								<input type="date" class="form-control" id="firstcontact" placeholder="" name="firstcommunication" value=<?=$response['patient']['firstcommunication']?>>
-							</div>
-							<div class="form-group">
-								<label for="firstappointment">Ημερομηνία πρώτου ραντεβού με ΚΕΨΥ:</label>
-								<input type="date" class="form-control" id="firstappointment" placeholder="" name="firstappoinment" value=<?=$response['patient']['firstappoinment']?>>
-							</div>
-							<div class="form-group">
-								<label for="status">Status:</label>
-								<input type="text" class="form-control" id="status" placeholder="" name="statuss" value=<?=$response['patient']['statuss']?>>
+								<input type="date" class="form-control" id="firstcontact" placeholder="" name="firstcommunication" value="<?=$response['patient']['datesubmited']?>">
 							</div>
 							<div class="form-group">
 								<label for="marital">Οικογενειακή κατάσταση:</label>
-								<input type="text" class="form-control" id="marital" placeholder="" name="maritalstatus" value=<?=$response['patient']['maritalstatus']?>>
+								<input type="text" class="form-control" id="marital" placeholder="" name="maritalstatus" value="<?=$response['patient']['maritalstatus']?>">
 							</div>
 							<div class="form-group">
 								<label for="flag">Red flag:</label>
-								<input type="text" class="form-control" id="flag" placeholder="" name="redflag" value=<?=$response['patient']['redflag']?>>
-							</div>
-							<div class="form-group">
-								<label for="billing">Υπάρχει πληρωμή:</label>
-								<input type="text" class="form-control" id="billing" placeholder="" name="payee" value=<?=$response['patient']['payee']?>>
+								<input type="text" class="form-control" id="flag" placeholder="" name="redflag" value="<?=$response['patient']['redflag']?>">
 							</div>
 							<div class="form-group">
 								<label for="moreinfo">Άλλες πληροφορίες:</label>
-								<input type="text" class="form-control" id="moreinfo" placeholder="" name="otherinfo" value=<?=$response['patient']['otherinfo']?>>
+								<input type="text" class="form-control" id="moreinfo" placeholder="" name="otherinfo" value="<?=$response['patient']['otherinfo']?>">
 							</div>
-							<div class="form-group">
-								<label for="complaints">Παράπονα:</label>
-								<input type="text" class="form-control" id="complaints" placeholder="" name="parapona" value=<?=$response['patient']['parapona']?>>
-							</div>
-							<div class="form-group">
-								<label for="dateofend">Ημερομηνία Τερματισμού:</label>
-								<input type="date" class="form-control" id="dateofend" placeholder="" name="dateofend">
-							</div>
-							<div class="form-group">
-								<label for="whyend">Λόγος διακοπής:</label>
-								<input type="text" class="form-control" id="whyend" placeholder="" name="whyend">
-							</div>
-							<div class="form-group">
-								<label for="review">Αξιολόγηση κέντρου μετά από τερματισμό:</label>
-								<input type="text" class="form-control" id="review" placeholder="" name="aksiologisi" value=<?=$response['patient']['aksiologisi']?>>
-							</div>
+
 							<?php if(strnatcmp($response['patient']['type'],"φοιτητής")==0){?>
 							<!-- student -->
 							<div class="form-group">
 								<label for="level">Επίπεδο σπουδών:</label>
-								<input type="text" class="form-control" id="level" placeholder="" name="levelofstudies" value=<?=$response['patient']['levelofstudies']?>>
+								<input type="text" class="form-control" id="level" placeholder="" name="levelofstudies" value="<?=$response['patient']['levelofstudies']?>">
 							</div>
 							<div class="form-group">
 								<label for="year">Έτος σπουδών:</label>
-								<input type="text" class="form-control" id="year" placeholder="" name="yearofstudies" value=<?=$response['patient']['yearofstudies']?>>
+								<input type="text" class="form-control" id="year" placeholder="" name="yearofstudies" value="<?=$response['patient']['yearofstudies']?>">
 							</div>
 							<div class="form-group">
 								<label for="department">Τμήμα σπουδών:</label>
-								<input type="text" class="form-control" id="department" placeholder="" name="departmentofstudies" value=<?=$response['patient']['departmentofstudies']?>>
+								<input type="text" class="form-control" id="department" placeholder="" name="departmentofstudies" value="<?=$response['patient']['departmentofstudies']?>">
 							</div>
 							<div class="form-group">
 								<label for="study">Σχολή σπουδών:</label>
-								<input type="text" class="form-control" id="study" placeholder="" name="schoolofstudies" value=<?=$response['patient']['schoolofstudies']?>>
+								<input type="text" class="form-control" id="study" placeholder="" name="schoolofstudies" value="<?=$response['patient']['schoolofstudies']?>">
 							</div>
 							<div class="form-group">
 								<label for="erasmus">Erasmus:</label>
-								<input type="text" class="form-control" id="erasmus" placeholder="" name="erasmusstudent" value=<?=$response['patient']['erasmusstudent']?>>
+								<input type="text" class="form-control" id="erasmus" placeholder="" name="erasmusstudent" value="<?=$response['patient']['erasmusstudent']?>">
 							</div>
 							<div class="form-group">
 								<label for="attendancestatus">Κατάσταση φοίτησης:</label>
-								<input type="text" class="form-control" id="attendancestatus" placeholder="" name="statusofstudies" value=<?=$response['patient']['statusofstudies']?>>
+								<input type="text" class="form-control" id="attendancestatus" placeholder="" name="statusofstudies" value="<?=$response['patient']['statusofstudies']?>">
 							</div>
 							<?php } if(strnatcmp($response['patient']['type'],"ακαδημαικό")==0){?>
 							<!-- academic -->
 							<div class="form-group">
 								<label for="department">Τμήμα:</label>
-								<input type="text" class="form-control" id="department" placeholder="" name="departmentofstudies" value=<?=$response['patient']['departmentofstudies']?>>
+								<input type="text" class="form-control" id="department" placeholder="" name="departmentofstudies" value="<?=$response['patient']['departmentofstudies']?>">
 							</div>
 							<div class="form-group">
 								<label for="level">Επίπεδο ακαδημαικού:</label>
-								<input type="text" class="form-control" id="level" placeholder="" name="academiclevel" value=<?=$response['patient']['academiclevel']?>>
+								<input type="text" class="form-control" id="level" placeholder="" name="academiclevel" value="<?=$response['patient']['academiclevel']?>">
 							</div>
 							<div class="form-group">
 								<label for="building">Κτήριο:</label>
-								<input type="text" class="form-control" id="building" placeholder="" name="building" value=<?=$response['patient']['building']?>>
+								<input type="text" class="form-control" id="building" placeholder="" name="building" value="<?=$response['patient']['building']?>">
 							</div>
 							<div class="form-group">
 								<label for="officenumber">Αριθμός Γραφείου:</label>
-								<input type="number" class="form-control" id="officenumber" placeholder="" name="office_num" value=<?=$response['patient']['office_num']?>>
+								<input type="number" class="form-control" id="officenumber" placeholder="" name="office_num" value="<?=$response['patient']['office_num']?>">
 							</div>
 							<div class="form-group">
 								<label for="fax">Fax:</label>
-								<input type="number" class="form-control" id="fax" placeholder="" name="fax" value=<?=$response['patient']['fax']?>>
+								<input type="number" class="form-control" id="fax" placeholder="" name="fax" value="<?=$response['patient']['fax']?>">
 							</div>
 							<?php } if(strnatcmp($response['patient']['type'],"διοικητικό")==0){?>
 							<!-- admin -->
 							<div class="form-group">
 								<label for="position">Θέση στην ιεραρχία:</label>
-								<input type="text" class="form-control" id="position" placeholder="" name="positionatHierarchy" value=<?=$response['patient']['positionatHierarchy']?>>
+								<input type="text" class="form-control" id="position" placeholder="" name="positionatHierarchy" value="<?=$response['patient']['positionatHierarchy']?>">
 							</div>
 							<div class="form-group">
 								<label for="specialty">Ειδικότητα:</label>
-								<input type="text" class="form-control" id="specialty" placeholder="" name="speciality" value=<?=$response['patient']['speciality']?>>
+								<input type="text" class="form-control" id="specialty" placeholder="" name="speciality" value="<?=$response['patient']['speciality']?>">
 							</div>
 							<div class="form-group">
 								<label for="building">Κτήριο:</label>
-								<input type="text" class="form-control" id="building" placeholder="" name="building" value=<?=$response['patient']['building']?>>
+								<input type="text" class="form-control" id="building" placeholder="" name="building" value="<?=$response['patient']['building']?>">
 							</div>
 							<div class="form-group">
 								<label for="officenumber">Αριθμός Γραφείου:</label>
-								<input type="number" class="form-control" id="officenumber" placeholder="" name="office_num" value=<?=$response['patient']['office_num']?>>
+								<input type="number" class="form-control" id="officenumber" placeholder="" name="office_num" value="<?=$response['patient']['office_num']?>">
 							</div>
 							<div class="form-group">
 								<label for="fax">Fax:</label>
-								<input type="number" class="form-control" id="fax" placeholder="" name="fax" value=<?=$response['patient']['fax']?>>
+								<input type="number" class="form-control" id="fax" placeholder="" name="fax" value="<?=$response['patient']['fax']?>">
 							</div>
 							<?php } if(strnatcmp($response['patient']['type'],"άλλο")==0){?>
 							<!-- other -->
 							<div class="form-group">
 								<label for="job">Εργασία:</label>
-								<input type="text" class="form-control" id="job" placeholder="" name="job" value=<?=$response['patient']['job']?>>
+								<input type="text" class="form-control" id="job" placeholder="" name="job" value="<?=$response['patient']['job']?>">
 							</div>
 							<div class="form-group">
 								<label for="municipality">Δήμος:</label>
-								<input type="text" class="form-control" id="municipality" placeholder="" name="municipality" value=<?=$response['patient']['municipality']?>>
+								<input type="text" class="form-control" id="municipality" placeholder="" name="municipality" value="<?=$response['patient']['municipality']?>">
 							</div>	
 							<?php }?>
 							<div class="form-group">

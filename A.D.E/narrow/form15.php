@@ -779,7 +779,7 @@ $postfields=http_build_query(array(
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-<<<<<<< HEAD
+
 		$response=request($url,$method,$postfields,$tok);
 	}
 	if($response['success']==1){
@@ -795,20 +795,4 @@ $postfields=http_build_query(array(
 		}
 }
 ?>
-=======
-		$response = request($url, $method, $postfields, $tok);
-		}
-		if($response['success']==1){
-		echo "<div class=\"alert alert-success fade in\">
-		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-		<strong>Success!</strong> You have successfully submit your form!
-		</div>";
-		}else{
-		echo "<div class=\"alert alert-danger fade in\">
-		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-		<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
-		</div>";
-		}
-		}
-	?>
->>>>>>> 7253f5917060156dab86517a896251cad25ed678
+

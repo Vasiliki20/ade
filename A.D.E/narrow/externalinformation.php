@@ -210,131 +210,98 @@ var_dump($response);
 						</div>
 						<div class="panel-body">
 							<table id="casenotes" style="width:100%">
+								
 								<tr>
-									<th><label>Τύπος επικοινωνίας:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="typeofcomm" placeholder="" name="typeofcomm" value=<?=$response['communications'][$i]['typeofcall'] ?>>
-</input></td>
-<?php }} ?>
-								</tr>
-								<tr>
-									<th><label>Τρόπος κλήσης:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="wayofcomm" placeholder="" name="wayofcomm" value=<?=$response['communications'][$i]['typeofcall'] ?>>
-</input></td>
-<?php }} ?>
-								</tr>
-								<tr>
-									<th><label>Ημερομηνία κλήσης:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm" value=<?=$response['communications'][$i]['dateofcall'] ?>>
-</input></td>
-<?php }} ?>
+									<th> <label>Ημερομηνία κλήσης:</label> </th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm" value="<?=$response['communications'][$i]['dateofcall'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
 									<th><label> Ώρα κλήσης: </label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm" value=<?=$response['communications'][$i]['timeofcall'] ?>>
-</input></td>
-<?php }} ?>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm" value="<?=$response['communications'][$i]['timeofcall'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
-									<th><label>Όνομα caller:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="namecaller" placeholder="" name="namecaller" value=<?=$response['communications'][$i]['nameofcaller'] ?>>
-</input></td>
-<?php }} ?>
+									<th> <label>Όνομα caller:</label></th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="namecaller" placeholder="" name="namecaller" value="<?=$response['communications'][$i]['nameofcaller'] ?>">
+									</input></td>
+									<?php }} ?>
+								</tr>
+								
+								<tr>
+									<th> <label>Ρόλος caller: </label></th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller" value="<?=$response['communications'][$i]['roleofcaller'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
-									<th><label> Επίθετο caller:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="surnamecaller" placeholder="" name="surnamecaller" value=<?=$response['communications'][$i]['lastnameofcaller'] ?>>
-</input></td>
-<?php }} ?>
+									<th><label> Όνομα called:</label> </th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled" value="<?=$response['communications'][$i]['nameofcallee'] ?>">
+									</input></td>
+									<?php }} ?>
+								</tr>
+							
+								<tr>
+									<th> <label>Ρόλος called: </label></th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled" value="<?=$response['communications'][$i]['roleofcallee'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
-									<th><label>Ρόλος caller: </label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller" value=<?=$response['communications'][$i]['roleofcaller'] ?>>
-</input></td>
-<?php }} ?>
+									<th> <label>Θέμα κλήσης:</label></th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="subject" placeholder="" name="subject" value="<?=$response['communications'][$i]['subject'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
-									<th><label> Όνομα called:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled" value=<?=$response['communications'][$i]['nameofcallee'] ?>>
-</input></td>
-<?php }} ?>
+									<th> <label>Περιγραφή κλήσης:</label> </th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="description" placeholder="" name="description" value="<?=$response['communications'][$i]['description'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
-									<th><label> Επίθετο called: </label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="surnamecalled" placeholder="" name="surnamecalled" value=<?=$response['communications'][$i]['lastnameofcallee'] ?>>
-</input></td>
-<?php }} ?>
-								</tr>
-								<tr>
-									<th><label>Ρόλος called: </label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled" value=<?=$response['communications'][$i]['roleofcallee'] ?>>
-</input></td>
-<?php }} ?>
-								</tr>
-								<tr>
-									<th><label>Θέμα κλήσης:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="subject" placeholder="" name="subject" value=<?=$response['communications'][$i]['subject'] ?>>
-</input></td>
-<?php }} ?>
-								</tr>
-								<tr>
-									<th><label>Περιγραφή κλήσης:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="description" placeholder="" name="description" value=<?=$response['communications'][$i]['description'] ?>>
-</input></td>
-<?php }} ?>
-								</tr>
-								<tr>
-									<th><label> Διαχείριση κλήσης:</label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="manage" placeholder="" name="manage" value=<?=$response['communications'][$i]['handle'] ?>>
-</input></td>
-<?php }} ?>
+									<th><label> Διαχείριση κλήσης:</label> </th>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="manage" placeholder="" name="manage" value="<?=$response['communications'][$i]['handle'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 								<tr>
 									<th><label> Άλλα σχόλια: </label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){
-if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-<td>
-<input type="text" class="form-control" id="comments" placeholder="" name="comments" value=<?=$response['communications'][$i]['othercomments'] ?>>
-</input></td>
-<?php }} ?>
+									<?php for($i=0;$i<count($response['communications']);$i++){ 
+											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
+									<td>
+									<input type="text" class="form-control" id="comments" placeholder="" name="comments" value="<?=$response['communications'][$i]['othercomments'] ?>">
+									</input></td>
+									<?php }} ?>
 								</tr>
 						</div>
 					</div>

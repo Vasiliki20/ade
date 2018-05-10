@@ -215,30 +215,13 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="panel-body">
 							<table id="casenotes" style="width:100%">
-								<tr>
-									<th> <label>Τύπος επικοινωνίας:</label> </th>
-									<?php for($i=0;$i<count($response['communications']);$i++){ 
-											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-									<td>
-									<input type="text" class="form-control" id="typeofcomm" placeholder="" name="typeofcomm" value=<?=$response['communications'][$i]['typeofcall'] ?>>
-									</input></td>
-									<?php }} ?>
-								</tr>
-								<tr>
-									<th> <label>Τρόπος κλήσης:</label> </th>
-									<?php for($i=0;$i<count($response['communications']);$i++){ 
-											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-									<td>
-									<input type="text" class="form-control" id="wayofcomm" placeholder="" name="wayofcomm" value=<?=$response['communications'][$i]['typeofcall'] ?>>
-									</input></td>
-									<?php }} ?>
-								</tr>
+								
 								<tr>
 									<th> <label>Ημερομηνία κλήσης:</label> </th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm" value=<?=$response['communications'][$i]['dateofcall'] ?>>
+									<input type="date" class="form-control" id="dateofcomm" placeholder="" name="dateofcomm" value="<?=$response['communications'][$i]['dateofcall'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -247,7 +230,7 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm" value=<?=$response['communications'][$i]['timeofcall'] ?>>
+									<input type="time" class="form-control" id="timeofcomm" placeholder="" name="timeofcomm" value="<?=$response['communications'][$i]['timeofcall'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -256,25 +239,17 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="namecaller" placeholder="" name="namecaller" value=<?=$response['communications'][$i]['nameofcaller'] ?>>
+									<input type="text" class="form-control" id="namecaller" placeholder="" name="namecaller" value="<?=$response['communications'][$i]['nameofcaller'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
-								<tr>
-									<th><label> Επίθετο caller:</label> </th>
-									<?php for($i=0;$i<count($response['communications']);$i++){ 
-											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-									<td>
-									<input type="text" class="form-control" id="surnamecaller" placeholder="" name="surnamecaller" value=<?=$response['communications'][$i]['lastnameofcaller'] ?>>
-									</input></td>
-									<?php }} ?>
-								</tr>
+								
 								<tr>
 									<th> <label>Ρόλος caller: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller" value=<?=$response['communications'][$i]['roleofcaller'] ?>>
+									<input type="text" class="form-control" id="rolecaller" placeholder="" name="rolecaller" value="<?=$response['communications'][$i]['roleofcaller'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -283,25 +258,17 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled" value=<?=$response['communications'][$i]['nameofcallee'] ?>>
+									<input type="text" class="form-control" id="namecalled" placeholder="" name="namecalled" value="<?=$response['communications'][$i]['nameofcallee'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
-								<tr>
-									<th><label> Επίθετο called: </label></th>
-									<?php for($i=0;$i<count($response['communications']);$i++){ 
-											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
-									<td>
-									<input type="text" class="form-control" id="surnamecalled" placeholder="" name="surnamecalled" value=<?=$response['communications'][$i]['lastnameofcallee'] ?>>
-									</input></td>
-									<?php }} ?>
-								</tr>
+							
 								<tr>
 									<th> <label>Ρόλος called: </label></th>
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled" value=<?=$response['communications'][$i]['roleofcallee'] ?>>
+									<input type="text" class="form-control" id="rolecalled" placeholder="" name="rolecalled" value="<?=$response['communications'][$i]['roleofcallee'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -310,7 +277,7 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="subject" placeholder="" name="subject" value=<?=$response['communications'][$i]['subject'] ?>>
+									<input type="text" class="form-control" id="subject" placeholder="" name="subject" value="<?=$response['communications'][$i]['subject'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -319,7 +286,7 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="description" placeholder="" name="description" value=<?=$response['communications'][$i]['description'] ?>>
+									<input type="text" class="form-control" id="description" placeholder="" name="description" value="<?=$response['communications'][$i]['description'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -328,7 +295,7 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="manage" placeholder="" name="manage" value=<?=$response['communications'][$i]['handle'] ?>>
+									<input type="text" class="form-control" id="manage" placeholder="" name="manage" value="<?=$response['communications'][$i]['handle'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
@@ -337,7 +304,7 @@ $postfields=http_build_query(array(
 									<?php for($i=0;$i<count($response['communications']);$i++){ 
 											if(strnatcmp($response['communications'][$i]['typeof'],"Communication")==0){ ?>
 									<td>
-									<input type="text" class="form-control" id="comments" placeholder="" name="comments" value=<?=$response['communications'][$i]['othercomments'] ?>>
+									<input type="text" class="form-control" id="comments" placeholder="" name="comments" value="<?=$response['communications'][$i]['othercomments'] ?>">
 									</input></td>
 									<?php }} ?>
 								</tr>
