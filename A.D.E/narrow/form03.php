@@ -608,9 +608,9 @@ $postfields=http_build_query(array(
 									<label for="q58">58. Νομικά προβλήματα:</label>
 									<label for="q59">59. Σκέψεις αυτοκτονίας:</label>
 									<label for="q60">60. Σκέψεις ανθρωποκτονίας:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<label for="q61">61. Άλλο (περιγρψετε)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<label for="q61">61. Άλλο (περιγράψετε)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<br><br><br>
-									<label for="q63">62. Άλλο (περιγρψετε)</label>
+									<label for="q63">62. Άλλο (περιγράψετε)</label>
 								</div>
 								<div class="column">
 									<input type="hidden" name="q35">

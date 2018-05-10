@@ -436,7 +436,7 @@ $response=request($url,$method,$postfields,$_COOKIE['token']);
 }else{
 $response=0;
 }
-while($response['status']!=1){
+if($response['status']!=1){
 $tok=giveToken();
 print "<h5>".$tok."</h5>";
 ?>

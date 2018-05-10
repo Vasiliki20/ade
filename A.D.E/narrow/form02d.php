@@ -157,7 +157,7 @@ $postfields=http_build_query(array(
 							</div>
 							</div>
 						</nav>
-					</div>
+					
 				</header>
 
 				<div class="container">
@@ -339,7 +339,7 @@ $postfields=http_build_query(array(
 						<button type="submit" class="btn btn-default" name="submit">
 							Submit
 						</button>
-
+</div>
 				</div>
 				<footer>
 					<div id="footer" class="fh5co-border-line">
