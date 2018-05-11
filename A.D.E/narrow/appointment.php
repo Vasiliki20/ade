@@ -39,10 +39,10 @@
 							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="index.php"><span>Log in</span></a>
+										<a href="index.php"><span>ΕΙΣΟΔΟΣ</span></a>
 									</li>
 									<li>
-										<a href="contact.html"><span>Contact Us</span></a>
+										<a href="contact.html"><span>ΕΠΙΚΟΙΝΩΝΙΑ</span></a>
 									</li>
 								</ul>
 							</div>
@@ -153,10 +153,10 @@
 					</div>
 					<div class="form-group">
 						<input name="agree" type="checkbox" value="0" />
-						I agree to <a href="termsandcond.html">terms and conditins</a>
+						Συμφωνώ με τους <a href="termsandcond.html">όρους και προϋποθέσεις</a>
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
-						Submit
+						καταχωρηση
 					</button>
 				</form>
 			</div>
@@ -224,6 +224,20 @@ print "<h5>".$tok."</h5>";
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-
+	//var_dump($response);
+	if(isset($response['error'])){
+		?><script> alert("This id already exist! Please use another id!"); </script><?php
+	}
+	if($response['success']==1){
+		echo "<div class=\"alert alert-success fade in\">
+			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			<strong>Success!</strong> You have successfully registered to the system!
+			</div>";
+	}else{
+		echo "<div class=\"alert alert-danger fade in\">
+			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+			  </div>";
+	}
 }
 ?>
