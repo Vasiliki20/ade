@@ -77,7 +77,7 @@
 
 			<div class="container">
 				<div align="center">
-					<h4>ΕΙΣΟΔΟΣ</h4>
+					<h3>ΕΙΣΟΔΟΣ</h3>
 				</div>
 				<form action="" method="post">
 					<div class="form-group">
