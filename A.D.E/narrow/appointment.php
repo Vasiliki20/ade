@@ -128,7 +128,7 @@
 			</script>
 			<div class="container">
 				<div align="center">
-					<h3>Διευθετήστε συνάντηση με Ψυχολόγο</h3>
+					<h3>Δημιουργία Λογαριασμού</h3>
 				</div>
 				<form method="post" action="" onsubmit="return checkCheckBox(this)">
 					<div class="form-group">
