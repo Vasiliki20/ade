@@ -39,10 +39,10 @@
 							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="appointment.php"><span>Register</span></a>
+										<a href="appointment.php"><span>ΕΓΓΡΑΦΗ</span></a>
 									</li>
 									<li>
-										<a href="contact.html"><span>Contact Us</span></a>
+										<a href="contact.html"><span>ΕΠΙΚΟΙΝΩΝΙΑ</span></a>
 									</li>
 								</ul>
 
@@ -77,7 +77,7 @@
 
 			<div class="container">
 				<div align="center">
-					<h4>LOGIN</h4>
+					<h4>ΕΙΣΟΔΟΣ</h4>
 				</div>
 				<form action="" method="post">
 					<div class="form-group">
@@ -89,7 +89,7 @@
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
-						Καταχώρηση
+						Καταχωρηση
 					</button>
 				</form>
 			</div>
@@ -158,6 +158,8 @@ if(strnatcmp($response['login'],true)==0){
 	echo $_SESSION['id'];
 	header('Location: form01.php');
 
+}else{
+	echo "<script> alert(\"Wrong username or password!\");</script>";
 }
 }
 ?>
@@ -181,6 +183,6 @@ print "<h5>".$tok."</h5>";
 <?php
 $response1 = request($url, $method, $postfields, $tok);
 }
-var_dump($response1);
+//var_dump($response1);
 
 ?>
