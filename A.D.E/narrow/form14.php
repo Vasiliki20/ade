@@ -259,7 +259,7 @@
 							<input type="text" class="form-control" id="more" placeholder="" name="more">
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							ΚΑΤΑΧΩΡΗΣΗ
 						</button>
 					</form>
 				</div>

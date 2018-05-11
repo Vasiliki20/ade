@@ -202,55 +202,45 @@ $postfields=http_build_query(array(
 						<div class="form-group">
 							<label for="q17"><strong>8. Κατηγορίες πληροφοριών που συναινώ να μεταβιβαστούν <em>(Σημειώστε τη μονογραφή σας σε όσα ισχύουν)</em></strong></label>
 							<br>
-							<input type="checkbox" name="infototransfer" class="form-group" id="q17a">
+							<input type="radio" name="infototransfer" class="form-group" id="q17a" value="Μόνο συμμετοχή σε συνεδρία/ες">
 							Μόνο συμμετοχή σε συνεδρία/ες
 							<br>
-							<input type="checkbox" name="infototransfer" class="form-group" id="q17b">
+							<input type="radio" name="infototransfer" class="form-group" id="q17b" value="Πλάνο και στόχοι θεραπείας/παρέμβασης">
 							Πλάνο και στόχοι θεραπείας/παρέμβασης
 							<br>
-							<input type="checkbox" name="infototransfer" class="form-group" id="q17c">
+							<input type="radio" name="infototransfer" class="form-group" id="q17c" value="Ψυχολογική έκθεση">
 							Ψυχολογική έκθεση
 							<br>
-							<input type="checkbox" name="infototransfer" class="form-group" id="q17d">
+							<input type="radio" name="infototransfer" class="form-group" id="q17d" value="Σημειώσεις συνεδρίας">
 							Σημειώσεις συνεδρίας
 							<br>
-							<input type="checkbox" name="infototransfer" class="form-group" id="q17e">
+							<input type="radio" name="infototransfer" class="form-group" id="q17e" value="Συστάσεις">
 							Συστάσεις
 							<br>
-							<input type="checkbox" name="infototransfer" class="form-group" id="q17f">
-							Ψυχομετρική αξιολόγηση/τεστ, διευκρινίστε:
+							<input type="radio" name="infototransfer" class="form-group" id="q17f" value="Ψυχομετρική αξιολόγηση/τεστ">
+							Ψυχομετρική αξιολόγηση/τεστ
 							<br>
-							<input type="text" class="form-control" name="infototransfer" id="q17fmore">
-							<br>
-							<input type="checkbox" class="form-group" name="infototransfer" id="q17g">
-							Άλλο, διευκρινίστε:
-							<br>
-							<input type="text" class="form-control" name="infototransfer" id="q17gmore">
-							<br>
+							<input type="radio" class="form-group" name="infototransfer" id="q17g" value="Άλλο">
+							Άλλο
 						</div>
 						<div class="form-group">
 							<input type="hidden" name="timeofexpire" />
 							<label for="q18"><strong>9. Η πιο πάνω εξουσιοδότηση θα ισχύει για: (επιλέξτε ό,τι ισχύει) </strong></label>
 							<br>
-							<input type="radio" name="timeofexpire" class="form-group" id="q18a">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18a" value="μόνο μια φορά">
 							μόνο μια φορά
 							<br>
-							<input type="radio" name="timeofexpire" class="form-group" id="q18b">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18b" value="3 μήνες">
 							3 μήνες
 							<br>
-							<input type="radio" name="timeofexpire" class="form-group" id="q18c">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18c" value="6 μήνες">
 							6 μήνες
 							<br>
-							<input type="radio" name="timeofexpire" class="form-group" id="q18d">
+							<input type="radio" name="timeofexpire" class="form-group" id="q18d" value="1 χρόνο">
 							1 χρόνο
-							<br>
-							<input type="radio" name="timeofexpire" class="form-group" id="q18e">
-							Άλλο, διευκρινίστε:
-							<br>
-							<input type="text" name="timeofexpire" class="form-control" id="q18fmore">
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							Καταχωρηση
 						</button>
 					</form>
 				</div>
@@ -315,7 +305,7 @@ $postfields=http_build_query(array(
 	}else{
 		$response=0;
 	}
-	while($response['status']!=1){
+	if($response['status']!=1){
 		$tok=giveToken();
 		print "<h5>".$tok."</h5>";
 		?>
@@ -328,6 +318,17 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response = request($url, $method, $postfields, $tok);
 		}
-
+			if($response['success']==1){
+		echo "<div class=\"alert alert-success fade in\">
+			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			<strong>Success!</strong> You have successfully submit your form!
+			</div>";
+		}else{
+		echo "<div class=\"alert alert-danger fade in\">
+			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+			  </div>";
 		}
+		}
+		
 	?>

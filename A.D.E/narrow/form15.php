@@ -691,7 +691,7 @@ $postfields=http_build_query(array(
 							</div>
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							καταχωρηση
 						</button>
 
 				</div>

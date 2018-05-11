@@ -99,56 +99,7 @@ var_dump($response);
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
-				<div class="navbar-default sidebar" role="navigation">
-					<div class="sidebar-nav navbar-collapse">
-						<ul class="nav" id="side-menu">
-							<!--
-							<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-							</button> </span>
-							</div>
-							<!-- /input-group -->
-							<!--</li>-->
-							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
-								<ul class="nav nav-second-level">
-									<li>
-										<a href="tasklist.php">Task List</a>
-									</li>
-									<li>
-										<a href="myclients.php">My clients</a>
-									</li>
-									<li>
-										<a href="myappointments.php">My appointments</a>
-									</li>
-									<li>
-										<a href="waitinglist.php">Waiting List</a>
-									</li>
-									<li>
-										<a href="search.php">Search</a>
-									</li>
-								</ul>
-								<!-- /.nav-second-level -->
-							</li>
-							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
-							</li>
-							<li>
-								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
-							</li>
-						</ul>
-					</div>
-					<!-- /.sidebar-collapse -->
-				</div>
-				<!-- /.navbar-static-side -->
-			</nav>
+				
 
 			<div id="page-wrapper">
 				<div class="row">
@@ -226,64 +177,64 @@ var_dump($response);
 											<td>α. ψυχολογική</td>
 											<td>
 											<input type="hidden" name="psychologicalfunc" >
-											<input type="radio" class="form-group" id="a1" name="psychologicalfunc">
+											<input type="radio" class="form-group" id="a1" name="psychologicalfunc" value="Απούσα">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="a2" name="psychologicalfunc">
+											<input type="radio" class="form-group" id="a2" name="psychologicalfunc" value="Ήπια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="a3" name="psychologicalfunc">
+											<input type="radio" class="form-group" id="a3" name="psychologicalfunc" value="Μέτρια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="a4" name="psychologicalfunc">
+											<input type="radio" class="form-group" id="a4" name="psychologicalfunc" value="Σοβαρή">
 											</td>
 										</tr>
 										<tr>
 											<td>β. επαγγελματική/ακαδημαϊκή</td>
 											<td>
 											<input type="hidden" name="professionacademicfunc" >
-											<input type="radio" class="form-group" id="b1" name="professionacademicfunc">
+											<input type="radio" class="form-group" id="b1" name="professionacademicfunc" value="Απούσα">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="b2" name="professionacademicfunc">
+											<input type="radio" class="form-group" id="b2" name="professionacademicfunc" value="Ήπια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="b3" name="professionacademicfunc">
+											<input type="radio" class="form-group" id="b3" name="professionacademicfunc" value="Μέτρια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="b4" name="professionacademicfunc">
+											<input type="radio" class="form-group" id="b4" name="professionacademicfunc" value="Σοβαρή">
 											</td>
 										</tr>
 										<tr>
 											<td>γ. κοινωνική</td>
 											<td>
 											<input type="hidden" name="socialfunc" >
-											<input type="radio" class="form-group" id="g1" name="socialfunc">
+											<input type="radio" class="form-group" id="g1" name="socialfunc" value="Απούσα">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="g2" name="socialfunc">
+											<input type="radio" class="form-group" id="g2" name="socialfunc" value="Ήπια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="g3" name="socialfunc">
+											<input type="radio" class="form-group" id="g3" name="socialfunc" value="Μέτρια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="g4" name="socialfunc">
+											<input type="radio" class="form-group" id="g4" name="socialfunc" value="Σοβαρή">
 											</td>
 										</tr>
 										<tr>
 											<td>δ. αυτοφροντίδα</td>
 											<td>
 											<input type="hidden" name="autofix" >
-											<input type="radio" class="form-group" id="d1" name="autofix">
+											<input type="radio" class="form-group" id="d1" name="autofix" value="Απούσα">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="d2" name="autofix">
+											<input type="radio" class="form-group" id="d2" name="autofix" value="Ήπια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="d3" name="autofix">
+											<input type="radio" class="form-group" id="d3" name="autofix" value="Μέτρια">
 											</td>
 											<td>
-											<input type="radio" class="form-group" id="d4" name="autofix">
+											<input type="radio" class="form-group" id="d4" name="autofix" value="Σοβαρή">
 											</td>
 										</tr>
 									</table>
@@ -293,7 +244,7 @@ var_dump($response);
 									<input type="text" class="form-control" id="more" placeholder="" name="infos">
 								</div>
 								<button type="submit" class="btn btn-default" name="submit">
-									Submit
+									Καταχώρηση
 								</button>
 							</form>
 						</div>
