@@ -620,43 +620,44 @@ $postfields=http_build_query(array(
 							<div class="form-group">
 								<label for="q9"><strong>3. Ποιοι ήταν οι κυριότεροι λόγοι που αποταθήκατε στο ΚΕΨΥ; (σημειώστε όσα ισχύουν)</strong> </label>
 								<br>
-								<input type="checkbox" name="reasons" value="opt1">
+								<input type="hidden" name="reasons">
+								<input type="radio" name="reasons" value="opt1">
 								κακοποίηση
 								<br>
-								<input type="checkbox" name="reasons" value="opt2">
+								<input type="radio" name="reasons" value="opt2">
 								ακαδημαϊκές δυσκολίες
 								<br>
-								<input type="checkbox" name="reasons" value="opt3">
+								<input type="radio" name="reasons" value="opt3">
 								άγχος
 								<br>
-								<input type="checkbox" name="reasons" value="opt4">
+								<input type="radio" name="reasons" value="opt4">
 								εθισμός
 								<br>
-								<input type="checkbox" name="reasons" value="opt5">
+								<input type="radio" name="reasons" value="opt5">
 								διάθεση/κατάθλιψη
 								<br>
-								<input type="checkbox" name="reasons" value="opt6">
+								<input type="radio" name="reasons" value="opt6">
 								θυμός-επιθετικότητα
 								<br>
-								<input type="checkbox" name="reasons" value="opt7">
+								<input type="radio" name="reasons" value="opt7">
 								απώλεια/πένθος
 								<br>
-								<input type="checkbox" name="reasons" value="opt8">
+								<input type="radio" name="reasons" value="opt8">
 								σωματική υγεία
 								<br>
-								<input type="checkbox" name="reasons" value="opt9">
+								<input type="radio" name="reasons" value="opt9">
 								διατροφικές διαταραχές
 								<br>
-								<input type="checkbox" name="reasons" value="opt10">
+								<input type="radio" name="reasons" value="opt10">
 								σχέσεις
 								<br>
-								<input type="checkbox" name="reasons" value="opt11">
+								<input type="radio" name="reasons" value="opt11">
 								προσωπική ταυτότητα
 								<br>
-								<input type="checkbox" name="reasons" value="opt12">
+								<input type="radio" name="reasons" value="opt12">
 								σεξουαλικά θέματα
 								<br>
-								<input type="checkbox" name="reasons" value="opt13">
+								<input type="radio" name="reasons" value="opt13">
 								Άλλο (διευκρινίστε)
 								<br>
 								<input type="text" class="form-control" name="reasons" value="">
@@ -664,22 +665,23 @@ $postfields=http_build_query(array(
 							<div class="form-group">
 								<label for="q9"><strong>4. Για ποιο λόγο τερματίσετε τις υπηρεσίες που λαμβάνατε στο ΚΕΨΥ;</strong> <em>(σημειώστε όσα ισχύουν)</em></label>
 								<br>
-								<input type="checkbox" name="whyend" value="opt1">
+								<input type="hidden" name="whyend">
+								<input type="radio" name="whyend" value="opt1">
 								Η συμβουλευτική δεν μπορούσε να ανταποκριθεί στις ανησυχίες μου
 								<br>
-								<input type="checkbox" name="whyend" value="opt2">
+								<input type="radio" name="whyend" value="opt2">
 								Νιώθω καλύτερη και θεωρώ πώς δεν χρειάζομαι πια τις υπηρεσίες
 								<br>
-								<input type="checkbox" name="whyend" value="opt3">
+								<input type="radio" name="whyend" value="opt3">
 								Δεν ήμουν ικανοποιημένος/η με το θεραπευτή/σύμβουλό μου
 								<br>
-								<input type="checkbox" name="whyend" value="opt4">
+								<input type="radio" name="whyend" value="opt4">
 								Έχω ολοκληρώσεις το πρόγραμμα θεραπείας
 								<br>
-								<input type="checkbox" name="whyend" value="opt5">
+								<input type="radio" name="whyend" value="opt5">
 								Λόγω αποφοίτησής μου
 								<br>
-								<input type="checkbox" name="whyend" value="opt6">
+								<input type="radio" name="whyend" value="opt6">
 								Άλλο (διευκρινίστε)
 								<br>
 								<input type="text" class="form-control" name="whyend" value="">
@@ -779,18 +781,20 @@ $postfields=http_build_query(array(
 		<?php
 		//$GLOBALS['curtoken']=giveToken();
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response = request($url, $method, $postfields, $tok);
-		}
-		if($response['success']==1){
+
+		$response=request($url,$method,$postfields,$tok);
+	}
+	if($response['success']==1){
 		echo "<div class=\"alert alert-success fade in\">
-		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-		<strong>Success!</strong> You have successfully submit your form!
-		</div>";
+			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			<strong>Success!</strong> You have successfully submit your form!
+			</div>";
 		}else{
 		echo "<div class=\"alert alert-danger fade in\">
-		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-		<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
-		</div>";
+			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+			  </div>";
 		}
-		}
-	?>
+}
+?>
+
