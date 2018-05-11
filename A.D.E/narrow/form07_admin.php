@@ -376,7 +376,7 @@ var_dump($response);
 							</div>
 							<div class="form-group">
 								<button type="submit" onclick="init();" class="btn btn-default" name="submit">
-									Submit
+									Καταχώρηση
 								</button>
 							</div>
 						</div>
