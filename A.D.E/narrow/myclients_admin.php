@@ -106,7 +106,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Clients</h1>
+						<h1 class="page-header">Πελάτες</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -164,7 +164,7 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 <td><?= $response['result'][$i]['firstname'] ?></td>
 										<td><?= $response['result'][$i]['lastname'] ?></td>
 										<td><input type="hidden" value="<?= $response['result'][$i]['patientID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['patientID'] ?></label></td>
-										<td>Ψυχολόγος</td>
+										<td><?= $response['result'][$i]['psychologistID'] ?></td>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<?php if($response['result'][$i]['active']==0){ ?>
 										<select name="status[]">

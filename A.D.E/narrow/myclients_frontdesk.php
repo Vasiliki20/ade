@@ -101,7 +101,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Clients</h1>
+						<h1 class="page-header">Πελάτες</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -160,7 +160,7 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
-											<td>Ψυχολόγος</td>
+											<td><?= $response['result'][$i]['psychologistID'] ?></td>
 											<td><a  href="casefile_frontdesk.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 											<?php }} ?>
