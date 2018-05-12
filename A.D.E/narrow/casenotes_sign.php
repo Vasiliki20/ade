@@ -4644,21 +4644,7 @@ $response = request($url, $method, $postfields, $tok);
 				</div>
 				<div>
 					<!-- /.col-lg-12 -->
-					<nav class="navbar navbar-default">
-						<div class="container-fluid">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-
-							
-						</div><!-- /.container-fluid -->
-					</nav>
+					
 				</div>
 				<div>
 					<div class="panel panel-default">
@@ -4744,15 +4730,17 @@ $response = request($url, $method, $postfields, $tok);
 						<fieldset style="width: 450px">
 							<div id="signaturePad" style="border: 1px solid #00C; height: 100px; width: 400px;"></div>
 								<br/>
-								<button  id="clearSig" type="button">
-									Clear Signature
+								<button  id="clearSig" type="button" class="btn btn-default">
+									Αφαίρεση υπογραφής
 								</button>
 								&nbsp;
-								
-								<button id="saveSig" name="submit"  type="submit">
-									Save Signature
-								</button><button id="saveSig" name="submit1"  type="submit">
-									Save All
+								<button id="saveSig" name="submit"  type="submit" class="btn btn-default">
+									Αποθήκευση υπογραφής
+								</button>
+								<br>
+								<br>
+								<button id="saveSig" name="submit1"  type="submit" class="btn btn-default">
+									Αποθήκευση
 								</button>
 								</form>
 								<?php
