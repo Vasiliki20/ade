@@ -283,63 +283,68 @@ var_dump($response);
 								<tr>
 									<td>α. ψυχολογική</td>
 									<td>
-									<input type="checkbox" value="Απούσα Ψυχολογική" name="q10" class="form-group" id="a1">
+									<input type="hidden" name="q10">
+									<input type="radio" value="Απούσα Ψυχολογική" name="q10" class="form-group" id="a1">
 									</td>
 									<td>
-									<input type="checkbox" value="Ήπια Ψυχολογική" name="q10" class="form-group" id="a2">
+									<input type="radio" value="Ήπια Ψυχολογική" name="q10" class="form-group" id="a2">
 									</td>
 									<td>
-									<input type="checkbox" value="Μέτρια Ψυχολογική" name="q10" class="form-group" id="a3">
+									<input type="radio" value="Μέτρια Ψυχολογική" name="q10" class="form-group" id="a3">
 									</td>
 									<td>
-									<input type="checkbox" value="Σοβαρή Ψυχολογική" name="q10" class="form-group" id="a4">
+									<input type="radio" value="Σοβαρή Ψυχολογική" name="q10" class="form-group" id="a4">
 									</td>
 								</tr>
 								<tr>
 									<td>β. επαγγελματική/ακαδημαϊκή</td>
 									<td>
-									<input type="checkbox" value="Απούσα επαγγελματική" name="q11" class="form-group" id="b1">
+									<input type="hidden" name="q11">
+									<input type="radio" value="Απούσα επαγγελματική" name="q11" class="form-group" id="b1">
 									</td>
 									<td>
-									<input type="checkbox" value="Ήπια επαγγελματική" name="q11" class="form-group" id="b2">
+									<input type="radio" value="Ήπια επαγγελματική" name="q11" class="form-group" id="b2">
 									</td>
 									<td>
-									<input type="checkbox" value="Μέτρια επαγγελματική" name="q11" class="form-group" id="b3">
+									<input type="radio" value="Μέτρια επαγγελματική" name="q11" class="form-group" id="b3">
 									</td>
 									<td>
-									<input type="checkbox" value="Σοβαρή επαγγελματική" name="q11" class="form-group" id="b4">
+									<input type="radio" value="Σοβαρή επαγγελματική" name="q11" class="form-group" id="b4">
 									</td>
 								</tr>
 								<tr>
 									<td>γ. κοινωνική</td>
 									<td>
-									<input type="checkbox" value="Απούσα κοινωνική" name="q12" class="form-group" id="g1">
+									<input type="hidden" name="q12">
+									<input type="radio" value="Απούσα κοινωνική" name="q12" class="form-group" id="g1">
 									</td>
 									<td>
-									<input type="checkbox" value="Ήπια κοινωνική" name="q12" class="form-group" id="g2">
+									<input type="radio" value="Ήπια κοινωνική" name="q12" class="form-group" id="g2">
 									</td>
 									<td>
-									<input type="checkbox" value="Μέτρια κοινωνική" name="q12" class="form-group" id="g3">
+									<input type="radio" value="Μέτρια κοινωνική" name="q12" class="form-group" id="g3">
 									</td>
 									<td>
-									<input type="checkbox" value="Σοβαρή κοινωνική" name="q12" class="form-group" id="g4">
+									<input type="radio" value="Σοβαρή κοινωνική" name="q12" class="form-group" id="g4">
 									</td>
 								</tr>
 								<tr>
 									<td>δ. αυτοφροντίδα</td>
 									<td>
-									<input type="checkbox" value="Απούσα αυτοφροντίδα" name="q13" class="form-group" id="d1">
+									<input type="hidden" name="q13">
+									<input type="radio" value="Απούσα αυτοφροντίδα" name="q13" class="form-group" id="d1">
 									</td>
 									<td>
-									<input type="checkbox" value="Ήπια αυτοφροντίδα" name="q13" class="form-group" id="d2">
+									<input type="radio" value="Ήπια αυτοφροντίδα" name="q13" class="form-group" id="d2">
 									</td>
 									<td>
-									<input type="checkbox" value="Μέτρια αυτοφροντίδα" name="q13" class="form-group" id="d3">
+									<input type="radio" value="Μέτρια αυτοφροντίδα" name="q13" class="form-group" id="d3">
 									</td>
 									<td>
-									<input type="checkbox" value="Σοβαρή αυτοφροντίδα" name="q13" class="form-group" id="d4">
+									<input type="radio" value="Σοβαρή αυτοφροντίδα" name="q13" class="form-group" id="d4">
 									</td>
 								</tr>
+
 							</table>
 							<br>
 							<div class="form-group">
