@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
 
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -22,7 +23,6 @@
 
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/modernizr-2.6.2.min.js"></script>
-
 	</head>
 	<body>
 
@@ -124,13 +124,12 @@
 					} else
 						return true;
 				}
-
 			</script>
 			<div class="container">
 				<div align="center">
 					<h3>Δημιουργία Λογαριασμού</h3>
 				</div>
-				<form method="post" action="" onsubmit="return checkCheckBox(this)">
+				<form method="post" action="" id="contact-form" onsubmit="return checkCheckBox(this)">
 					<div class="form-group">
 						<label for="email">Ηλεκτρονική Διεύθυνση για Επικοινωνία:</label>
 						<input type="email" class="form-control" id="email" placeholder="Ηλεκτρονική Διεύθυνση" name="email">
@@ -160,6 +159,64 @@
 					</button>
 				</form>
 			</div>
+			<script>
+				$(document).ready(function() {
+					jQuery.validator.addMethod("noSpace", function(value, element) {
+						return value.indexOf(" ") < 0 && value != "";
+					}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+					jQuery.validator.addMethod("sqlValidator", function(value, element) {
+						return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					jQuery.validator.addMethod("xssValidator", function(value, element) {
+						return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					$('#contact-form').validate({
+						rules : {
+							name : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true,
+								required : true
+							},
+							surname : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true,
+								required : true
+							},
+							email : {
+								required : true,
+								email : true
+							},
+							id : {
+								required : true,
+								sqlValidator : true,
+								xssValidator : true
+							},
+							password : {
+								required : true,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true
+							}
+						},
+						highlight : function(element) {
+							$(element).closest('.form-group').addClass('error text-danger');
+						},
+						success : function(element) {
+							$(element).closest('.form-group').removeClass('error text-danger');
+						}
+					});
+
+				});
+
+			</script>
+
 			<footer>
 				<div id="footer" class="fh5co-border-line">
 					<div class="container">
@@ -176,7 +233,6 @@
 			</footer>
 		</div>
 		<!-- END: box-wrap -->
-
 		<!-- jQuery -->
 		<script src="js/jquery.min.js"></script>
 		<!-- jQuery Easing -->
@@ -189,7 +245,8 @@
 		<script src="js/jquery.waypoints.min.js"></script>
 		<!-- Parallax Stellar -->
 		<script src="js/jquery.stellar.min.js"></script>
-
+<script src="js/jquery.validate.js"></script>
+		
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
 
@@ -224,20 +281,21 @@ print "<h5>".$tok."</h5>";
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-	//var_dump($response);
-	if(isset($response['error'])){
-		?><script> alert("This id already exist! Please use another id!"); </script><?php
-	}
-	if($response['success']==1){
-		echo "<div class=\"alert alert-success fade in\">
-			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			<strong>Success!</strong> You have successfully registered to the system!
-			</div>";
-	}else{
-		echo "<div class=\"alert alert-danger fade in\">
-			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
-			  </div>";
-	}
+//var_dump($response);
+if(isset($response['error'])){
+?><
+script> alert("This id already exist! Please use another id!"); </script><?php
+}
+if($response['success']==1){
+echo "<div class=\"alert alert-success fade in\">
+<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+<strong>Success!</strong> You have successfully registered to the system!
+</div>";
+}else{
+echo "<div class=\"alert alert-danger fade in\">
+<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+</div>";
+}
 }
 ?>
