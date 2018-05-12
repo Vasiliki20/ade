@@ -181,10 +181,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="sex" />
 							<label for="sex"><b>3. Φύλο:</b></label>
 							<br>
-							<input type="radio" name="sex" value="male">
+							<input type="radio" name="sex" value="Άρρεν">
 							Άρρεν
 							<br>
-							<input type="radio" name="sex" value="female">
+							<input type="radio" name="sex" value="Θύλη">
 							Θύλη
 						</div>
 						<div class="form-group">
@@ -211,10 +211,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="contact" />
 							<label for="contact"><b>9. Ποιος είναι ο καλύτερος τρόπος να επικοινωνήσουμε μαζί σας;</b></label>
 							<br>
-							<input type="radio" name="contact" value="email">
+							<input type="radio" name="contact" value="Ηλεκτρονική Διεύθυνση">
 							Email
 							<br>
-							<input type="radio" name="contact" value="phone">
+							<input type="radio" name="contact" value="Τηλέφωνο">
 							Τηλέφωνο
 						</div>
 
@@ -274,22 +274,22 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="family" />
 							<label for="family"><b>18. Οικογενειακή Κατάσταση:</b></label>
 							<br>
-							<input type="radio" name="family" value="anipantros">
+							<input type="radio" name="family" value="Ανύπαντρος/η">
 							Ανύπαντρος/η
 							<br>
-							<input type="radio" name="family" value="sxesi">
+							<input type="radio" name="family" value="Σε σχέση/συμβίωση">
 							Σε σχέση/συμβίωση
 							<br>
-							<input type="radio" name="family" value="arravoniasmenos">
+							<input type="radio" name="family" value="Αρραβωνιασμένος/η">
 							Αρραβωνιασμένος/η
 							<br>
-							<input type="radio" name="family" value="pantremenos">
+							<input type="radio" name="family" value="Παντρεμένος/η">
 							Παντρεμένος/η
 							<br>
-							<input type="radio" name="family" value="xorismenos">
+							<input type="radio" name="family" value="Χωρισμένος/η">
 							Χωρισμένος/η
 							<br>
-							<input type="radio" name="family" value="xiros">
+							<input type="radio" name="family" value="Χήρος/α">
 							Χήρος/α
 							<br>
 							<input type="radio" name="family" value="familyallo">
@@ -299,10 +299,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="previous" />
 							<label for="previous"><b>19. Είχατε προηγούμενη συνεργασία με ψυχολόγο, ψυχίατρο ή άλλο λειτουργό ψυχικής υγείας;</b></label>
 							<br>
-							<input type="radio" name="previous" value="oxi">
+							<input type="radio" name="previous" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="previous" value="yes">
+							<input type="radio" name="previous" value="Ναι">
 							Ναι
 							<br>
 							Αν ναι(διευκρινίστε)
@@ -313,16 +313,16 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="currentlystaying" />
 							<label for="currentlystaying"><b>20. Αυτή τη στιγμή διαμένεται:</b></label>
 							<br>
-							<input type="radio" name="currentlystaying" value="stayingalone">
+							<input type="radio" name="currentlystaying" value="Μόνος/η">
 							Μόνος/η
 							<br>
-							<input type="radio" name="currentlystaying" value="stayingroommate">
+							<input type="radio" name="currentlystaying" value="Με συγκάτοικο/ους">
 							Με συγκάτοικο/ους
 							<br>
-							<input type="radio" name="currentlystaying" value="stayingfamily">
+							<input type="radio" name="currentlystaying" value="Με την οικογένεια μου">
 							Με την οικογένεια μου(γονέις,αδέλφια)
 							<br>
-							<input type="radio" name="currentlystaying" value="stayingother">
+							<input type="radio" name="currentlystaying" value="Άλλο">
 							Άλλο (διαυκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="currentlystaying" name="currentlystaying">
@@ -331,10 +331,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="referred" />
 							<label for="referred"><b>21. Σας έχει παραπέμψει κάποιος άλλος στο ΚΕΨΥ:</b></label>
 							<br>
-							<input type="radio" name="referred" value="no">
+							<input type="radio" name="referred" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="referred" value="yes">
+							<input type="radio" name="referred" value="Ναι">
 							Ναι (διευκρινίστε)
 							<br>
 							<input type="text" class="form-control" id="referred" name="referred">
@@ -343,16 +343,17 @@ $postfields=http_build_query(array(
 							
 							<label for="otherservices"><b>22. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
-							<input type="radio" name="otherservices" value="oxi">
+							<input type="radio" name="otherservices" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="otherservices" value="yes">
+							<input type="radio" name="otherservices" value="Ναι">
 							Ναι
 							<br>
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
+							<br>
 							Τηλέφωνο:
 							<br>
-							<input type="text" class="form-control" id="otherservices" name="contactothers">
+							<input type="number" class="form-control" id="otherservices" name="contactothers">
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
 							Καταχωρηση
@@ -430,7 +431,7 @@ $postfields=http_build_query(array(
 			<script src="js/jquery.waypoints.min.js"></script>
 			<!-- Parallax Stellar -->
 			<script src="js/jquery.stellar.min.js"></script>
-<script src="js/jquery.validate.js"></script>
+			<script src="js/jquery.validate.js"></script>
 		
 			<!-- Main JS (Do not remove) -->
 			<script src="js/main.js"></script>
