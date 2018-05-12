@@ -152,7 +152,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Therapists</h1>
+						<h1 class="page-header">Θεραπευτές</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -180,7 +180,7 @@ var_dump($response);
 											</tr>
 										</thead>
 										<tbody>
-		<script>
+								<script>
 									$(document).ready(function() {
 										$("select").change(function() {
 											// No need to loop through all the selects each time, since you can only change one value at a time.
