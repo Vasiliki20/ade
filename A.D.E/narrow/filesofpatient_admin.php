@@ -191,12 +191,12 @@
 							<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
 								<input type="hidden" name="id" value=<?=$_GET['patientID'] ?> >
 								<div class="form-group">
-									<label for="file">Upload files for this patient</label>
+									<label for="file">Πρόσθεση αρχείων για τον πελάτη</label>
 									<input id="file" type="file" name="file">
 									<p class="help-block">
-										<h6>Only pdf,jpg,jpeg,png and gif file with maximum size of 10 MB is allowed.</h6>
+										<h6>Μόνο pdf,jpg,jpeg,png και gif αρχεία με μέγιστο μέγεθος 10 MB επιτρέπονται.</h6>
 									</p>
-									<input type="submit" class="btn  btn-default" id="sub" value="Upload">
+									<input type="submit" class="btn  btn-default" id="sub" value="Πρόσθεση αρχείου">
 								</div>
 							</form>
 						</div>
@@ -206,7 +206,7 @@
 						<div class="col-lg-12">
 							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieveapproved.php" method="post" >
 								<input type="hidden" name="id" value=<?=$_GET['patientID'] ?> >
-								<input class="btn  btn-default" type="submit" name="submit" value="Show Approved files of this patient" >
+								<input class="btn  btn-default" type="submit" name="submit" value="Εμφάνιση εγκεκριμένων αρχείων πελάτη" >
 							</form>
 						</div>
 					</div>
