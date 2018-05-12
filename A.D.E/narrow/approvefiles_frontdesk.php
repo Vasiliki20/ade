@@ -102,7 +102,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Approve Incoming Data</h1>
+						<h1 class="page-header">Έγκιση εισερχόμενων αρχείων</h1>
 					</div>
 				</div>
 				<!--<div>
@@ -137,7 +137,7 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Approve Incoming Data
+							Έγκιση εισερχόμενων αρχείων
 						</div>
 						<div class="panel-body">
 							<div id="contactResponse"></div>
