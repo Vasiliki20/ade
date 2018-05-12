@@ -37,6 +37,9 @@ $postfields=http_build_query(array(
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
+	
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -167,7 +170,7 @@ $postfields=http_build_query(array(
 					<div align="left">
 						<h5><b>Α. ΔΗΜΟΓΡΑΦΙΚΑ ΣΤΟΙΧΕΙΑ</b></h5>
 					</div>
-					<form action="" method="post">
+					<form action="" method="post" id="contact-form">
 						<div class="form-group">
 							<label for="dob"><b>1. Ημερομηνία γέννησης:</b></label>
 							<input type="date" class="form-control" id="dob" placeholder="" name="dob">
@@ -332,6 +335,53 @@ $postfields=http_build_query(array(
 							Καταχωρηση
 						</button>
 </div>
+<script>
+	$(document).ready(function() {
+		jQuery.validator.addMethod("noSpace", function(value, element) {
+			return value.indexOf(" ") < 0 && value != "";
+		}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+		jQuery.validator.addMethod("sqlValidator", function(value, element) {
+			return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		jQuery.validator.addMethod("xssValidator", function(value, element) {
+			return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		$('#contact-form').validate({
+			rules : {
+				emname : {
+					sqlValidator : true,
+					xssValidator : true
+				},
+				emrelationship : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				job : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				dimos : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				city : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').addClass('error text-danger');
+			},
+			success : function(element) {
+				$(element).closest('.form-group').removeClass('error text-danger');
+			}
+		});
+
+	}); 
+</script>
 				</div>
 				<footer>
 					<div id="footer" class="fh5co-border-line">
@@ -362,7 +412,8 @@ $postfields=http_build_query(array(
 			<script src="js/jquery.waypoints.min.js"></script>
 			<!-- Parallax Stellar -->
 			<script src="js/jquery.stellar.min.js"></script>
-
+	<script src="js/jquery.validate.js"></script>
+		
 			<!-- Main JS (Do not remove) -->
 			<script src="js/main.js"></script>
 		</div>
