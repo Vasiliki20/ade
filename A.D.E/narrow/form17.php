@@ -37,6 +37,8 @@ $postfields=http_build_query(array(
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -167,7 +169,7 @@ $postfields=http_build_query(array(
 						<h5>Αν επιθυμείτε να υποβάλλετε κάποιο παράπονο ή επισήμανση σχετικά με το ΚΕΨΥ και τις παρεχόμενες υπηρεσίες του, παρακαλούμε συμπληρώστε το ακόλουθο έντυπο και υποβάλετέ το στη Διεύθυνση του ΚΕ.Ψ.Υ. <a href="mailto:mentalhealth@ucy.ac.cy">mentalhealth@ucy.ac.cy</a>
 					</div>
 
-					<form action="" method="post">
+					<form action="" method="post" id="contact-form">
 						<div class="row">
 							<div class="column">
 								<label for="q2">1. Ημερομηνία που συνέβη το/α περιστατικό/α (αν αφορά συγκεκριμένα περιστατικά)</label>
@@ -187,6 +189,37 @@ $postfields=http_build_query(array(
 								</button>
 
 							</div>
+							<script>
+	$(document).ready(function() {
+		jQuery.validator.addMethod("noSpace", function(value, element) {
+			return value.indexOf(" ") < 0 && value != "";
+		}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+		jQuery.validator.addMethod("sqlValidator", function(value, element) {
+			return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		jQuery.validator.addMethod("xssValidator", function(value, element) {
+			return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		$('#contact-form').validate({
+			rules : {
+				people : {
+					sqlValidator : true,
+					xssValidator : true
+				}
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').addClass('error text-danger');
+			},
+			success : function(element) {
+				$(element).closest('.form-group').removeClass('error text-danger');
+			}
+		});
+
+	}); 
+</script>
 							<footer>
 								<div id="footer" class="fh5co-border-line">
 									<div class="container">
@@ -219,6 +252,8 @@ $postfields=http_build_query(array(
 
 						<!-- Main JS (Do not remove) -->
 						<script src="js/main.js"></script>
+						<script src="js/jquery.validate.js"></script>
+
 				</div>
 
 	</body>
