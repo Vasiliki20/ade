@@ -252,7 +252,7 @@ $postfields=http_build_query(array(
 								</table>
 								<br>
 								<div class="form-group" align="left">
-									<input type="submit" class="btn btn-default" name="submit" id="submit">
+									<input value="Καταχώρηση" type="submit" class="btn btn-default" name="submit" id="submit">
 								</div>
 								</form>
 							</div>
