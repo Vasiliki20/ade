@@ -36,7 +36,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="fh5co-navbar-brand">
-									<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+									<img src="images/1200px-University_of_Cyprus.svg.png" /> &nbsp;&nbsp;<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 								</div>
 							</div>
 							<div class="col-md-8 main-nav">
