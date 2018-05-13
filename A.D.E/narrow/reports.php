@@ -254,7 +254,7 @@
 										required : true,
 										min : 2000,
 										max : 9999,
-										digit : true
+										digits : true
 									},
 									st1e : {
 										minlength : 1,
@@ -302,7 +302,7 @@
 										required : true,
 										min : 2000,
 										max : 9999,
-										digit : true
+										digits : true
 									},
 									st2e : {
 										minlength : 1,
@@ -351,7 +351,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								},
 								st3e : {
 									minlength : 1,
@@ -399,7 +399,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								},
 								st4y : {
 									minlength : 1,
@@ -409,7 +409,7 @@
 									required : true,
 									min: function () { return parseInt($("#st4ye").val())+1  },
 									max : 9999,
-									digit : true
+									digits : true
 									
 								},
 								st4e : {
@@ -458,7 +458,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								}
 							},
 							highlight : function(element) {
@@ -495,7 +495,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								}
 							},
 							highlight : function(element) {
@@ -532,7 +532,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								}
 							},
 							highlight : function(element) {
