@@ -188,7 +188,7 @@ $postfields=http_build_query(array(
 										</tbody>
 									</table>
 									<button type="submit" name="submit1" class="btn btn-default">
-											Save Changes
+											Αποθήκευση Αλλαγών
 										</button>
 								</form>
 							</div>
