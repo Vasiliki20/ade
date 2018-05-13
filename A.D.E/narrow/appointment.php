@@ -52,7 +52,7 @@
 			</header>
 
 			<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
-				<div class="fh5co-intro-cover" data-stellar-background-ratio="0.1">
+				<div class="fh5co-intro-cover" data-stellar-background-ratio="0.1" style="background-color: #E4C5E9;">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 col-md-offset-0 float-overlay">
@@ -245,8 +245,8 @@
 		<script src="js/jquery.waypoints.min.js"></script>
 		<!-- Parallax Stellar -->
 		<script src="js/jquery.stellar.min.js"></script>
-<script src="js/jquery.validate.js"></script>
-		
+		<script src="js/jquery.validate.js"></script>
+
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
 
