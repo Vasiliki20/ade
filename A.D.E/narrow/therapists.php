@@ -162,13 +162,11 @@ var_dump($response);
 						<div class="panel panel-default">
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-								<!--	<div>
-								<button type="button" onclick="" class="btn btn-default" name="add" data-toggle="modal" data-target="#myModal">
-								Add Therapist
-								</div>-->
 								<form method="post" action="">
 									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 									<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+										
+										<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example"></label></div>
 										<thead>
 											<tr>
 												<th>Όνομα</th>
@@ -241,7 +239,7 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 											</tr>
 											<?php }} ?>
 									</table>
-									<input type="submit" name="submit1" value="Save Changes"/>
+									<input class="btn btn-default" type="submit" name="submit1" value="Αποθήκευση Αλλαγών"/>
 								</form>
 							</div>
 							<!-- /.panel-body -->
