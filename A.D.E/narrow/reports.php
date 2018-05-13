@@ -192,11 +192,11 @@
 								<form id="form04" name="myForm4" method="post" action="">
 									<label><strong>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</strong></label>
 									<br>
-									<input type="text" class="form-group" id="compareclients1" placeholder="Αρχικό έτος σύγκρισης" name="st4ye">
+									<input type="text" class="form-group" id="st4ye" placeholder="Αρχικό έτος σύγκρισης" name="st4ye">
 									<br>
-									<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="st4y">
+									<input type="text" class="form-group" id="st4y" placeholder="Χρονιά" name="st4y">
 									<br>
-									<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="st4e">
+									<input type="text" class="form-group" id="st4e" placeholder="Εξάμηνο" name="st4e">
 									<br>
 									<input id="submit" type="submit" name="submit3" class="btn btn-default" value="Αναζήτηση">
 								</form>
@@ -407,10 +407,10 @@
 									xssValidator : true,
 									noSpace : true,
 									required : true,
-									min : 2000,
+									min: function () { return parseInt($("#st4ye").val())+1  },
 									max : 9999,
-									digit : true,
-
+									digit : true
+									
 								},
 								st4e : {
 									minlength : 1,

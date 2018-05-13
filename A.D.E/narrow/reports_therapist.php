@@ -407,9 +407,9 @@
 									xssValidator : true,
 									noSpace : true,
 									required : true,
-									min : 2000,
 									max : 9999,
-									digit : true,
+									min: function () { return parseInt($("#st4ye").val())+1  },
+									digit : true
 
 								},
 								st4e : {
