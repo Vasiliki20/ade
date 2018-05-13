@@ -91,6 +91,9 @@
 						<label for="pwd">Κωδικός:</label>
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
 					</div>
+					<a href="forgotpasswordclient.php">Ξεχάσατε τον κωδικό σας;</a>
+					<br>
+					<br>
 					<button type="submit" class="btn btn-default" name="submit">
 						Καταχωρηση
 					</button>

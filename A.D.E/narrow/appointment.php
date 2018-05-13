@@ -151,6 +151,10 @@
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="password">
 					</div>
 					<div class="form-group">
+						<label for="confirm">Επιβεβαίωση Κωδικού:</label>
+						<input type="password" class="form-control" id="confirm" placeholder="Επιβεβέωση κωδικού" name="confirm">
+					</div>
+					<div class="form-group">
 						<input name="agree" type="checkbox" value="0" />
 						Συμφωνώ με τους <a href="termsandcond.html">όρους και προϋποθέσεις</a>
 					</div>
@@ -203,6 +207,9 @@
 								sqlValidator : true,
 								xssValidator : true,
 								noSpace : true
+							},
+							confirm : {
+								equalTo : "#password"
 							}
 						},
 						highlight : function(element) {
