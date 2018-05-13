@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/form-elements.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/style.css">
-		<script src='https://www.google.com/recaptcha/api.js'></script>
+		
 	</head>
 
 	<style>
@@ -127,11 +127,6 @@
 
 <?php
 require_once("requests.php");
-require('recaptcha-master/src/autoload.php');
-$recaptchaSecret = '6LcwqVgUAAAAAN9XhSkwFCNrphPlyAX9nkQf4HRW';
-$recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret);
-$response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-if (!$response->isSuccess()) {throw new \Exception('ReCaptcha was not validated.');}
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psylogin.php";
 $method='POST';
 if(isset($_POST['submit'])){
