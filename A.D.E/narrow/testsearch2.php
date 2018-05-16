@@ -1,5 +1,35 @@
-<?php session_start(); ?>
+<?php session_start();
+ob_start();
+ ?>
 <!DOCTYPE html>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/psych.php";
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
+
+//}
+?>
 <html lang="en">
 
 	<head>
@@ -141,15 +171,62 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+						
+							<?php
+											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+											<tr>
+											<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['firstname'] ?>" readonly></td>
+											<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['lastname'] ?>" readonly></td>
+											<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><input type="text" id="row-1-position" name="row-1-position" value="<?= $response['result'][$i]['psychologistID'] ?>" readonly></td>
+											<td>
+											<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){
+											?>
+											<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
+											</td>
+											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"admin")==0){ ?>
+											<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
+											</td>
+											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
+											<select size="1" id="row-1-office" name="type[]">
+											<option value="therapist" selected="selected">Therapist</option>
+											<option value="supervisor" >Supervisor</option>
+											</select></td>
+											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"supervisor")==0){ ?>
+											<select size="1" id="row-1-office" name="type[]">
+											<option value="therapist" >Therapist</option>
+											<option value="supervisor" selected="selected">Supervisor</option>
+											</select></td>
+											<?php } ?>
+											<td>
+												<?php if($response['result'][$i]['active']==0){
+												?>
+											<select  name="status[]" class="item-number">
+											<option value="1" label="Active">Active</option>
+											<option value="0" label="Deactive" selected="selected">Deactive</option>
+											<option value="delete" label="Delete">Delete</option>
+											</select></td>
+											<?php }else{ ?>
+											<select  name="status[]" class="item-number">
+											<option value="1" label="Active" selected="selected">Active</option>
+											<option value="0" label="Deactive">Deactive</option>
+											<option value="delete" label="Delete">Delete</option>
+											<!--</select></td>
+											<td class="item-name">
+											Description shows up here
+											</td>-->
+											<?php } ?>
+											</tr>
+											<?php }} ?>
+							
+							<!--<tr>
 								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Βασιλική" readonly>
+								<input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['firstname'] ?>" readonly>
 								</td>
 								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Παντελή" readonly>
+								<input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['lastname'] ?>" readonly>
 								</td>
 								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="917832" readonly>
+								<input type="text" id="row-1-position" name="row-1-position" value="<?= $response['result'][$i]['psychologistID'] ?>" readonly>
 								</td>
 								<td>
 								<input type="text" id="row-1-age" name="row-1-age" value="τυπος1" readonly>
@@ -160,196 +237,8 @@
 									<option value="Deactive"> Deactive </option>
 									<option value="Delete"> Delete </option>
 								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Κυριάκος">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Αθανασίου">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="955845">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος2" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active"> Active </option>
-									<option value="Deactive" selected="selected"> Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Χρίστος">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Ελευθεριάδου">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="323241">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος2" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" selected="selected"> Active </option>
-									<option value="Deactive" > Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-								</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Αλεξάντρα">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Ελευθεριάδου">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="958493">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος3" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" selected="selected"> Active </option>
-									<option value="Deactive" > Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Σπύρος">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Κωστή">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="32654">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος2" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" selected="selected"> Active </option>
-									<option value="Deactive" > Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Αντρέας">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Κωστή">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="337432">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος1" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" selected="selected"> Active </option>
-									<option value="Deactive" > Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Ραφαέλλα">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Χαραλάμπους">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="337432">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος2" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" > Active </option>
-									<option value="Deactive" > Deactive </option>
-									<option value="Delete" selected="selected"> Delete </option>
-								</select></td>
-								</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Ραφαέλλα">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Βαφέα">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="321543">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος3" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" > Active </option>
-									<option value="Deactive"  selected="selected"> Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Γεωργία">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Κακκίντιρου">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="123232">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος2" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" > Active </option>
-									<option value="Deactive"  selected="selected"> Deactive </option>
-									<option value="Delete"> Delete </option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Ραφαήλ">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="Μιχαήλ">
-								</td>
-								<td>
-								<input type="text" id="row-1-position" name="row-1-position" value="987869">
-								</td>
-								<td>
-								<input type="text" id="row-1-age" name="row-1-age" value="τυπος3" readonly>
-								</td>
-								<td>
-								<select size="1" id="row-1-office" name="row-1-office">
-									<option value="Active" > Active </option>
-									<option value="Deactive" > Deactive </option>
-									<option value="Delete" selected="selected"> Delete </option>
-								</select></td>
-								</tr>
+							</tr>-->
+						
 						</tbody>
 					</table>
 					<button type="submit" name="submit1" class="btn btn-default">
@@ -402,3 +291,41 @@
 		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/therapistflags.php";
+$method='POST';
+$i=0;
+if(isset($_POST['submit1'])){
+var_dump($_POST['id']);
+var_dump($_POST['type']);
+var_dump($_POST['status']);
+foreach($_POST['id'] as $j){
+
+$postfields=http_build_query(array(
+'id'=> $_POST['id'][$i],
+'type'=> $_POST['type'][$i],
+'status'=> $_POST['status'][$i]
+));
+$i++;
+if(isset($_COOKIE['token'])){
+$response1=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response1=0;
+}
+if($response1['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response1 = request($url, $method, $postfields, $tok);
+}
+var_dump($response1);
+}
+header("Refresh:0");
+}
+?>

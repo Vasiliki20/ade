@@ -288,7 +288,9 @@ $postfields=http_build_query(array(
 		$response1=request($url,$method,$postfields,$tok);
 	}
 	}
+	
 	}
+	
 header("Refresh:0");
 }
 ?>
@@ -297,6 +299,7 @@ require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/clientpriority.php";
 $method='POST';
 $i=0;
+
 if(isset($_POST['submit1'])){
 	foreach($_POST['id'] as $j){
 	
@@ -322,7 +325,7 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response2=request($url,$method,$postfields,$tok);
 	}
-	var_dump($response2);
+	
 }
 header("Refresh:0");
 }
