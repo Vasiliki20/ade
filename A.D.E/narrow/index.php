@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
 		<link rel="shortcut icon" href="favicon.ico">
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
@@ -22,6 +24,7 @@
 
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/modernizr-2.6.2.min.js"></script>
+		
 
 	</head>
 	<body>
@@ -33,7 +36,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="fh5co-navbar-brand">
-									<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+									<img src="images/1200px-University_of_Cyprus.svg.png" /> &nbsp;&nbsp;<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 								</div>
 							</div>
 							<div class="col-md-8 main-nav">
@@ -53,7 +56,7 @@
 			</header>
 
 			<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
-				<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/intro.jpg);">
+				<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-color: #E4C5E9;">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 float-overlay">
@@ -79,7 +82,7 @@
 				<div align="center">
 					<h3>ΕΙΣΟΔΟΣ</h3>
 				</div>
-				<form action="" method="post">
+				<form action="" method="post" id="contact-form">
 					<div class="form-group">
 						<label for="id">Αρ. Ταυτότητας:</label>
 						<input type="number" class="form-control" id="id" placeholder="Αριθμός Ταυτότητας" name="id">
@@ -88,11 +91,54 @@
 						<label for="pwd">Κωδικός:</label>
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
 					</div>
+					<a href="forgotpasswordclient.php">Ξεχάσατε τον κωδικό σας;</a>
+					<br>
+					<br>
 					<button type="submit" class="btn btn-default" name="submit">
 						Καταχωρηση
 					</button>
 				</form>
 			</div>
+			<script>
+				$(document).ready(function() {
+					jQuery.validator.addMethod("noSpace", function(value, element) {
+						return value.indexOf(" ") < 0 && value != "";
+					}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+					jQuery.validator.addMethod("sqlValidator", function(value, element) {
+						return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					jQuery.validator.addMethod("xssValidator", function(value, element) {
+						return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					$('#contact-form').validate({
+						rules : {
+							id : {
+								required : true,
+								sqlValidator : true,
+								xssValidator : true
+							},
+							pwd : {
+								required : true,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true
+							}
+							
+						},
+						highlight : function(element) {
+							$(element).closest('.form-group').addClass('error text-danger');
+						},
+						success : function(element) {
+							$(element).closest('.form-group').removeClass('error text-danger');
+						}
+					});
+
+				});
+
+			</script>
 			<footer>
 				<div id="footer" class="fh5co-border-line">
 					<div class="container">
@@ -122,7 +168,8 @@
 		<script src="js/jquery.waypoints.min.js"></script>
 		<!-- Parallax Stellar -->
 		<script src="js/jquery.stellar.min.js"></script>
-
+		<script src="js/jquery.validate.js"></script>
+		
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
 

@@ -126,7 +126,6 @@
 											<th>Όνομα</th>
 											<th>Επίθετο</th>
 											<th>Ταυτότητα</th>
-											<th>Ψυχολόγος</th>
 											<th>Red Flag</th>
 											<th>Case File</th>
 										</tr>
@@ -168,8 +167,6 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><input type="hidden" value="<?= $response['result'][$i]['patientID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['patientID'] ?></label></td>
 
-											<td><?= $response['result'][$i]['psychologistID'] ?></td>
-
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<?php if($response['result'][$i]['redflag']==0){ ?>
 										<select name="flag[]">
@@ -194,7 +191,7 @@ $postfields=http_build_query(array(
 										</tbody>
 									</table>
 									<button type="submit" name="submit1" class="btn btn-default">
-											Save Changes
+											Αποθήκευση Αλλαγών
 										</button>
 								</form>
 							</div>

@@ -33,7 +33,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="fh5co-navbar-brand">
-									<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+									<img src="images/1200px-University_of_Cyprus.svg.png" /> &nbsp;&nbsp;<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 								</div>
 							</div>
 							<div class="col-md-8 main-nav">
@@ -52,7 +52,7 @@
 			</header>
 
 			<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
-				<div class="fh5co-intro-cover" data-stellar-background-ratio="0.1">
+				<div class="fh5co-intro-cover" data-stellar-background-ratio="0.1" style="background-color: #F0D2F5;">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 col-md-offset-0 float-overlay">
@@ -151,6 +151,10 @@
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="password">
 					</div>
 					<div class="form-group">
+						<label for="confirm">Επιβεβαίωση Κωδικού:</label>
+						<input type="password" class="form-control" id="confirm" placeholder="Επιβεβέωση κωδικού" name="confirm">
+					</div>
+					<div class="form-group">
 						<input name="agree" type="checkbox" value="0" />
 						Συμφωνώ με τους <a href="termsandcond.html">όρους και προϋποθέσεις</a>
 					</div>
@@ -203,6 +207,9 @@
 								sqlValidator : true,
 								xssValidator : true,
 								noSpace : true
+							},
+							confirm : {
+								equalTo : "#password"
 							}
 						},
 						highlight : function(element) {
@@ -245,8 +252,8 @@
 		<script src="js/jquery.waypoints.min.js"></script>
 		<!-- Parallax Stellar -->
 		<script src="js/jquery.stellar.min.js"></script>
-<script src="js/jquery.validate.js"></script>
-		
+		<script src="js/jquery.validate.js"></script>
+
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
 

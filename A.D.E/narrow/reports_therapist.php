@@ -254,7 +254,7 @@
 										required : true,
 										min : 2000,
 										max : 9999,
-										digit : true
+										digits : true
 									},
 									st1e : {
 										minlength : 1,
@@ -302,7 +302,7 @@
 										required : true,
 										min : 2000,
 										max : 9999,
-										digit : true
+										digits : true
 									},
 									st2e : {
 										minlength : 1,
@@ -351,7 +351,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								},
 								st3e : {
 									minlength : 1,
@@ -399,7 +399,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								},
 								st4y : {
 									minlength : 1,
@@ -407,9 +407,9 @@
 									xssValidator : true,
 									noSpace : true,
 									required : true,
-									min : 2000,
 									max : 9999,
-									digit : true,
+									min: function () { return parseInt($("#st4ye").val())+1  },
+									digits : true
 
 								},
 								st4e : {
@@ -458,7 +458,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								}
 							},
 							highlight : function(element) {
@@ -495,7 +495,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								}
 							},
 							highlight : function(element) {
@@ -532,7 +532,7 @@
 									required : true,
 									min : 2000,
 									max : 9999,
-									digit : true
+									digits : true
 								}
 							},
 							highlight : function(element) {
@@ -566,8 +566,7 @@
 			<!-- Custom Theme JavaScript -->
 			<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 			<script src="js/jquery.validate.js"></script>
-			<script src="bootstrap/vendor/jquery/jquery.validate.js"></script>
-
+			
 	</body>
 
 </html>

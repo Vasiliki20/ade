@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/form-elements.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/style.css">
-		<script src='https://www.google.com/recaptcha/api.js'></script>
+		
 	</head>
 
 	<style>

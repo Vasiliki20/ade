@@ -35,16 +35,16 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="fh5co-navbar-brand">
-									<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
+									<img src="images/1200px-University_of_Cyprus.svg.png" /> &nbsp;&nbsp;<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 								</div>
 							</div>
 							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="appointment.php"><span>Register</span></a>
+										<a href="appointment.php"><span>Εγγραφη</span></a>
 									</li>
 									<li>
-										<a href="contact.html"><span>Contact Us</span></a>
+										<a href="contact.html"><span>Επικοινωνια</span></a>
 									</li>
 								</ul>
 
@@ -55,7 +55,7 @@
 			</header>
 
 			<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
-				<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/intro.jpg);">
+				<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-color: #E4C5E9;">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 float-overlay">
@@ -79,7 +79,7 @@
 
 			<div class="container">
 				<div align="center">
-					<h4>Ξεχάσατε τον κωδικό σας;</h4>
+					<h3>Ξεχάσατε τον κωδικό σας;</h3>
 				</div>
 				<form action="" method="post" id="contact-form">
 					<div class="form-group">
