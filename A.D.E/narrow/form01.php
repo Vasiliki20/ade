@@ -114,7 +114,11 @@ $postfields=http_build_query(array(
 	</head>
 	<body>
 		<div class="sidenav">
+			<?php if($response1['patient']['numberofsessions']==NULL){ ?>
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
+			<?php } ?>
+			
+			<?php if($response1['patient']['numberofsessions']==1){ ?>
 			
 			<?php if(strnatcmp($response1['patient']['type'],"φοιτητής")==0){?>
 			<a href="form02.php"><b>Δήλωση στοιχείων</b></a>
@@ -127,7 +131,17 @@ $postfields=http_build_query(array(
 			<?php }else{?>
 			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
 			<?php } ?>
+			
+			<?php } ?>
+			
+			<?php if($response1['patient']['numberofsessions']==2){ ?>
+			
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
+			
+			<?php } ?>
+			
+			<?php if($response1['patient']['numberofsessions']==3){ ?>
+			
 			<?php if($response1['patient']['age']==null){?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
 			<?php }elseif($response1['patient']['age']>=18){?>
@@ -135,6 +149,9 @@ $postfields=http_build_query(array(
 			<?php }elseif($response1['patient']['age']<18){?>
 			<a href="historyforchildren.php"><b>Αρχική συνέντευξη</b></a>
 			<?php } ?>
+			
+			<?php } ?>
+			
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
 			<a href="formupload.php"><b>Ανάρτηση αρχείων</b></a>
