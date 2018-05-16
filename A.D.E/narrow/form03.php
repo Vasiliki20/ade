@@ -903,13 +903,13 @@ $postfields=http_build_query(array(
 									
 								</div>
 							</div>
-						<!--	<div class="row">
+							<!--<div class="row"></div>-->
 						
 			
 				<button type="submit" class="btn btn-default" name="submit">
-					Submit
+					καταχωρηση
 				</button>
-				</div>-->
+				
 
 			</div>
 			<footer>
@@ -947,7 +947,7 @@ $postfields=http_build_query(array(
 		</div>
 	</body>
 </html>
-<!--
+
 <?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form3.php";

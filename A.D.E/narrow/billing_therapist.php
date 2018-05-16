@@ -259,7 +259,7 @@ $postfields=http_build_query(array(
 									</tbody>
 								</table>
 								<div align="center"><h3>Σύνολο Xρωστούμενων: €<?=$response['sum']['total']?></h3></div>
-								<input type="submit" name="submit" value="Save Payments">
+								<input type="submit" name="submit" value="Αποθήκευση" class="btn btn-default">
 								</form>
 								
 							</div>

@@ -212,7 +212,7 @@ $postfields=http_build_query(array(
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Task List</h1>
+						<h1 class="page-header">Λίστα Εργασιών</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>

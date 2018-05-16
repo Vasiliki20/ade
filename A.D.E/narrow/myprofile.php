@@ -294,7 +294,7 @@ $response = request($url, $method, $postfields, $tok);
 									</table>
 									
 									<br>
-									<input type="submit" name="submit" value="Save Changes"/>
+									<input class="btn btn-default" type="submit" name="submit" value="Αποθήκευση αλλαγών"/>
 
 								</form>
 							</div>

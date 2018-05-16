@@ -8,6 +8,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -16,20 +19,6 @@
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/form-elements.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/style.css">
 
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-		<!-- Favicon and touch icons -->
-		<!--<link rel="shortcut icon" href="bootzard-bootstrap-wizard-template/assets/ico/favicon.png">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" href="bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-57-precomposed.png">
--->
 	</head>
 
 <style>
@@ -44,7 +33,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-						<form role="form" action="" method="post" class="f1">
+						<form id="contact-form" role="form" action="" method="post" class="f1">
 							<img src="logo_el.png">
 							<br>
 							<br>
@@ -98,11 +87,11 @@
 									<input type="text" name="id" placeholder="Αριθμός Ταυτότητας" class="form-control" id="id">
 								</div>
 								<div class="form-group">
-									<input class="w3-radio" type="radio" name="gender" value="male" checked>
+									<input class="w3-radio" type="radio" name="gender" value="Άρρεν" checked>
 									<label>Άρρεν</label>
-									<input class="w3-radio" type="radio" name="gender" value="female">
+									<input class="w3-radio" type="radio" name="gender" value="Θήλυ">
 									<label>Θήλυ</label>
-									<input class="w3-radio" type="radio" name="gender" value="other">
+									<input class="w3-radio" type="radio" name="gender" value="Άλλο">
 									<label>Άλλο</label>
 								</div>
 								<div class="f1-buttons">
@@ -149,10 +138,10 @@
 								</div>
 								<div class="f1-buttons">
 									<button type="button" class="btn btn-previous">
-										Previous
+										Προηγούμενη
 									</button>
 									<button type="button" class="btn btn-next">
-										Next
+										Συνέχεια
 									</button>
 								</div>
 							</fieldset>
@@ -173,16 +162,97 @@
 								</div>
 								<div class="f1-buttons">
 									<button type="button" class="btn btn-previous">
-										Previous
+										Προηγούμενη
 									</button>
 									<button type="submit" name="submit" class="btn btn-submit">
-										Submit
+										Καταχώρηση
 									</button>
 								</div>
 							</fieldset>
 
 						</form>
 					</div>
+					<script>
+				$(document).ready(function() {
+					jQuery.validator.addMethod("noSpace", function(value, element) {
+						return value.indexOf(" ") < 0 && value != "";
+					}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+					jQuery.validator.addMethod("sqlValidator", function(value, element) {
+						return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					jQuery.validator.addMethod("xssValidator", function(value, element) {
+						return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					$('#contact-form').validate({
+						rules : {
+							name : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true,
+								required : true
+							},
+							surname : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true,
+								required : true
+							},
+							email : {
+								required : true,
+								email : true
+							},
+							id : {
+								required : true,
+								sqlValidator : true,
+								xssValidator : true
+							},
+							password : {
+								required : true,
+								sqlValidator : true,
+								xssValidator : true,
+								noSpace : true
+							},
+							confirm: {
+								equalTo: "#password",
+								required : true
+							},
+							address : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+							},
+							position : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+							},
+							building : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+							},
+							speciality : {
+								minlength : 1,
+								sqlValidator : true,
+								xssValidator : true,
+							}
+						},
+						highlight : function(element) {
+							$(element).closest('.form-group').addClass('error text-danger');
+						},
+						success : function(element) {
+							$(element).closest('.form-group').removeClass('error text-danger');
+						}
+					});
+
+				});
+
+			</script>
 				</div>
 
 			</div>
@@ -194,7 +264,9 @@
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/scripts.js"></script>
-
+		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.validate.js"></script>
+<script src="js/jquery.validate.js"></script>
+		
 		<!--[if lt IE 10]>
 		<script src="assets/js/placeholder.js"></script>
 		<![endif]-->

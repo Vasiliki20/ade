@@ -352,7 +352,7 @@
 								</div>
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							Καταχώρηση
 						</button>
 						</form>
 					</div>

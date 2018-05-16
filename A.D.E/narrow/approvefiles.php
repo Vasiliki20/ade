@@ -1,3 +1,30 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+var_dump($response);
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +82,7 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_therapist.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -73,29 +100,46 @@
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
+							<!--
+							<li class="sidebar-search">
+							<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+							<i class="fa fa-search"></i>
+							</button> </span>
+							</div>
+							<!-- /input-group -->
+							<!--</li>-->
 							<li>
-								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist_therapist.php">Task List</a>
+										<a href="tasklist.php">Task List</a>
 									</li>
 									<li>
-										<a href="myclients_therapist.php">My clients</a>
+										<a href="myclients.php">My clients</a>
 									</li>
 									<li>
-										<a href="myappointments_therapist.php">My appointments</a>
+										<a href="myappointments.php">My appointments</a>
+									</li>
+									<li>
+										<a href="waitinglist.php">Waiting List</a>
+									</li>
+									<li>
+										<a href="search.php">Search</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Upload file</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
 							</li>
 							<li>
-								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="help.php"><i class="fa fa-cog"></i> Help</a>
 							</li>
 						</ul>
 					</div>
@@ -126,22 +170,27 @@
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes_therapist.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="filesofpatient_therapist.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
+										<a href="approvefiles.php">Αναφορές/Έντυπα</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Σημειώσεις<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="contactlog.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
+											</li>
+										</ul>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformationfull_therapist.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformation.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule_therapist.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
-											</li>
-											<li>
-												<a href="contactlog_therapist.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
+												<a href="schedule.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 										</ul>
 
@@ -150,32 +199,24 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships_therapist.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication_therapist.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory_therapist.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
+												<a href="medhistory.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
+											</li>
+											<li>
+												<a href="form07.php">Έκθεση αρχικής αξιολόγησης</a>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation_therapist.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing_therapist.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="formcomplaints_therapist.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
-											</li>
-											<li>
-												<a href="formreasons_therapist.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
-											</li>
-										</ul>
+										<a href="billing.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
 									</li>
 								</ul>
 
@@ -187,41 +228,47 @@
 
 				<div>
 					<div class="panel panel-default">
-						<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="id" value=<?=$_GET['patientID'] ?> >
-								<div class="form-group">
-									<label for="file">Προσθήκη αρχείων για τον πελάτη</label>
-									<input id="file" type="file" name="file">
-									<p class="help-block">
-										<h6>Μόνο pdf,jpg,jpeg,png και gif αρχεία με μέγιστο μέγεθος 10 MB επιτρέπονται.</h6>
-									</p>
-									<input type="submit" class="btn  btn-default" id="sub" value="Πρόσθεση αρχείου">
-								</div>
-							</form>
+						<div class="panel-heading">
+							Έγκιση εισερχόμενων αρχείων
+						</div>
+						<div class="panel-body">
+							<div id="pdf">
+								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+									<a href="acrobatpdf.pdf">Έγγραφο 1 </a>
+								</object>
+								<button type="submit" name="submit" value="accept">
+									Accept
+								</button>
+								<button type="submit" name="sumbit" value="remove">
+									Remove
+								</button>
+							</div>
+							<br>
+							<div id="pdf">
+								<object data="acrobat.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+									<a href="acrobatpdf.pdf">Έγγραφο 2 </a>
+								</object>
+								<button type="submit" name="submit" value="accept">
+									Accept
+								</button>
+								<button type="submit" name="sumbit" value="remove">
+									Remove
+								</button>
+							</div>
 						</div>
 					</div>
-					<div class="warning" id="hiresponse"></div>
-					<div class="row">
-						<div class="col-lg-12">
-							<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieveapproved.php" method="post" >
-								<input type="hidden" name="id" value=<?=$_GET['patientID'] ?> >
-								<input class="btn  btn-default" type="submit" name="submit" value="Εμφάνιση εγκεκριμένων αρχείων πελάτη" >
-							</form>
-						</div>
-					</div>
-					<div id="contactResponse"></div>
-
 				</div>
-				<!-- /.panel-body -->
 			</div>
-
-			<!-- /#page-wrapper -->
+		</div>
+		<div>
+			<br>
+			<br>
+		</div>
+		<!-- /#page-wrapper -->
 
 		</div>
 		<!-- /#wrapper -->
+		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -242,77 +289,45 @@
 
 		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 		<script>
-			$("#contactForm").submit(function(event) {
-				/* stop form from submitting normally */
-				event.preventDefault();
-
-				/* get some values from elements on the page: */
-				var $form = $(this),
-				    $submit = $form.find('button[type="submit"]'),
-				    id_value = $form.find('input[name="id"]').val(),
-				    url = $form.attr('action');
-
-				/* Send the data using post */
-				var posting = $.post(url, {
-					id : id_value
-				});
-
-				posting.done(function(data) {
-					/* Put the results in a div */
-					$("#contactResponse").html(data);
-
-					/* Change the button text. */
-					$submit.text('Sent, Thank you');
-
-					/* Disable the button. */
-					$submit.attr("disabled", true);
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
 				});
 			});
-			$(document).ready(function() {
+		</script>
 
-				$("#sub").click(function(event) {
-
-					//stop submit the form, we will post it manually.
-					event.preventDefault();
-
-					// Get form
-					var form = $('#hi')[0];
-
-					// Create an FormData object
-					var data = new FormData(form);
-
-					// disabled the submit button
-					$("sub").prop("disabled", true);
-
-					$.ajax({
-						type : "POST",
-						enctype : 'multipart/form-data',
-						url : "http://thesis.in.cs.ucy.ac.cy/mhc/upload.php",
-						data : data,
-						processData : false,
-						contentType : false,
-						cache : false,
-						timeout : 600000,
-						success : function(data) {
-
-							$("#hiresponse").text(data);
-							console.log("SUCCESS : ", data);
-							$("#sub").prop("disabled", false);
-
-						},
-						error : function(e) {
-
-							$("#hiresponse").text(e.responseText);
-							console.log("ERROR : ", e);
-							$("#sub").prop("disabled", false);
-
-						}
-					});
-
-				});
-
-			}); 
-</script>
-</body>
+	</body>
 
 </html>
+
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
+$method='POST';
+if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+'id' => $_POST['id'],
+'email' => $_POST['email'],
+'name' => $_POST['name'],
+'lastname' => $_POST['surname'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+while($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+}
+?>

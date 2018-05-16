@@ -148,91 +148,11 @@ var_dump($response);
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
-			<!--	<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<!--	<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">
-			&times;
-			</button>
-			<h4 class="modal-title">Add New Therapist</h4>
-			</div>
-			<div class="modal-body">
-			<p>
-			<form role="form" action="therapists.php" method="post">
-			<div class="form-group">
-			<label class="sr-only" for="name">Όνομα</label>
-			<input type="text" name="name" placeholder="Όνομα" class="form-control" id="name">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="surname">Επίθετο</label>
-			<input type="text" name="surname" placeholder="Επίθετο" class="form-control" id="surname">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="id">Αριθμός Ταυτότητας</label>
-			<input type="text" name="id" placeholder="Αριθμός Ταυτότητας" class="form-control" id="id">
-			</div>
-			<div class="form-group">
-			<input class="w3-radio" type="radio" name="gender" value="male" checked>
-			<label>Άρρεν</label>
-			<input class="w3-radio" type="radio" name="gender" value="female">
-			<label>Θήλυ</label>
-			<input class="w3-radio" type="radio" name="gender" value="other">
-			<label>Άλλο</label>
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="age">Ηλικία</label>
-			<input type="text" name="age" placeholder="Ηλικία" class="form-control" id="age">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="address">Διεύθυνση Διαμονής</label>
-			<input type="text" name="address" placeholder="Διεύθυνση Διαμονής" class="form-control" id="address">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="phone">Τηλέφωνο</label>
-			<input type="number" name="phone" placeholder="Τηλέφωνο" class="form-control" id="phone">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="fax">Fax</label>
-			<input type="number" name="fax" placeholder="Fax" class="form-control" id="fax">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="position">Θέση Εργασίας</label>
-			<input type="text" name="position" placeholder="Θέση Εργασίας" class="form-control" id="position">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="specialty">Ειδικότητα</label>
-			<input type="text" name="speciality" placeholder="Ειδικότητα" class="form-control" id="specialty">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="building">Κτήριο</label>
-			<input type="text" name="building" placeholder="Κτήριο" class="form-control" id="building">
-			</div>
-			<div class="form-group">
-			<label class="sr-only" for="officenum">Αριθμός Γραφείου</label>
-			<input type="number" name="officenum" placeholder="Αριθμός Γραφείου" class="form-control" id="officenum">
-			</div>
-
-			</p>
-			</div>
-			<div class="modal-footer">
-			<input type="sumbit" name="submit1"  class="btn btn-default" value="save" data-dismiss="modal">
-
-			</form>
-			<button type="button" class="btn btn-default" data-dismiss="modal">
-			Close
-			</button>
-			</div>
-			</div>
-
-			</div>
-			</div>-->
+			
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Therapists</h1>
+						<h1 class="page-header">Θεραπευτές</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -247,6 +167,7 @@ var_dump($response);
 								Add Therapist
 								</div>-->
 								<form method="post" action="">
+									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 									<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
 										<thead>
 											<tr>
@@ -259,27 +180,19 @@ var_dump($response);
 											</tr>
 										</thead>
 										<tbody>
-											<script type="text/javascript">
-			$(window).load(function() {
+										
+								<script>
+									
+									$(document).ready(function() {
+										$("select").change(function() {
+											// No need to loop through all the selects each time, since you can only change one value at a time.
+											var str = $(this).find("option:selected").attr('label') || "Description shows up here";
+											$(this).closest("tr").find(".item-name").html(str);
+										}).trigger('change');
 
-				$("select").change(function() {
-					var str = "";
-					$(".item-number option:selected").each(function(i) {
-						if ($(this).attr('label'))
-							str = $(this).attr('label');
-						else
-							str = "Description shows up here ";
-					});
-					$(".item-name").text(str);
-				}).trigger('change');
-
-			});
-
-		</script>
-											<script>
-																							document.cookie='token=<?= $tok ?>
-												';
-											</script>
+									});
+								</script>
+											
 
 											<?php
 if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
@@ -287,7 +200,7 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 <td><?= $response['result'][$i]['firstname'] ?></td>
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['psychologistID'] ?></label></td>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<td>
 											<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){
 											?>
 											<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
@@ -306,7 +219,7 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 											<option value="supervisor" selected="selected">Supervisor</option>
 											</select></td>
 											<?php } ?>
-											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+											<td>
 												<?php if($response['result'][$i]['active']==0){
 												?>
 											<select name="status[]" class="item-number">
@@ -320,8 +233,8 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 											<option value="0" label="Deactive">Deactive</option>
 											<option value="delete" label="Delete">Delete</option>
 											</select></td>
-											<td>
-											<span class="item-name">Description shows up here</span>
+											<td class="item-name">
+											Description shows up here
 											</td>
 											<?php } ?>
 											</tr>

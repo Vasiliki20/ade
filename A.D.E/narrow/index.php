@@ -39,10 +39,10 @@
 							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="appointment.php"><span>Register</span></a>
+										<a href="appointment.php"><span>ΕΓΓΡΑΦΗ</span></a>
 									</li>
 									<li>
-										<a href="contact.html"><span>Contact Us</span></a>
+										<a href="contact.html"><span>ΕΠΙΚΟΙΝΩΝΙΑ</span></a>
 									</li>
 								</ul>
 
@@ -77,7 +77,7 @@
 
 			<div class="container">
 				<div align="center">
-					<h4>LOGIN</h4>
+					<h3>ΕΙΣΟΔΟΣ</h3>
 				</div>
 				<form action="" method="post">
 					<div class="form-group">
@@ -89,7 +89,7 @@
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="pwd">
 					</div>
 					<button type="submit" class="btn btn-default" name="submit">
-						Καταχώρηση
+						Καταχωρηση
 					</button>
 				</form>
 			</div>

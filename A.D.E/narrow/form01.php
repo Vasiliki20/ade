@@ -31,9 +31,12 @@ $postfields=http_build_query(array(
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Kentro Psixikis Ygias" />
+		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -177,7 +180,7 @@ $postfields=http_build_query(array(
 									alert("You have reached the limit of adding " + counter + " inputs");
 								} else {
 									var newdiv = document.createElement('div');
-									newdiv.innerHTML = "<select id='daysselect' name='myInputs[]'><option value='1'>Δευτέρα</option><option value='2' selected='selected'>Τρίτη</option><option value='3'>Τετάρτη</option><option value='4'>Πέμπτη</option><option value='5'>Παρασκευή</option></select><input type='time' id='timeav' name='myInputs1[]'  placeholder='time'> ";
+									newdiv.innerHTML = "<select id='daysselect' name='myInputs[]'><option value='Δευτέρα'>Δευτέρα</option><option value='Τρίτη' selected='selected'>Τρίτη</option><option value='Τετάρτη'>Τετάρτη</option><option value='Πέμπτη'>Πέμπτη</option><option value='Παρασκευή'>Παρασκευή</option></select><input type='time' id='timeav' name='myInputs1[]'  placeholder='time'> ";
 									document.getElementById(divName).appendChild(newdiv);
 									counter++;
 								}
@@ -187,13 +190,13 @@ $postfields=http_build_query(array(
 							<label for="available"><b>Μέρες και ώρες που είστε διαθέσιμοι για συνάντηση εντός του ωραρίου του ΚΕΨΥ:</b></label>
 							<div>
 							<div id="dynamicInput"><div><select id="daysselect" name="myInputs[]">
-										<option value="1">Δευτέρα</option>
-										<option value="2" selected="selected">Τρίτη</option>
-										<option value="3">Τετάρτη</option>
-										<option value="4">Πέμπτη</option>
-										<option value="5">Παρασκευή</option>
+										<option value="Δευτέρα">Δευτέρα</option>
+										<option value="Τρίτη" selected="selected">Τρίτη</option>
+										<option value="Τετάρτη">Τετάρτη</option>
+										<option value="Πέμπτη">Πέμπτη</option>
+										<option value="Παρασκευή">Παρασκευή</option>
 									</select>
-							<input type="time" id="timeav" name="myInputs1[]"  placeholder="time"> 
+							<input type="time" min="09:00:00" max="18:00:00" id="timeav" name="myInputs1[]"  placeholder="time"> 
 							<input type="button" value="Add another" onClick="addInput('dynamicInput');">
 									
 							
@@ -219,16 +222,16 @@ $postfields=http_build_query(array(
 							<label><i>(η περίδος διευθέτησης συνάντησης κυμαίνεται ανάλογα με το φόρτο εργασίας του ΚΕΨΥ)**</i></label>
 							<br>
 							<input type="hidden" name="needfordate">
-							<input type="radio" name="needfordate" value="asap">
+							<input type="radio" name="needfordate" value="Χρειάζομαι ραντεβού το συντομότερο">
 							Χρειάζομαι ραντεβού το συντομότερο
 							<br>
-							<input type="radio" name="needfordate" value="one">
+							<input type="radio" name="needfordate" value="1 εβδομάδα">
 							1 εβδομάδα
 							<br>
-							<input type="radio" name="needfordate" value="two">
+							<input type="radio" name="needfordate" value="2 εβδομάδες">
 							2 εβδομάδες
 							<br>
-							<input type="radio" name="needfordate" value="more">
+							<input type="radio" name="needfordate" value="Περισσότερο από 2 εβδομάδες">
 							Περισσότερο από 2 εβδομάδες
 						</div>
 						<div class="form-group">
@@ -290,7 +293,7 @@ $postfields=http_build_query(array(
 				</div>
 
 				<button type="submit" onclick="init();" class="btn btn-default" name="submit">
-					Submit
+					Καταχωρηση
 				</button>
 
 			</div>

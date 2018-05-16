@@ -99,13 +99,18 @@ var_dump($response);
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
+<<<<<<< HEAD
 				
+=======
+>>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 
-			<div id="page-wrapper">
-				<div class="row">
-					<div class="col-lg-12">
-						<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
+				<div id="page-wrapper">
+					<div class="row">
+						<div class="col-lg-12">
+							<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
+						</div>
 					</div>
+<<<<<<< HEAD
 				</div>
 				<div>
 					<div class="panel panel-default">
@@ -237,45 +242,178 @@ var_dump($response);
 											<input type="radio" class="form-group" id="d4" name="autofix" value="Σοβαρή">
 											</td>
 										</tr>
+=======
+					<div>
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<form action="" method="post">
+									<div class="form-group">
+										<input type="hidden" name="patientID" value=<?=$_GET['patientID'] ?>
+										<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
+										<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['patient']['datesubmited'] ?>>
+										</div>
+										<div class="form-group">
+										<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
+										<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['patient']['kindoftherapy'] ?>>
+										</div>
+										<div class="form-group">
+										<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
+										<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['patient']['mainissue'] ?>>
+										</div>
+										<div class="form-group">
+										<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
+										<input type="text" class="form-control" id="issues" placeholder="" name="problems">
+										</div>
+										<div class="form-group">
+										<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
+										<br>
+										<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
+										<br>
+										<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis">
+										</div>
+										<div class="form-group">
+										<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
+										<br>
+										<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
+										<br>
+										<input type="text" class="form-control" id="changes" placeholder="" name="changesenv">
+									</div>
+>>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 									</table>
-								</div>
-								<div class="form-group">
-									<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
-									<input type="text" class="form-control" id="more" placeholder="" name="infos">
-								</div>
-								<button type="submit" class="btn btn-default" name="submit">
-									Submit
-								</button>
-							</form>
+									<div class="form-group">
+										<label for="progress"><label>7. Εξέλιξη θεραπείας : </label></label>
+										<br>
+										<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
+										<br>
+										<input type="text" class="form-control" id="progress" placeholder="" name="evolution">
+									</div>
+									<div class="form-group">
+										<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
+										<br>
+										<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
+										<br>
+										<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes">
+									</div>
+									<div class="form-group">
+										<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
+										<br>
+										<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
+										<br>
+										<input type="text" class="form-control" id="future" placeholder="" name="mellon">
+									</div>
+									<div class="form-group">
+										<table style="width:100%">
+											<tr>
+												<th></th>
+												<th>Απούσα</th>
+												<th>Ήπια</th>
+												<th>Μέτρια</th>
+												<th>Σοβαρή</th>
+											</tr>
+											<tr>
+												<td>α. ψυχολογική</td>
+												<td>
+												<input type="hidden" name="q10">
+												<input type="radio" value="Απούσα Ψυχολογική" name="q10" class="form-group" id="a1">
+												</td>
+												<td>
+												<input type="radio" value="Ήπια Ψυχολογική" name="q10" class="form-group" id="a2">
+												</td>
+												<td>
+												<input type="radio" value="Μέτρια Ψυχολογική" name="q10" class="form-group" id="a3">
+												</td>
+												<td>
+												<input type="radio" value="Σοβαρή Ψυχολογική" name="q10" class="form-group" id="a4">
+												</td>
+											</tr>
+											<tr>
+												<td>β. επαγγελματική/ακαδημαϊκή</td>
+												<td>
+													<input type="hidden" name="q11">
+												<input type="radio" value="Απούσα επαγγελματική" name="q11" class="form-group" id="b1">
+												</td>
+												<td>
+												<input type="radio" value="Ήπια επαγγελματική" name="q11" class="form-group" id="b2">
+												</td>
+												<td>
+												<input type="radio" value="Μέτρια επαγγελματική" name="q11" class="form-group" id="b3">
+												</td>
+												<td>
+												<input type="radio" value="Σοβαρή επαγγελματική" name="q11" class="form-group" id="b4">
+												</td>
+											</tr>
+											<tr>
+												<td>γ. κοινωνική</td>
+												<td>
+													<input type="hidden" name="q12">
+												<input type="radio" value="Απούσα κοινωνική" name="q12" class="form-group" id="g1">
+												</td>
+												<td>
+												<input type="radio" value="Ήπια κοινωνική" name="q12" class="form-group" id="g2">
+												</td>
+												<td>
+												<input type="radio" value="Μέτρια κοινωνική" name="q12" class="form-group" id="g3">
+												</td>
+												<td>
+												<input type="radio" value="Σοβαρή κοινωνική" name="q12" class="form-group" id="g4">
+												</td>
+											</tr>
+											<tr>
+												<td>δ. αυτοφροντίδα</td>
+												<td>
+													<input type="hidden" name="q13">
+												<input type="radio" value="Απούσα αυτοφροντίδα" name="q13" class="form-group" id="d1">
+												</td>
+												<td>
+												<input type="radio" value="Ήπια αυτοφροντίδα" name="q13" class="form-group" id="d2">
+												</td>
+												<td>
+												<input type="radio" value="Μέτρια αυτοφροντίδα" name="q13" class="form-group" id="d3">
+												</td>
+												<td>
+												<input type="radio" value="Σοβαρή αυτοφροντίδα" name="q13" class="form-group" id="d4">
+												</td>
+											</tr>
+
+										</table>
+									</div>
+									<div class="form-group">
+										<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
+										<input type="text" class="form-control" id="more" placeholder="" name="infos">
+									</div>
+									<button type="submit" class="btn btn-default" name="submit">
+										Καταχώρηση
+									</button>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- jQuery -->
-				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+					<!-- jQuery -->
+					<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-				<!-- Bootstrap Core JavaScript -->
-				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+					<!-- Bootstrap Core JavaScript -->
+					<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-				<!-- Metis Menu Plugin JavaScript -->
-				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+					<!-- Metis Menu Plugin JavaScript -->
+					<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-				<!-- DataTables JavaScript -->
-				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+					<!-- DataTables JavaScript -->
+					<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+					<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+					<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-				<!-- Custom Theme JavaScript -->
-				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+					<!-- Custom Theme JavaScript -->
+					<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
+					<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+					<script>
+						$(document).ready(function() {
+							$('#dataTables-example').DataTable({
+								responsive : true
+							});
 						});
-					});
-				</script>
+					</script>
 
 	</body>
 

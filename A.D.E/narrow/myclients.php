@@ -108,7 +108,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">My clients</h1>
+						<h1 class="page-header">Πελάτες</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>

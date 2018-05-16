@@ -212,7 +212,7 @@ $postfields=http_build_query(array(
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Contact Log
+							Αρχείο επαφών
 						</div>
 						<div class="panel-body">
 							<table id="contactlog" style="width:100%">

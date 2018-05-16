@@ -195,61 +195,61 @@
 								<tr>
 									<td>α. ψυχολογική</td><input type="hidden" name="epsychologicalfunc">
 									<td>
-									<input type="radio" name="epsychologicalfunc" class="form-group" id="a1">
+									<input type="radio" value="Απούσα ψυχολογική" name="epsychologicalfunc" class="form-group" id="a1">
 									</td>
 									<td>
-									<input type="radio" name="epsychologicalfunc" class="form-group" id="a2">
+									<input type="radio" value="Ήπια ψυχολογική" name="epsychologicalfunc" class="form-group" id="a2">
 									</td>
 									<td>
-									<input type="radio" name="epsychologicalfunc" class="form-group" id="a3">
+									<input type="radio" value="Μέτρια ψυχολογική" name="epsychologicalfunc" class="form-group" id="a3">
 									</td>
 									<td>
-									<input type="radio" name="epsychologicalfunc" class="form-group" id="a4">
+									<input type="radio" value="Σοβαρή ψυχολογική" name="epsychologicalfunc" class="form-group" id="a4">
 									</td>
 								</tr>
 								<tr>
 									<td>β. επαγγελματική/ακαδημαϊκή</td><input type="hidden" name="eprofessionacademicfunc">
 									<td>
-									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b1">
+									<input type="radio" value="Απούσα επαγγελματική" name="eprofessionacademicfunc" class="form-group" id="b1">
 									</td>
 									<td>
-									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b2">
+									<input type="radio" value="Ήπια επαγγελματική" name="eprofessionacademicfunc" class="form-group" id="b2">
 									</td>
 									<td>
-									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b3">
+									<input type="radio" value="Μέτρια επαγγελματική" name="eprofessionacademicfunc" class="form-group" id="b3">
 									</td>
 									<td>
-									<input type="radio" name="eprofessionacademicfunc" class="form-group" id="b4">
+									<input type="radio" value="Σοβαρή επαγγελματική" name="eprofessionacademicfunc" class="form-group" id="b4">
 									</td>
 								</tr>
 								<tr>
 									<td>γ. κοινωνική</td><input type="hidden" name="esocialfunc">
 									<td>
-									<input type="radio" name="esocialfunc" class="form-group" id="g1">
+									<input type="radio" value="Απούσα κοινωνική"  name="esocialfunc" class="form-group" id="g1">
 									</td>
 									<td>
-									<input type="radio" name="esocialfunc" class="form-group" id="g2">
+									<input type="radio" value="Ήπια κοινωνική" name="esocialfunc" class="form-group" id="g2">
 									</td>
 									<td>
-									<input type="radio" name="esocialfunc" class="form-group" id="g3">
+									<input type="radio" value="Μέτρια κοινωνική" name="esocialfunc" class="form-group" id="g3">
 									</td>
 									<td>
-									<input type="radio" name="esocialfunc" class="form-group" id="g4">
+									<input type="radio" value="Σοβαρή κοινωνική" name="esocialfunc" class="form-group" id="g4">
 									</td>
 								</tr>
 								<tr>
 									<td>δ. αυτοφροντίδα</td><input type="hidden" name="eautofix">
 									<td>
-									<input type="radio" name="eautofix" class="form-group" id="d1">
+									<input type="radio" value="Απούσα αυτοφροντίδα" name="eautofix" class="form-group" id="d1">
 									</td>
 									<td>
-									<input type="radio" name="eautofix" class="form-group" id="d2">
+									<input type="radio" value="Ήπια αυτοφροντίδα" name="eautofix" class="form-group" id="d2">
 									</td>
 									<td>
-									<input type="radio" name="eautofix" class="form-group" id="d3">
+									<input type="radio" value="Μέτρια αυτοφροντίδα" name="eautofix" class="form-group" id="d3">
 									</td>
 									<td>
-									<input type="radio" name="eautofix" class="form-group" id="d4">
+									<input type="radio" value="Σοβαρή αυτοφροντίδα" name="eautofix" class="form-group" id="d4">
 									</td>
 								</tr>
 							</table>
@@ -259,7 +259,7 @@
 							<input type="text" class="form-control" id="more" placeholder="" name="more">
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							ΚΑΤΑΧΩΡΗΣΗ
 						</button>
 					</form>
 				</div>

@@ -620,43 +620,44 @@ $postfields=http_build_query(array(
 							<div class="form-group">
 								<label for="q9"><strong>3. Ποιοι ήταν οι κυριότεροι λόγοι που αποταθήκατε στο ΚΕΨΥ; (σημειώστε όσα ισχύουν)</strong> </label>
 								<br>
-								<input type="checkbox" name="reasons" value="opt1">
+								<input type="hidden" name="reasons">
+								<input type="radio" name="reasons" value="κακοποίηση">
 								κακοποίηση
 								<br>
-								<input type="checkbox" name="reasons" value="opt2">
+								<input type="radio" name="reasons" value="ακαδημαϊκές δυσκολίες">
 								ακαδημαϊκές δυσκολίες
 								<br>
-								<input type="checkbox" name="reasons" value="opt3">
+								<input type="radio" name="reasons" value="άγχος">
 								άγχος
 								<br>
-								<input type="checkbox" name="reasons" value="opt4">
+								<input type="radio" name="reasons" value="εθισμός">
 								εθισμός
 								<br>
-								<input type="checkbox" name="reasons" value="opt5">
+								<input type="radio" name="reasons" value="διάθεση/κατάθλιψη">
 								διάθεση/κατάθλιψη
 								<br>
-								<input type="checkbox" name="reasons" value="opt6">
+								<input type="radio" name="reasons" value="θυμός-επιθετικότητα">
 								θυμός-επιθετικότητα
 								<br>
-								<input type="checkbox" name="reasons" value="opt7">
+								<input type="radio" name="reasons" value="απώλεια/πένθος">
 								απώλεια/πένθος
 								<br>
-								<input type="checkbox" name="reasons" value="opt8">
+								<input type="radio" name="reasons" value="σωματική υγεία">
 								σωματική υγεία
 								<br>
-								<input type="checkbox" name="reasons" value="opt9">
+								<input type="radio" name="reasons" value="διατροφικές διαταραχές">
 								διατροφικές διαταραχές
 								<br>
-								<input type="checkbox" name="reasons" value="opt10">
+								<input type="radio" name="reasons" value="σχέσεις">
 								σχέσεις
 								<br>
-								<input type="checkbox" name="reasons" value="opt11">
+								<input type="radio" name="reasons" value="προσωπική ταυτότητα">
 								προσωπική ταυτότητα
 								<br>
-								<input type="checkbox" name="reasons" value="opt12">
+								<input type="radio" name="reasons" value="σεξουαλικά θέματα">
 								σεξουαλικά θέματα
 								<br>
-								<input type="checkbox" name="reasons" value="opt13">
+								<input type="radio" name="reasons" value="Άλλο">
 								Άλλο (διευκρινίστε)
 								<br>
 								<input type="text" class="form-control" name="reasons" value="">
@@ -664,22 +665,23 @@ $postfields=http_build_query(array(
 							<div class="form-group">
 								<label for="q9"><strong>4. Για ποιο λόγο τερματίσετε τις υπηρεσίες που λαμβάνατε στο ΚΕΨΥ;</strong> <em>(σημειώστε όσα ισχύουν)</em></label>
 								<br>
-								<input type="checkbox" name="whyend" value="opt1">
+								<input type="hidden" name="whyend">
+								<input type="radio" name="whyend" value="Η συμβουλευτική δεν μπορούσε να ανταποκριθεί στις ανησυχίες μου">
 								Η συμβουλευτική δεν μπορούσε να ανταποκριθεί στις ανησυχίες μου
 								<br>
-								<input type="checkbox" name="whyend" value="opt2">
+								<input type="radio" name="whyend" value="Νιώθω καλύτερη και θεωρώ πώς δεν χρειάζομαι πια τις υπηρεσίες">
 								Νιώθω καλύτερη και θεωρώ πώς δεν χρειάζομαι πια τις υπηρεσίες
 								<br>
-								<input type="checkbox" name="whyend" value="opt3">
+								<input type="radio" name="whyend" value="Δεν ήμουν ικανοποιημένος/η με το θεραπευτή/σύμβουλό μου">
 								Δεν ήμουν ικανοποιημένος/η με το θεραπευτή/σύμβουλό μου
 								<br>
-								<input type="checkbox" name="whyend" value="opt4">
+								<input type="radio" name="whyend" value="Έχω ολοκληρώσεις το πρόγραμμα θεραπείας">
 								Έχω ολοκληρώσεις το πρόγραμμα θεραπείας
 								<br>
-								<input type="checkbox" name="whyend" value="opt5">
+								<input type="radio" name="whyend" value="Λόγω αποφοίτησής μου">
 								Λόγω αποφοίτησής μου
 								<br>
-								<input type="checkbox" name="whyend" value="opt6">
+								<input type="radio" name="whyend" value="Άλλο">
 								Άλλο (διευκρινίστε)
 								<br>
 								<input type="text" class="form-control" name="whyend" value="">
@@ -689,7 +691,7 @@ $postfields=http_build_query(array(
 							</div>
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							καταχωρηση
 						</button>
 
 				</div>

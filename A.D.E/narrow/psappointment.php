@@ -193,7 +193,7 @@ $postfields=http_build_query(array(
 								</div>
 						</div>
 					</div>
-					<div class="space"><input name="submit" type="submit" value="Submit" id="save" /> <a href="" id="cancel" >Cancel</a></div>
+					<div class="space"><input name="submit" type="submit" value="Submit" id="Αποθήκευση" /> <a href="" id="cancel" >Ακύρωση</a></div>
 					
 					</button>
 				</div>

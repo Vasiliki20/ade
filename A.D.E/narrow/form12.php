@@ -31,12 +31,18 @@ $postfields=http_build_query(array(
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Kentro Psixikis Ygias" />
+		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -166,22 +172,22 @@ $postfields=http_build_query(array(
 						<h5>Για να μπορεί το ΚΕΨΥ να μεταβιβάσει, να λάβει, ή να ανταλλάξει εμπιστευτικές πληροφορίες που σε αφορούν, είναι απαραίτητη προϋπόθεση να συμπληρώσεις το παρόν έντυπο σύμφωνα με τις οδηγίες. </h5>
 					</div>
 
-					<form action="" method="post">
+					<form action="" method="post" id="contact-form">
 						<div class="form-group">
 							<label for="eksousiodotisi"><strong>ΕΞΟΥΣΙΟΔΟΤΗΣΗ</strong> </label>
 							<label for="eksousiodotisi"><em>Εξουσιοδοτώ το Κέντρο Ψυχικής Υγείας (ΚΕΨΥ) του Πανεπιστημίου Κύπρου να μεταβιβάσει/λάβει/ ανταλλάξει (υπογραμμίστε ό,τι ισχύει) εμπιστευτικές πληροφορίες για το άτομό μου με:</em> </label>
 						</div>
 						<div class="form-group">
 							<label for="namepr"><strong>1. Ονοματεπώνυμο επαγγελματία ή Υπηρεσίας/Δομής:</strong></label>
-							<input type="text" class="form-control" id="namepr" placeholder="" name="nameofprof">
+							<input type="text" class="form-control" id="namepr" placeholder="" name="namepr">
 						</div>
 						<div class="form-group">
 							<label for="addresspr"><strong>2. Διεύθυνση:</strong></label>
-							<input type="text" class="form-control" id="addresspr" placeholder="" name="addressofprof">
+							<input type="text" class="form-control" id="addresspr" placeholder="" name="addresspr">
 						</div>
 						<div class="form-group">
 							<label for="citypr"><strong>3. Πόλη/χωριό:</strong></label>
-							<input type="text" class="form-control" id="citypr" placeholder="" name="cityofprof">
+							<input type="text" class="form-control" id="citypr" placeholder="" name="citypr">
 						</div>
 						<div class="form-group">
 							<label for="tkpr"><strong>4. Τ.Κ.:</strong></label>
@@ -193,7 +199,7 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<label for="emailpr"><strong>6. Ηλ. Διεύθυνση: </strong></label>
-							<input type="email" class="form-control" id="emailpr" placeholder="" name="emailofprof">
+							<input type="email" class="form-control" id="emailpr" placeholder="" name="emailpr">
 						</div>
 						<div class="form-group">
 							<label for="purpose"><strong>7. Σκοπός (διευκρινίστε, π.χ. «επιβεβαίωση παρουσίας στη συνεδρία», «παραπομπή», «αίτημα πελάτη»)</strong></label>
@@ -240,12 +246,55 @@ $postfields=http_build_query(array(
 							1 χρόνο
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							Καταχωρηση
 						</button>
 					</form>
 				</div>
+			
 			</div>
+	<script>
+				$(document).ready(function() {
+					jQuery.validator.addMethod("noSpace", function(value, element) {
+						return value.indexOf(" ") < 0 && value != "";
+					}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
 
+					jQuery.validator.addMethod("sqlValidator", function(value, element) {
+						return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					jQuery.validator.addMethod("xssValidator", function(value, element) {
+						return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+					}, 'Παρακαλώ συμπληρώστε ξανά');
+
+					$('#contact-form').validate({
+						rules : {
+							namepr : {
+								sqlValidator : true,
+								xssValidator : true
+							},
+							addresspr : {
+								sqlValidator : true,
+								xssValidator : true
+							},
+							citypr : {
+								sqlValidator : true,
+								xssValidator : true
+							},
+							emailpr : {
+								email : true
+							}
+						},
+						highlight : function(element) {
+							$(element).closest('.form-group').addClass('error text-danger');
+						},
+						success : function(element) {
+							$(element).closest('.form-group').removeClass('error text-danger');
+						}
+					});
+
+				});
+
+			</script>
 			<footer>
 				<div id="footer" class="fh5co-border-line">
 					<div class="container">
@@ -275,7 +324,8 @@ $postfields=http_build_query(array(
 			<script src="js/jquery.waypoints.min.js"></script>
 			<!-- Parallax Stellar -->
 			<script src="js/jquery.stellar.min.js"></script>
-
+			<script src="js/jquery.validate.js"></script>
+		
 			<!-- Main JS (Do not remove) -->
 			<script src="js/main.js"></script>
 		</div>
@@ -310,8 +360,8 @@ $postfields=http_build_query(array(
 		print "<h5>".$tok."</h5>";
 		?>
 		<script>
-									document.cookie='token=<?= $tok ?>
-							';
+			document.cookie='token=<?= $tok ?>
+		';
 		</script>
 		<?php
 		//$GLOBALS['curtoken']=giveToken();

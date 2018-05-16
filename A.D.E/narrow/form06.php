@@ -37,6 +37,8 @@ $postfields=http_build_query(array(
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<link rel="shortcut icon" href="favicon.ico">
 
@@ -164,7 +166,7 @@ $postfields=http_build_query(array(
 						<h4>ΟΔΗΓΟΣ ΑΡΧΙΚΗΣ ΣΥΝΕΝΤΕΥΞΗΣ – ΠΡΟΣΩΠΙΚΑ ΣΤΟΙΧΕΙΑ ΚΑΙ ΙΣΤΟΡΙΚΟ</h4>
 					</div>
 
-					<form action="" method="post">
+					<form action="" method="post" id="contact-form">
 						<div align="left">
 							<h5>Α. ΑΚΑΔΗΜΑΪΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ </h5>
 						</div>
@@ -221,10 +223,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="working" />
 							<label for="working"><strong>2. Εργάζεσαι κάπου;</strong></label>
 							<br>
-							<input type="radio" name="working" value="no" onclick="show1()">
+							<input type="radio" name="working" value="Όχι" onclick="show1()">
 							Όχι
 							<br>
-							<input type="radio" name="working" value="yes" onclick="show2()">
+							<input type="radio" name="working" value="Ναι" onclick="show2()">
 							Ναι
 						</div>
 
@@ -241,13 +243,13 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="stress" />
 							<label for="stress">Εργασιακό άγχος:</label>
 							<br>
-							<input type="radio" name="stress" value="low">
+							<input type="radio" name="stress" value="Χαμηλό">
 							Χαμηλό
 							<br>
-							<input type="radio" name="stress" value="medium">
+							<input type="radio" name="stress" value="Μέτριο">
 							Μέτριο
 							<br>
-							<input type="radio" name="stress" value="high">
+							<input type="radio" name="stress" value="Υψηλό">
 							Υψηλό
 							<br>
 							<br>
@@ -259,10 +261,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="relationship" />
 							<label for="relationship"><strong>3. Βρίσκεσται αυτή τη περίοδο σε κάποια σχέση;</strong></label>
 							<br>
-							<input type="radio" name="relationship" value="no" onclick="show3()">
+							<input type="radio" name="relationship" value="Όχι" onclick="show3()">
 							Όχι
 							<br>
-							<input type="radio" name="relationship" value="yes" onclick="show4()">
+							<input type="radio" name="relationship" value="Ναι" onclick="show4()">
 							Ναι
 							<br>
 							<label for="relationship"><em>Αν ναι, ιστορικό παρούσας σχέσης (διάρκεια, συχνότητα επαφών, δυσκολίες, κ.ο.κ)
@@ -288,22 +290,22 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="living" />
 							<label for="living"><strong>5. Συνθήκες διαβίωσης. Με ποιο διαμένεις/συγκατοικείς αυτή τη στιγμή;</strong></label>
 							<br>
-							<input type="radio" name="living" value="alone">
+							<input type="radio" name="living" value="Μόνος/η">
 							Μόνος/η
 							<br>
-							<input type="radio" name="living" value="otherfamily">
+							<input type="radio" name="living" value="Με άλλη οικογένεια">
 							Με άλλη οικογένεια
 							<br>
-							<input type="radio" name="living" value="ownfamily">
+							<input type="radio" name="living" value="Με τη δική μου οικογένεια">
 							Με τη δική μου οικογένεια (σύντροφο/σύζυγο ή/και παιδιά)
 							<br>
-							<input type="radio" name="living" value="roommate">
+							<input type="radio" name="living" value="Με συγκάτοικο">
 							Με συγκάτοικο
 							<br>
-							<input type="radio" name="living" value="family">
+							<input type="radio" name="living" value="Με τη οικογένεια μου">
 							Με τη οικογένεια μου (γονείς/αδέλφια)
 							<br>
-							<input type="radio" name="living" value="other">
+							<input type="radio" name="living" value="Άλλο">
 							Άλλο
 							<br>
 							<input type="text" class="form-control" id="living" name="other">
@@ -443,11 +445,11 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="financehelp" />
 							<label for="financehelp"><strong>9. Λαμβάνετε οποιοδήποτε οικονομικό βοήθημα;</strong></label>
 							<br>
-							<input type="radio" name="financehelp" value="no" onclick="show5()">
-							όχι
+							<input type="radio" name="financehelp" value="Όχι" onclick="show5()">
+							Όχι
 							<br>
-							<input type="radio" name="financehelp" value="yes" onclick="show6()">
-							ναι
+							<input type="radio" name="financehelp" value="Ναι" onclick="show6()">
+							Ναι
 						</div>
 
 						<div class="form-group" id="div3" class="hide">
@@ -461,11 +463,11 @@ $postfields=http_build_query(array(
 							<br>
 							<label for="legalissues">Έχεις ποτέ καταδικαστεί; </label>
 							<br>
-							<input type="radio" name="legalissues" value="no" onclick="show7()">
-							όχι
+							<input type="radio" name="legalissues" value="Όχι" onclick="show7()">
+							Όχι
 							<br>
-							<input type="radio" name="legalissues" value="yes" onclick="show8()">
-							ναι
+							<input type="radio" name="legalissues" value="Ναι" onclick="show8()">
+							Ναι
 						</div>
 
 						<div class="form-group" id="div4" class="hide">
@@ -484,61 +486,61 @@ $postfields=http_build_query(array(
 							<label for="healthproblem"><em>Σημειώστε αν αναφέρονται οποιαδήποτε από τα πιο κάτω: (Σε περίπτωση που ισχύουν περισσότερα από ενα συμπληρώστε στο πεδίο άλλο)</em></label>
 							<input type="hidden" name="healthproblem">
 							<br>
-							<input type="radio" name="healthproblem" value="allergies">
+							<input type="radio" name="healthproblem" value="Αλλεργίες">
 							Αλλεργίες
 							<br>
-							<input type="radio" name="healthproblem" value="dizziness">
+							<input type="radio" name="healthproblem" value="Ζαλάδες">
 							Ζαλάδες
 							<br>
-							<input type="radio" name="healthproblem" value="sexuallydisease">
+							<input type="radio" name="healthproblem" value="Σεξουαλική μεταδιδόμενη ασθένεια">
 							Σεξουαλική μεταδιδόμενη ασθένεια
 							<br>
-							<input type="radio" name="healthproblem" value="operation">
+							<input type="radio" name="healthproblem" value="Εγχείρηση">
 							Εγχείρηση
 							<br>
-							<input type="radio" name="healthproblem" value="diabetes">
+							<input type="radio" name="healthproblem" value="Διαβήτης">
 							Διαβήτης
 							<br>
-							<input type="radio" name="healthproblem" value="epilepsy">
+							<input type="radio" name="healthproblem" value="Επιληψία">
 							Επιληψία
 							<br>
-							<input type="radio" name="healthproblem" value="headache">
+							<input type="radio" name="healthproblem" value="Πονοκέφαλοι">
 							Πονοκέφαλοι
 							<br>
-							<input type="radio" name="healthproblem" value="sleepingproblems">
+							<input type="radio" name="healthproblem" value="Διαταραχή/δυσκολίες ύπνου">
 							Διαταραχή/δυσκολίες ύπνου
 							<br>
-							<input type="radio" name="healthproblem" value="stomachpain">
+							<input type="radio" name="healthproblem" value="Πόνοι στο στομάχι">
 							Πόνοι στο στομάχι
 							<br>
-							<input type="radio" name="healthproblem" value="trauma">
+							<input type="radio" name="healthproblem" value="Τραύμα στο κεφάλι">
 							Τραύμα στο κεφάλι
 							<br>
-							<input type="radio" name="healthproblem" value="chronicpain">
+							<input type="radio" name="healthproblem" value="Χρόνιος πόνος">
 							Χρόνιος πόνος
 							<br>
-							<input type="radio" name="healthproblem" value="fevers">
+							<input type="radio" name="healthproblem" value="Ψηλοί πυρετοί">
 							Ψηλοί πυρετοί
 							<br>
-							<input type="radio" name="healthproblem" value="asthma">
+							<input type="radio" name="healthproblem" value="Άσθμα">
 							Άσθμα
 							<br>
-							<input type="radio" name="healthproblem" value="meningitis">
+							<input type="radio" name="healthproblem" value="Μηνιγγίτιδα">
 							Μηνιγγίτιδα
 							<br>
-							<input type="radio" name="healthproblem" value="abortion">
+							<input type="radio" name="healthproblem" value="Έκτρωση">
 							Έκτρωση
 							<br>
-							<input type="radio" name="healthproblem" value="elimination">
+							<input type="radio" name="healthproblem" value="Αποβολή (εμβρύου)">
 							Αποβολή (εμβρύου)
 							<br>
-							<input type="radio" name="healthproblem" value="seriousaccident">
+							<input type="radio" name="healthproblem" value="Σοβαρό ατύχημα">
 							Σοβαρό ατύχημα
 							<br>
-							<input type="radio" name="healthproblem" value="hearingproblems">
+							<input type="radio" name="healthproblem" value="Προβλήματα ακοής">
 							Προβλήματα ακοής
 							<br>
-							<input type="radio" name="healthproblem" value="other">
+							<input type="radio" name="healthproblem" value="Άλλο">
 							Άλλο
 							<input type="text" class="form-control" id="healthproblemmore" name="healthproblem">
 						</div>
@@ -554,11 +556,11 @@ $postfields=http_build_query(array(
 								<br>
 								Αυτή τη στιγμή συνεργάζεσαι με κάποιο γιατρό/ψυχίατρο ή άλλο ειδικό; </strong></label>
 							<br>
-							<input type="radio" name="otherdoc" value="no" onclick="show9()">
-							όχι
+							<input type="radio" name="otherdoc" value="Όχι" onclick="show9()">
+							Όχι
 							<br>
-							<input type="radio" name="otherdoc" value="yes" onclick="show10()">
-							ναι
+							<input type="radio" name="otherdoc" value="Ναι" onclick="show10()">
+							Ναι
 						</div>
 
 						<div class="form-group" id="div5" class="hide">
@@ -571,10 +573,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="meds" />
 							<label for="meds"><strong>14. Παίρνεις οποιαδήποτε φάρμακα; </strong></label>
 							<br>
-							<input type="radio" name="meds" value="no" onclick="show11()">
+							<input type="radio" name="meds" value="Όχι" onclick="show11()">
 							Όχι
 							<br>
-							<input type="radio" name="meds" value="yes" onclick="show12()">
+							<input type="radio" name="meds" value="Ναι" onclick="show12()">
 							Ναι
 						</div>
 
@@ -681,10 +683,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="smoking" />
 							<label for="smoking"><strong>16. Καπνίζεις τσιγάρα; </strong></label>
 							<br>
-							<input type="radio" name="smoking" value="smokingno">
+							<input type="radio" name="smoking" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="smoking" value="smokingyes">
+							<input type="radio" name="smoking" value="Ναι">
 							Ναι
 							<br>
 							<label for="smoking">Αν ναι σημειώστε διάρκεια και κατανάλωση</label>
@@ -695,10 +697,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="alcohol" />
 							<label for="alcohol"><strong>17. Καταναλώνεις αλκοόλ; </strong></label>
 							<br>
-							<input type="radio" name="alcohol" value="alcoholno">
+							<input type="radio" name="alcohol" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="alcohol" value="alcoholyes">
+							<input type="radio" name="alcohol" value="Ναι">
 							Ναι
 							<br>
 							<label for="alcohol">Αν ναι σημειώστε συχνότητα και κατανάλωση</label>
@@ -709,10 +711,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="illegal" />
 							<label for="illegal"><strong>18. Έχεις οποιαδήποτε επαφή ή εμπειρία με άλλες (παράνομες) ουσίες; </strong></label>
 							<br>
-							<input type="radio" name="illegal" value="illegalno">
+							<input type="radio" name="illegal" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="illegal" value="illegalyes">
+							<input type="radio" name="illegal" value="Ναι">
 							Ναι
 							<br>
 							<label for="illegal">Αν ναι σημειώστε διάρκεια και κατανάλωση</label>
@@ -723,22 +725,22 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="mar" />
 							<label for="mar"><strong>19. Τις τελευταίες δύο εβδομάδες πόσες φορές έχεις καπνίσει μαριχουάνα (κάνναβη); </strong></label>
 							<br>
-							<input type="radio" name="mar" value="none">
+							<input type="radio" name="mar" value="Καμία">
 							Καμία
 							<br>
-							<input type="radio" name="mar" value="once">
+							<input type="radio" name="mar" value="Μια φορά">
 							Μια φορά
 							<br>
-							<input type="radio" name="mar" value="twice">
+							<input type="radio" name="mar" value="Δυο φορές">
 							Δυο φορές
 							<br>
-							<input type="radio" name="mar" value="3-5">
+							<input type="radio" name="mar" value="3-5 φορές">
 							3-5 φορές
 							<br>
-							<input type="radio" name="mar" value="6-9">
+							<input type="radio" name="mar" value="6-9 φορές">
 							6-9 φορές
 							<br>
-							<input type="radio" name="mar" value="morethan10">
+							<input type="radio" name="mar" value="10 ή περισσότερες φορές">
 							10 ή περισσότερες φορές
 							<br>
 						</div>
@@ -747,10 +749,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="games" />
 							<label for="games"><strong>20. Τους τελευταίους 6 μήνες έχεις παίξει τυχερά παιχνίδια; </strong></label>
 							<br>
-							<input type="radio" name="games" value="gamesno">
+							<input type="radio" name="games" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="games" value="gamesyes">
+							<input type="radio" name="games" value="Ναι">
 							Ναι
 							<br>
 							<label for="illegal">Εάν ναι, διερευνήστε συχνότητα και ένταση (π.χ. ποσά, ερεθίσματα)</label>
@@ -761,10 +763,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="bet" />
 							<label for="games"><strong>21. Έχεις νιώσει ποτέ την ανάγκη να στοιχηματίσεις όλο και περισσότερα χρήματα; </strong></label>
 							<br>
-							<input type="radio" name="bet" value="gamesno">
+							<input type="radio" name="bet" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="bet" value="gamesyes">
+							<input type="radio" name="bet" value="Ναι">
 							Ναι
 						</div>
 
@@ -772,10 +774,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="talked" />
 							<label for="talked"><strong>22. Έχεις μιλήσει ποτέ με κοντινά σου άτομα σχετικά με το πόσο παίζεις τυχερά παιχνίδια; </strong></label>
 							<br>
-							<input type="radio" name="talked" value="talkedno">
+							<input type="radio" name="talked" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="talked" value="talkedyes">
+							<input type="radio" name="talked" value="Ναι">
 							Ναι
 						</div>
 
@@ -831,25 +833,25 @@ $postfields=http_build_query(array(
 							<label for="previous"><em> (σημειώστε όσα ισχύουν) </em></label>
 							<br>
 							<input type="hidden" name="previous">
-							<input type="radio" name="previous" value="no">
+							<input type="radio" name="previous" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="previous" value="op2">
+							<input type="radio" name="previous" value="Γραφείο Ψυχολογικής Στήριξης">
 							Ναι, από το  Γραφείο Ψυχολογικής Στήριξης (ΓΨΣ) του Πανεπιστημίου Κύπρου
 							<br>
-							<input type="radio" name="previous" value="op3">
+							<input type="radio" name="previous" value="Κέντρο Ψυχικής Υγείας">
 							Ναι, από το  Κέντρο Ψυχικής Υγείας (ΚΕΨΥ) του Πανεπιστημίου Κύπρου
 							<br>
-							<input type="radio" name="previous" value="op4">
+							<input type="radio" name="previous" value="σχολικό/εκπαιδευτικό ψυχολόγο">
 							Ναι, από σχολικό/εκπαιδευτικό ψυχολόγο (ΥΕΨ)
 							<br>
-							<input type="radio" name="previous" value="op5">
+							<input type="radio" name="previous" value="ξωτερικό σύμβουλο ή ψυχολόγο">
 							Ναι, από εξωτερικό σύμβουλο ή ψυχολόγο
 							<br>
-							<input type="radio" name="previous" value="op6">
+							<input type="radio" name="previous" value="ψυχίατρο">
 							Ναι, από ψυχίατρο
 							<br>
-							<input type="radio" name="previous" value="op7">
+							<input type="radio" name="previous" value="άλλο">
 							Ναι, άλλο (διευκρινίστε)
 							<br>
 							<input type="text" id="alloop" name="alloop" class="form-control">
@@ -860,10 +862,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="diagnosi" />
 							<label for="diagnosi"><strong>26. Σου έχει δοθεί ποτέ κάποια διάγνωση για την ψυχική σου υγεία από κάποιο επαγγελματία; </strong></label>
 							<br>
-							<input type="radio" name="diagnosi" value="diagnosino">
+							<input type="radio" name="diagnosi" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="diagnosi" value="diagnosiyes">
+							<input type="radio" name="diagnosi" value="Ναι">
 							Ναι
 							<br>
 							<label for="alcohol">Εάν ναι, παρακαλώ δήλωσε τη διάγνωση που πήρες (και πότε):</label>
@@ -874,10 +876,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="anapiria" />
 							<label for="anapiria"><strong>27. Στο Πανεπιστήμιο έχεις δηλώσει ότι έχεις κάποια αναπηρία παρουσιάζοντας κάποια σχετικά έγγραφα και τη διάγνωση; </strong></label>
 							<br>
-							<input type="radio" name="anapiria" value="anapiriano">
+							<input type="radio" name="anapiria" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="anapiria" value="anapiriayes">
+							<input type="radio" name="anapiria" value="Ναι">
 							Ναι
 							<br>
 							<label for="alcohol">Εάν ναι, παρακαλώ δήλωσε την αναπηρία:</label>
@@ -888,10 +890,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="hurtself" />
 							<label for="hurtself"><strong>28. Είχες ποτέ σκέψεις, έκανες δηλώσεις ή αποπειράθηκες να βλάψεις στον εαυτό σου; </strong></label>
 							<br>
-							<input type="radio" name="hurtself" value="hurtselfno">
+							<input type="radio" name="hurtself" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="hurtself" value="hurtselfyes">
+							<input type="radio" name="hurtself" value="Ναι">
 							Ναι
 						</div>
 
@@ -899,10 +901,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="hurtothers" />
 							<label for="hurtothers"><strong>29. Είχες ποτέ σκέψεις, έκανες δηλώσεις ή αποπειράθηκες να βλάψεις κάποιο άλλο άτομο; </strong></label>
 							<br>
-							<input type="radio" name="hurtothers" value="hurtothersno">
+							<input type="radio" name="hurtothers" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="hurtothers" value="hurtothersyes">
+							<input type="radio" name="hurtothers" value="Ναι">
 							Ναι
 						</div>
 
@@ -910,10 +912,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="hurtothers1" />
 							<label for="hurtsm"><strong>30. Έχεις πρόσφατα τραυματιστεί ή απειληθεί από κάποιο άτομο; </strong></label>
 							<br>
-							<input type="radio" name="hurtothers1" value="hurtsmno">
+							<input type="radio" name="hurtothers1" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="hurtothers1" value="hurtsmyes">
+							<input type="radio" name="hurtothers1" value="Ναι">
 							Ναι
 						</div>
 						
@@ -925,10 +927,10 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="referredby" />
 							<label for="referredby"><strong>31. Σας παρέπεμψε κάποιος στο ΚΕΨΥ</strong></label>
 							<br>
-							<input type="radio" name="referredby" value="referredno">
+							<input type="radio" name="referredby" value="Όχι">
 							Όχι
 							<br>
-							<input type="radio" name="referredby" value="referredyes">
+							<input type="radio" name="referredby" value="Ναι">
 							Ναι
 							<br>
 							<label for="referredwho">Εάν ναι ποιος;</label>
@@ -950,10 +952,57 @@ $postfields=http_build_query(array(
 							<input type="text" class="form-control" id="reasonsfortherapy" name="reasonsfortherapy">
 						</div> 
 						<button type="submit" class="btn btn-default" name="submit">
-							Submit
+							Καταχωρηση
 						</button>
 
 				</div>
+				<!--<script>
+	$(document).ready(function() {
+		jQuery.validator.addMethod("noSpace", function(value, element) {
+			return value.indexOf(" ") < 0 && value != "";
+		}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+		jQuery.validator.addMethod("sqlValidator", function(value, element) {
+			return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		jQuery.validator.addMethod("xssValidator", function(value, element) {
+			return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		$('#contact-form').validate({
+			rules : {
+				emname : {
+					sqlValidator : true,
+					xssValidator : true
+				},
+				emrelationship : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				job : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				dimos : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				city : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').addClass('error text-danger');
+			},
+			success : function(element) {
+				$(element).closest('.form-group').removeClass('error text-danger');
+			}
+		});
+
+	}); 
+</script>-->
 				<footer>
 					<div id="footer" class="fh5co-border-line">
 						<div class="container">
@@ -983,7 +1032,7 @@ $postfields=http_build_query(array(
 			<script src="js/jquery.waypoints.min.js"></script>
 			<!-- Parallax Stellar -->
 			<script src="js/jquery.stellar.min.js"></script>
-
+			<script src="js/jquery.validate.js"></script>
 			<!-- Main JS (Do not remove) -->
 			<script src="js/main.js"></script>
 		</div>

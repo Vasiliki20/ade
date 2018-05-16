@@ -275,7 +275,7 @@ var_dump($response);
 									<input type="text" class="form-control" id="more" placeholder="" name="more" value="<?=$response['termination']['infoterminate']?>">
 								</div>
 								<button type="submit" class="btn btn-default" name="submit">
-									Submit
+									Καταχώρηση
 								</button>
 							</form>
 								<div>

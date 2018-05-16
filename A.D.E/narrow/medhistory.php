@@ -498,7 +498,7 @@ var_dump($response);
 							</div>
 							<div class="form-group">
 								<label for="addmore">Προσθήκη ανασκόπησης</label>
-								<input type="submit" id="addmore" name="addmore" value="ADD" class="btn btn-default">
+								<input type="submit" id="addmore" name="addmore" value="Προσθήκη" class="btn btn-default">
 									
 								
 							</div>
@@ -513,8 +513,7 @@ var_dump($response);
 									</ul>
 								</div>
 							<div class="form-group">
-								<label for="addmore">Save Changes</label>
-								<input type="submit" name="submit">
+								<input class="btn btn-default" value="Αποθήκευση" type="submit" name="submit">
 
 							</div>
 						</form>
