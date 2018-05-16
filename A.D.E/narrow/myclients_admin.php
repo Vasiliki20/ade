@@ -11,6 +11,11 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		<!-- FOR DROPDOWN -->
+		<!-- Java Scripts -->
+		<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,13 +33,28 @@
 
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+		<link rel="stylesheet" type="text/css" href="css/result-light.css">
 	</head>
 	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
 	</script>
+	<style>
+		body {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.42857143;
+		}
+		body {
+			background-color: #f8f8f8;
+		}
+	</style>
 	<body>
 		<h5> <?= $_SESSION['id'] ?>
 		</h5>
@@ -117,8 +137,8 @@
 							<!-- /.panel-heading -->
 							<div class="panel-body">
 								<form method="post" action="">
-								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
-
+								<table id="example" width="100%" class="display">
+									
 									<thead>
 										<tr>
 											<th>Όνομα</th>
@@ -155,26 +175,25 @@ $postfields=http_build_query(array(
 		$response=request($url,$method,$postfields,$tok);
 	}
 	
-	
 //}
 ?>
 										<?php
-if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
-<tr>
-<td><?= $response['result'][$i]['firstname'] ?></td>
-										<td><?= $response['result'][$i]['lastname'] ?></td>
+										if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+										<tr>
+										<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['firstname'] ?>" readonly></td>
+										<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['lastname'] ?>" readonly></td>
 										<td><input type="hidden" value="<?= $response['result'][$i]['patientID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['patientID'] ?></label></td>
-										<td><?= $response['result'][$i]['psychologistID'] ?></td>
-										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+										<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['psychologistID'] ?>" readonly></td>
+										<td>
 										<?php if($response['result'][$i]['active']==0){ ?>
-										<select name="status[]">
+										<select class="item-number" name="status[]">
 										<option value="1">Active</option>
 										<option value="0" selected="selected">Deactive</option>
 										<option value="delete">Delete</option>
 										</select></td>
 										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										<?php }else{ ?>
-										<select name="status[]">
+										<select class="item-number" name="status[]">
 										<option value="1" selected="selected">Active</option>
 										<option value="0">Deactive</option>
 										<option value="delete">Delete</option>
@@ -182,52 +201,65 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
 										<?php }}} ?>
-									</tbody>
 								</table>
-								<button type="submit" name="submit1" class="btn btn-default">
-									Save Changes
-								</button>
+									<input class="btn btn-default" type="submit" name="submit1" value="Αποθήκευση Αλλαγών"/>
 								</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
-						<!-- /.panel -->
-					</div>
+
+		<script>
+			$.fn.dataTableExt.ofnSearch['html-input'] = function(value) {
+				return $(value).val();
+			};
+
+			var table = $("#example").DataTable({
+				columnDefs : [{
+					"type" : "html-input",
+					"targets" : [0, 1, 2, 3, 4]
+				}]
+			});
+
+			$("#example td input").on('change', function() {
+				var $td = $(this).parent();
+				$td.find('input').attr('value', this.value);
+				table.cell($td).invalidate().draw();
+			});
+			$("#example td select").on('change', function() {
+				var $td = $(this).parent();
+				var value = this.value;
+				$td.find("option").filter("[selected]").removeAttr("selected").end().filter('[value="' + value + '"]').attr("selected", true);
+				table.cell($td).invalidate().draw();
+			});
+		</script>
+		<script>
+			// tell the embed parent frame the height of the content
+			if (window.parent && window.parent.parent) {
+				window.parent.parent.postMessage(["resultsFrame", {
+					height : document.body.getBoundingClientRect().height,
+					slug : "s2gbafuz"
+				}], "*")
+			}
+		</script>
+</div>
 					<!-- /.col-lg-12 -->
 				</div>
 			</div>
 			<!-- /#page-wrapper -->
 
 		</div>
-		<!-- /#wrapper -->
-
 		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+		<script src="js/jquery-1.9.1.js"></script>
+
+		<!-- jQuery DataTables-->
+		<script src="js/jquery.dataTables.min.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
 		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
-	</body>
 
+	</body>
 </html>
 <?php
 require_once("requests.php");
