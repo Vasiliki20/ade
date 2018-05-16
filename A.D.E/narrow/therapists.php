@@ -207,26 +207,29 @@ $response = request($url, $method, $postfields, $tok);
 											<option value="supervisor" selected="selected">Supervisor</option>
 											</select></td>
 											<?php } ?>
-											<td>
+											
 												<?php if($response['result'][$i]['active']==0){
 												?>
-											<select  name="status[]" class="item-number">
-											<option value="1" label="Active">Active</option>
-											<option value="0" label="Deactive" selected="selected">Deactive</option>
-											<option value="delete" label="Delete">Delete</option>
+											<td>
+											<select size="1" id="row-1-kakka" name="status[]" >
+											<option value="active" >Active</option>
+											<option value="deactive" selected="selected">Deactive</option>
+											<option value="delete" >Delete</option>
 											</select></td>
 											<?php }else{ ?>
-											<select  name="status[]" class="item-number">
-											<option value="1" label="Active" selected="selected">Active</option>
-											<option value="0" label="Deactive">Deactive</option>
-											<option value="delete" label="Delete">Delete</option>
-											<!--</select></td>
-											<td class="item-name">
+											<td>
+											<select size="1" id="row-1-kakka" name="status[]" >
+											<option value="active" selected="selected">Active</option>
+											<option value="deactive" >Deactive</option>
+											<option value="delete" >Delete</option>
+											</select></td>
+											<!--<td class="item-name">
 											Description shows up here
 											</td>-->
 											<?php } ?>
 											</tr>
 											<?php }} ?>
+											</tbody>
 									</table>
 									<input class="btn btn-default" type="submit" name="submit1" value="Αποθήκευση Αλλαγών"/>
 								</form>
@@ -300,7 +303,8 @@ var_dump($_POST['id']);
 var_dump($_POST['type']);
 var_dump($_POST['status']);
 foreach($_POST['id'] as $j){
-
+if(strcmp($_POST['status'][$i],"active")==0){ $_POST['status'][$i]=1;}
+if(strcmp($_POST['status'][$i],"deactive")==0){ $_POST['status'][$i]=0;}
 $postfields=http_build_query(array(
 'id'=> $_POST['id'][$i],
 'type'=> $_POST['type'][$i],
