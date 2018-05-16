@@ -148,7 +148,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας </a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -186,6 +186,9 @@ $postfields=http_build_query(array(
 							<br>
 							<input type="radio" name="sex" value="Θύλη">
 							Θύλη
+							<br>
+							<input type="radio" name="sex" value="Άλλο">
+							Άλλο
 						</div>
 						<div class="form-group">
 							<label for="citizenship"><b>4. Υπηκοότητα:</b></label>
@@ -292,7 +295,8 @@ $postfields=http_build_query(array(
 							<input type="radio" name="family" value="Χήρος/α">
 							Χήρος/α
 							<br>
-							<input type="radio" name="family" value="familyallo">
+							<input type="radio" name="family" value="άλλο">
+							Άλλο
 							
 						</div>
 						<div class="form-group">
@@ -302,11 +306,9 @@ $postfields=http_build_query(array(
 							<input type="radio" name="previous" value="Όχι">
 							Όχι
 							<br>
-<<<<<<< HEAD
-							<input type="radio" name="previous" value="yes">
-=======
+
 							<input type="radio" name="previous" value="Ναι">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
+
 							Ναι
 							<br>
 							Αν ναι(διευκρινίστε)
@@ -347,29 +349,19 @@ $postfields=http_build_query(array(
 							
 							<label for="otherservices"><b>22. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
-<<<<<<< HEAD
-							<input type="radio" name="otherservices" value="oxi">
-							Όχι
-							<br>
-							<input type="radio" name="otherservices" value="yes">
-=======
+							<input type="hidden" name="otherservices">
 							<input type="radio" name="otherservices" value="Όχι">
 							Όχι
 							<br>
 							<input type="radio" name="otherservices" value="Ναι">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 							Ναι
 							<br>
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
-							Τηλέφωνο:
+					
 							<br>
-<<<<<<< HEAD
-							<input type="text" class="form-control" id="otherservices" name="contactothers">
-=======
 							Τηλέφωνο:
 							<br>
 							<input type="number" class="form-control" id="otherservices" name="contactothers">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
 							Καταχωρηση
@@ -451,11 +443,7 @@ $postfields=http_build_query(array(
 		
 			<!-- Main JS (Do not remove) -->
 			<script src="js/main.js"></script>
-		</div>
-	</body>
-</html>
-
-<?php
+			<?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form2b.php";
 $method='POST';
@@ -511,5 +499,10 @@ if($response['success']==1){
 			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
 			  </div>";
 		}
+		
 }
 ?>
+		</div>
+	</body>
+</html>
+

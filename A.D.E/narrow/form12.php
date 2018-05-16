@@ -152,7 +152,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας </a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -179,15 +179,15 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<label for="namepr"><strong>1. Ονοματεπώνυμο επαγγελματία ή Υπηρεσίας/Δομής:</strong></label>
-							<input type="text" class="form-control" id="namepr" placeholder="" name="namepr">
+							<input type="text" class="form-control" id="namepr" placeholder="" name="nameofprof">
 						</div>
 						<div class="form-group">
 							<label for="addresspr"><strong>2. Διεύθυνση:</strong></label>
-							<input type="text" class="form-control" id="addresspr" placeholder="" name="addresspr">
+							<input type="text" class="form-control" id="addresspr" placeholder="" name="addressofprof">
 						</div>
 						<div class="form-group">
 							<label for="citypr"><strong>3. Πόλη/χωριό:</strong></label>
-							<input type="text" class="form-control" id="citypr" placeholder="" name="citypr">
+							<input type="text" class="form-control" id="citypr" placeholder="" name="cityofprof">
 						</div>
 						<div class="form-group">
 							<label for="tkpr"><strong>4. Τ.Κ.:</strong></label>
@@ -199,13 +199,14 @@ $postfields=http_build_query(array(
 						</div>
 						<div class="form-group">
 							<label for="emailpr"><strong>6. Ηλ. Διεύθυνση: </strong></label>
-							<input type="email" class="form-control" id="emailpr" placeholder="" name="emailpr">
+							<input type="email" class="form-control" id="emailpr" placeholder="" name="emailofprof">
 						</div>
 						<div class="form-group">
 							<label for="purpose"><strong>7. Σκοπός (διευκρινίστε, π.χ. «επιβεβαίωση παρουσίας στη συνεδρία», «παραπομπή», «αίτημα πελάτη»)</strong></label>
 							<input type="text" class="form-control" id="purpose" placeholder="" name="purposeofinfo">
 						</div>
 						<div class="form-group">
+							<input type="hidden" name="infototransfer" />
 							<label for="q17"><strong>8. Κατηγορίες πληροφοριών που συναινώ να μεταβιβαστούν <em>(Σημειώστε τη μονογραφή σας σε όσα ισχύουν)</em></strong></label>
 							<br>
 							<input type="radio" name="infototransfer" class="form-group" id="q17a" value="Μόνο συμμετοχή σε συνεδρία/ες">
@@ -309,30 +310,7 @@ $postfields=http_build_query(array(
 					</div>
 				</div>
 			</footer>
-			</div>
-			<!-- END: box-wrap -->
-
-			<!-- jQuery -->
-			<script src="js/jquery.min.js"></script>
-			<!-- jQuery Easing -->
-			<script src="js/jquery.easing.1.3.js"></script>
-			<!-- Bootstrap -->
-			<script src="js/bootstrap.min.js"></script>
-			<!-- Owl carousel -->
-			<script src="js/owl.carousel.min.js"></script>
-			<!-- Waypoints -->
-			<script src="js/jquery.waypoints.min.js"></script>
-			<!-- Parallax Stellar -->
-			<script src="js/jquery.stellar.min.js"></script>
-			<script src="js/jquery.validate.js"></script>
-		
-			<!-- Main JS (Do not remove) -->
-			<script src="js/main.js"></script>
-		</div>
-	</body>
-</html>
-
-<?php
+			<?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form12.php";
 $method='POST';
@@ -382,3 +360,27 @@ $postfields=http_build_query(array(
 		}
 		
 	?>
+			</div>
+			<!-- END: box-wrap -->
+
+			<!-- jQuery -->
+			<script src="js/jquery.min.js"></script>
+			<!-- jQuery Easing -->
+			<script src="js/jquery.easing.1.3.js"></script>
+			<!-- Bootstrap -->
+			<script src="js/bootstrap.min.js"></script>
+			<!-- Owl carousel -->
+			<script src="js/owl.carousel.min.js"></script>
+			<!-- Waypoints -->
+			<script src="js/jquery.waypoints.min.js"></script>
+			<!-- Parallax Stellar -->
+			<script src="js/jquery.stellar.min.js"></script>
+			<script src="js/jquery.validate.js"></script>
+		
+			<!-- Main JS (Do not remove) -->
+			<script src="js/main.js"></script>
+		</div>
+	</body>
+</html>
+
+

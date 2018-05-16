@@ -153,7 +153,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας </a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -338,11 +338,8 @@ $postfields=http_build_query(array(
 							<input type="radio" name="family" value="Χήρος/α">
 							Χήρος/α
 							<br>
-<<<<<<< HEAD
-							<input type="radio" name="family" value="familyallo">
-=======
-							<input type="radio" name="family" value="Οικογένεια άλλο">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
+							<input type="radio" name="family" value="άλλο">
+							Άλλο
 						
 						</div>
 						<div class="form-group">
@@ -352,11 +349,9 @@ $postfields=http_build_query(array(
 							<input type="radio" name="previous" value="Όχι">
 							Όχι
 							<br>
-<<<<<<< HEAD
-							<input type="radio" name="previous" value="yes">
-=======
+
 							<input type="radio" name="previous" value="Ναι">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
+
 							Ναι
 							<br>
 							Αν ναι(διευκρινίστε)
@@ -394,37 +389,29 @@ $postfields=http_build_query(array(
 							<input type="text" class="form-control" id="referred" name="referred">
 						</div>
 						<div class="form-group">
-							
+							<input type="hidden" name="otherservices">
 							<label for="otherservices"><b>22. Λαμβάνετε τώρα υπηρεσίες από άλλους επαγγελματίες ψυχικής υγείας;</b></label>
 							<br>
-<<<<<<< HEAD
-							<input type="radio" name="otherservices" value="oxi">
-							Όχι
-							<br>
-							<input type="radio" name="otherservices" value="yes">
-=======
+
 							<input type="radio" name="otherservices" value="Όχι">
 							Όχι
 							<br>
 							<input type="radio" name="otherservices" value="Ναι">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
+
 							Ναι
 							<br>
 							<label for="contactothers">Αν ναι, θα μπορούσαμε να επικοινωνήσουμε μαζί τους αν χρειαστεί;</label>
-							Τηλέφωνο:
+							
 							<br>
-<<<<<<< HEAD
-							<input type="text" class="form-control" id="otherservices" name="contactothers">
-=======
 							Τηλέφωνο:
 							<br>
 							<input type="number" class="form-control" id="otherservices" name="contactothers">
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
+
 						</div>
 						<button type="submit" class="btn btn-default" name="submit">
 							Καταχωρηση
 						</button>
-
+						
 				</div>
 				<script>
 				$(document).ready(function() {
@@ -484,29 +471,7 @@ $postfields=http_build_query(array(
 						</div>
 					</div>
 				</footer>
-			</div>
-			<!-- END: box-wrap -->
-
-			<!-- jQuery -->
-			<script src="js/jquery.min.js"></script>
-			<!-- jQuery Easing -->
-			<script src="js/jquery.easing.1.3.js"></script>
-			<!-- Bootstrap -->
-			<script src="js/bootstrap.min.js"></script>
-			<!-- Owl carousel -->
-			<script src="js/owl.carousel.min.js"></script>
-			<!-- Waypoints -->
-			<script src="js/jquery.waypoints.min.js"></script>
-			<!-- Parallax Stellar -->
-			<script src="js/jquery.stellar.min.js"></script>
-			<script src="js/jquery.validate.js"></script>
-		
-			<!-- Main JS (Do not remove) -->
-			<script src="js/main.js"></script>
-		</div>
-	</body>
-</html>
-<?php
+				<?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form2student.php";
 $method='POST';
@@ -553,7 +518,6 @@ print "<h5>".$tok."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
 if($response['success']==1){
-<<<<<<< HEAD
 		echo "<div class=\"alert alert-success fade in\">
 			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 			<strong>Success!</strong> You have successfully submit your form!
@@ -564,17 +528,27 @@ if($response['success']==1){
 			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
 			  </div>";
 		}
-=======
-echo "<div class=\"alert alert-success fade in\">
-<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-<strong>Success!</strong> You have successfully submit your form!
-</div>";
-}else{
-echo "<div class=\"alert alert-danger fade in\">
-<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
-</div>";
-}
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 }
 ?>
+			</div>
+			<!-- END: box-wrap -->
+
+			<!-- jQuery -->
+			<script src="js/jquery.min.js"></script>
+			<!-- jQuery Easing -->
+			<script src="js/jquery.easing.1.3.js"></script>
+			<!-- Bootstrap -->
+			<script src="js/bootstrap.min.js"></script>
+			<!-- Owl carousel -->
+			<script src="js/owl.carousel.min.js"></script>
+			<!-- Waypoints -->
+			<script src="js/jquery.waypoints.min.js"></script>
+			<!-- Parallax Stellar -->
+			<script src="js/jquery.stellar.min.js"></script>
+			<script src="js/jquery.validate.js"></script>
+		
+			<!-- Main JS (Do not remove) -->
+			<script src="js/main.js"></script>
+		</div>
+	</body>
+</html>

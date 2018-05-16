@@ -148,7 +148,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας </a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -254,90 +254,7 @@ $postfields=http_build_query(array(
 					</form>
 				</div>
 				</div>
-			</div>
-<script>
-	$(document).ready(function() {
-		jQuery.validator.addMethod("noSpace", function(value, element) {
-			return value.indexOf(" ") < 0 && value != "";
-		}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
-
-		jQuery.validator.addMethod("sqlValidator", function(value, element) {
-			return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-		}, 'Παρακαλώ συμπληρώστε ξανά');
-
-		jQuery.validator.addMethod("xssValidator", function(value, element) {
-			return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-		}, 'Παρακαλώ συμπληρώστε ξανά');
-
-		$('#contact-form').validate({
-			rules : {
-				name : {
-					sqlValidator : true,
-					xssValidator : true
-				},
-				idiotita : {
-					sqlValidator : true,
-					xssValidator : true,
-				},
-				email : {
-					email : true
-				},
-				to : {
-					sqlValidator : true,
-					xssValidator : true,
-				},
-				afora : {
-					sqlValidator : true,
-					xssValidator : true,
-				},
-			},
-			highlight : function(element) {
-				$(element).closest('.form-group').addClass('error text-danger');
-			},
-			success : function(element) {
-				$(element).closest('.form-group').removeClass('error text-danger');
-			}
-		});
-
-	}); 
-</script>
-			<footer>
-				<div id="footer" class="fh5co-border-line">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 text-center">
-								<p class="fh5co-social-icons">
-									<a href="https://twitter.com/MentalHealthUCY"><i class="icon-twitter-with-circle"></i></a>
-									<a href="https://www.facebook.com/ucykepsy/"><i class="icon-facebook-with-circle"></i></a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- END: box-wrap -->
-
-			<!-- jQuery -->
-			<script src="js/jquery.min.js"></script>
-			<!-- jQuery Easing -->
-			<script src="js/jquery.easing.1.3.js"></script>
-			<!-- Bootstrap -->
-			<script src="js/bootstrap.min.js"></script>
-			<!-- Owl carousel -->
-			<script src="js/owl.carousel.min.js"></script>
-			<!-- Waypoints -->
-			<script src="js/jquery.waypoints.min.js"></script>
-			<!-- Parallax Stellar -->
-			<script src="js/jquery.stellar.min.js"></script>
-<script src="js/jquery.validate.js"></script>
-		
-			<!-- Main JS (Do not remove) -->
-			<script src="js/main.js"></script>
-		</div>
-	</body>
-</html>
-
-<?php
+				<?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form10.php";
 $method='POST';
@@ -391,3 +308,90 @@ $postfields=http_build_query(array(
 		}
 		}
 	?>
+			</div>
+<script>
+	$(document).ready(function() {
+		jQuery.validator.addMethod("noSpace", function(value, element) {
+			return value.indexOf(" ") < 0 && value != "";
+		}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+		jQuery.validator.addMethod("sqlValidator", function(value, element) {
+			return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		jQuery.validator.addMethod("xssValidator", function(value, element) {
+			return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+		}, 'Παρακαλώ συμπληρώστε ξανά');
+
+		$('#contact-form').validate({
+			rules : {
+				name : {
+					sqlValidator : true,
+					xssValidator : true
+				},
+				idiotita : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				email : {
+					email : true
+				},
+				to : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+				afora : {
+					sqlValidator : true,
+					xssValidator : true,
+				},
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').addClass('error text-danger');
+			},
+			success : function(element) {
+				$(element).closest('.form-group').removeClass('error text-danger');
+			}
+		});
+
+	}); 
+</script>
+			
+			<footer>
+				<div id="footer" class="fh5co-border-line">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 text-center">
+								<p class="fh5co-social-icons">
+									<a href="https://twitter.com/MentalHealthUCY"><i class="icon-twitter-with-circle"></i></a>
+									<a href="https://www.facebook.com/ucykepsy/"><i class="icon-facebook-with-circle"></i></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</footer>
+			
+			<!-- END: box-wrap -->
+
+			<!-- jQuery -->
+			<script src="js/jquery.min.js"></script>
+			<!-- jQuery Easing -->
+			<script src="js/jquery.easing.1.3.js"></script>
+			<!-- Bootstrap -->
+			<script src="js/bootstrap.min.js"></script>
+			<!-- Owl carousel -->
+			<script src="js/owl.carousel.min.js"></script>
+			<!-- Waypoints -->
+			<script src="js/jquery.waypoints.min.js"></script>
+			<!-- Parallax Stellar -->
+			<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+		
+			<!-- Main JS (Do not remove) -->
+			<script src="js/main.js"></script>
+		</div>
+	</body>
+</html>
+
+

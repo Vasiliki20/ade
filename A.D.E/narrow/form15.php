@@ -172,7 +172,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -709,29 +709,7 @@ $postfields=http_build_query(array(
 						</div>
 					</div>
 				</footer>
-			</div>
-			<!-- END: box-wrap -->
-
-			<!-- jQuery -->
-			<script src="js/jquery.min.js"></script>
-			<!-- jQuery Easing -->
-			<script src="js/jquery.easing.1.3.js"></script>
-			<!-- Bootstrap -->
-			<script src="js/bootstrap.min.js"></script>
-			<!-- Owl carousel -->
-			<script src="js/owl.carousel.min.js"></script>
-			<!-- Waypoints -->
-			<script src="js/jquery.waypoints.min.js"></script>
-			<!-- Parallax Stellar -->
-			<script src="js/jquery.stellar.min.js"></script>
-
-			<!-- Main JS (Do not remove) -->
-			<script src="js/main.js"></script>
-		</div>
-
-	</body>
-</html>
-<?php
+				<?php
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form15.php";
 $method='POST';
@@ -797,4 +775,27 @@ $postfields=http_build_query(array(
 		}
 }
 ?>
+			</div>
+			<!-- END: box-wrap -->
+
+			<!-- jQuery -->
+			<script src="js/jquery.min.js"></script>
+			<!-- jQuery Easing -->
+			<script src="js/jquery.easing.1.3.js"></script>
+			<!-- Bootstrap -->
+			<script src="js/bootstrap.min.js"></script>
+			<!-- Owl carousel -->
+			<script src="js/owl.carousel.min.js"></script>
+			<!-- Waypoints -->
+			<script src="js/jquery.waypoints.min.js"></script>
+			<!-- Parallax Stellar -->
+			<script src="js/jquery.stellar.min.js"></script>
+
+			<!-- Main JS (Do not remove) -->
+			<script src="js/main.js"></script>
+		</div>
+
+	</body>
+</html>
+
 

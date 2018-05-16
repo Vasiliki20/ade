@@ -149,7 +149,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -378,5 +378,6 @@ if($response['success']==1){
 			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
 			  </div>";
 		}
+		 header( "refresh:0;" );
 }
 ?>

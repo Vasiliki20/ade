@@ -48,7 +48,7 @@
 							<div class="col-md-8 main-nav">
 								<ul class="nav text-right">
 									<li>
-										<a href="index.html">Login</a>
+										<a href="index.php">Είσοδος</a>
 									</li>
 							</div>
 						</div>
