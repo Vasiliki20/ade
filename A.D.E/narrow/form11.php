@@ -84,14 +84,14 @@ var_dump($response);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -99,210 +99,174 @@ var_dump($response);
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
-
-				<div id="page-wrapper">
-					<div class="row">
-						<div class="col-lg-12">
-							<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
-						</div>
+				<div class="navbar-default sidebar" role="navigation">
+					<div class="sidebar-nav navbar-collapse">
+						<ul class="nav" id="side-menu">
+							<li>
+								<a href="psindex.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level">
+									<li>
+										<a href="tasklist.php">Λίστα Εργασιών</a>
+									</li>
+									<li>
+										<a href="myclients.php">Πελάτες</a>
+									</li>
+									<li>
+										<a href="myappointments.php">Ραντεβού</a>
+									</li>
+								</ul>
+								<!-- /.nav-second-level -->
+							</li>
+							<li>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Ανάρτηση Αρχείου</a>
+							</li>
+							<li>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Στατιστικές</a>
+							</li>
+						</ul>
 					</div>
-					<div>
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<form action="" method="post">
-									<div class="form-group">
-										<input type="hidden" name="patientID" value=<?=$_GET['patientID'] ?>
-										<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
-										<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['patient']['datesubmited'] ?>>
-										</div>
-										<div class="form-group">
-										<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
-										<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['patient']['kindoftherapy'] ?>>
-										</div>
-										<div class="form-group">
-										<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
-										<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['patient']['mainissue'] ?>>
-										</div>
-										<div class="form-group">
-										<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
-										<input type="text" class="form-control" id="issues" placeholder="" name="problems">
-										</div>
-										<div class="form-group">
-										<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
-										<br>
-										<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
-										<br>
-										<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis">
-										</div>
-										<div class="form-group">
-										<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
-										<br>
-										<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
-										<br>
-										<input type="text" class="form-control" id="changes" placeholder="" name="changesenv">
-									</div>
+					<!-- /.sidebar-collapse -->
+				</div>
+				<!-- /.navbar-static-side -->
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
+					</div>
+				</div>
+				<div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form action="" method="post">
+								<div class="form-group">
+								
+									<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
+									<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['anaskopisi'][$_GET['an']]['datesubmited']?>>
+								</div>
+								<div class="form-group">
+									<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
+									<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['anaskopisi'][$_GET['an']]['kind']?>>
+								</div>
+								<div class="form-group">
+									<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
+									<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['anaskopisi'][$_GET['an']]['initialproblem']?>>
+								</div>
+								<div class="form-group">
+									<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
+									<input type="text" class="form-control" id="issues" placeholder="" name="problems" value=<?=$response['anaskopisi'][$_GET['an']]['problems']?>>
+								</div>
+								<div class="form-group">
+									<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
+									<br>
+									<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
+									<br>
+									<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis" value=<?=$response['anaskopisi'][$_GET['an']]['sinopsis']?>>
+								</div>
+								<div class="form-group">
+									<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
+									<br>
+									<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
+									<br>
+									<input type="text" class="form-control" id="changes" placeholder="" name="changesenv" value=<?=$response['anaskopisi'][$_GET['an']]['changesenv']?>>
+								</div>
+								</table>
+								<div class="form-group">
+									<label for="progress"><label>7. Εξέλιξη θεραπείας : </label></label>
+									<br>
+									<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
+									<br>
+									<input type="text" class="form-control" id="progress" placeholder="" name="evolution" value=<?=$response['anaskopisi'][$_GET['an']]['evolution']?>>
+								</div>
+								<div class="form-group">
+									<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
+									<br>
+									<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
+									<br>
+									<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes" value=<?=$response['anaskopisi'][$_GET['an']]['changes']?>>
+								</div>
+								<div class="form-group">
+									<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
+									<br>
+									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
+									<br>
+									<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['mellon']?>>
+								</div>
+								<div class="form-group">
+									<table style="width:100%">
+										<tr>
+											<th></th>
+											<th>Βαθμός</th>
+											
+										</tr>
+										<tr>
+											<td>α. ψυχολογική</td>
+											<td>
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['psychologicalfunc']?>>
+											</td>
+											
+										</tr>
+										<tr>
+											<td>β. επαγγελματική/ακαδημαϊκή</td>
+											<td>
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['professionacademicfunc']?>>
+											</td>
+										</tr>
+										<tr>
+											<td>γ. κοινωνική</td>
+											<td>
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['socialfunc']?>>
+											</td>
+										</tr>
+										<tr>
+											<td>δ. αυτοφροντίδα</td>
+											<td>
+											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['autofix']?>>
+											</td>
+										</tr>
 									</table>
-									<div class="form-group">
-										<label for="progress"><label>7. Εξέλιξη θεραπείας : </label></label>
-										<br>
-										<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
-										<br>
-										<input type="text" class="form-control" id="progress" placeholder="" name="evolution">
-									</div>
-									<div class="form-group">
-										<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
-										<br>
-										<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
-										<br>
-										<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes">
-									</div>
-									<div class="form-group">
-										<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
-										<br>
-										<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
-										<br>
-										<input type="text" class="form-control" id="future" placeholder="" name="mellon">
-									</div>
-									<div class="form-group">
-										<table style="width:100%">
-											<tr>
-												<th></th>
-												<th>Απούσα</th>
-												<th>Ήπια</th>
-												<th>Μέτρια</th>
-												<th>Σοβαρή</th>
-											</tr>
-											<tr>
-												<td>α. ψυχολογική</td>
-												<td>
-												<input type="hidden" name="q10">
-												<input type="radio" value="Απούσα Ψυχολογική" name="q10" class="form-group" id="a1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια Ψυχολογική" name="q10" class="form-group" id="a2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια Ψυχολογική" name="q10" class="form-group" id="a3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή Ψυχολογική" name="q10" class="form-group" id="a4">
-												</td>
-											</tr>
-											<tr>
-												<td>β. επαγγελματική/ακαδημαϊκή</td>
-												<td>
-													<input type="hidden" name="q11">
-												<input type="radio" value="Απούσα επαγγελματική" name="q11" class="form-group" id="b1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια επαγγελματική" name="q11" class="form-group" id="b2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια επαγγελματική" name="q11" class="form-group" id="b3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή επαγγελματική" name="q11" class="form-group" id="b4">
-												</td>
-											</tr>
-											<tr>
-												<td>γ. κοινωνική</td>
-												<td>
-													<input type="hidden" name="q12">
-												<input type="radio" value="Απούσα κοινωνική" name="q12" class="form-group" id="g1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια κοινωνική" name="q12" class="form-group" id="g2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια κοινωνική" name="q12" class="form-group" id="g3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή κοινωνική" name="q12" class="form-group" id="g4">
-												</td>
-											</tr>
-											<tr>
-												<td>δ. αυτοφροντίδα</td>
-												<td>
-													<input type="hidden" name="q13">
-												<input type="radio" value="Απούσα αυτοφροντίδα" name="q13" class="form-group" id="d1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια αυτοφροντίδα" name="q13" class="form-group" id="d2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια αυτοφροντίδα" name="q13" class="form-group" id="d3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή αυτοφροντίδα" name="q13" class="form-group" id="d4">
-												</td>
-											</tr>
-
-										</table>
-									</div>
-									<div class="form-group">
-										<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
-										<input type="text" class="form-control" id="more" placeholder="" name="infos">
-									</div>
-									<button type="submit" class="btn btn-default" name="submit">
-										Καταχώρηση
-									</button>
-								</form>
-							</div>
+								</div>
+								<div class="form-group">
+									<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
+									<input type="text" class="form-control" id="more" placeholder="" name="infos" value=<?=$response['anaskopisi'][$_GET['an']]['infos']?>>
+								</div>
+								
+							</form>
 						</div>
 					</div>
+				</div>
 
-					<!-- jQuery -->
-					<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+				<!-- jQuery -->
+				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-					<!-- Bootstrap Core JavaScript -->
-					<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+				<!-- Bootstrap Core JavaScript -->
+				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-					<!-- Metis Menu Plugin JavaScript -->
-					<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+				<!-- Metis Menu Plugin JavaScript -->
+				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-					<!-- DataTables JavaScript -->
-					<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-					<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-					<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+				<!-- DataTables JavaScript -->
+				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-					<!-- Custom Theme JavaScript -->
-					<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+				<!-- Custom Theme JavaScript -->
+				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-					<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-					<script>
-						$(document).ready(function() {
-							$('#dataTables-example').DataTable({
-								responsive : true
-							});
+				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+				<script>
+					$(document).ready(function() {
+						$('#dataTables-example').DataTable({
+							responsive : true
 						});
-					</script>
+					});
+				</script>
 
 	</body>
 
 </html>
 
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/form11.php";
-$method='POST';
-if(isset($_POST['submit'])){
-$postfields=http_build_query($_POST);
-if(isset($_COOKIE['token'])){
-$response1=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response1=0;
-}
-while($response1['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-//$GLOBALS['curtoken']=giveToken();
-//print "<h5>".$GLOBALS['curtoken']."</h5>";
-$response1 = request($url, $method, $postfields, $tok);
-}
-var_dump($response1);
-}
-?>
