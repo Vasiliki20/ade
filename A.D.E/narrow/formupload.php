@@ -168,7 +168,7 @@ $postfields=http_build_query(array(
                     		<label for="file">Προσθήκη αρχείου για πελάτη</label>
                     		<input id="file" type="file" name="file">
                     		<p class="help-block"><h6>Μόνο pdf,jpg,jpeg,png και gif αρχεία με μέγεθος 10 MB επιτρέπονται.</h6></p>
-                  			<input type="submit" class="btn  btn-default" id="sub" value="Προσθήκη αρχείου">
+                  			<input type="submit" class="btn  btn-default" id="sub" value="Προσθηκη αρχειου">
                   		</div>
                  	</form>
             	</div>
@@ -178,7 +178,7 @@ $postfields=http_build_query(array(
 				<div class="col-lg-12">
 					<form class="well" id="contactForm" action="http://thesis.in.cs.ucy.ac.cy/mhc/retrieveapproved.php" method="post" >
 						<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
-						<input class="btn  btn-default" type="submit" name="submit" value="Εμφάνιση εγκεκριμένων αρχείων" >
+						<input class="btn  btn-default" type="submit" name="submit" value="Εμφανιση εγκεκριμενων αρχειων" >
 					</form>
 				</div>
 			</div>

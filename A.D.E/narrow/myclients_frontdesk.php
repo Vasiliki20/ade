@@ -56,14 +56,14 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_frontdesk.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_frontdesk.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual_frontdesk.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -75,22 +75,22 @@
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_frontdesk.php">Clients</a>
+										<a href="myclients_frontdesk.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="waitinglist_frontdesk.php">Waiting List</a>
+										<a href="waitinglist_frontdesk.php">Λίστα Αναμονής</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
 							<li>
-								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Approve Incoming Data</a>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i> 	Έγκριση Εισερχόμενων Αρχείων</a>
+							</li>
 							</li>
 						</ul>
 					</div>
@@ -161,7 +161,7 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
 											<td><?= $response['result'][$i]['psychologistID'] ?></td>
-											<td><a  href="casefile_frontdesk.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+											<td><a  href="casefile_frontdesk.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία πελάτη</a></td>
 										</tr>
 											<?php }} ?>
 									</tbody>

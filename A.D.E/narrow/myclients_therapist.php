@@ -51,19 +51,19 @@
 				</div>
 				<!-- /.navbar-header -->
 
-				<ul class="nav navbar-top-links navbar-right">
+			<ul class="nav navbar-top-links navbar-right">
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_therapist.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_therapist.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual_therapist.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -75,28 +75,28 @@
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist_therapist.php">Task List</a>
+										<a href="tasklist_therapist.php">Λίστα Εργασιών</a>
 									</li>
 									<li>
-										<a href="myclients_therapist.php">My clients</a>
+										<a href="myclients_therapist.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="myappointments_therapist.php">My appointments</a>
+										<a href="myappointments_therapist.php">Ραντεβού</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Upload file</a>
+								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Ανάρτηση Αρχείου</a>
 							</li>
 							<li>
-								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Στατιστικές</a>
 							</li>
 						</ul>
 					</div>
@@ -170,21 +170,21 @@ $postfields=http_build_query(array(
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 										<?php if($response['result'][$i]['redflag']==0){ ?>
 										<select name="flag[]">
-										<option value="1">Yes</option>
-										<option value="0" selected="selected">No</option>
+										<option value="1">Ναι</option>
+										<option value="0" selected="selected">Όχι</option>
 										
 										</select></td>
 										<?php }else{ ?>
 										<select name="flag[]">
-										<option value="1" selected="selected">Yes</option>
-										<option value="0">No</option>
+										<option value="1" selected="selected">Ναι</option>
+										<option value="0">Όχι</option>
 										<?php } ?>
 										</select></td>
 										
 
-											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία Πελάτη</a></td>
 
-											<td><a  href="casefile_therapist.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+											<td><a  href="casefile_therapist.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία Πελάτη</a></td>
 
 										</tr>
 											<?php }} ?>
