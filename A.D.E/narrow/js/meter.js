@@ -1,9 +1,9 @@
 var strength = {
-  0: "Worst",
-  1: "Bad",
-  2: "Weak",
-  3: "Good",
-  4: "Strong"
+  0: "Χείριστη",
+  1: "Κακή",
+  2: "Αδύμανη",
+  3: "Καλή",
+  4: "Δυνατή"
 };
 var password = document.getElementById('password');
 var meter = document.getElementById('password-strength-meter');
@@ -18,7 +18,7 @@ password.addEventListener('input', function() {
 
   // Update the text indicator
   if (val !== "") {
-    text.innerHTML = "Strength: " + strength[result.score]; 
+    text.innerHTML = "Ισχύς κωδικού: " + strength[result.score]; 
   } else {
     text.innerHTML = "";
   }
