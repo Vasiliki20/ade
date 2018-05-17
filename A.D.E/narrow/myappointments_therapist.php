@@ -202,7 +202,7 @@ $postfields=http_build_query(array(
 											<?php }else{ ?>
 											<td></td>
 											<?php } ?>
-											<td><a href="casenote.php?pID=<?=$response['result'][$j]['appointmentID']?>">link</a></td>
+											<td><a href="casenote.php?pID=<?=$response['result'][$j]['appointmentID']?>">Σημείωση προόδου</a></td>
 										</tr>
 									<?php  } ?>
 									</tbody>
