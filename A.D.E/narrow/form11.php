@@ -84,14 +84,14 @@ var_dump($response);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual_admin.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -99,18 +99,124 @@ var_dump($response);
 					<!-- /.dropdown -->
 				</ul>
 				<!-- /.navbar-top-links -->
-<<<<<<< HEAD
-				
-=======
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
+				<div class="navbar-default sidebar" role="navigation">
+					<div class="sidebar-nav navbar-collapse">
+						<ul class="nav" id="side-menu">
+							<li>
 
+								<a href="psindex_admin.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level">
+									<li>
+										<a href="myclients_admin.php">Πελάτες</a>
+									</li>
+									<li>
+										<a href="therapists.php">Θεραπευτές</a>
+									</li>
+									<li>
+										<a href="myappointments_admin.php">Ραντεβού</a>
+									</li>
+									<li>
+										<a href="waitinglist_admin.php">Λίστα Αναμονής</a>
+
+									</li>
+								</ul>
+								<!-- /.nav-second-level -->
+							</li>
+						</ul>
+					</div>
+					<!-- /.sidebar-collapse -->
+				</div>
+				<!-- /.navbar-static-side -->
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 class="page-header">Case File</h1>
+					</div>
+				</div>
+				<div>
+					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="casenotes_admin.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
+									</li>
+									<li>
+										<a href="filesofpatient_admin.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformationfull_admin.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule_admin.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog_admin.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
+											</li>
+										</ul>
+
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="clientrelationships_admin.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="clientmedication_admin.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+											<li>
+												<a href="medhistory_admin.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="externalinformation_admin.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
+									</li>
+									<li>
+										<a href="billing_admin.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints_admin.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons_admin.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
 				<div id="page-wrapper">
 					<div class="row">
 						<div class="col-lg-12">
 							<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
 						</div>
 					</div>
-<<<<<<< HEAD
 				</div>
 				<div>
 					<div class="panel panel-default">
@@ -242,140 +348,7 @@ var_dump($response);
 											<input type="radio" class="form-group" id="d4" name="autofix" value="Σοβαρή">
 											</td>
 										</tr>
-=======
-					<div>
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<form action="" method="post">
-									<div class="form-group">
-										<input type="hidden" name="patientID" value=<?=$_GET['patientID'] ?>
-										<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
-										<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['patient']['datesubmited'] ?>>
-										</div>
-										<div class="form-group">
-										<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
-										<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['patient']['kindoftherapy'] ?>>
-										</div>
-										<div class="form-group">
-										<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
-										<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['patient']['mainissue'] ?>>
-										</div>
-										<div class="form-group">
-										<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
-										<input type="text" class="form-control" id="issues" placeholder="" name="problems">
-										</div>
-										<div class="form-group">
-										<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
-										<br>
-										<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
-										<br>
-										<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis">
-										</div>
-										<div class="form-group">
-										<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
-										<br>
-										<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
-										<br>
-										<input type="text" class="form-control" id="changes" placeholder="" name="changesenv">
-									</div>
->>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 									</table>
-									<div class="form-group">
-										<label for="progress"><label>7. Εξέλιξη θεραπείας : </label></label>
-										<br>
-										<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
-										<br>
-										<input type="text" class="form-control" id="progress" placeholder="" name="evolution">
-									</div>
-									<div class="form-group">
-										<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
-										<br>
-										<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
-										<br>
-										<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes">
-									</div>
-									<div class="form-group">
-										<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
-										<br>
-										<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
-										<br>
-										<input type="text" class="form-control" id="future" placeholder="" name="mellon">
-									</div>
-									<div class="form-group">
-										<table style="width:100%">
-											<tr>
-												<th></th>
-												<th>Απούσα</th>
-												<th>Ήπια</th>
-												<th>Μέτρια</th>
-												<th>Σοβαρή</th>
-											</tr>
-											<tr>
-												<td>α. ψυχολογική</td>
-												<td>
-												<input type="hidden" name="q10">
-												<input type="radio" value="Απούσα Ψυχολογική" name="q10" class="form-group" id="a1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια Ψυχολογική" name="q10" class="form-group" id="a2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια Ψυχολογική" name="q10" class="form-group" id="a3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή Ψυχολογική" name="q10" class="form-group" id="a4">
-												</td>
-											</tr>
-											<tr>
-												<td>β. επαγγελματική/ακαδημαϊκή</td>
-												<td>
-													<input type="hidden" name="q11">
-												<input type="radio" value="Απούσα επαγγελματική" name="q11" class="form-group" id="b1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια επαγγελματική" name="q11" class="form-group" id="b2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια επαγγελματική" name="q11" class="form-group" id="b3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή επαγγελματική" name="q11" class="form-group" id="b4">
-												</td>
-											</tr>
-											<tr>
-												<td>γ. κοινωνική</td>
-												<td>
-													<input type="hidden" name="q12">
-												<input type="radio" value="Απούσα κοινωνική" name="q12" class="form-group" id="g1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια κοινωνική" name="q12" class="form-group" id="g2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια κοινωνική" name="q12" class="form-group" id="g3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή κοινωνική" name="q12" class="form-group" id="g4">
-												</td>
-											</tr>
-											<tr>
-												<td>δ. αυτοφροντίδα</td>
-												<td>
-													<input type="hidden" name="q13">
-												<input type="radio" value="Απούσα αυτοφροντίδα" name="q13" class="form-group" id="d1">
-												</td>
-												<td>
-												<input type="radio" value="Ήπια αυτοφροντίδα" name="q13" class="form-group" id="d2">
-												</td>
-												<td>
-												<input type="radio" value="Μέτρια αυτοφροντίδα" name="q13" class="form-group" id="d3">
-												</td>
-												<td>
-												<input type="radio" value="Σοβαρή αυτοφροντίδα" name="q13" class="form-group" id="d4">
-												</td>
-											</tr>
-
-										</table>
 									</div>
 									<div class="form-group">
 										<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>

@@ -56,14 +56,14 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="#"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -75,22 +75,22 @@
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_admin.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_admin.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">Clients</a>
+										<a href="myclients_admin.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="therapists.php">Therapists</a>
+										<a href="therapists.php">Θεραπευτές</a>
 									</li>
 									<li>
-										<a href="myappointments_admin.php">My Appointments</a>
+										<a href="myappointments_admin.php">Ραντεβού</a>
 									</li>
 									<li>
-										<a href="waitinglist_admin.php">Waiting List</a>
+										<a href="waitinglist_admin.php">Λίστα Αναμονής</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
@@ -249,13 +249,13 @@ $postfields=http_build_query(array(
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<?php if($response['result'][$j]['payed']==0){ ?>
 											<select name="payed[]">
-											<option value="1">Yes</option>
-											<option value="0" selected="selected">No</option>	
+											<option value="1">Ναι</option>
+											<option value="0" selected="selected">Όχι</option>	
 											</select></td>
 											<?php }else{ ?>
 											<select name="payed[]">
-											<option value="1" selected="selected">Yes</option>
-											<option value="0">No</option>
+											<option value="1" selected="selected">Ναι</option>
+											<option value="0">Όχι</option>
 											<?php } ?>
 											</select></td>
 											</tr>

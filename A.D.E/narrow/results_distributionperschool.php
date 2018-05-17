@@ -111,14 +111,14 @@ var_dump($response);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -130,28 +130,28 @@ var_dump($response);
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist.php">Task List</a>
+										<a href="tasklist.php">Λίστα Εργασιών</a>
 									</li>
 									<li>
-										<a href="myclients.php">My clients</a>
+										<a href="myclients.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="myappointments.php">My appointments</a>
+										<a href="myappointments.php">Ραντεβού</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Upload file</a>
+								<a href="formupload_supervisor.php"><i class="fa fa-upload"></i> Ανάρτηση Αρχείου</a>
 							</li>
 							<li>
-								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="reports.php"><i class="fa fa-bar-chart-o"></i> Στατιστικές</a>
 							</li>
 						</ul>
 					</div>

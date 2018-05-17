@@ -26,7 +26,7 @@ $response = request($url, $method, $postfields, $tok);
 var_dump($response);
 //}
 ?>
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 	<head>
@@ -61,6 +61,7 @@ var_dump($response);
 			$('myTable').DataTable();
 		});
 	</script>
+
 	<body>
 
 		<div id="wrapper">
@@ -83,14 +84,14 @@ var_dump($response);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_therapist.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_therapist.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual_therapist.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -102,28 +103,29 @@ var_dump($response);
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Calendar</a>
+
+								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="tasklist_therapist.php">Task List</a>
+										<a href="tasklist_therapist.php">Λίστα Εργασιών</a>
 									</li>
 									<li>
-										<a href="myclients_therapist.php">My clients</a>
+										<a href="myclients_therapist.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="myappointments_therapist.php">My appointments</a>
+										<a href="myappointments_therapist.php">Ραντεβού</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Upload file</a>
+								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Ανάρτηση Αρχείου</a>
 							</li>
 							<li>
-								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Reports</a>
+								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Στατιστικές</a>
 							</li>
 						</ul>
 					</div>
@@ -135,6 +137,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
+<<<<<<< HEAD
 						<h1 class="page-header">Case File</h1>
 					</div>
 				</div>
@@ -215,6 +218,10 @@ var_dump($response);
 				</div>
 
 				<div>
+						<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
+					</div>
+				</div>
+				<div>
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<form action="" method="post">
@@ -270,6 +277,7 @@ var_dump($response);
 									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
 									<br>
 									<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['mellon']?>">
+
 								</div>
 								<div class="form-group">
 									<table style="width:100%">
@@ -282,6 +290,7 @@ var_dump($response);
 											<td>α. ψυχολογική</td>
 											<td>
 											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['psychologicalfunc']?>">
+
 											</td>
 											
 										</tr>
@@ -289,18 +298,21 @@ var_dump($response);
 											<td>β. επαγγελματική/ακαδημαϊκή</td>
 											<td>
 											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['professionacademicfunc']?>">
+
 											</td>
 										</tr>
 										<tr>
 											<td>γ. κοινωνική</td>
 											<td>
 											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['socialfunc']?>">
+
 											</td>
 										</tr>
 										<tr>
 											<td>δ. αυτοφροντίδα</td>
 											<td>
 											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['autofix']?>">
+
 											</td>
 										</tr>
 									</table>
@@ -308,6 +320,7 @@ var_dump($response);
 								<div class="form-group">
 									<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
 									<input type="text" class="form-control" id="more" placeholder="" name="infos" value="<?=$response['anaskopisi'][$_GET['an']]['infos']?>">
+
 								</div>
 								
 							</form>

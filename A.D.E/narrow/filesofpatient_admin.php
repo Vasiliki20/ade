@@ -55,14 +55,14 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								<a href="usermanual_admin.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -74,22 +74,22 @@
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_admin.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_admin.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">Clients</a>
+										<a href="myclients_admin.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="therapists.php">Therapists</a>
+										<a href="therapists.php">Θεραπευτές</a>
 									</li>
 									<li>
-										<a href="myappointments_admin.php">My Appointments</a>
+										<a href="myappointments_admin.php">Ραντεβού</a>
 									</li>
 									<li>
-										<a href="waitinglist_admin.php">Waiting List</a>
+										<a href="waitinglist_admin.php">Λίστα Αναμονής</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
@@ -104,7 +104,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Αρχεία Πελάτη</h1>
 					</div>
 				</div>
 				
