@@ -245,13 +245,13 @@ $postfields=http_build_query(array(
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 											<?php if($response['result'][$j]['payed']==0){ ?>
 											<select name="payed[]">
-											<option value="1">Yes</option>
-											<option value="0" selected="selected">No</option>	
+											<option value="1">Ναι</option>
+											<option value="0" selected="selected">Όχι</option>	
 											</select></td>
 											<?php }else{ ?>
 											<select name="payed[]">
-											<option value="1" selected="selected">Yes</option>
-											<option value="0">No</option>
+											<option value="1" selected="selected">Ναι</option>
+											<option value="0">Όχι</option>
 											<?php } ?>
 											</select></td>
 											</tr>
