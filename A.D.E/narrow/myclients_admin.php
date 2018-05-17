@@ -187,16 +187,16 @@ $postfields=http_build_query(array(
 										<td>
 										<?php if($response['result'][$i]['active']==0){ ?>
 										<select class="item-number" name="status[]">
-										<option value="1">Active</option>
-										<option value="0" selected="selected">Deactive</option>
-										<option value="delete">Delete</option>
+										<option value="active" label="Active">Active</option>
+										<option value="deactive" label="Deactive" selected="selected">Deactive</option>
+										<option value="delete" label="Delete">Delete</option>
 										</select></td>
 										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										<?php }else{ ?>
 										<select class="item-number" name="status[]">
-										<option value="1" selected="selected">Active</option>
-										<option value="0">Deactive</option>
-										<option value="delete">Delete</option>
+										<option value="active" label="Active" selected="selected">Active</option>
+										<option value="deactive" label="Deactive">Deactive</option>
+										<option value="delete" label="Delete">Delete</option>
 										</select></td>
 										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
 										</tr>
@@ -270,7 +270,8 @@ if(isset($_POST['submit1'])){
 	 var_dump($_POST['id']);
 	 var_dump($_POST['status']);
 	foreach($_POST['id'] as $j){
-	
+	if(strcmp($_POST['status'][$i],"active")==0){ $_POST['status'][$i]=1;}
+	if(strcmp($_POST['status'][$i],"deactive")==0){ $_POST['status'][$i]=0;}
 $postfields=http_build_query(array(
 	'id'=> $_POST['id'][$i],		
 	'status'=> $_POST['status'][$i]

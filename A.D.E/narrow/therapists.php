@@ -26,7 +26,7 @@ $postfields=http_build_query(array(
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-var_dump($response);
+//var_dump($response);
 
 //}
 ?>
@@ -42,12 +42,10 @@ var_dump($response);
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
 		<!-- FOR DROPDOWN -->
-		<meta name="robots" content="noindex, nofollow">
-		<meta name="googlebot" content="noindex, nofollow">
-		
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="/css/result-light.css">
+		<!-- Java Scripts -->
+		<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,9 +64,11 @@ var_dump($response);
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+		<link rel="stylesheet" type="text/css" href="css/result-light.css">
 	</head>
 	<script>
 		$(document).ready(function() {
@@ -163,10 +163,10 @@ var_dump($response);
 							<!-- /.panel-heading -->
 							<div class="panel-body">
 								<form method="post" action="">
-									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-									<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+									
+									<table id="example" width="100%" class="display">
 										
-										<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example"></label></div>
+										
 										<thead>
 											<tr>
 												<th>Όνομα</th>
@@ -174,31 +174,20 @@ var_dump($response);
 												<th>Ταυτότητα</th>
 												<th>Τύπος</th>
 												<th>Κατάσταση</th>
-												<th>Επιλεγμέμνη κατάσταση</th>
+									
 											</tr>
 										</thead>
 										<tbody>
-								<script>
-									$(document).ready(function() {
-										$("select").change(function() {
-											// No need to loop through all the selects each time, since you can only change one value at a time.
-											var str = $(this).find("option:selected").attr('label') || "Description shows up here";
-											$(this).closest("tr").find(".item-name").html(str);
-										}).trigger('change');
-
-									});
-								</script>
-											<script>
-												document.cookie='token=<?= $tok ?>
-												';
-											</script>
+										
+								
+											
 
 											<?php
-if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
-<tr>
-<td><?= $response['result'][$i]['firstname'] ?></td>
-											<td><?= $response['result'][$i]['lastname'] ?></td>
-											<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><label for="id[]"><?= $response['result'][$i]['psychologistID'] ?></label></td>
+											if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
+											<tr>
+											<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['firstname'] ?>" readonly></td>
+											<td><input type="text" id="row-1-age" name="row-1-age" value="<?= $response['result'][$i]['lastname'] ?>" readonly></td>
+											<td><input type="hidden" value="<?= $response['result'][$i]['psychologistID'] ?>" name="id[]"><input type="text" id="row-1-position" name="row-1-position" value="<?= $response['result'][$i]['psychologistID'] ?>" readonly></td>
 											<td>
 											<?php if(strnatcmp($response['result'][$i]['typeof'],"frontdesk")==0){
 											?>
@@ -208,43 +197,78 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 											<input type="hidden" value="<?= $response['result'][$i]['typeof'] ?>" name="type[]"><label for="type[]"><?= $response['result'][$i]['typeof'] ?></label>
 											</td>
 											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"therapist")==0){ ?>
-											<select name="type[]">
+											<select size="1" id="row-1-office" name="type[]">
 											<option value="therapist" selected="selected">Therapist</option>
 											<option value="supervisor" >Supervisor</option>
 											</select></td>
 											<?php }else if(strnatcmp($response['result'][$i]['typeof'],"supervisor")==0){ ?>
-											<select name="type[]">
+											<select size="1" id="row-1-office" name="type[]">
 											<option value="therapist" >Therapist</option>
 											<option value="supervisor" selected="selected">Supervisor</option>
 											</select></td>
 											<?php } ?>
-											<td>
+											
 												<?php if($response['result'][$i]['active']==0){
 												?>
-											<select name="status[]" class="item-number">
-											<option value="1" label="Active">Active</option>
-											<option value="0" label="Deactive" selected="selected">Deactive</option>
-											<option value="delete" label="Delete">Delete</option>
+											<td>
+											<select size="1" id="row-1-kakka" name="status[]" >
+											<option value="active" >Active</option>
+											<option value="deactive" selected="selected">Deactive</option>
+											<option value="delete" >Delete</option>
 											</select></td>
 											<?php }else{ ?>
-											<select name="status[]" class="item-number">
-											<option value="1" label="Active" selected="selected">Active</option>
-											<option value="0" label="Deactive">Deactive</option>
-											<option value="delete" label="Delete">Delete</option>
-											</select></td>
 											<td>
-											<span class="item-name">Description shows up here</span>
-											</td>
+											<select size="1" id="row-1-kakka" name="status[]" >
+											<option value="active" selected="selected">Active</option>
+											<option value="deactive" >Deactive</option>
+											<option value="delete" >Delete</option>
+											</select></td>
+											<!--<td class="item-name">
+											Description shows up here
+											</td>-->
 											<?php } ?>
 											</tr>
 											<?php }} ?>
+											</tbody>
 									</table>
 									<input class="btn btn-default" type="submit" name="submit1" value="Αποθήκευση Αλλαγών"/>
 								</form>
 							</div>
 							<!-- /.panel-body -->
 						</div>
-						<!-- /.panel -->
+						<script>
+			$.fn.dataTableExt.ofnSearch['html-input'] = function(value) {
+				return $(value).val();
+			};
+
+			var table = $("#example").DataTable({
+				columnDefs : [{
+					"type" : "html-input",
+					"targets" : [0, 1, 2, 3, 4]
+				}]
+			});
+
+			$("#example td input").on('change', function() {
+				var $td = $(this).parent();
+				$td.find('input').attr('value', this.value);
+				table.cell($td).invalidate().draw();
+			});
+			$("#example td select").on('change', function() {
+				var $td = $(this).parent();
+				var value = this.value;
+				$td.find("option").filter("[selected]").removeAttr("selected").end().filter('[value="' + value + '"]').attr("selected", true);
+				table.cell($td).invalidate().draw();
+			});
+		</script>
+		<script>
+			// tell the embed parent frame the height of the content
+			if (window.parent && window.parent.parent) {
+				window.parent.parent.postMessage(["resultsFrame", {
+					height : document.body.getBoundingClientRect().height,
+					slug : "s2gbafuz"
+				}], "*")
+			}
+		</script>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
@@ -255,30 +279,16 @@ if(isset($response)){for($i=0;$i<count($response['result']);$i++){ ?>
 		<!-- /#wrapper -->
 
 		<!-- jQuery -->
-		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+		<script src="js/jquery-1.9.1.js"></script>
+
+		<!-- jQuery DataTables-->
+		<script src="js/jquery.dataTables.min.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Metis Menu Plugin JavaScript -->
-		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-		<!-- DataTables JavaScript -->
-		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-		<!-- Custom Theme JavaScript -->
-		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
 		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
+
 	</body>
 
 </html>
@@ -293,7 +303,8 @@ var_dump($_POST['id']);
 var_dump($_POST['type']);
 var_dump($_POST['status']);
 foreach($_POST['id'] as $j){
-
+if(strcmp($_POST['status'][$i],"active")==0){ $_POST['status'][$i]=1;}
+if(strcmp($_POST['status'][$i],"deactive")==0){ $_POST['status'][$i]=0;}
 $postfields=http_build_query(array(
 'id'=> $_POST['id'][$i],
 'type'=> $_POST['type'][$i],
