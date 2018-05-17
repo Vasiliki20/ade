@@ -51,7 +51,7 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header"><small>Appointment</small></h1>
+						<h1 class="page-header"><small>Ραντεβού</small></h1>
 					</div>
 				</div>
 				<div>
@@ -71,10 +71,10 @@
 									<label for="type">Τύπος</label>
 									<br>
 									<input type="radio" class="form-group" name="type" value="Individual">
-									Individual
+									Ατομικό
 									<br>
 									<input type="radio" class="form-group" name="type" value="Group" >
-									Group
+									Ομαδικό
 									<br>
 								</div>
 								<div class="form-group">
@@ -82,10 +82,10 @@
 									<label for="type">Είδος</label>
 									<br>
 									<input type="radio" class="form-group" name="code" value="Personal">
-									Personal
+									Προσωπικό
 									<br>
 									<input type="radio" class="form-group" name="code" value="Counseling">
-									Counseling
+									Συμβουλευτικό
 									<br>
 								</div>
 <?php	require_once("requests.php");
@@ -145,55 +145,55 @@ $postfields=http_build_query(array(
 								</div>
 								<div class="form-group">
 									<input type="hidden" name="clientSMS">
-									<label for="remindclient">Remind Client via SMS</label>
+									<label for="remindclient">Υπενθίμιση Πελάτη μέσω SMS</label>
 									<br>
 									<input type="radio" class="form-group" name="clientSMS" value="yes">
-									Yes
+									Ναι
 									<br>
 									<input type="radio" class="form-group" name="clientSMS" value="no">
-									No
+									Όχι
 									<br>								
 								</div>
 								<div class="form-group">
 									<input type="hidden" name="clientEMAIL">
-									<label for="remindclient">Remind Client via Email</label>
+									<label for="remindclient">Υπενθίμιση Πελάτη μέσω Email</label>
 									<br>
 									<input type="radio" class="form-group" name="clientEMAIL" value="yes">
-									Yes
+									Ναι
 									<br>
 									<input type="radio" class="form-group" name="clientEMAIL" value="no">
-									No
+									Όχι
 									<br>								
 								</div>
 								<div class="form-group">
 									<input type="hidden" name="psychSMS">
-									<label for="remindclient">Remind Psychologist via SMS</label>
+									<label for="remindclient">Υπενθίμιση Ψυχολόγου μέσω SMS</label>
 									<br>
 									<input type="radio" class="form-group" name="psychSMS" value="yes">
-									Yes
+									Ναι
 									<br>
 									<input type="radio" class="form-group" name="psychSMS" value="no">
-									No
+									Όχι
 									<br>								
 								</div>
 								<div class="form-group">
 									<input type="hidden" name="psychEMAIL">
-									<label for="remindclient">Remind Psychologist via Email</label>
+									<label for="remindclient">Υπενθίμιση Ψυχολόγου μέσω Email</label>
 									<br>
 									<input type="radio" class="form-group" name="psychEMAIL" value="yes">
-									Yes
+									Ναι
 									<br>
 									<input type="radio" class="form-group" name="psychEMAIL" value="no">
-									No
+									Όχι
 									<br>								
 								</div>
 								<div class="form-group">
-									<label for="remindpsychologist">Remind time before time</label>
+									<label for="remindpsychologist">Υπενθίμιση πριν από:</label>
 									<input type="time" class="form-control" id="comments" placeholder="" name="timebefore">						
 								</div>
 						</div>
 					</div>
-					<div class="space"><input name="submit" type="submit" value="Submit" id="Αποθήκευση" /> <a href="" id="cancel" >Ακύρωση</a></div>
+					<div class="space"><input name="submit" class="btn btn-default" type="submit" value="Αποθήκευση" id="Αποθήκευση" /> <a href="" id="cancel" >Ακύρωση</a></div>
 					
 					</button>
 				</div>
