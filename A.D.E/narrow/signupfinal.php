@@ -8,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Κέντρο Ψυχικής Υγείας</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
 
@@ -18,14 +18,14 @@
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/form-elements.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/style.css">
-
+		<link rel="stylesheet" href="css/meter.css">
 	</head>
 
-<style>
-	body {
-		background-image: url("1.jpg");
-	}
-</style>
+	<style>
+		body {
+			background-image: url("1.jpg");
+		}
+	</style>
 	<body>
 
 		<!-- Top content -->
@@ -155,6 +155,8 @@
 								<div class="form-group">
 									<label class="sr-only" for="password">Κωδικός</label>
 									<input type="password" name="password" placeholder="Κωδικός" class="form-control" id="password">
+									<meter max="4" id="password-strength-meter"></meter>
+        				<p id="password-strength-text"></p>
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="confirm">Επιβεβέωση Κωδικού</label>
@@ -173,90 +175,91 @@
 						</form>
 					</div>
 					<script>
-				$(document).ready(function() {
-					jQuery.validator.addMethod("noSpace", function(value, element) {
-						return value.indexOf(" ") < 0 && value != "";
-					}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+						$(document).ready(function() {
+							jQuery.validator.addMethod("noSpace", function(value, element) {
+								return value.indexOf(" ") < 0 && value != "";
+							}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
 
-					jQuery.validator.addMethod("sqlValidator", function(value, element) {
-						return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-					}, 'Παρακαλώ συμπληρώστε ξανά');
+							jQuery.validator.addMethod("sqlValidator", function(value, element) {
+								return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
 
-					jQuery.validator.addMethod("xssValidator", function(value, element) {
-						return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-					}, 'Παρακαλώ συμπληρώστε ξανά');
+							jQuery.validator.addMethod("xssValidator", function(value, element) {
+								return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
 
-					$('#contact-form').validate({
-						rules : {
-							name : {
-								minlength : 1,
-								sqlValidator : true,
-								xssValidator : true,
-								noSpace : true,
-								required : true
-							},
-							surname : {
-								minlength : 1,
-								sqlValidator : true,
-								xssValidator : true,
-								noSpace : true,
-								required : true
-							},
-							email : {
-								required : true,
-								email : true
-							},
-							id : {
-								required : true,
-								sqlValidator : true,
-								xssValidator : true
-							},
-							password : {
-								required : true,
-								sqlValidator : true,
-								xssValidator : true,
-								noSpace : true
-							},
-							confirm: {
-								equalTo: "#password",
-								required : true
-							},
-							address : {
-								minlength : 1,
-								sqlValidator : true,
-								xssValidator : true,
-							},
-							position : {
-								minlength : 1,
-								sqlValidator : true,
-								xssValidator : true,
-							},
-							building : {
-								minlength : 1,
-								sqlValidator : true,
-								xssValidator : true,
-							},
-							speciality : {
-								minlength : 1,
-								sqlValidator : true,
-								xssValidator : true,
-							}
-						},
-						highlight : function(element) {
-							$(element).closest('.form-group').addClass('error text-danger');
-						},
-						success : function(element) {
-							$(element).closest('.form-group').removeClass('error text-danger');
-						}
-					});
+							$('#contact-form').validate({
+								rules : {
+									name : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true
+									},
+									surname : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true
+									},
+									email : {
+										required : true,
+										email : true
+									},
+									id : {
+										required : true,
+										sqlValidator : true,
+										xssValidator : true
+									},
+									password : {
+										required : true,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true
+									},
+									confirm : {
+										equalTo : "#password",
+										required : true
+									},
+									address : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+									},
+									position : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+									},
+									building : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+									},
+									speciality : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+									}
+								},
+								highlight : function(element) {
+									$(element).closest('.form-group').addClass('error text-danger');
+								},
+								success : function(element) {
+									$(element).closest('.form-group').removeClass('error text-danger');
+								}
+							});
 
-				});
+						});
 
-			</script>
+					</script>
 				</div>
 
 			</div>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
 		<!-- Javascript -->
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery-1.11.1.min.js"></script>
@@ -265,14 +268,14 @@
 		<script src="bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/scripts.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.validate.js"></script>
-<script src="js/jquery.validate.js"></script>
-		
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/meter.js"></script>
+
 		<!--[if lt IE 10]>
 		<script src="assets/js/placeholder.js"></script>
 		<![endif]-->
 	</body>
 </html>
-
 
 <?php
 require_once("requests.php");
@@ -280,51 +283,51 @@ $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/psyregister.php";
 $method='POST';
 if(isset($_POST['submit'])){
 $postfields=http_build_query(array(
-	'id'=> $_POST['id'],		
-	'name'=> $_POST['name'],		
-	'lastname'=> $_POST['surname'],		
-	'sex' => $_POST['gender'],		
-	'age' => $_POST['age'],		
-	'address' => $_POST['address'],		
-	'telephone' => $_POST['phone'],		
-	'fax' => $_POST['fax'],
-	'position' => $_POST['position'],		
-	'speciality' => $_POST['speciality'],		
-	'building' => $_POST['building'],		
-	'office_num' => $_POST['officenum'],		
-	'email' => $_POST['email'],		
-	'password' => $_POST['password']	
-		));
-	if(isset($_COOKIE['token'])){
-		$response=request($url,$method,$postfields,$_COOKIE['token']);
-	}else{
-		$response=0;
-	}
-	if($response['status']!=1){
-		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
-		?>
-		<script>
-			document.cookie='token=<?= $tok ?>';
-		</script>
-		<?php
-		//$GLOBALS['curtoken']=giveToken();
-		//print "<h5>".$GLOBALS['curtoken']."</h5>";
-		$response=request($url,$method,$postfields,$tok);
-	}
-	if(isset($response['error'])){
-		?><script> alert("This id already exist! Please use another id!"); </script><?php
-	}
-	if($response['success']==1){
-	echo "<div class=\"alert alert-success fade in\">
-			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			<strong>Success!</strong> You have successfully registered to the system!
-			</div>";
-	}else{
-		echo "<div class=\"alert alert-danger fade in\">
-			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			  <strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
-			  </div>";
-	}
+'id'=> $_POST['id'],
+'name'=> $_POST['name'],
+'lastname'=> $_POST['surname'],
+'sex' => $_POST['gender'],
+'age' => $_POST['age'],
+'address' => $_POST['address'],
+'telephone' => $_POST['phone'],
+'fax' => $_POST['fax'],
+'position' => $_POST['position'],
+'speciality' => $_POST['speciality'],
+'building' => $_POST['building'],
+'office_num' => $_POST['officenum'],
+'email' => $_POST['email'],
+'password' => $_POST['password']
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+if(isset($response['error'])){
+?><
+script> alert("This id already exist! Please use another id!"); </script><?php
+}
+if($response['success']==1){
+echo "<div class=\"alert alert-success fade in\">
+<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+<strong>Success!</strong> You have successfully registered to the system!
+</div>";
+}else{
+echo "<div class=\"alert alert-danger fade in\">
+<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+<strong>Error!</strong> A problem has been occurred while submitting your data. Please check your internet connection and/or if you have some special characters in your inputs remove them
+</div>";
+}
 }
 ?>
