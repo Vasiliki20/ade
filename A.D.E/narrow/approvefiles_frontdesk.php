@@ -90,7 +90,7 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Έγκριση εισερχόμενων αρχείων</a>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Έγκριση Εισερχόμενων Αρχείων</a>
 							</li>
 						</ul>
 					</div>

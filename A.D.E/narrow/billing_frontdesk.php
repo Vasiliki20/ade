@@ -59,7 +59,7 @@
 								<a href="myprofile_frontdesk.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
+								<a href="usermanual_frontdesk.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
@@ -90,7 +90,7 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i> Έγκριση εισερχόμενων αρχείων</a>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i> Έγκριση Εισερχόμενων Αρχείων</a>
 							</li>
 						</ul>
 					</div>
