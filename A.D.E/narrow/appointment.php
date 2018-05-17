@@ -22,6 +22,7 @@
 		<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/meter.css">
 		<script src="js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
@@ -149,6 +150,8 @@
 					<div class="form-group">
 						<label for="pwd">Κωδικός:</label>
 						<input type="password" class="form-control" id="password" placeholder="Κωδικός" name="password">
+						<meter max="4" id="password-strength-meter"></meter>
+        				<p id="password-strength-text"></p>
 					</div>
 					<div class="form-group">
 						<label for="confirm">Επιβεβαίωση Κωδικού:</label>
@@ -241,6 +244,7 @@
 		</div>
 		<!-- END: box-wrap -->
 		<!-- jQuery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<!-- jQuery Easing -->
 		<script src="js/jquery.easing.1.3.js"></script>
@@ -253,7 +257,7 @@
 		<!-- Parallax Stellar -->
 		<script src="js/jquery.stellar.min.js"></script>
 		<script src="js/jquery.validate.js"></script>
-
+		<script src="js/meter.js"></script>
 		<!-- Main JS (Do not remove) -->
 		<script src="js/main.js"></script>
 
