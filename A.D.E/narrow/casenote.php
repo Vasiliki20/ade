@@ -88,9 +88,6 @@
 									<li>
 										<a href="myappointments.php">Ραντεβού</a>
 									</li>
-									<li>
-										<a href="waitinglist.php">Λίστα Αναμονής</a>
-									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
