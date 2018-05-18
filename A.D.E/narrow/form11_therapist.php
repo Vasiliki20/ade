@@ -84,10 +84,10 @@ var_dump($response);
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
+								<a href="myprofile_therapist.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="usermanual_admin.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
+								<a href="usermanual_therapist.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
@@ -103,27 +103,28 @@ var_dump($response);
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-
-								<a href="psindex_admin.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
+								<a href="psindex_therapist.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_admin.php">Πελάτες</a>
+										<a href="tasklist_therapist.php">Λίστα Εργασιών</a>
 									</li>
 									<li>
-										<a href="therapists.php">Θεραπευτές</a>
+										<a href="myclients_therapist.php">Πελάτες</a>
 									</li>
 									<li>
-										<a href="myappointments_admin.php">Ραντεβού</a>
-									</li>
-									<li>
-										<a href="waitinglist_admin.php">Λίστα Αναμονής</a>
-
+										<a href="myappointments_therapist.php">Ραντεβού</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
+							</li>
+							<li>
+								<a href="formupload_therapist.php"><i class="fa fa-upload"></i> Ανάρτηση Αρχείου</a>
+							</li>
+							<li>
+								<a href="reports_therapist.php"><i class="fa fa-bar-chart-o"></i> Στατιστικές</a>
 							</li>
 						</ul>
 					</div>
@@ -135,11 +136,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-<<<<<<< HEAD
-						<h1 class="page-header">Case File</h1>
-=======
 						<h1 class="page-header">Αρχεία Πελάτη</h1>
->>>>>>> a65014051b0e976de211bccba8a8ae630aa3051f
 					</div>
 				</div>
 				<div>
