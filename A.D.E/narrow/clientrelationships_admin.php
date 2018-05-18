@@ -219,11 +219,11 @@ var_dump($response);
 								<tr>
 									<th>
 									<center>
-										<label>Όνομα:</label>
+										<label>Σχέση:</label>
 									</center></th>
 									<th>
 									<center>
-										<label>Σχέση:</label>
+										<label>Όνομα:</label>
 									</center></th>
 									<th>
 									<center>
@@ -240,20 +240,18 @@ var_dump($response);
 								<?php for($i=0;$i<count($response['relations']);$i++){ ?>
 <tr>
 <td>
-<input type="text" class="form-control" id="familyrelation" name="name" value=<?=$response['relations'][$i]['relation'] ?>>
+<input type="text" class="form-control" id="familyrelation" name="name" value="<?=$response['relations'][$i]['relation'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="familyrelation" name="relationship" value=<?=$response['relations'][$i]['name'] ?>>
+<input type="text" class="form-control" id="familyrelation" name="relationship" value="<?=$response['relations'][$i]['name'] ?>">
 </input></td>
 <td>
-<input type="number" class="form-control" id="familyrelation" name="age" value=<?=$response['relations'][$i]['age'] ?>>
+<input type="number" class="form-control" id="familyrelation" name="age" value="<?=$response['relations'][$i]['age'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="familyrelation" name="quality" value=<?=$response['relations'][$i]['quality'] ?>>
+<input type="text" class="form-control" id="familyrelation" name="quality" value="<?=$response['relations'][$i]['quality'] ?>">
 </input></td>
-<!--<td>
-<input type="text" class="form-control" id="familyrelation" name="problem" value=<?=$response['relations'][$i]['psychoproblem']?>>
-</input></td> -->
+
 </tr>
 <?php } ?>
 							</table>
