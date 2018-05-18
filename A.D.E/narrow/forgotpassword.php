@@ -18,8 +18,7 @@
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/form-elements.css">
 		<link rel="stylesheet" href="bootzard-bootstrap-wizard-template/assets/css/style.css">
-<link rel="stylesheet" href="css/meter.css">
-	</head>
+		<link rel="stylesheet" href="css/meter.css"></head>
 
 	<style>
 		body {
@@ -33,7 +32,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-						<form role="form" action="" method="post" class="f1">
+						<form id="contact-form" role="form" action="" method="post" class="f1">
 							<img src="logo_el.png">
 							<br>
 							<br>
@@ -52,7 +51,7 @@
 									<label class="sr-only" for="password">Νέος κωδικός</label>
 									<input type="password" name="password" placeholder="Νέος κωδικός" class="form-control" id="password">
 									<meter max="4" id="password-strength-meter"></meter>
-        				<p id="password-strength-text"></p>
+        							<p id="password-strength-text"></p>
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="confirmpassword">Επιβεβέωση νέου κωδικού</label>
@@ -94,7 +93,7 @@
 										xssValidator : true,
 										noSpace : true
 									},
-									confirm : {
+									confirmpassword : {
 										equalTo : "#password",
 										required : true
 									}
@@ -124,7 +123,7 @@
 		<script src="bootzard-bootstrap-wizard-template/assets/js/scripts.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.validate.js"></script>
 		<script src="js/jquery.validate.js"></script>
-<script src="js/meter.js"></script>
+		<script src="js/meter.js"></script>
 
 		<!--[if lt IE 10]>
 		<script src="assets/js/placeholder.js"></script>
