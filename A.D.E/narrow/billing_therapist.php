@@ -235,8 +235,8 @@ $postfields=http_build_query(array(
 											<td><?=$response['result1'][$j]['firstname']?></td>
 											<td><?=$response['result1'][$j]['lastname']?></td>
 											<td><?=$response['result'][$j]['patientID']?></td>
-											<td><?=$response['result'][$j]['start']?></td>
 											<td><?=$response['result'][$j]['nameofappointment']?></td>
+											<td><?=$response['result'][$j]['start']?></td>
 											<?php if($response['result'][$j]['patientID']!=null){?>
 											<td><input type="hidden" name="aid[]" value=<?=$response['result'][$j]['appointmentID']?>><label><?=$response['result'][$j]['payment']?></label></td>
 											<?php }else{ ?>
