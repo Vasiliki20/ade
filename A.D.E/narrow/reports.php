@@ -327,6 +327,7 @@
 
 					</script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 				<!--	<div class="panel-body">
 						<form method="post" action="">
@@ -442,6 +443,8 @@
 =======
 >>>>>>> 19b074579f92633f7888e985e1dafe08f917d698
 				</div>
+=======
+>>>>>>> 4b56dc51ed48e61f2b1db20799fd9cb345ba735b
 				<script>
 					$(document).ready(function() {
 						jQuery.validator.addMethod("noSpace", function(value, element) {
