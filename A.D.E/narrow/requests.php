@@ -13,7 +13,7 @@ function request($url,$method,$fields,$cookie){
 		$context  = stream_context_create($options);
 		try{
 		$result = file_get_contents($url,false, $context);
-		}catch (Exception $e){ echo "hi";}  
+		}catch (Exception $e){ }  
 		//if ($result === FALSE) { /* Handle error */ }
 		//var_dump($result);
 		

@@ -490,12 +490,7 @@ var_dump($response);
 								<label for="firstprogram">Αρχικό πρόγραμμα θεραπείας(συμπεριλαμβάνονται στόχοι θεραπείας, τρόποι και υπολογιζόμενος χρόνος θεραπείας):</label>
 								<input type="text" class="form-control" id="firstprogram" placeholder="" name="initialtherapyprogram" value="<?=$response['medlog']['initialtherapyprogram'] ?>">
 							</div>
-							<div class="form-group">
-								<label for="addmore">Προσθήκη ανασκόπησης</label>
-								<input type="submit" id="addmore" name="addmore" value="Προσθήκη" class="btn btn-default">
-									
-								
-							</div>
+			
 							<div class="form-group">
 
 									<label for="addmore">Δείτε προηγούμενες ανασκοπήσεις</label>
@@ -809,12 +804,6 @@ var_dump($response);
 									<input type="text" class="form-control" id="firstprogram" placeholder="" name="initialtherapyprogram" value="<?=$response['medlog']['initialtherapyprogram'] ?>">
 								</div>
 
-								
-
-								<div class="form-group">
-									<label for="addmore">Προσθήκη ανασκόπησης</label>
-									<input type="submit" id="addmore" name="addmore" value="Προσθήκη" class="btn btn-default">
-								</div>
 								<div class="form-group">
 									<label for="addmore">Δείτε προηγούμενες ανασκοπήσεις</label>
 									<ul>

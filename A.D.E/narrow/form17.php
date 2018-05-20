@@ -288,10 +288,7 @@ print "<h5>".$tok."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
 if($response['success']==1){
-		echo "<div class=\"alert alert-success fade in\">
-			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			<strong>Success!</strong> You have successfully submit your form!
-			</div>";
+			header('Location: homepage_client.php');
 		}else{
 		echo "<div class=\"alert alert-danger fade in\">
 			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>

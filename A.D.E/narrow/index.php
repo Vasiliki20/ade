@@ -181,10 +181,13 @@ require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/login.php";
 $method='POST';
 if(isset($_POST['submit'])){
+$salt="angelos";
+$sha512 = hash('sha512',$_POST['pwd'].$salt);
 $postfields=http_build_query(array(
 'id' => $_POST['id'],
-'password' => $_POST['pwd']
+'password' => $sha512
 ));
+var_dump($sha512);
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
 }else{
@@ -203,33 +206,10 @@ if(strnatcmp($response['login'],true)==0){
 	session_start();
 	$_SESSION['id']=$_POST['id'];
 	echo $_SESSION['id'];
-	header('Location: form01.php');
+	header('Location: homepage_client.php');
 
 }else{
 	echo "<script> alert(\"Wrong username or password!\");</script>";
 }
 }
-?>
-<?php
-require_once("requests.php");
-$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/mailjet-apiv3-php-simple-master/src/Mailjet/reminder.php";
-$method='POST';
-$postfields=http_build_query(array(
-));
-if(isset($_COOKIE['token'])){
-$response1=request($url,$method,$postfields,$_COOKIE['token']);
-}else{
-$response1=0;
-}
-if($response1['status']!=1){
-$tok=giveToken();
-print "<h5>".$tok."</h5>";
-?>
-<script>
-	document.cookie='token=<?= $tok ?>';</script>
-<?php
-$response1 = request($url, $method, $postfields, $tok);
-}
-//var_dump($response1);
-
 ?>

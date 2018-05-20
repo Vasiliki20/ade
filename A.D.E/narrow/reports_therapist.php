@@ -573,46 +573,46 @@
 <?php
 
 if (isset($_POST['submit'])) {
-	header('Location: results_clientspermonth.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
+	header('Location: results_clientspermonth_therapist.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
 }
 if (isset($_POST['submit1'])) {
-	header('Location: results_newclientspermonth.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
+	header('Location: results_newclientspermonth_therapist.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
 }
 if (isset($_POST['submit2'])) {
-	header('Location: results_sessionpermonth.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
+	header('Location: results_sessionpermonth_therapist.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
 }
 if (isset($_POST['submit3'])) {
-	header('Location: results_compareclients.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
+	header('Location: results_compareclients_therapist.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
 }
 if (isset($_POST['submit4'])) {
-	header('Location: results_distributionperschool.php?y=' . $_POST['st5y']);
+	header('Location: results_distributionperschool_therapist.php?y=' . $_POST['st5y']);
 }
 if (isset($_POST['submit5'])) {
-	header('Location: results_issuesfornewcases?y=' . $_POST['st6y']);
+	header('Location: results_issuesfornewcases_therapist.php?y=' . $_POST['st6y']);
 }
 if (isset($_POST['submit6'])) {
-	header('Location: results_sources.php?y=' . $_POST['st7y']);
+	header('Location: results_sources_therapist.php?y=' . $_POST['st7y']);
 }
 if (isset($_POST['submit'])) {
-	header('Location: results_clientspermonth.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
+	header('Location: results_clientspermonth_therapist.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
 }
 if (isset($_POST['submit1'])) {
-	header('Location: results_newclientspermonth.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
+	header('Location: results_newclientspermonth_therapist.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
 }
 if (isset($_POST['submit2'])) {
-	header('Location: results_sessionpermonth.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
+	header('Location: results_sessionpermonth_therapist.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
 }
 if (isset($_POST['submit3'])) {
-	header('Location: results_compareclients.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
+	header('Location: results_compareclients_therapist.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
 }
 if (isset($_POST['submit4'])) {
-	header('Location: results_distributionperschool.php?y=' . $_POST['st5y']);
+	header('Location: results_distributionperschool_therapist.php?y=' . $_POST['st5y']);
 }
 if (isset($_POST['submit5'])) {
-	header('Location: results_issuesfornewcases?y=' . $_POST['st6y']);
+	header('Location: results_issuesfornewcases_therapist.php?y=' . $_POST['st6y']);
 }
 if (isset($_POST['submit6'])) {
-	header('Location: results_sources.php?y=' . $_POST['st7y']);
+	header('Location: results_sources_therapist.php?y=' . $_POST['st7y']);
 
 }
 ?>

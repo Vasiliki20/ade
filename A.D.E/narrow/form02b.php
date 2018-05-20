@@ -253,13 +253,13 @@ $postfields=http_build_query(array(
 							<input type="hidden" name="level" />
 							<label for="level"><b>12. Επίπεδο Ακαδημαικού:</b></label>
 							<br>
-							<input type="radio" name="level" value="voithos">
+							<input type="radio" name="level" value="Βοηθός">
 							Βοηθός
 							<br>
-							<input type="radio" name="level" value="epikouros">
+							<input type="radio" name="level" value="Επίκουρος">
 							Επίκουρος
 							<br>
-							<input type="radio" name="level" value="allo">
+							<input type="radio" name="level" value="Άλλο">
 							Άλλο
 						</div>
 						<div class="form-group">
@@ -506,10 +506,7 @@ print "<h5>".$tok."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
 if($response['success']==1){
-		echo "<div class=\"alert alert-success fade in\">
-			<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			<strong>Success!</strong> You have successfully submit your form!
-			</div>";
+			header('Location: homepage_client.php');
 		}else{
 		echo "<div class=\"alert alert-danger fade in\">
 			  <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>

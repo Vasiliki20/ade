@@ -316,7 +316,7 @@ $postfields=http_build_query(array(
 							</div>-->
 							<div class="form-group">
 								<label for="previoustreatment">Προηγούμενες θεραπείες και που:</label>
-								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustherapy" value="<?=$response['patient']['previoustherapist']." ".$response['patient']['previoustherapist']?>">
+								<input type="text" class="form-control" id="previoustreatment" placeholder="" name="previoustherapy" value="<?=$response['patient']['previoustherapy']." , ".$response['patient']['previoustherapist']?>">
 							</div>
 							<div class="form-group">
 								<label for="treatmentnow">Θεραπευτής τώρα:</label>
@@ -339,11 +339,6 @@ $postfields=http_build_query(array(
 								<label for="flag">Red flag:</label>
 								<input type="text" class="form-control" id="flag" placeholder="" name="redflag" value="<?=$response['patient']['redflag']?>">
 							</div>
-							<div class="form-group">
-								<label for="moreinfo">Άλλες πληροφορίες:</label>
-								<input type="text" class="form-control" id="moreinfo" placeholder="" name="otherinfo" value="<?=$response['patient']['otherinfo']?>">
-							</div>
-
 							<?php if(strnatcmp($response['patient']['type'],"φοιτητής")==0){?>
 							<!-- student -->
 							<div class="form-group">

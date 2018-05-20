@@ -269,12 +269,14 @@ require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/register.php";
 $method='POST';
 if(isset($_POST['submit'])){
+$salt="angelos";
+$sha512 = hash('sha512', $_POST['password'].$salt);
 $postfields=http_build_query(array(
 'id' => $_POST['id'],
 'email' => $_POST['email'],
 'name' => $_POST['name'],
 'lastname' => $_POST['surname'],
-'password' => $_POST['password']
+'password' => $sha512
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
