@@ -111,7 +111,11 @@ $postfields=http_build_query(array(
 	</head>
 	<body>
 		<div class="sidenav">
+			<?php if($response1['patient']['numberofsessions']==NULL){ ?>
 			<a href="form01.php"><b>Αρχική επικοινωνία</b></a>
+			<?php } ?>
+			
+			<?php if($response1['patient']['numberofsessions']==1){ ?>
 			
 			<?php if(strnatcmp($response1['patient']['type'],"φοιτητής")==0){?>
 			<a href="form02.php"><b>Δήλωση στοιχείων</b></a>
@@ -124,7 +128,17 @@ $postfields=http_build_query(array(
 			<?php }else{?>
 			<a href="form02d.php"><b>Δήλωση στοιχείων</b></a>
 			<?php } ?>
+			
+			<?php } ?>
+			
+			<?php if($response1['patient']['numberofsessions']==2){ ?>
+			
 			<a href="form03.php"><b>Ερωτηματολόγιο αρχικής συνάντησης</b></a>
+			
+			<?php } ?>
+			
+			<?php if($response1['patient']['numberofsessions']==3){ ?>
+			
 			<?php if($response1['patient']['age']==null){?>
 			<a href="form06.php"><b>Αρχική συνέντευξη</b></a>
 			<?php }elseif($response1['patient']['age']>=18){?>
@@ -132,6 +146,9 @@ $postfields=http_build_query(array(
 			<?php }elseif($response1['patient']['age']<18){?>
 			<a href="historyforchildren.php"><b>Αρχική συνέντευξη</b></a>
 			<?php } ?>
+			
+			<?php } ?>
+			
 			<a href="form10.php"><b>Καταγραφή άλλων επαφών</b></a>
 			<a href="form12.php"><b>Μεταβίβαση πληροφοριών</b></a>
 			<a href="formupload.php"><b>Ανάρτηση αρχείων</b></a>
@@ -146,7 +163,7 @@ $postfields=http_build_query(array(
 							<div class="row">
 								<div class="col-md-4">
 									<div class="fh5co-navbar-brand">
-										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας <?= $_SESSION['id']; ?></a>
+										<a class="fh5co-logo" href="home.html">Κεντρο Ψυχικης Υγειας</a>
 									</div>
 								</div>
 								<ul class="nav text-right" class="col-md-3">
@@ -165,7 +182,7 @@ $postfields=http_build_query(array(
                		<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
                   		<div class="form-group">
-                    		<label for="file">Προσθήκη αρχείου για πελάτη</label>
+                    		<label for="file">Προσθηκη αρχειου για πελατη</label>
                     		<input id="file" type="file" name="file">
                     		<p class="help-block"><h6>Μόνο pdf,jpg,jpeg,png και gif αρχεία με μέγεθος 10 MB επιτρέπονται.</h6></p>
                   			<input type="submit" class="btn  btn-default" id="sub" value="Προσθηκη αρχειου">
