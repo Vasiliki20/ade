@@ -38,6 +38,7 @@ $postfields=http_build_query(array(
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -247,15 +248,6 @@ $postfields=http_build_query(array(
 		<!-- Custom Theme JavaScript -->
 		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
-
 	</body>
 
 </html>
@@ -288,7 +280,9 @@ $postfields=http_build_query(array(
 		$response1=request($url,$method,$postfields,$tok);
 	}
 	}
+	
 	}
+	
 header("Refresh:0");
 }
 ?>
@@ -297,6 +291,7 @@ require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/post/clientpriority.php";
 $method='POST';
 $i=0;
+
 if(isset($_POST['submit1'])){
 	foreach($_POST['id'] as $j){
 	
@@ -322,7 +317,7 @@ $postfields=http_build_query(array(
 		//print "<h5>".$GLOBALS['curtoken']."</h5>";
 		$response2=request($url,$method,$postfields,$tok);
 	}
-	var_dump($response2);
+	
 }
 header("Refresh:0");
 }
