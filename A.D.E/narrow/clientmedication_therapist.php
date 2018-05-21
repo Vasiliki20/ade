@@ -134,7 +134,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Αρχεία Πελάτη</h1>
 					</div>
 				</div>
 				<div>
@@ -246,19 +246,19 @@ var_dump($response);
 <tr>
 <td>
 
-<input type="text" class="form-control" id="meds" name="name" value=<?=$response['medication'][$i]['nameof'] ?>>
+<input type="text" class="form-control" id="meds" name="name" value="<?=$response['medication'][$i]['nameof'] ?>">
 </input></td>
 <td>
-<input type="date" class="form-control" id="meds" name="date" value=<?=$response['medication'][$i]['dateof'] ?>>
+<input type="date" class="form-control" id="meds" name="date" value="<?=$response['medication'][$i]['dateof'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="duration" value=<?=$response['medication'][$i]['duration'] ?>>
+<input type="text" class="form-control" id="meds" name="duration" value="<?=$response['medication'][$i]['duration'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="doc" value=<?=$response['medication'][$i]['doctor'] ?>>
+<input type="text" class="form-control" id="meds" name="doc" value="<?=$response['medication'][$i]['doctor'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="comments" value=<?=$response['medication'][$i]['comments'] ?>>
+<input type="text" class="form-control" id="meds" name="comments" value="<?=$response['medication'][$i]['comments'] ?>">
 </input></td>
 
 </tr>
