@@ -113,7 +113,7 @@
 
 			</div>
 		</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
 		<!-- Javascript -->
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery-1.11.1.min.js"></script>
@@ -121,7 +121,6 @@
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/scripts.js"></script>
-		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.validate.js"></script>
 		<script src="js/jquery.validate.js"></script>
 		<script src="js/meter.js"></script>
 
@@ -136,9 +135,11 @@ require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/mailjet-apiv3-php-simple-master/src/Mailjet/forgotpass.php";
 $method='POST';
 if(isset($_POST['submit'])){
+$salt="angelos";
+$sha512 = hash('sha512', $_POST['password'].$salt);
 $postfields=http_build_query(array(
 'id' => $_POST['id'],
-'password' => $_POST['password']
+'password' => $sha512
 ));
 if(isset($_COOKIE['token'])){
 $response=request($url,$method,$postfields,$_COOKIE['token']);
