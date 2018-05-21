@@ -326,6 +326,7 @@
 						});
 
 					</script>
+
 					<script>
 						$(document).ready(function() {
 							jQuery.validator.addMethod("noSpace", function(value, element) {
