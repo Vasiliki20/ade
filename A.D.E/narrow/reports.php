@@ -11,7 +11,6 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
 
@@ -568,7 +567,7 @@
 				<!-- Custom Theme JavaScript -->
 				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 				<script src="js/jquery.validate.js"></script>
-				<script src="bootstrap/vendor/jquery/jquery.validate.js"></script>
+				
 
 	</body>
 

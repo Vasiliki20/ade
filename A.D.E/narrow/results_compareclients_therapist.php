@@ -36,7 +36,8 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -311,15 +312,7 @@ var_dump($response);
 				<!-- Custom Theme JavaScript -->
 				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
-						});
-					});
-				</script>
-
+				
 	</body>
 
 </html>

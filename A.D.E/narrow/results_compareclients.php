@@ -1,3 +1,29 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics4.php?year=".$_GET['y']."&monthclass=".$_GET['e']."&yearstart=".$_GET['ye'];
+$method='GET';
+
+$postfields=http_build_query(array(
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+var_dump($response);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +36,8 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -143,7 +170,7 @@
 				<!-- /.row -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) 2016Α με προηγούμενα έτη
+						Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) για το έτος <?=$_GET['y']?>-<?=$_GET['e']?>o εξάμηνο, με προηγούμενα έτη
 						<br>
 					</div>
 					<div>
@@ -158,84 +185,108 @@
 								<th colspan="2" bgcolor="#E3EFF7">ΝΕΟΙ ΠΕΛΑΤΕΣ</th>
 							</tr>
 							<tr>
-								<td bgcolor="#E7EAEC">ΓΨΣ Μ.Ο. 2012-2015</td>
-								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
-								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. 2012-2015</td>
-								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
-								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. 2012-2015</td>
-								<td bgcolor="#E7EAEC">ΚΕΨΥ 2016Α</td>
+								<td bgcolor="#E7EAEC">ΓΨΣ Μ.Ο. <?=$_GET['ye']?>-<?=$_GET['y']-1?></td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ <?=$_GET['y']?>-<?=$_GET['e']?></td>
+								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. <?=$_GET['ye']?>-<?=$_GET['y']-1?></td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ  <?=$_GET['y']?>-<?=$_GET['e']?></td>
+								<td bgcolor="#E7EAEC">ΓΨΥ Μ.Ο. <?=$_GET['ye']?>-<?=$_GET['y']-1?></td>
+								<td bgcolor="#E7EAEC">ΚΕΨΥ  <?=$_GET['y']?>-<?=$_GET['e']?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Ιανουάριος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<?php }else{ ?>
+								<td>Ιούλιος</td>	
+								<?php } ?>
+								<td><?=round($response['result'][0][1],2)?></td>
+								<td><?=$response['result'][1][1]?></td>
+								<td><?=round($response['result'][2][1],2)?></td>
+								<td><?=$response['result'][3][1]?></td>
+								<td><?=round($response['result'][4][1],2)?></td>
+								<td><?=$response['result'][5][1]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Φεβρουάριος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<?php }else{ ?>
+								<td>Άυγουστος</td>	
+								<?php } ?>
+								<td><?=round($response['result'][0][2],2)?></td>
+								<td><?=$response['result'][1][2]?></td>
+								<td><?=round($response['result'][2][2],2)?></td>
+								<td><?=$response['result'][3][2]?></td>
+								<td><?=round($response['result'][4][2],2)?></td>
+								<td><?=$response['result'][5][2]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Μάρτιος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<?php }else{ ?>
+								<td>Σεμπτέμβριος</td>	
+								<?php } ?>
+								<td><?=round($response['result'][0][3],2)?></td>
+								<td><?=$response['result'][1][3]?></td>
+								<td><?=round($response['result'][2][3],2)?></td>
+								<td><?=$response['result'][3][3]?></td>
+								<td><?=round($response['result'][4][3],2)?></td>
+								<td><?=$response['result'][5][3]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Απρίλιος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<?php }else{ ?>
+								<td>Οκτώβριος</td>	
+								<?php } ?>
+								<td><?=round($response['result'][0][4],2)?></td>
+								<td><?=$response['result'][1][4]?></td>
+								<td><?=round($response['result'][2][4],2)?></td>
+								<td><?=$response['result'][3][4]?></td>
+								<td><?=round($response['result'][4][4],2)?></td>
+								<td><?=$response['result'][5][4]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Μάιος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<?php }else{ ?>
+								<td>Νοέμβριος</td>	
+								<?php } ?>
+								<td><?=round($response['result'][0][5],2)?></td>
+								<td><?=$response['result'][1][5]?></td>
+								<td><?=round($response['result'][2][5],2)?></td>
+								<td><?=$response['result'][3][5]?></td>
+								<td><?=round($response['result'][4][5],2)?></td>
+								<td><?=$response['result'][5][5]?></td>
 							</tr>
 							<tr>
+								<?php if($_GET['e']==1){ ?>
 								<td>Ιούνιος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<?php }else{ ?>
+								<td>Δεκέμβριος</td>	
+								<?php } ?>
+								<td><?=round($response['result'][0][6],2)?></td>
+								<td><?=$response['result'][1][6]?></td>
+								<td><?=round($response['result'][2][6],2)?></td>
+								<td><?=$response['result'][3][6]?></td>
+								<td><?=round($response['result'][4][6],2)?></td>
+								<td><?=$response['result'][5][6]?></td>
 							</tr>
 							<tr>
 								<td>Μέσος όρος</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<td><?=round($response['result'][0]['average'],2)?></td>
+								<td><?=round($response['result'][1]['average'],2)?></td>
+								<td><?=round($response['result'][2]['average'],2)?></td>
+								<td><?=round($response['result'][3]['average'],2)?></td>
+								<td><?=round($response['result'][4]['average'],2)?></td>
+								<td><?=round($response['result'][5]['average'],2)?></td>
 							</tr>
 							<tr>
 								<td>Σύνολο</td>
-								<td>65</td>
-								<td>76</td>
-								<td>26</td>
-								<td>33</td>
-								<td>7</td>
-								<td>7</td>
+								<td><?=round($response['result'][0]['sum'],2)?></td>
+								<td><?=round($response['result'][1]['sum'],2)?></td>
+								<td><?=round($response['result'][2]['sum'],2)?></td>
+								<td><?=round($response['result'][3]['sum'],2)?></td>
+								<td><?=round($response['result'][4]['sum'],2)?></td>
+								<td><?=round($response['result'][5]['sum'],2)?></td>
 							</tr>
 						</table>
 					</div>
@@ -260,15 +311,6 @@
 
 				<!-- Custom Theme JavaScript -->
 				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
-						});
-					});
-				</script>
 
 	</body>
 

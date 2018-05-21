@@ -1,3 +1,29 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics5.php?year=".$_GET['y'];
+$method='GET';
+
+$postfields=http_build_query(array(
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+var_dump($response);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +36,8 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -143,7 +170,7 @@
 				<!-- /.row -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή
+						Κατανομή των νέων περιστατικών του ΚΕ.Ψ.Υ. ανά Σχολή για το έτος <?=$_GET['y']?>
 						<br>
 					</div>
 					<div>
@@ -159,49 +186,121 @@
 							<tr>
 								<td><font color="#3498DB">ΣΑΕ</font></td>
 								<td><font color="#3498DB">Σχολή Ανθρωπιστικών Επιστημών</font></td>
-								<td><font color="#3498DB">4</font></td>
-								<td><font color="#3498DB">11%</font></td>
+								<td><font color="#3498DB"><?=$response['result'][0]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#3498DB"><?=$response['result'][0]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#3498DB">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td><font color="#E74C3C">ΣΘΕΕ</font></td>
 								<td><font color="#E74C3C">Σχολή Θετικών και Εφαρμοσμένων Επιστημών</font></td>
-								<td><font color="#E74C3C">4</font></td>
-								<td><font color="#E74C3C">11%</font></td>
+								<td><font color="#E74C3C"><?=$response['result'][1]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#E74C3C"><?=$response['result'][1]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#E74C3C">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td><font color="#28B463">ΣΚΕΕΑ</font></td>
 								<td><font color="#28B463">Σχολή Κοινωνικών Επιστημών και Επιστημών Αγωγής</font></td>
-								<td><font color="#28B463">4</font></td>
-								<td><font color="#28B463">11%</font></td>
+								<td><font color="#28B463"><?=$response['result'][2]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#28B463"><?=$response['result'][2]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#28B463">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td><font color="#9B59B6">ΣΟΕΔ</font></td>
 								<td><font color="#9B59B6">Σχολή Οικονομικών Επιστημών και Διοίκησης</font></td>
-								<td><font color="#9B59B6">4</font></td>
-								<td><font color="#9B59B6">11%</font></td>
+								<td><font color="#9B59B6"><?=$response['result'][3]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#9B59B6"><?=$response['result'][3]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#9B59B6">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td><font color="#00CDCD">ΠΣ</font></td>
 								<td><font color="#00CDCD">Πολυτεχνική Σχολή</font></td>
-								<td><font color="#00CDCD">4</font></td>
-								<td><font color="#00CDCD">11%</font></td>
+								<td><font color="#00CDCD"><?=$response['result'][4]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#00CDCD"><?=$response['result'][4]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#00CDCD">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td><font color="#F48436">ΦΣ</font></td>
 								<td><font color="#F48436">Φιλοσοφική Σχολή</font></td>
-								<td><font color="#F48436">4</font></td>
-								<td><font color="#F48436">11%</font></td>
+								<td><font color="#F48436"><?=$response['result'][5]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#F48436"><?=$response['result'][5]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#F48436">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td><font color="#707B7C">ΙΣ</font></td>
 								<td><font color="#707B7C">Ιατρική Σχολή</font></td>
-								<td><font color="#707B7C">4</font></td>
-								<td><font color="#707B7C">11%</font></td>
+								<td><font color="#707B7C"><?=$response['result'][6]['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#707B7C"><?=$response['result'][6]['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#707B7C">0%</font></td>
+								<?php } ?>
+							</tr>
+							<tr>
+								<td><font color="#707B7C">Φ</font></td>
+								<td><font color="#707B7C">Φοιτητές</font></td>
+								<td><font color="#707B7C"><?=$response['result']['students']['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#707B7C"><?=$response['result']['students']['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#707B7C">0%</font></td>
+								<?php } ?>
+							</tr>
+							<tr>
+								<td><font color="#707B7C">ΑΠ</font></td>
+								<td><font color="#707B7C">Ακαδημαικό Προσωπικό</font></td>
+								<td><font color="#707B7C"><?=$response['result']['academic']['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#707B7C"><?=$response['result']['academic']['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#707B7C">0%</font></td>
+								<?php } ?>
+							</tr>
+							<tr>
+								<td><font color="#707B7C">ΔΠ</font></td>
+								<td><font color="#707B7C">Διοικητικό Προσωπικό</font></td>
+								<td><font color="#707B7C"><?=$response['result']['adminstaff']['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#707B7C"><?=$response['result']['adminstaff']['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#707B7C">0%</font></td>
+								<?php } ?>
+							</tr>
+							<tr>
+								<td><font color="#707B7C">Α</font></td>
+								<td><font color="#707B7C">Άλλο</font></td>
+								<td><font color="#707B7C"><?=$response['result']['other']['COUNT(patientID)']?></font></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><font color="#707B7C"><?=$response['result']['other']['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</font></td>
+								<?php }else{ ?>
+								<td><font color="#707B7C">0%</font></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td colspan="2">ΣΥΝΟΛΟ</td>
-								<td>38</td>
-								<td>100%</td>
+								<td><?=$response['result']['all']['COUNT(patientID)']?></td>
+								<?php if($response['result']['all']['COUNT(patientID)']!=0){ ?>
+								<td><?=$response['result']['all']['COUNT(patientID)']/$response['result']['all']['COUNT(patientID)']*100?>%</td>
+								<?php }else{ ?>
+								<td><font color="#707B7C">0%</font></td>
+								<?php } ?>
 							</tr>
 						</table>
 					</div>
@@ -227,14 +326,6 @@
 				<!-- Custom Theme JavaScript -->
 				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
-						});
-					});
-				</script>
 
 	</body>
 

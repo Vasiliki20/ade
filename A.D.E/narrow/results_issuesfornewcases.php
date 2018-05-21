@@ -1,3 +1,29 @@
+<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics6.php?year=".$_GET['y'];
+$method='GET';
+
+$postfields=http_build_query(array(
+));
+if(isset($_COOKIE['token'])){
+$response=request($url,$method,$postfields,$_COOKIE['token']);
+}else{
+$response=0;
+}
+if($response['status']!=1){
+$tok=giveToken();
+print "<h5>".$tok."</h5>";
+?>
+<script>
+	document.cookie='token=<?= $tok ?>';</script>
+<?php
+//$GLOBALS['curtoken']=giveToken();
+//print "<h5>".$GLOBALS['curtoken']."</h5>";
+$response = request($url, $method, $postfields, $tok);
+}
+
+var_dump($response);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +36,8 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -137,7 +164,7 @@
 				<!-- /.row -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Παρουσιαζόμενα ζητήματα για νέα περιστατικά
+						Παρουσιαζόμενα ζητήματα για νέα περιστατικά για το έτος <?=$_GET['y']?>
 						<br>
 					</div>
 					<div>
@@ -150,23 +177,23 @@
 							</tr>
 							<tr>
 								<td><font color="#28B463">Άγχος - Πίεση</font></td>
-								<td><font color="#28B463">16</font></td>
+								<td><font color="#28B463"><?=$response['result'][0]['COUNT(patientID)']?></font></td>
 							</tr>
 							<tr>
 								<td><font color="#F48436">Διαπροσωπικές σχέσεις</font></td>
-								<td><font color="#F48436">13</font></td>
+								<td><font color="#F48436"><?=$response['result'][1]['COUNT(patientID)']?></font></td>
 							</tr>
 							<tr>
 								<td><font color="#E8D700">Διάθεση - Προσαρμογή</font></td>
-								<td><font color="#E8D700">12</font></td>
+								<td><font color="#E8D700"><?=$response['result'][2]['COUNT(patientID)']?></font></td>
 							</tr>
 							<tr>
 								<td><font color="#3498DB">Άλλα</font></td>
-								<td><font color="#3498DB">8</font></td>
+								<td><font color="#3498DB"><?=$response['result'][3]['COUNT(patientID)']?></font></td>
 							</tr>
 							<tr>
 								<td><font color="#9B59B6">Ακαδημαϊκές δυσκολίες</font></td>
-								<td><font color="#9B59B6">6</font></td>
+								<td><font color="#9B59B6"><?=$response['result'][4]['COUNT(patientID)']?></font></td>
 							</tr>
 						</table>
 					</div>
@@ -191,16 +218,6 @@
 
 				<!-- Custom Theme JavaScript -->
 				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
-						});
-					});
-				</script>
-
 	</body>
 
 </html>
