@@ -37,6 +37,7 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -490,12 +491,7 @@ var_dump($response);
 								<label for="firstprogram">Αρχικό πρόγραμμα θεραπείας(συμπεριλαμβάνονται στόχοι θεραπείας, τρόποι και υπολογιζόμενος χρόνος θεραπείας):</label>
 								<input type="text" class="form-control" id="firstprogram" placeholder="" name="initialtherapyprogram" value="<?=$response['medlog']['initialtherapyprogram'] ?>">
 							</div>
-							<div class="form-group">
-								<label for="addmore">Προσθήκη ανασκόπησης</label>
-								<input type="submit" id="addmore" name="addmore" value="Προσθήκη" class="btn btn-default">
-									
-								
-							</div>
+			
 							<div class="form-group">
 
 									<label for="addmore">Δείτε προηγούμενες ανασκοπήσεις</label>
@@ -809,12 +805,6 @@ var_dump($response);
 									<input type="text" class="form-control" id="firstprogram" placeholder="" name="initialtherapyprogram" value="<?=$response['medlog']['initialtherapyprogram'] ?>">
 								</div>
 
-								
-
-								<div class="form-group">
-									<label for="addmore">Προσθήκη ανασκόπησης</label>
-									<input type="submit" id="addmore" name="addmore" value="Προσθήκη" class="btn btn-default">
-								</div>
 								<div class="form-group">
 									<label for="addmore">Δείτε προηγούμενες ανασκοπήσεις</label>
 									<ul>

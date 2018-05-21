@@ -38,6 +38,7 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -135,7 +136,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Αρχεία Πελατών</h1>
 					</div>
 				</div>
 				<div>

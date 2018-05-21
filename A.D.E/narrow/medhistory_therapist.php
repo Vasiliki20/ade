@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("requests.php");
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
 $method='GET';
@@ -37,6 +38,7 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -907,14 +909,10 @@ $response1 = request($url, $method, $postfields, $tok);
 	header("Refresh:0");
 }
 if(isset($_POST['addmore'])){
-	header("Location:form11.php");
+	header("Location:form11_therapist.php");
 
 var_dump($response1);
 header("Refresh:0");
-}
-if(isset($_POST['addmore'])){
-header("Location:form11.php");
-
 }
 ?>
 <?php
@@ -944,7 +942,7 @@ $response1 = request($url, $method, $postfields, $tok);
 	header("Refresh:0");
 }
 if(isset($_POST['addmore'])){
-header("Location:form11.php?patientID=".$_GET['patientID']);
+header("Location:form11_therapist.php?patientID=".$_GET['patientID']);
 
 }
 ?>
