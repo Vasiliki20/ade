@@ -11,8 +11,11 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<!-- FOR DROPDOWN -->
 		<!-- Java Scripts -->
+		
 		<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -40,9 +43,11 @@
 
 		<link rel="stylesheet" type="text/css" href="css/result-light.css">
 	</head>
-	<script>
+<script>
 		$(document).ready(function() {
-			$('myTable').DataTable();
+			$('myTable').DataTable({
+				responsive:true
+			})
 		});
 	</script>
 	<style>
@@ -248,16 +253,13 @@ $postfields=http_build_query(array(
 			<!-- /#page-wrapper -->
 
 		</div>
-		<!-- jQuery -->
-		<script src="js/jquery-1.9.1.js"></script>
-
+	
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<!-- jQuery DataTables-->
 		<script src="js/jquery.dataTables.min.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
 	</body>
 </html>
