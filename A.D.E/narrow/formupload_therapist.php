@@ -119,7 +119,7 @@
 							<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
 								<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
 								<div class="form-group">
-									<label for="file">Προσθήκη αρχείου για πελάτη</label>
+									<label for="file">Προσθήκη αρχείου</label>
 									<input id="file" type="file" name="file">
 									<p class="help-block">
 										<h6>Μόνο pdf,jpg,jpeg,png και gif αρχεία μεγέθους 10 MB επιτρέπονται.</h6>
