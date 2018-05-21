@@ -135,7 +135,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Case File</h1>
+						<h1 class="page-header">Αρχεία Πελάτη</h1>
 					</div>
 				</div>
 				<div>
