@@ -228,7 +228,6 @@ $postfields=http_build_query(array(
 								<label for="id">Αρ.Ταυτότητας:</label>
 								<input type="text" class="form-control" id="id" placeholder="" name="patientID" value="<?=$response['patient']['patientID']?>" disabled>
 							
-							
 							<div class="form-group">
 								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
 								<input type="number" class="form-control" id="idofps" placeholder="" name="psychologistID" value="<?=$response['patient']['psychologistID']?>">
