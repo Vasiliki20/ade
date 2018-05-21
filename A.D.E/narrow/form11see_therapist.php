@@ -38,6 +38,7 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,12 +57,14 @@ var_dump($response);
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
+
 	<script>
 		$(document).ready(function() {
-			$('myTable').DataTable();
+			$('myTable').DataTable({
+				responsive : true
+			})
 		});
 	</script>
-
 	<body>
 
 		<div id="wrapper">
@@ -136,135 +139,202 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header"><small>Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης</small></h1>
+						<h1 class="page-header">Αρχεία Πελάτη</h1>
 					</div>
 				</div>
 				<div>
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<form action="" method="post">
-								<div class="form-group">
-								
-									<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
-									<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value=<?=$response['anaskopisi'][$_GET['an']]['datesubmited']?>>
-								</div>
-								<div class="form-group">
-									<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
-									<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value=<?=$response['anaskopisi'][$_GET['an']]['kind']?>>
-								</div>
-								<div class="form-group">
-									<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
-									<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value=<?=$response['anaskopisi'][$_GET['an']]['initialproblem']?>>
-								</div>
-								<div class="form-group">
-									<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
-									<input type="text" class="form-control" id="issues" placeholder="" name="problems" value=<?=$response['anaskopisi'][$_GET['an']]['problems']?>>
-								</div>
-								<div class="form-group">
-									<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
-									<br>
-									<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
-									<br>
-									<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis" value=<?=$response['anaskopisi'][$_GET['an']]['sinopsis']?>>
-								</div>
-								<div class="form-group">
-									<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
-									<br>
-									<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
-									<br>
-									<input type="text" class="form-control" id="changes" placeholder="" name="changesenv" value=<?=$response['anaskopisi'][$_GET['an']]['changesenv']?>>
-								</div>
-								</table>
-								<div class="form-group">
-									<label for="progress"><label>7. Εξέλιξη θεραπείας : </label></label>
-									<br>
-									<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
-									<br>
-									<input type="text" class="form-control" id="progress" placeholder="" name="evolution" value=<?=$response['anaskopisi'][$_GET['an']]['evolution']?>>
-								</div>
-								<div class="form-group">
-									<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
-									<br>
-									<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
-									<br>
-									<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes" value=<?=$response['anaskopisi'][$_GET['an']]['changes']?>>
-								</div>
-								<div class="form-group">
-									<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
-									<br>
-									<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
-									<br>
-									<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['mellon']?>>
-								</div>
-								<div class="form-group">
-									<table style="width:100%">
-										<tr>
-											<th></th>
-											<th>Βαθμός</th>
-											
-										</tr>
-										<tr>
-											<td>α. ψυχολογική</td>
-											<td>
-											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['psychologicalfunc']?>>
-											</td>
-											
-										</tr>
-										<tr>
-											<td>β. επαγγελματική/ακαδημαϊκή</td>
-											<td>
-											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['professionacademicfunc']?>>
-											</td>
-										</tr>
-										<tr>
-											<td>γ. κοινωνική</td>
-											<td>
-											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['socialfunc']?>>
-											</td>
-										</tr>
-										<tr>
-											<td>δ. αυτοφροντίδα</td>
-											<td>
-											<input type="text" class="form-control" id="future" placeholder="" name="mellon" value=<?=$response['anaskopisi'][$_GET['an']]['autofix']?>>
-											</td>
-										</tr>
-									</table>
-								</div>
-								<div class="form-group">
-									<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
-									<input type="text" class="form-control" id="more" placeholder="" name="infos" value=<?=$response['anaskopisi'][$_GET['an']]['infos']?>>
-								</div>
-								
-							</form>
-						</div>
-					</div>
+					<!-- /.col-lg-12 -->
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="casenotes_admin.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
+									</li>
+									<li>
+										<a href="filesofpatient_admin.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="personalinformationfull_admin.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+											</li>
+											<li>
+												<a href="schedule_admin.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+											</li>
+											<li>
+												<a href="contactlog_admin.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
+											</li>
+										</ul>
+
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="clientrelationships_admin.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
+											</li>
+											<li>
+												<a href="clientmedication_admin.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
+											</li>
+											<li>
+												<a href="medhistory_admin.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="externalinformation_admin.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
+									</li>
+									<li>
+										<a href="billing_admin.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="formcomplaints_admin.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
+											</li>
+											<li>
+												<a href="formreasons_admin.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
 				</div>
 
-				<!-- jQuery -->
-				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Ανασκόπηση θεραπευτικής διαδικασίας/παρέμβασης
+					</div>
+					<form action="" method="post">
 
-				<!-- Bootstrap Core JavaScript -->
-				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="date"><label>1. Ημερ. Έναρξης Υπηρεσιών: </label></label>
+								<input type="date" class="form-control" id="date" placeholder="" name="datesubmited" value="<?=$response['anaskopisi'][$_GET['an']]['datesubmited'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="eidos"><label>2. Είδος θεραπείας/υπηρεσιών: </label></label>
+								<input type="text" class="form-control" id="eidos" placeholder="" name="kind" value="<?=$response['anaskopisi'][$_GET['an']]['kind'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="firstissues"><label>3. Αρχικό παρουσιαζόμενο ζήτημα/ζητήματα και επιπρόσθετα παρουσιαζόμενα ζητήματα </label></label>
+								<input type="text" class="form-control" id="firstissues" placeholder="" name="initialproblem" value="<?=$response['anaskopisi'][$_GET['an']]['initialproblem'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="issues"><label>4. Παρουσιαζόμενα ζητήματα : </label></label>
+								<input type="text" class="form-control" id="issues" placeholder="" name="problems" value="<?=$response['anaskopisi'][$_GET['an']]['problems'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="brief"><label>5. Σύνοψη Αρχικής Αξιολόγησης:</label></label>
+								<br>
+								<label><em>(ιστορικό, προσωπικά στοιχεία, παράγοντες άγχους, θέματα υγείας και άλλα συναφή θέματα, κλινική/διαγνωστική εντύπωση, λειτουργικότητα, προτεινόμενο πλάνο παρέμβασης) </em></label>
+								<br>
+								<input type="text" class="form-control" id="brief" placeholder="" name="sinopsis" value="<?=$response['anaskopisi'][$_GET['an']]['sinopsis'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="changes"><label>6. Σημαντικές αλλαγές στις προσωπικές και περιβαλλοντικές συνθήκες  κατά την υπό εξέταση περίοδο:</label></label>
+								<br>
+								<label><em>(π.χ. αλλαγές σε εργασία, σπουδές, προσωπικές σχέσεις, συνθήκες διαμονής, υγεία, κ.ο.κ)</em></label>
+								<br>
+								<input type="text" class="form-control" id="changes" placeholder="" name="changesenv" value="<?=$response['anaskopisi'][$_GET['an']]['changesenv'] ?>">
+							</div>
+							</table>
+							<div class="form-group">
+								<label for="progress"><label>7. Εξέλιξη θεραπείας : </label></label>
+								<br>
+								<label><em>(Σύνοψη μέχρι στιγμής παρέμβασης/θεραπείας συμπ. αποκλίσεις από αρχικό πλάνο και αιτιολόγηση, δυσκολίες/εμπόδια, σημεία που διευκολύνουν τη θεραπεία, στάση/συμπεριφορά πελάτη κ.ο.κ.) </em></label>
+								<br>
+								<input type="text" class="form-control" id="progress" placeholder="" name="evolution" value="<?=$response['anaskopisi'][$_GET['an']]['evolution'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="xeirismos"><label>8. Αλλαγές ως αποτέλεσμα της θεραπείας </label></label>
+								<br>
+								<label><em>(στόχοι που επιτεύχθηκαν, νέες δεξιότητες/συμπεριφορές/συνήθειες, αλλαγές στη λειτουργικότητα, νέα αιτήματα κ.ο.κ.)</em></label>
+								<br>
+								<input type="text" class="form-control" id="xeirismos" placeholder="" name="changes" value="<?=$response['anaskopisi'][$_GET['an']]['changes'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="future"><label>9. Μελλοντικό Πρόγραμμα Θεραπείας – Εισηγήσεις και Προγραμματισμός:</label></label>
+								<br>
+								<label><em>(συμεριλαμβάνονται στόχοι θεραπείας, μέθοδοι-τεχνικές και υπολογιζόμενος χρόνος θεραπείας)</em></label>
+								<br>
+								<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['mellon'] ?>">
+							</div>
+							<div class="form-group">
+								<table style="width:100%">
+									<tr>
+										<th></th>
+										<th>Βαθμός</th>
 
-				<!-- Metis Menu Plugin JavaScript -->
-				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+									</tr>
+									<tr>
+										<td>α. ψυχολογική</td>
+										<td>
+										<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['psychologicalfunc'] ?>">
+										</td>
 
-				<!-- DataTables JavaScript -->
-				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+									</tr>
+									<tr>
+										<td>β. επαγγελματική/ακαδημαϊκή</td>
+										<td>
+										<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['professionacademicfunc'] ?>">
+										</td>
+									</tr>
+									<tr>
+										<td>γ. κοινωνική</td>
+										<td>
+										<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['socialfunc'] ?>">
+										</td>
+									</tr>
+									<tr>
+										<td>δ. αυτοφροντίδα</td>
+										<td>
+										<input type="text" class="form-control" id="future" placeholder="" name="mellon" value="<?=$response['anaskopisi'][$_GET['an']]['autofix'] ?>">
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="form-group">
+								<label for="more"><label>10. Οποιεσδήποτε άλλες σημαντικές πληροφορίες:</label></label>
+								<input type="text" class="form-control" id="more" placeholder="" name="infos" value="<?=$response['anaskopisi'][$_GET['an']]['infos'] ?>">
+							</div>
 
-				<!-- Custom Theme JavaScript -->
-				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+					</form>
+				</div>
+			</div>
+		</div>
 
-				<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-				<script>
-					$(document).ready(function() {
-						$('#dataTables-example').DataTable({
-							responsive : true
-						});
-					});
-				</script>
+		<!-- jQuery -->
+		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+		<!-- DataTables JavaScript -->
+		<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+		<!-- Custom Theme JavaScript -->
+		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
 	</body>
 

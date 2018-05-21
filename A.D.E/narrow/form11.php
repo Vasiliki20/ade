@@ -57,9 +57,11 @@ var_dump($response);
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<script>
+<script>
 		$(document).ready(function() {
-			$('myTable').DataTable();
+			$('myTable').DataTable({
+				responsive:true
+			})
 		});
 	</script>
 
