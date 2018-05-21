@@ -267,7 +267,6 @@
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/scripts.js"></script>
-		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.validate.js"></script>
 		<script src="js/jquery.validate.js"></script>
 		<script src="js/meter.js"></script>
 

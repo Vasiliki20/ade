@@ -11,6 +11,7 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -119,7 +120,7 @@
 							<form id="hi" class="well" action="http://thesis.in.cs.ucy.ac.cy/mhc/upload.php" method="post" enctype="multipart/form-data">
 								<input type="hidden" name="id" value=<?=$_SESSION['id'] ?> >
 								<div class="form-group">
-									<label for="file">Πρόσθεση αρχείου για τον πελάτη</label>
+									<label for="file">Πρόσθεση αρχείου</label>
 									<input id="file" type="file" name="file">
 									<p class="help-block">
 										<h6>Μόνο pdf,jpg,jpeg,png και gif αρχεία με μέγιστο μέγεθος 10 MB επιτρέπονται.</h6>

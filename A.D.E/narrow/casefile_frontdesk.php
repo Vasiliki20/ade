@@ -37,7 +37,8 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -108,6 +109,9 @@ var_dump($response);
 								<ul class="nav nav-second-level">
 									<li>
 										<a href="myclients_frontdesk.php">Πελάτες</a>
+									</li>
+									<li>
+										<a href="myappointments_frontdesk.php">Ραντεβού</a>
 									</li>
 									<li>
 										<a href="waitinglist_frontdesk.php">Λίστα Αναμονής</a>

@@ -37,6 +37,7 @@ $postfields=http_build_query(array(
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -223,12 +224,11 @@ $postfields=http_build_query(array(
 								<label for="type">Τύπος πελάτη:(Αν το αλλάξετε παρακαλώ να βάλετε ένα από τα επόμενα:φοιτητής,ακαδημαικό,διοικητικό,άλλο)</label>
 								<input type="text" class="form-control" id="type" placeholder="" name="type" value="<?=$response['patient']['type']?>">
 							</div>
-							 <input type="hidden" name="patientID" value="<?=$response['patient']['patientID']?> />
+							 <input type="hidden" name="patientID" value="<?=$response['patient']['patientID']?>" />
 							<div class="form-group">
 								<label for="id">Αρ.Ταυτότητας:</label>
 								<input type="text" class="form-control" id="id" placeholder="" name="patientID" value="<?=$response['patient']['patientID']?>" disabled>
 							</div>
-							
 							<div class="form-group">
 								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
 								<input type="number" class="form-control" id="idofps" placeholder="" name="psychologistID" value="<?=$response['patient']['psychologistID']?>">

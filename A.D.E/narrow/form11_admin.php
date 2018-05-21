@@ -90,7 +90,7 @@ var_dump($response);
 								<a href="myprofile_admin.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="usermanual_admin.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
+								<a href="#"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
@@ -106,7 +106,6 @@ var_dump($response);
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-
 								<a href="psindex_admin.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
@@ -123,7 +122,6 @@ var_dump($response);
 									</li>
 									<li>
 										<a href="waitinglist_admin.php">Λίστα Αναμονής</a>
-
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
@@ -138,11 +136,7 @@ var_dump($response);
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-<<<<<<< HEAD
-						<h1 class="page-header">Case File</h1>
-=======
 						<h1 class="page-header">Αρχεία Πελάτη</h1>
->>>>>>> a65014051b0e976de211bccba8a8ae630aa3051f
 					</div>
 				</div>
 				<div>

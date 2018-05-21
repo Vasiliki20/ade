@@ -38,7 +38,7 @@ $postfields=http_build_query(array(
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -223,11 +223,13 @@ $postfields=http_build_query(array(
 								<label for="type">Τύπος πελάτη:(Αν το αλλάξετε παρακαλώ να βάλετε ένα από τα επόμενα:φοιτητής,ακαδημαικό,διοικητικό,άλλο)</label>
 								<input type="text" class="form-control" id="type" placeholder="" name="type" value="<?=$response['patient']['type']?>">
 							</div>
-							 <input type="hidden" name="patientID" value="<?=$response['patient']['patientID']?> />
+							 
 							<div class="form-group">
+								<input type="hidden" name="patientID" value="<?=$response['patient']['patientID']?>" />
 								<label for="id">Αρ.Ταυτότητας:</label>
 								<input type="text" class="form-control" id="id" placeholder="" name="patientID" value="<?=$response['patient']['patientID']?>" disabled>
 							</div>
+						
 							
 							<div class="form-group">
 								<label for="idofps">Μοναδικός Κωδικός Ψυχολόγου στον οποίο υπάγεται:</label>
@@ -305,7 +307,7 @@ $postfields=http_build_query(array(
 								<label for="recommended">Τηλέφωνο:</label>
 								<input type="text" class="form-control" id="recommended" placeholder="" name="emergencynumber" value="<?=$response['patient']['emergencynumber']?>" disabled>
 							</div>
-							<hr>
+							
 							<div class="form-group">
 								<label for="mainproblem">Κύριο πρόβλημα:</label>
 								<input type="text" class="form-control" id="mainproblem" placeholder="" name="mainissue" value="<?=$response['patient']['mainissue']?>">
@@ -428,7 +430,7 @@ $postfields=http_build_query(array(
 							<div class="form-group">
 								<input type="submit" name="submit" class="btn btn-default" value="Αποθήκευση">
 							</div>
-							
+						</div>
 						</div>
 						</form>
 					</div>

@@ -84,13 +84,16 @@
 										<a href="myclients_frontdesk.php">Πελάτες</a>
 									</li>
 									<li>
+										<a href="myappointments_frontdesk.php">Ραντεβού</a>
+									</li>
+									<li>
 										<a href="waitinglist_frontdesk.php">Λίστα Αναμονής</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Έγκριση Εισερχόμενων Αρχείων</a>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i> Έγκριση Εισερχόμενων Αρχείων</a>
 							</li>
 						</ul>
 					</div>
@@ -105,35 +108,6 @@
 						<h1 class="page-header">Έγκιση εισερχόμενων αρχείων</h1>
 					</div>
 				</div>
-				<!--<div>
-					<!-- /.col-lg-12 -->
-					<!--<nav class="navbar navbar-default">
-						<div class="container-fluid">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<!--<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav">
-									<li>
-										<a href="approvefiles_frontdesk.php">Αναφορές/Έντυπα</a>
-									</li>
-									<li>
-										<a href="billing_frontdesk.php">Πληρωμές</a>
-									</li>
-								</ul>
-
-							</div><!-- /.navbar-collapse -->
-
-					<!--	</div><!-- /.container-fluid -->
-				<!--	</nav>
-				</div>-->
-
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">

@@ -1,4 +1,4 @@
-<?php session_start();  ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +11,7 @@
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,13 +30,14 @@
 		<!-- Custom Fonts -->
 		<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
-	<!--<script>
+	<script>
 		$(document).ready(function() {
 			$('myTable').DataTable();
 		});
-	</script>-->
+	</script>
 	<body>
-
+		<h5> <?= $_SESSION['id'] ?>
+		</h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -56,14 +58,14 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i> </a>
 						<ul class="dropdown-menu dropdown-user">
 							<li>
-								<a href="myprofile_frontdesk.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+								<a href="myprofile_frontdesk.php"><i class="fa fa-user fa-fw"></i> Προφίλ</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-gear fa-fw"></i> User Manual</a>
+								<a href="usermanual_frontdesk.php"><i class="fa fa-gear fa-fw"></i> Εγχειρίδιο</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								<a href="psychlogin.php"><i class="fa fa-sign-out fa-fw"></i> Αποσύνδεση</a>
 							</li>
 						</ul>
 						<!-- /.dropdown-user -->
@@ -75,25 +77,25 @@
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Calendar</a>
+								<a href="psindex_frontdesk.php"><i class="fa fa-table"></i> Ημερολόγιο</a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-list"></i> Open<span class="fa arrow"></span></a>
+								<a href="#"><i class="fa fa-list"></i> Επιλογές<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
-										<a href="myclients_frontdesk.php">Clients</a>
+										<a href="myclients_frontdesk.php">Πελάτες</a>
 									</li>
 									<li>
 										<a href="myappointments_frontdesk.php">Ραντεβού</a>
 									</li>
 									<li>
-										<a href="waitinglist_frontdesk.php">Waiting List</a>
+										<a href="waitinglist_frontdesk.php">Λίστα Αναμονής</a>
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->
-							</li>
 							<li>
-								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i>Approve Incoming Data</a>
+								<a href="approvefiles_frontdesk.php"><i class="fa fa-check"></i> 	Έγκριση Εισερχόμενων Αρχείων</a>
+							</li>
 							</li>
 						</ul>
 					</div>
@@ -105,31 +107,75 @@
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Βοηθητικό Εγχειρίδιο Συστήματος</h1>
+						<h1 class="page-header">Ραντεβού</h1>
 					</div>
+					<!-- /.col-lg-12 -->
 				</div>
-				<div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Βοηθητικό Εγχειρίδιο Συστήματος
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table id="dataTables-example" width="100%" class="table table-striped table-bordered table-hover">
+
+									<thead>
+										<tr>
+											<th>Ημερομηνία</th>
+											<th>Περιγραφή</th>	
+										</tr>
+									</thead>
+									<tbody>
+																			<?php
+require_once("requests.php");
+$url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myappointments.php?psychID=".$_SESSION['id'];
+$method='GET';
+//if(isset($_POST['submit'])){
+$postfields=http_build_query(array(
+		'psychID' => $_SESSION['id']
+	));
+	if(isset($_COOKIE['token'])){
+		$response=request($url,$method,$postfields,$_COOKIE['token']);
+	}else{
+		$response=0;
+	}
+	while($response['status']!=1){
+		$tok=giveToken();
+		print "<h5>".$tok."</h5>";
+		?>
+		<script>
+			document.cookie='token=<?= $tok ?>';
+		</script>
+		<?php
+		//$GLOBALS['curtoken']=giveToken();
+		//print "<h5>".$GLOBALS['curtoken']."</h5>";
+		$response=request($url,$method,$postfields,$tok);
+	}
+	
+	
+//}
+?>
+									<?php for($j=0;$j<count($response['result']);$j++){ ?>
+										<tr>
+											<td><?=$response['result'][$j]['start']?></td>
+											<td>Description 1</td>
+										</tr>
+									<?php  } ?>
+									</tbody>
+								</table>
+
+							</div>
+							<!-- /.panel-body -->
 						</div>
-						<div class="panel-body">
-						<h5>Πατώντας τον πιο κάτω σύνδεσμο μπορείτε να δείτε το βοηθητικό εγχειρίδιο του συστήματος<br><br>
-							<a href="manual.pdf">Εγχειρίδιο</a></h5>
-						</div>
+						<!-- /.panel -->
 					</div>
+					<!-- /.col-lg-12 -->
 				</div>
 			</div>
-		</div>
-		<div>
-			<br>
-			<br>
-		</div>
-		<!-- /#page-wrapper -->
+			<!-- /#page-wrapper -->
 
 		</div>
 		<!-- /#wrapper -->
-		</div>
 
 		<!-- jQuery -->
 		<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
@@ -147,8 +193,8 @@
 
 		<!-- Custom Theme JavaScript -->
 		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
 		
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 	</body>
 
 </html>

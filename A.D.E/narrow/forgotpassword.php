@@ -113,7 +113,7 @@
 
 			</div>
 		</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
 		<!-- Javascript -->
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery-1.11.1.min.js"></script>
@@ -121,7 +121,6 @@
 		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js"></script>
 		<script src="bootzard-bootstrap-wizard-template/assets/js/scripts.js"></script>
-		<script src="bootzard-bootstrap-wizard-template/assets/js/jquery.validate.js"></script>
 		<script src="js/jquery.validate.js"></script>
 		<script src="js/meter.js"></script>
 

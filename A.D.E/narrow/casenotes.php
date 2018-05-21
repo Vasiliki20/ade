@@ -38,7 +38,8 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
