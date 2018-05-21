@@ -112,6 +112,9 @@ $postfields=http_build_query(array(
 										<a href="myclients_frontdesk.php">Πελάτες</a>
 									</li>
 									<li>
+										<a href="myappointments_frontdesk.php">Ραντεβού</a>
+									</li>
+									<li>
 										<a href="waitinglist_frontdesk.php">Λίστα Αναμονής</a>
 									</li>
 								</ul>

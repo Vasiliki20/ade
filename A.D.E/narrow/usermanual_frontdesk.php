@@ -84,6 +84,9 @@
 										<a href="myclients_frontdesk.php">Clients</a>
 									</li>
 									<li>
+										<a href="myappointments_frontdesk.php">Ραντεβού</a>
+									</li>
+									<li>
 										<a href="waitinglist_frontdesk.php">Waiting List</a>
 									</li>
 								</ul>
