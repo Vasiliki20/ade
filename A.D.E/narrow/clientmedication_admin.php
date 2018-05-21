@@ -37,7 +37,8 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -242,19 +243,19 @@ var_dump($response);
 <tr>
 <td>
 
-<input type="text" class="form-control" id="meds" name="name" value=<?=$response['medication'][$i]['nameof'] ?>>
+<input type="text" class="form-control" id="meds" name="name" value="<?=$response['medication'][$i]['nameof'] ?>">
 </input></td>
 <td>
-<input type="date" class="form-control" id="meds" name="date" value=<?=$response['medication'][$i]['dateof'] ?>>
+<input type="date" class="form-control" id="meds" name="date" value="<?=$response['medication'][$i]['dateof'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="duration" value=<?=$response['medication'][$i]['duration'] ?>>
+<input type="text" class="form-control" id="meds" name="duration" value="<?=$response['medication'][$i]['duration'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="doc" value=<?=$response['medication'][$i]['doctor'] ?>>
+<input type="text" class="form-control" id="meds" name="doc" value="<?=$response['medication'][$i]['doctor'] ?>">
 </input></td>
 <td>
-<input type="text" class="form-control" id="meds" name="comments" value=<?=$response['medication'][$i]['comments'] ?>>
+<input type="text" class="form-control" id="meds" name="comments" value="<?=$response['medication'][$i]['comments'] ?>">
 </input></td>
 
 </tr>
