@@ -208,7 +208,7 @@ $postfields=http_build_query(array(
 									<?php  } ?>
 									</tbody>
 								</table>
-								<input type="submit" name="submit" value="Save Attendance">
+								<input class="btn btn-default" type="submit" name="submit" value="Αποθήκευση">
 								</form>
 							</div>
 							<!-- /.panel-body -->
