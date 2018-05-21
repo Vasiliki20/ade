@@ -260,14 +260,6 @@ $postfields=http_build_query(array(
 		<!-- Custom Theme JavaScript -->
 		<script src="bootstrap/dist/js/sb-admin-2.js"></script>
 
-		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-		<script>
-			$(document).ready(function() {
-				$('#dataTables-example').DataTable({
-					responsive : true
-				});
-			});
-		</script>
 	</body>
 
 </html>
