@@ -38,7 +38,8 @@ var_dump($response);
 		<meta name="author" content="">
 
 		<title>Κέντρο Ψυχικής Υγείας</title>
-		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
 		<!-- Bootstrap Core CSS -->
 		<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -225,7 +226,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value=<?= $response['casenotes'][$i]['clinicalobservations'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="clinicalobservations" value="<?= $response['casenotes'][$i]['clinicalobservations'] ?>">
 										</input> </td>
 										<?php } ?>
 								</tr>
@@ -234,7 +235,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="sessions" value=<?= $response['casenotes'][$i]['sessioncontent'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="sessions" value="<?= $response['casenotes'][$i]['sessioncontent'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -243,7 +244,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="othercomments" value=<?= $response['casenotes'][$i]['otherobservations'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="othercomments" value="<?= $response['casenotes'][$i]['otherobservations'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -252,7 +253,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="goal" value=<?= $response['casenotes'][$i]['goalsfornextappoinment'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="goal" value="<?= $response['casenotes'][$i]['goalsfornextappoinment'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -261,7 +262,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="type" value=<?= $response['casenotes'][$i]['typeof'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="type" value="<?= $response['casenotes'][$i]['typeof'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -270,7 +271,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="date" class="form-control" id="casenotes" name="date" value=<?= $response['casenotes'][$i]['dateof'] ?>>
+										<input type="date" class="form-control" id="casenotes" name="date" value="<?= $response['casenotes'][$i]['dateof'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -279,7 +280,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="time" class="form-control" id="casenotes" name="time" value=<?= $response['casenotes'][$i]['timeof'] ?>>
+										<input type="time" class="form-control" id="casenotes" name="time" value="<?= $response['casenotes'][$i]['timeof'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -288,7 +289,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="supervisor" value=<?= $response['casenotes'][$i]['Signed'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="supervisor" value="<?= $response['casenotes'][$i]['Signed'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
@@ -297,7 +298,7 @@ var_dump($response);
 									<?php for($i=0;$i
 									<count($response['casenotes']);$i++){ ?>
 										<td>
-										<input type="text" class="form-control" id="casenotes" name="notes" value=<?= $response['casenotes'][$i]['Note'] ?>>
+										<input type="text" class="form-control" id="casenotes" name="notes" value="<?= $response['casenotes'][$i]['Note'] ?>">
 										</input></td>
 										<?php } ?>
 								</tr>
