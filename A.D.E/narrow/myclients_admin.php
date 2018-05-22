@@ -61,8 +61,7 @@
 		}
 	</style>
 	<body>
-		<h5> <?= $_SESSION['id'] ?>
-		</h5>
+		
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -196,7 +195,7 @@ $postfields=http_build_query(array(
 										<option value="deactive" label="Deactive" selected="selected">Deactive</option>
 										<option value="delete" label="Delete">Delete</option>
 										</select></td>
-										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">link</a></td>
+										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία πελάτη</a></td>
 										<?php }else{ ?>
 										<select class="item-number" name="status[]">
 										<option value="active" label="Active" selected="selected">Active</option>

@@ -13,7 +13,7 @@ $postfields=http_build_query(array(
 	}
 	while($response['status']!=1){
 		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
+		//print "<h5>".$tok."</h5>";
 
 ?>
 <script>
@@ -255,7 +255,7 @@ $response2=0;
 }
 if($response['status']!=1){
 $tok=giveToken();
-print "<h5>".$tok."</h5>";
+//print "<h5>".$tok."</h5>";
 ?>
 <script>
 	document.cookie='token=<?= $tok ?>';</script>
@@ -264,7 +264,7 @@ print "<h5>".$tok."</h5>";
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response2 = request($url, $method, $postfields, $tok);
 }
-var_dump($response2);
+//var_dump($response2);
 header("Refresh:0");
 }
 ?>

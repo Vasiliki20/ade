@@ -36,8 +36,6 @@
 		});
 	</script>
 	<body>
-		<h5> <?= $_SESSION['id'] ?>
-		</h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->

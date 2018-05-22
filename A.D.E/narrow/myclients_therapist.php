@@ -36,7 +36,7 @@
 		});
 	</script>
 	<body>
-		<h5> <?= $_SESSION['id'] ?> </h5>
+		
 		<div id="wrapper">
 
 			<!-- Navigation -->
@@ -147,7 +147,7 @@ $postfields=http_build_query(array(
 	}
 	while($response['status']!=1){
 		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
+		//print "<h5>".$tok."</h5>";
 		?>
 		<script>
 			document.cookie='token=<?= $tok ?>';
@@ -182,8 +182,6 @@ $postfields=http_build_query(array(
 										<?php } ?>
 										</select></td>
 										
-
-											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία Πελάτη</a></td>
 
 											<td><a  href="casefile_therapist.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία Πελάτη</a></td>
 

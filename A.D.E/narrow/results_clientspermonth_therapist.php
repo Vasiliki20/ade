@@ -23,7 +23,7 @@ print "<h5>".$tok."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
 
-var_dump($response);
+//var_dump($response);
 ?>
 <html lang="en">
 

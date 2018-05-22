@@ -13,7 +13,7 @@ $postfields=http_build_query(array(
 	}
 	while($response['status']!=1){
 		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
+		//print "<h5>".$tok."</h5>";
 
 ?>
 <script>
@@ -23,7 +23,7 @@ $postfields=http_build_query(array(
 //print "<h5>".$GLOBALS['curtoken']."</h5>";
 $response = request($url, $method, $postfields, $tok);
 }
-var_dump($response);
+//var_dump($response);
 //}
 ?>
 <!DOCTYPE html>

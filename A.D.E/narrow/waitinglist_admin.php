@@ -63,7 +63,6 @@ $postfields=http_build_query(array(
 		});
 	</script>
 	<body>
-		<h5> <?= $_SESSION['id'] ?> </h5>
 		<div id="wrapper">
 
 			<!-- Navigation -->

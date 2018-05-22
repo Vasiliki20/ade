@@ -13,7 +13,7 @@ $postfields=http_build_query(array(
 	}
 	while($response['status']!=1){
 		$tok=giveToken();
-		print "<h5>".$tok."</h5>";
+		//print "<h5>".$tok."</h5>";
 
 ?>
 <script>
