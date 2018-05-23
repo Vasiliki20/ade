@@ -195,14 +195,14 @@ $postfields=http_build_query(array(
 										<option value="deactive" label="Deactive" selected="selected">Deactive</option>
 										<option value="delete" label="Delete">Delete</option>
 										</select></td>
-										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία πελάτη</a></td>
+										<td><a  href="casefile_admin.php?patientID=<?= Encryption::encode($response['result'][$i]['patientID'])?>">Αρχεία πελάτη</a></td>
 										<?php }else{ ?>
 										<select class="item-number" name="status[]">
 										<option value="active" label="Active" selected="selected">Active</option>
 										<option value="deactive" label="Deactive">Deactive</option>
 										<option value="delete" label="Delete">Delete</option>
 										</select></td>
-										<td><a  href="casefile_admin.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία πελάτη</a></td>
+										<td><a  href="casefile_admin.php?patientID=<?= Encryption::encode($response['result'][$i]['patientID'])?>">Αρχεία πελάτη</a></td>
 										</tr>
 										<?php }}} ?>
 								</table>

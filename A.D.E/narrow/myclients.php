@@ -183,7 +183,7 @@ $postfields=http_build_query(array(
 										<?php } ?>
 										</select></td>
 										
-											<td><a  href="casefile.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία πελάτη</a></td>
+											<td><a  href="casefile.php?patientID=<?= Encryption::encode($response['result'][$i]['patientID'])?>">Αρχεία πελάτη</a></td>
 										</tr>
 											<?php }} ?>
 										</tbody>

@@ -132,7 +132,7 @@
 				</div>
 				<!-- /.navbar-static-side -->
 			</nav>
-			<div id="page-wrapper">
+						<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">Στατιστικές Αναφορές</h1>
@@ -186,17 +186,17 @@
 									<br>
 									<input id="submit" type="submit" name="submit2" class="btn btn-default" value="Αναζήτηση">
 								</form>
-								</div>
+							</div>
 							<div class="column right">
-							
+
 								<form id="form04" name="myForm4" method="post" action="">
 									<label><strong>Σύγκριση αριθμού πελατών (σύνολο και Μέσος Όρος) με προηγούμενα έτη</strong></label>
 									<br>
-									<input type="text" class="form-group" id="compareclients1" placeholder="Αρχικό έτος σύγκρισης" name="st4ye">
+									<input type="text" class="form-group" id="st4ye" placeholder="Αρχικό έτος σύγκρισης" name="st4ye">
 									<br>
-									<input type="text" class="form-group" id="compareclients1" placeholder="Χρονιά" name="st4y">
+									<input type="text" class="form-group" id="st4y" placeholder="Χρονιά" name="st4y">
 									<br>
-									<input type="text" class="form-group" id="compareclients2" placeholder="Εξάμηνο" name="st4e">
+									<input type="text" class="form-group" id="st4e" placeholder="Εξάμηνο" name="st4e">
 									<br>
 									<input id="submit" type="submit" name="submit3" class="btn btn-default" value="Αναζήτηση">
 								</form>
@@ -326,293 +326,274 @@
 						});
 
 					</script>
+					<script>
+						$(document).ready(function() {
+							jQuery.validator.addMethod("noSpace", function(value, element) {
+								return value.indexOf(" ") < 0 && value != "";
+							}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+							jQuery.validator.addMethod("sqlValidator", function(value, element) {
+								return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							jQuery.validator.addMethod("xssValidator", function(value, element) {
+								return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							$('#form03').validate({
+								rules : {
+									st3y : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										min : 2000,
+										max : 9999,
+										digits : true
+									},
+									st3e : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										digits : true,
+										min : 1,
+										max : 2,
+										range : [1, 2]
+									}
+								},
+								highlight : function(element) {
+									$(element).closest('.form-group').addClass('error text-danger');
+>>>>>>> afffdf0806c82147ed3f0254371b1f8b44215776
+								},
+								success : function(element) {
+									$(element).closest('.form-group').removeClass('error text-danger');
+								}
+							});
+						});
+
+					</script>
+					<script>
+						$(document).ready(function() {
+							jQuery.validator.addMethod("noSpace", function(value, element) {
+								return value.indexOf(" ") < 0 && value != "";
+							}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+							jQuery.validator.addMethod("sqlValidator", function(value, element) {
+								return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							jQuery.validator.addMethod("xssValidator", function(value, element) {
+								return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							$('#form04').validate({
+								rules : {
+									st4ye : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										min : 2000,
+										max : 9999,
+										digits : true
+									},
+									st4y : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										min : function() {
+											return parseInt($("#st4ye").val()) + 1
+										},
+										max : 9999,
+										digits : true
+
+									},
+									st4e : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										digits : true,
+										min : 1,
+										max : 2,
+										range : [1, 2]
+									}
+								},
+								highlight : function(element) {
+									$(element).closest('.form-group').addClass('error text-danger');
+								},
+								success : function(element) {
+									$(element).closest('.form-group').removeClass('error text-danger');
+								}
+							});
+						});
+
+					</script>
+					<script>
+						$(document).ready(function() {
+							jQuery.validator.addMethod("noSpace", function(value, element) {
+								return value.indexOf(" ") < 0 && value != "";
+							}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+							jQuery.validator.addMethod("sqlValidator", function(value, element) {
+								return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							jQuery.validator.addMethod("xssValidator", function(value, element) {
+								return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							$('#form05').validate({
+								rules : {
+									st5y : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										min : 2000,
+										max : 9999,
+										digits : true
+									}
+								},
+								highlight : function(element) {
+									$(element).closest('.form-group').addClass('error text-danger');
+								},
+								success : function(element) {
+									$(element).closest('.form-group').removeClass('error text-danger');
+								}
+							});
+						});
+
+					</script>
+					<script>
+						$(document).ready(function() {
+							jQuery.validator.addMethod("noSpace", function(value, element) {
+								return value.indexOf(" ") < 0 && value != "";
+							}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+							jQuery.validator.addMethod("sqlValidator", function(value, element) {
+								return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							jQuery.validator.addMethod("xssValidator", function(value, element) {
+								return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							$('#form06').validate({
+								rules : {
+									st6y : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										min : 2000,
+										max : 9999,
+										digits : true
+									}
+								},
+								highlight : function(element) {
+									$(element).closest('.form-group').addClass('error text-danger');
+								},
+								success : function(element) {
+									$(element).closest('.form-group').removeClass('error text-danger');
+								}
+							});
+						});
+
+					</script>
+					<script>
+						$(document).ready(function() {
+							jQuery.validator.addMethod("noSpace", function(value, element) {
+								return value.indexOf(" ") < 0 && value != "";
+							}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+
+							jQuery.validator.addMethod("sqlValidator", function(value, element) {
+								return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							jQuery.validator.addMethod("xssValidator", function(value, element) {
+								return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
+							}, 'Παρακαλώ συμπληρώστε ξανά');
+
+							$('#form07').validate({
+								rules : {
+									st7y : {
+										minlength : 1,
+										sqlValidator : true,
+										xssValidator : true,
+										noSpace : true,
+										required : true,
+										min : 2000,
+										max : 9999,
+										digits : true
+									}
+								},
+								highlight : function(element) {
+									$(element).closest('.form-group').addClass('error text-danger');
+								},
+								success : function(element) {
+									$(element).closest('.form-group').removeClass('error text-danger');
+								}
+							});
+						});
+
+					</script>
 				</div>
-				<script>
-					$(document).ready(function() {
-						jQuery.validator.addMethod("noSpace", function(value, element) {
-							return value.indexOf(" ") < 0 && value != "";
-						}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
 
-						jQuery.validator.addMethod("sqlValidator", function(value, element) {
-							return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
+				<!-- /#wrapper -->
 
-						jQuery.validator.addMethod("xssValidator", function(value, element) {
-							return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
+				<!-- jQuery -->
+				<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
 
-						$('#form03').validate({
-							rules : {
-								st3y : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									min : 2000,
-									max : 9999,
-									digits : true
-								},
-								st3e : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									digits : true,
-									min : 1,
-									max : 2,
-									range : [1, 2]
-								}
-							},
-							highlight : function(element) {
-								$(element).closest('.form-group').addClass('error text-danger');
-							},
-							success : function(element) {
-								$(element).closest('.form-group').removeClass('error text-danger');
-							}
-						});
-					});
+				<!-- Bootstrap Core JavaScript -->
+				<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-				</script>
-				<script>
-					$(document).ready(function() {
-						jQuery.validator.addMethod("noSpace", function(value, element) {
-							return value.indexOf(" ") < 0 && value != "";
-						}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
+				<!-- Metis Menu Plugin JavaScript -->
+				<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
 
-						jQuery.validator.addMethod("sqlValidator", function(value, element) {
-							return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
+				<!-- DataTables JavaScript -->
+				<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
+				<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+				<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-						jQuery.validator.addMethod("xssValidator", function(value, element) {
-							return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
+				<!-- Custom Theme JavaScript -->
+				<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+				<script src="js/jquery.validate.js"></script>
+				
 
-						$('#form04').validate({
-							rules : {
-								st4ye : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									min : 2000,
-									max : 9999,
-									digits : true
-								},
-								st4y : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									max : 9999,
-									min: function () { return parseInt($("#st4ye").val())+1  },
-									digits : true
-
-								},
-								st4e : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									digits : true,
-									min : 1,
-									max : 2,
-									range : [1, 2]
-								}
-							},
-							highlight : function(element) {
-								$(element).closest('.form-group').addClass('error text-danger');
-							},
-							success : function(element) {
-								$(element).closest('.form-group').removeClass('error text-danger');
-							}
-						});
-					});
-
-				</script>
-				<script>
-					$(document).ready(function() {
-						jQuery.validator.addMethod("noSpace", function(value, element) {
-							return value.indexOf(" ") < 0 && value != "";
-						}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
-
-						jQuery.validator.addMethod("sqlValidator", function(value, element) {
-							return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
-
-						jQuery.validator.addMethod("xssValidator", function(value, element) {
-							return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
-
-						$('#form05').validate({
-							rules : {
-								st5y : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									min : 2000,
-									max : 9999,
-									digits : true
-								}
-							},
-							highlight : function(element) {
-								$(element).closest('.form-group').addClass('error text-danger');
-							},
-							success : function(element) {
-								$(element).closest('.form-group').removeClass('error text-danger');
-							}
-						});
-					});
-
-				</script>
-				<script>
-					$(document).ready(function() {
-						jQuery.validator.addMethod("noSpace", function(value, element) {
-							return value.indexOf(" ") < 0 && value != "";
-						}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
-
-						jQuery.validator.addMethod("sqlValidator", function(value, element) {
-							return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
-
-						jQuery.validator.addMethod("xssValidator", function(value, element) {
-							return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
-
-						$('#form06').validate({
-							rules : {
-								st6y : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									min : 2000,
-									max : 9999,
-									digits : true
-								}
-							},
-							highlight : function(element) {
-								$(element).closest('.form-group').addClass('error text-danger');
-							},
-							success : function(element) {
-								$(element).closest('.form-group').removeClass('error text-danger');
-							}
-						});
-					});
-
-				</script>
-				<script>
-					$(document).ready(function() {
-						jQuery.validator.addMethod("noSpace", function(value, element) {
-							return value.indexOf(" ") < 0 && value != "";
-						}, "Παρακαλώ σημπληρώστε ξανά χωρίς κενά");
-
-						jQuery.validator.addMethod("sqlValidator", function(value, element) {
-							return this.optional(element) || !(/[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
-
-						jQuery.validator.addMethod("xssValidator", function(value, element) {
-							return this.optional(element) || !(/\s*script\b[^>]*>[^<]+<\s*\/\s*script\s*/.test(value));
-						}, 'Παρακαλώ συμπληρώστε ξανά');
-
-						$('#form07').validate({
-							rules : {
-								st7y : {
-									minlength : 1,
-									sqlValidator : true,
-									xssValidator : true,
-									noSpace : true,
-									required : true,
-									min : 2000,
-									max : 9999,
-									digits : true
-								}
-							},
-							highlight : function(element) {
-								$(element).closest('.form-group').addClass('error text-danger');
-							},
-							success : function(element) {
-								$(element).closest('.form-group').removeClass('error text-danger');
-							}
-						});
-					});
-
-				</script>
-			</div>
-
-			<!-- /#wrapper -->
-
-			<!-- jQuery -->
-			<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
-
-			<!-- Bootstrap Core JavaScript -->
-			<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-			<!-- Metis Menu Plugin JavaScript -->
-			<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
-
-			<!-- DataTables JavaScript -->
-			<script src="bootstrap/vendor/datatables/js/jquery.dataTables.min.js"></script>
-			<script src="bootstrap/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-			<script src="bootstrap/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-			<!-- Custom Theme JavaScript -->
-			<script src="bootstrap/dist/js/sb-admin-2.js"></script>
-			<script src="js/jquery.validate.js"></script>
-			
 	</body>
 
 </html>
 <?php
-
+require_once("requests.php");
 if (isset($_POST['submit'])) {
-	header('Location: results_clientspermonth_therapist.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
+	header('Location: results_clientspermonth_therapist.php?y=' . Encryption::encode($_POST['st1y']) . '&e=' . Encryption::encode($_POST['st1e']));
 }
 if (isset($_POST['submit1'])) {
-	header('Location: results_newclientspermonth_therapist.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
+	header('Location: results_newclientspermonth_therapist.php?y=' . Encryption::encode($_POST['st2y']) . '&e=' . Encryption::encode($_POST['st2e']));
 }
 if (isset($_POST['submit2'])) {
-	header('Location: results_sessionpermonth_therapist.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
+	header('Location: results_sessionpermonth_therapist.php?y=' . Encryption::encode($_POST['st3y']) . '&e=' . Encryption::encode($_POST['st3e']));
 }
 if (isset($_POST['submit3'])) {
-	header('Location: results_compareclients_therapist.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
+	header('Location: results_compareclients_therapist.php?ye=' . Encryption::encode($_POST['st4ye']) . '&y=' . Encryption::encode($_POST['st4y']) . '&e=' . Encryption::encode($_POST['st4e']));
 }
 if (isset($_POST['submit4'])) {
-	header('Location: results_distributionperschool_therapist.php?y=' . $_POST['st5y']);
+	header('Location: results_distributionperschool_therapist.php?y=' . Encryption::encode($_POST['st5y']));
 }
 if (isset($_POST['submit5'])) {
-	header('Location: results_issuesfornewcases_therapist.php?y=' . $_POST['st6y']);
+	header('Location: results_issuesfornewcases_therapist.php?y=' . Encryption::encode($_POST['st6y']));
 }
 if (isset($_POST['submit6'])) {
-	header('Location: results_sources_therapist.php?y=' . $_POST['st7y']);
-}
-if (isset($_POST['submit'])) {
-	header('Location: results_clientspermonth_therapist.php?y=' . $_POST['st1y'] . '&e=' . $_POST['st1e']);
-}
-if (isset($_POST['submit1'])) {
-	header('Location: results_newclientspermonth_therapist.php?y=' . $_POST['st2y'] . '&e=' . $_POST['st2e']);
-}
-if (isset($_POST['submit2'])) {
-	header('Location: results_sessionpermonth_therapist.php?y=' . $_POST['st3y'] . '&e=' . $_POST['st3e']);
-}
-if (isset($_POST['submit3'])) {
-	header('Location: results_compareclients_therapist.php?ye=' . $_POST['st4ye'] . '&y=' . $_POST['st4y'] . '&e=' . $_POST['st4e']);
-}
-if (isset($_POST['submit4'])) {
-	header('Location: results_distributionperschool_therapist.php?y=' . $_POST['st5y']);
-}
-if (isset($_POST['submit5'])) {
-	header('Location: results_issuesfornewcases_therapist.php?y=' . $_POST['st6y']);
-}
-if (isset($_POST['submit6'])) {
-	header('Location: results_sources_therapist.php?y=' . $_POST['st7y']);
-
+	header('Location: results_sources_therapist.php?y=' . Encryption::encode($_POST['st7y']));
 }
 ?>

@@ -1,6 +1,7 @@
 <?php
 ob_start();
 require_once("requests.php");
+$_GET['c']=Encryption::decode($_GET['c']);
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/showcasenote.php?caseID=".$_GET['c'];
 $method='GET';
 //if(isset($_POST['submit'])){

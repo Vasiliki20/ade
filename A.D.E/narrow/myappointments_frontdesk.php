@@ -157,7 +157,7 @@ $postfields=http_build_query(array(
 									<?php for($j=0;$j<count($response['result']);$j++){ ?>
 										<tr>
 											<td><?=$response['result'][$j]['start']?></td>
-											<td>Description 1</td>
+											<td><?=$response['result'][$j]['subject']?></td>
 										</tr>
 									<?php  } ?>
 									</tbody>

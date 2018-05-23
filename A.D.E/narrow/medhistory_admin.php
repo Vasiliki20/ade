@@ -1,5 +1,6 @@
 <?php
 require_once("requests.php");
+$_GET['patientID']=Encryption::decode($_GET['patientID']);
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/myclient.php?patientID=".$_GET['patientID'];
 $method='GET';
 //if(isset($_POST['submit'])){
@@ -151,22 +152,22 @@ $response = request($url, $method, $postfields, $tok);
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="casenotes_admin.php?patientID=<?=$_GET['patientID'] ?>">Σημειώσεις Προόδου</a>
+										<a href="casenotes_admin.php?patientID=<?=Encryption::encode($_GET['patientID']) ?>">Σημειώσεις Προόδου</a>
 									</li>
 									<li>
-										<a href="filesofpatient_admin.php?patientID=<?=$_GET['patientID'] ?>">Εκθέσεις/Αναφορές</a>
+										<a href="filesofpatient_admin.php?patientID=<?=Encryption::encode($_GET['patientID']) ?>">Εκθέσεις/Αναφορές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Γενικές πληροφορίες<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="personalinformationfull_admin.php?patientID=<?= $_GET['patientID'] ?>">Προσωπικά Στοιχεία Πελάτη</a>
+												<a href="personalinformationfull_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Προσωπικά Στοιχεία Πελάτη</a>
 											</li>
 											<li>
-												<a href="schedule_admin.php?patientID=<?= $_GET['patientID'] ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
+												<a href="schedule_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Διαθέσιμο Πρόγραμμα Πελάτη</a>
 											</li>
 											<li>
-												<a href="contactlog_admin.php?patientID=<?= $_GET['patientID'] ?>">Contact Logs</a>
+												<a href="contactlog_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Contact Logs</a>
 											</li>
 										</ul>
 
@@ -175,30 +176,30 @@ $response = request($url, $method, $postfields, $tok);
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ιατρικές Πληροφορίες <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="clientrelationships_admin.php?patientID=<?= $_GET['patientID'] ?>">Οικογενειακές Σχέσεις Πελάτη</a>
+												<a href="clientrelationships_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Οικογενειακές Σχέσεις Πελάτη</a>
 											</li>
 											<li>
-												<a href="clientmedication_admin.php?patientID=<?= $_GET['patientID'] ?>">Φαρμακευτική Αγωγή Πελάτη</a>
+												<a href="clientmedication_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Φαρμακευτική Αγωγή Πελάτη</a>
 											</li>
 											<li>
-												<a href="medhistory_admin.php?patientID=<?= $_GET['patientID'] ?>">Medlog</a>
+												<a href="medhistory_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Medlog</a>
 											</li>
 										</ul>
 									</li>
 									<li>
-										<a href="externalinformation_admin.php?patientID=<?= $_GET['patientID'] ?>">Εξωτερική Πληροφόρηση</a>
+										<a href="externalinformation_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Εξωτερική Πληροφόρηση</a>
 									</li>
 									<li>
-										<a href="billing_admin.php?patientID=<?= $_GET['patientID'] ?>">Πληρωμές</a>
+										<a href="billing_admin.php?patientID=<?= Encryption::encode($_GET['patientID']) ?>">Πληρωμές</a>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Τερματισμός<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="formcomplaints_admin.php?patientID=<?=$_GET['patientID'] ?>">Παράπονα πελάτη</a>
+												<a href="formcomplaints_admin.php?patientID=<?=Encryption::encode($_GET['patientID']) ?>">Παράπονα πελάτη</a>
 											</li>
 											<li>
-												<a href="formreasons_admin.php?patientID=<?=$_GET['patientID'] ?>">Λόγοι Τερματισμού</a>
+												<a href="formreasons_admin.php?patientID=<?=Encryption::encode($_GET['patientID']) ?>">Λόγοι Τερματισμού</a>
 											</li>
 										</ul>
 									</li>
@@ -498,7 +499,7 @@ $response = request($url, $method, $postfields, $tok);
 									<ul>
 									
 									<?php for($m=0;$m<count($response['anaskopisi']);$m++){ ?>
-									 <li><a href="form11see_admin.php?an=<?=$m?>&patientID=<?=$_GET['patientID']?>">Ανασκόπηση <?=$m?></a></li>
+									 <li><a href="form11see_admin.php?an=<?=Encryption::encode($m)?>&patientID=<?=Encryption::encode($_GET['patientID'])?>">Ανασκόπηση <?=$m?></a></li>
 									<?php     }  ?> 
 									</ul>
 								</div>
@@ -810,7 +811,7 @@ $response = request($url, $method, $postfields, $tok);
 									<ul>
 									
 									<?php for($m=0;$m<count($response['anaskopisi']);$m++){ ?>
-									 <li><a href="form11see_admin.php?an=<?=$m?>&patientID=<?=$_GET['patientID']?>">Ανασκόπηση <?=$m?></a></li>
+									 <li><a href="form11see_admin.php?an=<?=Encryption::encode($m)?>&patientID=<?=Encryption::encode($_GET['patientID'])?>">Ανασκόπηση <?=$m?></a></li>
 									<?php     }  ?> 
 									</ul>
 								</div>

@@ -1,5 +1,7 @@
 <?php
 require_once("requests.php");
+$_GET['y']=Encryption::decode($_GET['y']);
+$_GET['e']=Encryption::decode($_GET['e']);
 $url="http://thesis.in.cs.ucy.ac.cy/mhc/mhcserver/get/statistics3.php?year=".$_GET['y']."&monthclass=".$_GET['e'];
 $method='GET';
 

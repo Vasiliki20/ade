@@ -257,7 +257,7 @@ $response = request($url, $method, $postfields, $tok);
 										?>
 										<tr>
 										<td><?=$response['casenotes'][$i]['dateof'] ?></td>
-										<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID'] ?>">Case Note</a></td>
+										<td><a href="casenotes_sign.php?c=<?=Encryption::encode($response['casenotes'][$i]['caseID']) ?>">Case Note</a></td>
 										<td></td>
 										<td><?=$response['casenotes'][$i]['sessioncontent'] ?></td>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -270,7 +270,7 @@ $response = request($url, $method, $postfields, $tok);
 										<?php }elseif(isincomplete($response['casenotes'][$i])){ ?>
 										<tr>
 										<td><?=$response['casenotes'][$i]['dateof'] ?></td>
-										<td><a href="casenotes_sign.php?c=<?=$response['casenotes'][$i]['caseID'] ?>">Case Note</a></td>
+										<td><a href="casenotes_sign.php?c=<?=Encryption::encode($response['casenotes'][$i]['caseID']) ?>">Case Note</a></td>
 										<td></td>
 										<td><?=$response['casenotes'][$i]['sessioncontent'] ?></td>
 										<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

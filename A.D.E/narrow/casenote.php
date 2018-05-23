@@ -1,3 +1,6 @@
+<?php
+require_once("requests.php");
+$_GET['pID']=Encryption::decode($_GET['pID']);?>
 <!DOCTYPE html>
 <html lang="en">
 

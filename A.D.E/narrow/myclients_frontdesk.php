@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); require_once("requests.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,7 +165,7 @@ $postfields=http_build_query(array(
 											<td><?= $response['result'][$i]['lastname'] ?></td>
 											<td><?= $response['result'][$i]['patientID'] ?></td>
 											<td><?= $response['result'][$i]['psychologistID'] ?></td>
-											<td><a  href="casefile_frontdesk.php?patientID=<?= $response['result'][$i]['patientID']?>">Αρχεία πελάτη</a></td>
+											<td><a  href="casefile_frontdesk.php?patientID=<?=Encryption::encode($response['result'][$i]['patientID'])?>">Αρχεία πελάτη</a></td>
 										</tr>
 											<?php }} ?>
 									</tbody>

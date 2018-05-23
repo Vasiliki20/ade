@@ -255,7 +255,7 @@ $postfields=http_build_query(array(
 											<?php }elseif(isincomplete($response['casenotes'][$i])){ ?>
 										<tr>
 											<td><?=$response['casenotes'][$i]['dateof']?></td>
-											<td><a href="casenotes_edit.php?c=<?=$response['casenotes'][$i]['caseID']?>">Case Note</a></td>
+											<td><a href="casenotes_edit.php?c=<?=Encryption::encode($response['casenotes'][$i]['caseID'])?>">Case Note</a></td>
 											<td></td>
 											<td><?=$response['casenotes'][$i]['sessioncontent']?></td>
 											<td><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
